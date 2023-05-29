@@ -1,0 +1,424 @@
+{% extends "base.html" %}
+{% load i18n staticfiles wagtailcore_tags wagtailadmin_tags greg_mundis_templates_tags wagtailimages_tags %}
+
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+  <header
+    class="pt-[90px] md:pt-[70px] h-[515px] lg:h-[780px] px-4 lg:px-[83px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center"
+  >
+  <div
+    class="flex flex-col justify-center sm:items-center md:px-24 md:mt-[70px]"
+    data-aos="fade-up"
+    data-aos-duration="3000"
+  >
+    <h1
+      class="text-[24px] md:text-[36px] xl:text-[64px] text-white font-gt-super font-normal mb-1 md:mb-4 lg:mb-[25px]"
+    >
+      {{page.message_heading}}
+    </h1>
+    <p
+      class="text-[16px] lg:text-[32px] text-white font-twk-lausanne font-normal lg:font-thin text-left sm:text-center"
+    >
+      {{page.message_body}}
+    </p>
+  </div>
+</header>
+  <main class="w-full mb-[60px] md:mb-[100px] -mt-40 sm:-mt-56 xl:-mt-80">
+    <section
+      class="w-full h-full flex items-center justify-center px-4 sm:px-16 xl:px-48"
+      data-aos="fade-up"
+      data-aos-duration="3000"
+    >
+    {% image page.thumbnail_image width-1200 as thumbnail_image %}
+    <div
+      class="relative w-full xl:max-w-[1028px] h-[250px] sm:h-[400px] lg:h-[568px] rounded-3xl"
+    >
+    <div
+      style="
+        position: relative;
+        padding-bottom: 56.15%;
+        height: 0;
+        overflow: hidden;
+        height: 100%;
+      "
+    >
+      <iframe
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+          border-radius: 8px;
+        "
+        loading="lazy"
+        ;
+        srcdoc="<style>
+          * {
+          padding: 0;
+          margin: 0;
+          overflow: hidden;
+          }
+          
+          img {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            border-radius: 8px;
+            height: 100%;
+
+          }
+          button {
+            background-image: url({% static 'img/play.svg' %});
+            background-color: transparent;
+            width: 80px;
+            height: 80px;
+            background-repeat: no-repeat;
+            border: none;
+            outline: none;
+            margin: 0 auto;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+          }
+        </style>
+        <a href='{{ page.message_video_embed_url }}'>
+          <img src='{{thumbnail_image.url}}' alt='page.thumbnail_image_alt_text' />
+          <button>
+          </button>                      
+        </a>
+        "
+        src="{{ page.message_video_embed_url }}"
+        title="{{page.title}}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+  </section>
+  <!-- section that hold greg-mundis poster and some info -->
+  <section
+    class="flex flex-col items-center justify-center mt-8 xl:mt-32 px-4 lg:px-48"
+  >
+  <h2 
+    class="text-4xl lg:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[70px]"
+    data-aos="fade-up"
+    data-aos-duration="3000">
+    {{page.greg_mundis_name}}
+  </h2>
+  <div 
+    class="flex items-center justify-center flex-col mt-8"
+    data-aos="fade-up" 
+    data-aos-duration="3000"
+  >
+    {%image page.greg_mundis_image fill-600x440 %}
+    <p
+      class="text-[24px] sm:text-[24px] md:text-[36px] text-[#3D3D3D] font-twk-lausanne font-light text-left md:text-center mb-6 md:mb-10"
+    >
+      {{page.greg_mundis_position}} <br />
+      {{page.greg_mundis_company}} <br /> <br />
+    </p>
+    <div class="text-lg md:text-2xl font-light text-[#3D3D3D] text-left mb-6 md:mb-10 font-twk-lausanne">
+      {{page.greg_mundis_description|richtext}}
+    </d>
+
+  </div>
+  <div 
+    class="flex flex-start w-full mt-6 mt-12"
+    data-aos="fade-up" 
+    data-aos-duration="3000"
+  >
+  </div>
+</section>
+<!-- Executive Giving Initiatives -->
+<section class="stories__wrapper overflow-hidden mt-7 lg:mt-[76px] ml-4 xl:ml-[100px]">
+  <div class="flex items-center justify-between mb-6 lg:mb-11 pr-4 lg:pr-[60px]">
+  <div>
+    <h2 class="text-[36px] lg:text-[64px] font-gt-super font-light text-black">
+      {{ page.executive_priorities_title }}
+    </h2>
+    
+  </div>
+  <a href="{{ special_give_page.url }}">
+    <button
+      class="w-[110px] sm:w-[175px] h-[40px] sm:h-[56px] text-sm sm:text-lg font-twk-lausanne font-normal uppercase text-[#8A4D32] border-2 solid border-[#8A4D32] hover:bg-[#8A4D32] hover:text-white rounded-full transition duration-500 ease-in-out">
+      {{ page.executive_read_all_button }}
+    </button>
+  </a>
+</div>
+  <div class="w-full h-[550px] md:h-[630px]" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="2000">
+    <div class="stories_swiper pl-0 relative swiper-scrollbar-home home_stories">
+      <div class="swiper-wrapper greg__munids">
+        {% get_initiatives %}
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next" id="arrow-right"></div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</section>
+<!-- Contact Information -->
+{% image page.contact_info_background_image width-1200 as background_image %}
+<section
+    class="h-auto lg:h-[893px] mt-6 bg-[url({{background_image.url}})] bg-no-repeat bg-cover bg-bottom sm:rounded-2xl pt-[30px] lg:pt-[150px] lg:pl-[120px] px-4 sm:mx-4 lg:mx-24 pb-8 pb:mb-0"
+    >
+    <h2 class="text-2xl md:text-4xl lg:text-[64px] text-white font-gt-super font-thin mb-4 md:mb-12"
+    data-aos="fade-up"  data-aos-duration="2000">
+    {{ page.contact_info_title }}
+    </h2>
+    <p class="text-xs sm:text-base md:text-2xl text-white font-thin mb-4 md:mb-10 font-twk-lausanne"
+    data-aos="fade-up" data-aos-duration="2000"
+    >
+    {{ page.contact_info_company_name }} <br />
+    {{ page.contact_info_address1 }} <br />{{ page.contact_info_address2 }}
+    </p>
+
+    <p class="text-xs sm:text-base md:text-2xl text-white font-thin mb-4 md:mb-10 font-twk-lausanne"
+    data-aos="fade-up" data-aos-duration="2000">
+    Phone: {{ page.contact_info_phone_number }}
+    </p>
+
+      {% for person in page.contact_persons.all %}
+      <p class="text-xs sm:text-base md:text-2xl text-white font-thin mb-4 md:mb-10 font-twk-lausanne"
+      data-aos="fade-up"  data-aos-duration="2000">
+          {{ person.name }} – {{ person.email_address }} <br />
+          {{ person.position }}
+      </p>
+    {% endfor %}
+</section>
+</main>
+    <!-- Video -->
+    <div
+      id="gregMundis"
+      class="hidden pointer-events-none w-full h-full fixed top-0 left-0 transition-all duration-500 ease-in-out shadow-lg"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div
+        class="scale_1 w-full h-full flex items-center justify-center transition-all duration-500 ease-in-out"
+      >
+        <iframe
+          class="w-[1150px] h-[590px] rounded-md"
+          src="{{ page.message_video_embed_url }}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button id="closegregMundis" class="absolute top-2 right-2 w-16 h-16">
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 56 56"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+  {% endblock %}
+  {% block javascript %}
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sly/1.6.1/sly.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="text/javascript">
+    AOS.init();
+    
+    let storiesSwiper = new Swiper(".stories_swiper", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+      },
+      draggable: true,
+      allowTouchMove: true,
+      loop: true,
+      //centeredSlides: true,
+      //direction: 'horizontal',
+      initialSlide: 0,
+
+      direction: "horizontal",
+      //centeredSlides: false,
+      speed: 800,
+      //slidesPerView: "auto",
+      threshold: 5,
+
+
+      //freeMode: true,
+      //watchSlidesProgress: true,
+      breakpoints: {
+        100: {
+          slidesPerView: 1.2,
+          spaceBetween: 16,
+        },
+
+        450: {
+          slidesPerView: 1.4,
+          spaceBetween: 20,
+        },
+        692: {
+          slidesPerView: 'auto',
+          spaceBetween: 30,
+        }
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+    });
+
+    // Regions swiper
+    let RegionsSwiper = new Swiper(".region_explore", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+
+        // hide: true,
+      },
+      // slidesPerView: 3,
+      //initialSlide: 0,
+
+      allowTouchMove: true,
+      draggable: true,
+      direction: "horizontal",
+      speed: 800,
+      //threshold: 5,
+      
+      //loop: true,
+
+      breakpoints: {
+        // when window width is >= 320px
+        300: {
+          slidesPerView: 1.1,
+          spaceBetween: 10,
+        },
+        // when window width is >= 480px
+
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1192: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1490: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      on: {
+        init: function () {
+
+          //const regionsCover = document.querySelectorAll(".regions__cover");
+          //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+
+
+          const readStories = document.querySelectorAll(".explore__continent");
+          readStories.forEach((c) => c.classList.add("toglle_continent"));
+
+          readStories.forEach((itemSlide, index) => {
+            if (index === this.activeIndex) {
+              itemSlide.classList.add("toglle_continent");
+              //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+            } else {
+              itemSlide.classList.remove("toglle_continent");
+              //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+
+            }
+          });
+
+          //toggle banners
+          const exploreHeaders = document.querySelectorAll(".explore_banners");
+          exploreHeaders.forEach((h) => h.classList.add("show_explore_banners"));
+
+          exploreHeaders.forEach((itemSlide, index) => {
+            if (index === this.activeIndex) {
+              itemSlide.classList.add("show_explore_banners")
+            } else {
+              itemSlide.classList.remove("show_explore_banners")
+            }
+          })
+        },
+      },
+    });
+
+    RegionsSwiper.on("slideChange", function () {
+      //const regionsCover = document.querySelectorAll(".regions__cover");
+      //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+      const readStories = document.querySelectorAll(".explore__continent");
+
+
+
+      readStories.forEach((c) => c.classList.add("toglle_continent"));
+      readStories.forEach((itemSlide, index) => {
+        if (index === this.activeIndex) {
+          itemSlide.classList.add("toglle_continent");
+          //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+        } else {
+          itemSlide.classList.remove("toglle_continent");
+          //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+
+        }
+      });
+    });
+
+    RegionsSwiper.on("slideChange", function () {
+      const exploreHeaders = document.querySelectorAll(".explore_banners");
+      exploreHeaders.forEach((c) => c.classList.add("show_explore_banners"));
+      exploreHeaders.forEach((itemSlide, index) => {
+        if (index === this.activeIndex) {
+          itemSlide.classList.add("show_explore_banners");
+          //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+        } else {
+          itemSlide.classList.remove("show_explore_banners");
+        }
+      });
+    });
+   /* Resources Page Modal
+   const openclosegregMundis = document.getElementById(
+     "openclosegregMundis"
+   );
+   const gregMundis = document.getElementById("gregMundis");
+   const closegregMundis = document.getElementById("closegregMundis");
+
+   // Open ResourcesMoal
+   openclosegregMundis.addEventListener("click", () => {
+     gregMundis.classList.add("show");
+   });
+
+   //Close ResourcesMoal
+   closegregMundis.addEventListener("click", () => {
+     gregMundis.classList.remove("show");
+   }); */
+ </script>
+ {% endblock %}
+

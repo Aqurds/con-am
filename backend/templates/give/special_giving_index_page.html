@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailadmin_tags story_template_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="pt-[70px] h-full px-4 md:px-[83px] pb-[150px] md:pb-[180px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div class="flex flex-col justify-center items-center md:pt-[115px]">
+        <h1
+        class="text-[18px] lg:text-[32px] lg:text-[64px] text-white font-semibold lg:font-normal"
+        >
+          {{page.title}}
+        </h1>
+      </div>
+    </header>
+
+    <main class="w-full px-4 xl:px-40 -translate-y-[105px] 2xl:w-[1440px] 2xl:mx-auto">
+      <!-- //container -->
+      <div 
+        class="content_wrapper w-full"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <!-- content -->
+        <div
+          class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
+        {% for childpage in page.specific.children %}
+          <div
+            class="flex stories flex-col mb-4 sm:mb-[66px] items-center sm:items-start"
+            id="{{ childpage.region }}"
+          >
+            <div class="w-full md:w-[344px] lg:w-[310px] xl:w-[344px] h-[350px] sm:h-[349px] mb-4 sm:mb-6">
+              {% image childpage.header_image width-1200 as header_image %}
+              <img src="{{ header_image.url }}" alt="stories_logo" class="w-full h-full object-cover rounded-md" />
+            </div>
+            <h5 class="text-2xl text-[#3D3D3D] font-normal font-twk-lausanne w-full text-left">
+              {{ childpage.title }}
+            </h5>
+            <div
+              class="text-base sm:text-lg text-black font-extralight text-left my-1 sm:my-3 font-twk-lausanne"
+            >
+              {{ childpage.first_section_title|richtext|truncatechars:200}}
+            </div>
+            <a href="{% pageurl childpage %}" class="text-lg text-[#8B3C3B] font-semibold font-twk-lausanne w-full text-left">Explore</a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <!-- TailwindCss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            backgroundImage: {
+              "burger-menu": "url('./assets/img/berger-menu.svg')",
+            },
+
+            fontFamily: {
+              "gt-super": ["gt-super"],
+              "twk-lausanne": ["twk-lausanne"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+
+    <nav
+      class="w-full flex items-center justify-between px-4 lg:px-[83px] pt-[20px] sm:pt-[35px] absolute z-50"
+    >
+      <div class="flex items-center">
+        <button
+          class="w-6 h-6 bg-[url('./assets/img/berger-menu.svg')] mr-4 lg:mr-[47px]"
+        ></button>
+
+        <div class="">
+          <!--  Custome drop down.. -->
+          <div class="dropdown relative">
+            <div
+              class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out"
+            >
+              <span
+                class="selected text-lg text-white uppercase font-normal mr-[12px]"
+                >EN</span
+              >
+              <span class="ml-1"
+                ><svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md"
+              >
+                EN
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md"
+              >
+                FR
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2"
+              >
+                DU
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2"
+              >
+                AR
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="md:flex flex-col items-center w-[100px] md:w-[275px] xl:ml-[120px]"
+      >
+        <img src="./assets/img/app-logo.svg" alt="app-logo" class="" />
+        <span class="hidden md:inline-block text-sm text-white font-normal"
+          >Assemblies of God World Mission</span
+        >
+      </div>
+      <div class="hidden md:flex items-center relative">
+        <!-- Search Bar -->
+        <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+          <span
+            class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search.svg')] bg-no-repeat"
+          ></span>
+          <input
+            id="my__search"
+            class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+            type="text"
+            placeholder="Search"
+          />
+          <div class="clear absolute right-2 top-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#fff"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- End Search Bar -->
+        <button
+          class="w-[211px] h-[56px] text-center rounded-full text-lg text-white border-2 solid border-white font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+        >
+          Are you called?
+        </button>
+      </div>
+    </nav>
+
+    <header
+      class="w-full md:h-[733px] py-[100px] md:py-0 px-4 lg:pl-[82px] xl:pl-[100px] bg-[url('./assets/img/im/hero.png')] bg-no-repeat bg-cover bg-center flex items-center justify-center flex-col"
+    >
+      <div class="sm:pt-[195px] xl:pr-14">
+        <!-- <img src="./assets/img/im/builders.svg" alt="Building Icon" /> -->
+        <!-- Name -->
+        <h2
+          class="font-gt-super font-light text-5xl lg:text-8xl xl:text-9xl text-white text-normal uppercase"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          builders
+        </h2>
+        <div
+          class="flex items-center justify-center mt-2"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <span class="h-[2px] w-[40px] bg-white mr-2"></span>
+          <p
+            class="font-twk-lausanne font-light text-2xl xl:text-3xl text-white font-normal uppercase"
+          >
+            International
+          </p>
+          <span class="h-[2px] w-[40px] bg-white ml-2"></span>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-center justify-center flex-col xl:flex-row mt-[35px] sm:mt-[100px] md:mt-[170px]"
+      >
+        <button
+          class="w-full md:w-[337px] h-[56px] xl:w-auto px-4 bg-transparent border-2 solid border-white text-sm md:text-lg text-white font-twk-lausanne font-medium rounded-full mt-6 md:mt-8 hover:bg-white hover:text-black transition duration-500 ease-in-out md:mr-5 uppercase"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          builders international website
+        </button>
+        <button
+          class="w-full md:w-[337px] h-[56px] xl:w-auto px-4 bg-transparent border-2 solid border-white text-sm md:text-lg text-white font-twk-lausanne font-medium rounded-full mt-6 md:mt-8 hover:bg-white hover:text-black transition duration-500 ease-in-out uppercase"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          Give to builders international
+        </button>
+      </div>
+    </header>
+
+    <main class="w-full pt-6 lg:pt-[90px]">
+      <section
+        class="px-4 sm:px-[100px] xl:px-[278px] mb-[60px] lg:mb-[110px] text-center"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h3
+          class="text-[28px] sm:text-[48px] xl:text-[64px] lg:leading-[70px] text-center text-black font-normal font-gt-super"
+        >
+          Passionate about building for LIFE with hundreds of teams around the
+          globe!
+        </h3>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-normal text-[#3D3D3D] mt-[30px] mb-[50px] font-twk-lausanne font-light"
+        >
+          We provide missionaries and national churches with the expertise and
+          resources required to plan, implement, and build construction projects
+          worldwide. We deliver projects and services that bring transforming
+          LIFE to the communities they serve.
+        </p>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-normal text-[#3D3D3D] font-twk-lausanne font-light"
+        >
+          These projects enable local champions to rise up in their community
+          and bring lasting change. Supporting Builders International is a
+          lasting investment that will have years of return, impacting many
+          lives.
+        </p>
+      </section>
+
+      <section
+        class="w-full h-[350px] md:h-[500px] xl:h-[900px] flex items-center justify-center flex-col mx-auto mb-[30px] lg:mb-[110px] bg-[url('./assets/img/im/woman-hold-pricks.png')] bg-no-repeat bg-cover bg-center"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      ></section>
+
+      <section
+        class="px-4 sm:px-[100px] xl:px-[278px] mb-[60px] lg:mb-[120px] text-center"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h3
+          class="text-[28px] sm:text-[48px] xl:text-[64px] lg:leading-[70px] text-center text-black font-gt-super font-normal mb-6 lg:mb-[111px]"
+        >
+          Sitting there was the right thing to do…
+        </h3>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mt-[30px] mb-[50px] font-twk-lausanne font-light"
+        >
+          Architect Brandon Dake signed up for his first missions trip with
+          James River Church (Ozark, MO). The goal of this Builders
+          International trip was to build a church along the Amazon River in
+          Brazil. Brandon had construction on his mind. However, upon arriving,
+          the people quickly caught his attention and his heart, especially the
+          children.
+        </p>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mb-[50px] font-twk-lausanne font-light"
+        >
+          As the team began building the church, curious children from the
+          community began to wander in and watch. They interacted and talked
+          with Brandon and the team. However, there was one little girl who
+          would not say a word. Her name was Laura. Her siblings informed the
+          team that the three-year-old could actually talk, but she was
+          painfully shy and refused to say anything. Brandon passed out candy to
+          the kids and as Laura bashfully accepted her sucker, she instantly
+          captured his heart!
+        </p>
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mb-[50px] font-twk-lausanne font-light"
+        >
+          On the team’s last night in the jungle, there was a dedication service
+          for the new church building. The pastor had gone door-to-door inviting
+          community members to attend the service. There was standing room only!
+          Little Laura was among the attendees, along with her brother, sister,
+          cousin, and grandmother.
+        </p>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mb-[50px] font-twk-lausanne font-light"
+        >
+          During the service, Laura crawled from lap after lap. She finally came
+          to Brandon and reached up to him. He lovingly took her into his arms.
+          She settled into his lap, laying her head on his shoulder, and soon
+          she was sleeping peacefully. Because the heat and humidity are
+          stifling in the Brazilian jungle, Brandon began to sweat as Laura
+          napped on his shoulder. Each family member offered to take Laura back,
+          but each time Brandon said, “It’s okay, I’ll keep her for now.”
+        </p>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mb-[50px] font-twk-lausanne font-light"
+        >
+          An altar call was made at the conclusion of the service. The missions
+          team leader asked members of the team to come forward and pray for
+          those in the congregation. Brandon considered going forward to pray
+          for others, but he felt God saying, “JUST STAY!”
+        </p>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mb-[50px] font-twk-lausanne font-light"
+        >
+          One by one, he watched Laura’s family members go forward for prayer.
+          By staying, Brandon allowed Laura’s family members to go forward for
+          what quite possibly was their first-ever prayer encounter. After the
+          powerful prayer time, little Laura lifted her sweat-beaded head and
+          gave Brandon a big smile. He knew he was in the right place at the
+          right time, and had been obedient to God’s prompting.
+        </p>
+
+        <p
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] font-twk-lausanne font-light"
+        >
+          Brandon may have gone on this missions trip with construction on his
+          mind, but God had another assignment. Only heaven knows the impact
+          Brandon made that night along the Amazon!
+        </p>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+      <div
+        class="grid sm:grid-cols-2 md:grid-cols-3 px-4 lg:px-[75px] mb-4 md:pb-9"
+      >
+        <div
+          class="col-span-1 flex flex-col sm:border-r solid border-[#f0f0f0] mb-4 md:mb-0"
+        >
+          <div class="mb-4 sm:mb-7">
+            <img
+              src="./assets/img/colored-logo.svg"
+              alt="App-Logo"
+              class="h-[30px] sm:h-auto"
+            />
+          </div>
+
+          <p class="text-[#3D3D3D] font-normal text-sm">
+            1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+            Phone: 1-417-862-3420
+          </p>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6"
+          >
+            Are you called?
+          </button>
+          <p class="text-[10px] text-[#3D3D3D] font-normal">
+            © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+          </p>
+        </div>
+        <div
+          class="md:col-span-1 flex sm:justify-center md:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+            </li>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+            </li>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+            </li>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+            </li>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+            </li>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+            </li>
+            <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Privacy & Permissions</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex flex-col w-full md:w-auto md:col-span-1 mx-auto my-2 sm:my-0"
+        >
+          <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+          <div class="flex items-center">
+            <div
+              class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/facebook.svg" alt="facebook" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/viemo.svg" alt="viemo" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/youtube.svg" alt="Youtube" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/insta.svg" alt="Instagram" />
+            </div>
+          </div>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </div>
+      <div class="w-full">
+        <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script type="text/javascript">
+      AOS.init();
+
+      // Toggle Language menu
+      const LangMenu = document.querySelector(".dropdown-select");
+      const dropDown = document.querySelector(".dropdown-menu");
+      const listText = document.querySelector(".selected");
+      const dropDownItem = document.querySelectorAll(".item");
+
+      LangMenu.addEventListener("click", () => {
+        LangMenu.classList.toggle("active");
+        dropDown.classList.toggle("active");
+        dropDownItem.forEach((item) => {
+          if (item.innerText === listText.innerText) {
+            item.classList.add("active-lang");
+          } else {
+            item.classList.remove("active-lang");
+          }
+        });
+      });
+
+      for (item of dropDownItem) {
+        item.addEventListener("click", showItem);
+      }
+      function showItem() {
+        event.preventDefault();
+
+        listText.innerHTML = this.textContent;
+        dropDown.classList.toggle("active");
+        LangMenu.classList.toggle("active");
+      }
+
+      //  Search Icon
+      const searchBar = document.querySelector(".search__bar");
+      const searchIcon = document.querySelector(".search__icon");
+      const mySearch = document.querySelector("#my__search");
+      const clear = document.querySelector(".clear");
+
+      searchIcon.addEventListener("click", () => {
+        searchBar.classList.toggle("active");
+      });
+
+      clear.addEventListener("click", () => {
+        mySearch.value = "";
+        searchBar.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

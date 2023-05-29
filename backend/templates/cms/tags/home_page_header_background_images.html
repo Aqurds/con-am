@@ -1,0 +1,20 @@
+{% load i18n wagtailimages_tags wagtailcore_tags %}
+
+<header
+    class="header_wrapper w-full h-[400px] sm:h-[450px] lg:h-[733px] px-4 lg:px-6 xl:px-[60px] relative"
+   >
+   <!-- header_bg pt-[70px] sm:pt-[100px] md:pt-[170px] pb-[60px] md:pb-[150px] px-4 lg:px-6 rounded-lg lg:rounded-2xl xl:rounded-3xl -->
+     <div class="header_bg relative h-full w-full after:absolute after:bg-black after:top-0 after:left-0 after:bottom-0 after:right-0 after:w-full after:h-full after:opacity-25 after:rounded-lg after:lg:rounded-2xl after:xl:rounded-3xl after:z-10">
+      <div class="wrap_hero showing">
+        <img src="{{ first_image_file_path }}" alt=""
+        class="rounded-lg lg:rounded-2xl xl:rounded-3xl"
+        >
+      </div>
+      {% for image in other_image_file_paths %}
+        <div class="wrap_hero">
+          <img src="{{ image }}" alt=""
+          class="rounded-lg lg:rounded-2xl xl:rounded-3xl"
+          >
+        </div>
+        {% endfor %}
+     </div>

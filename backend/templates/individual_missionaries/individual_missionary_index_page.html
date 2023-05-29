@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+{% load staticfiles individual_missionary_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% get_images missionary.missionaryProfile.Region.RegionName as missionary_images %}
+    <header
+      class="w-full md:h-[1100px] py-[100px] md:py-0 px-4 xl:pl-[60px] bg-[url({{missionary_images.header_images.header_image.url}})] bg-no-repeat bg-cover bg-center flex items-start justify-center flex-col relative after:absolute after:left-0 after:h-full after:w-full  md:after:opacity-100 after:w-[210px] sm:after:w-[300px] xl:after:w-[411px] after:bg-[#7FA7B6] after:z-10"
+    >
+      <div
+        class="w-full flex items-center mb-[20px] md:mb-[60px] pt-[80px] xl:pt-[180px] flex-col md:flex-row z-50"
+      >
+        <div 
+          class="md:mr-[30px] lg:mr-[60px] w-full md:w-[300px] md:h-[300px]  lg:w-[573px] lg:h-[443px]"
+          data-aos="fade-right"
+          data-aos-duration="1500"
+        >
+          <img
+            src="https://agmd.org/Profile/ViewImage?ProfileGUID={{missionary.ProfileGUID}}&AssetId=8"
+            alt="missionary-image"
+            class="w-full h-full object-cover rounded-2xl"
+          />
+        </div>
+        <div 
+          class="w-full md:w-auto mt-6 md:mt-0"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <h1
+            class="text-[28px] sm:text-[36px] md:text-[48px] xl:text-[64px] text-white font-normal font-gt-super"
+          >
+            {{missionary.Name1}} {{missionary.Name2}}
+          </h1>
+          <p
+            class="text-[16px] sm:text-[18px] lg:text-[32px] text-white font-thin font-twk-lausanne"
+          >
+            {{ page.serving_in_text }} {{missionary.missionaryProfile.Region.RegionName}}
+          </p>
+          <a href="https://giving.ag.org/Donate/{{missionary_fund_guid}}" target="_blank">
+            <button
+              class="w-[175px] h-[56px] bg-white border-2 solid border-white text-lg text-black font-medium font-twk-lausanne uppercase rounded-full mt-6 md:mt-8"
+            >
+              {{ page.give_button_text }}
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="w-full flex items-start md:items-center flex-col md:flex-row z-50"
+      >
+        <div 
+          class="w-auto sm:w-[315px] h-[160px] rounded-2xl my-4 sm:my-0"
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          <img
+            src="{% if missionary_images.map_image %} {{missionary_images.map_image.url}} {% else %} {% static 'img/app-logo-black.svg' %} {% endif %}"
+            alt="map icon"
+            class="w-full h-full"
+          />
+        </div>
+        <div 
+          class="w-auto sm:ml-8 xl:ml-[50px]"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <div class="w-full md:w-auto white_transparent rounded-md py-8 px-6">
+            <p
+              class="text-lg sm:text-2xl font-normal text-black mb-1 font-twk-lausanne"
+            >
+              {{ page.account_text }} {{missionary.AccountNumber}}
+            </p>
+            {% if missionary.EmailAddress %}
+            <span
+              class="text-lg sm:text-2xl font-thin text-black block mb-1 font-twk-lausanne hover:opacity-50 transition duration-500 ease-in-out underline" style='color:blue;'
+            >
+              <a
+              href="mailto:{{missionary.EmailAddress}}"
+              >
+                {{missionary.EmailAddress}}
+              </a>
+            </span>
+            {% endif %}
+            {% if missionary.WebUrl %}
+            <span
+              class="text-lg sm:text-2xl font-thin text-black block mb-1 font-twk-lausanne hover:opacity-50 transition duration-500 ease-in-out"
+            >
+              <a href="https://{{missionary.WebUrl}}", target="_blank"> {{missionary.WebUrl}} </a>
+            </span>
+            {% endif %}
+            <span class="text-lg sm:text-2xl font-thin text-black block">
+              {{ page.home_text }}: {% if missionary.profilePhoneNumbers.PhoneNumber %}{{missionary.profilePhoneNumbers.PhoneNumber}} {% else %} N/A {% endif %}
+            </span>
+          </div>
+          <div class="flex items-center mt-[40px]">
+            {% if missionary.FacebookIconUrl %}
+            <a
+              href="https://{{missionary.FacebookIconUrl}}"
+              target="_blank"
+              class="mr-5 hover:scale-105 transition duration-500 ease-in-out"
+            >
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 56 56"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="56" height="56" rx="6" fill="white" />
+                <path
+                  d="M35.4992 13.0062L31.6089 13C27.2383 13 24.4138 15.8978 24.4138 20.383V23.7871H20.5023C20.1643 23.7871 19.8906 24.0611 19.8906 24.3991V29.3313C19.8906 29.6693 20.1646 29.943 20.5023 29.943H24.4138V42.3883C24.4138 42.7263 24.6876 43 25.0256 43H30.129C30.467 43 30.7407 42.726 30.7407 42.3883V29.943H35.3141C35.6521 29.943 35.9259 29.6693 35.9259 29.3313L35.9277 24.3991C35.9277 24.2369 35.8631 24.0814 35.7486 23.9666C35.634 23.8517 35.478 23.7871 35.3157 23.7871H30.7407V20.9014C30.7407 19.5145 31.0712 18.8104 32.8779 18.8104L35.4986 18.8094C35.8363 18.8094 36.11 18.5354 36.11 18.1977V13.618C36.11 13.2806 35.8366 13.0069 35.4992 13.0062Z"
+                  fill="black"
+                />
+              </svg>
+            </a>
+            {% endif %}
+            {% if missionary.InstagramIconUrl %}
+            <a
+              href="https://{{missionary.InstagramIconUrl}}"
+              target="_blank"
+              class="hover:scale-105 transition duration-500 ease-in-out"
+            >
+              <svg
+                width="56"
+                height="56"
+                viewBox="0 0 56 56"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="56" height="56" rx="6" fill="white" />
+                <path
+                  d="M28.0004 13.0154C21.4468 13.0154 15.2235 12.4329 12.8465 18.5286C11.8646 21.0463 12.0072 24.3159 12.0072 28.9977C12.0072 33.106 11.8755 36.9673 12.8465 39.4651C15.2181 45.5644 21.4919 44.9801 27.9968 44.9801C34.2724 44.9801 40.743 45.6329 43.1489 39.4651C44.1325 36.9222 43.9882 33.7012 43.9882 28.9977C43.9882 22.7541 44.3329 18.7234 41.3025 15.6972C38.2341 12.6313 34.0847 13.0154 27.9932 13.0154H28.0004ZM26.5673 15.8956C40.2376 15.8739 41.9775 14.3554 41.0173 35.4506C40.6762 42.9115 34.9908 42.0927 28.0022 42.0927C15.2596 42.0927 14.8932 41.7284 14.8932 28.9905C14.8932 16.1048 15.904 15.9028 26.5673 15.892V15.8956ZM36.5375 18.5485C35.4781 18.5485 34.6189 19.4069 34.6189 20.4655C34.6189 21.5242 35.4781 22.3826 36.5375 22.3826C37.597 22.3826 38.4562 21.5242 38.4562 20.4655C38.4562 19.4069 37.597 18.5485 36.5375 18.5485ZM28.0004 20.7902C23.4647 20.7902 19.7881 24.4656 19.7881 28.9977C19.7881 33.5299 23.4647 37.2035 28.0004 37.2035C32.5361 37.2035 36.2109 33.5299 36.2109 28.9977C36.2109 24.4656 32.5361 20.7902 28.0004 20.7902ZM28.0004 23.6703C35.0485 23.6703 35.0575 34.3252 28.0004 34.3252C20.9541 34.3252 20.9433 23.6703 28.0004 23.6703Z"
+                  fill="black"
+                />
+              </svg>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full pt-6 lg:pt-[90px]">
+      <!-- About -->
+      <section
+        class="px-4 sm:px-[100px] xl:px-[300px] mb-[60px] lg:mb-[160px] text-center"
+      >
+        <h3
+          class="text-[32px] sm:text-[48px] xl:text-[64px] text-black font-normal font-gt-super"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          {{ page.about_header_text }}
+        </h3>
+
+        <div
+          class="text-lg lg:text-2xl font-twk-lausanne font-extralight text-[#3D3D3D] mt-[30px] mb-[50px] lg:leading-[40px]"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          {{missionary.Bio|richtext}}
+        </div>
+      </section>
+
+      <section
+        class="flex items-center justify-center flex-col lg:px-[60px] mx-auto mb-[60px] lg:mb-[160px]"
+      >
+        <div
+          class="w-full h-[500px] lg:h-[600px] bg-[url({% static 'img/fish-man.png' %})] bg-center bg-cover lg:rounded-2xl flex justify-center flex-col px-4 sm:px-8 lg:px-[60px] xl:px-[120px]"
+        >
+          <h3
+            class="text-[28px] sm:text-[36px] xl:text-[64px] text-white font-gt-super font-normal mb-2 lg:mb-[20px]"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            {{ page.give_to_text }} {{missionary.Name1}} {{missionary.Name2}}
+          </h3>
+          <p
+            class="text-white text-lg sm:text-xl lg:text-3xl font-twk-lausanne font-thin"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            {{ page.give_to_content }}
+          </p>
+          <a href="https://giving.ag.org/Donate/{{missionary_fund_guid}}" target="_blank">
+            <button
+              class="flex justify-center items-center text-base md:text-lg text-black font-normal w-[230px] md:w-[268px] h-[56px] rounded-full bg-white mt-[30px] lg:mt-[122px] uppercase font-twk-lausanne"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              {{ page.start_your_gift_today_button_text }}
+            </button>
+          </a>
+        </div>
+      </section>
+    </main>
+  {% endblock %}

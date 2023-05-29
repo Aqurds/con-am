@@ -1,0 +1,83 @@
+{% load i18n staticfiles wagtailcore_tags wagtailimages_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+    {% if featured_prayer.show_image %}
+    {% if featured_prayer.image %}
+    <header
+        class="py-[100px] sm:h-[450px] md:h-[550px] lg:h-[733px] px-4 lg:p-0 bg-no-repeat bg-cover bg-center bg-unset bg-[url({{ featured_prayer.image.url }})] flex items-start lg:items-center justify-center flex-col text-left lg:text-center pr-4 sm:mx-4 xl:mx-[60px] sm:rounded-xl"
+    >
+    {% endif %}
+
+    {% elif featured_prayer and not feature_prayer.show_image %}
+    <header
+        class="py-[100px] sm:h-[450px] md:h-[550px] lg:h-[733px] px-4 lg:p-0 bg-no-repeat bg-cover bg-center bg-unset flex items-start lg:items-center justify-center flex-col text-left lg:text-center pr-4 sm:mx-4 xl:mx-[60px] sm:rounded-xl"
+    >
+    <div class="w-[250px] h-[250px]">
+        <img
+          src="{% static 'img/hand-above-for-pray.svg' %}"
+          alt="{{ featured_prayer.image_alt_text }}"
+          class="w-full h-full"
+        />
+      </div>
+
+    {% elif not featured_prayer.show_image and page.header_image %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+        class="py-[100px] sm:h-[450px] md:h-[550px] lg:h-[733px] px-4 lg:p-0 bg-no-repeat bg-cover bg-center bg-unset bg-[url({{ header_image.url }})] flex items-start lg:items-center justify-center flex-col text-left lg:text-center pr-4 sm:mx-4 xl:mx-[60px] sm:rounded-xl"
+    >
+      <h3 class="text-[36px] sm:text-[48px] xl:text-[64px] text-white font-gt-super font-semibold sm:font-normal mb-1 lg:mb-[25px]" data-aos="slide-up" data-aos-duration="3000"
+    >
+        {{ page.pray_header_title }}
+    </h3>
+    <p class="text-white text-lg sm:text-2xl xl:text-3xl xl:w-[904px] font-twk-lausanne font-thin" data-aos="fade-up" data-aos-duration="3000"
+    >
+        {{ page.pray_header_body }}
+    </p>
+
+    {% elif not page.header_image and not featured_prayer.show_image %}
+    <header
+        class="py-[100px] sm:h-[450px] md:h-[550px] lg:h-[733px] px-4 lg:p-0 bg-no-repeat bg-cover bg-center bg-unset flex items-start lg:items-center justify-center flex-col text-left lg:text-center pr-4 sm:mx-4 xl:mx-[60px] sm:rounded-xl"
+    >
+    <div class="w-[250px] h-[250px]">
+        <img
+          src="{% static 'img/hand-above-for-pray.svg' %}"
+          alt="{{ featured_prayer.image_alt_text }}"
+          class="w-full h-full"
+        />
+      </div>
+      <h3 class="text-[36px] sm:text-[48px] xl:text-[64px] text-[#3D3D3D] font-gt-super font-semibold sm:font-normal mb-1 lg:mb-[25px]" data-aos="slide-up" data-aos-duration="3000"
+        >
+            {{ page.pray_header_title }}
+        </h3>
+        <p class="text-[#3D3D3D] text-lg sm:text-2xl xl:text-3xl xl:w-[904px] font-twk-lausanne font-thin" data-aos="fade-up" data-aos-duration="3000"
+        >
+            {{ page.pray_header_body }}
+        </p>
+    {% endif %}
+
+    {% if featured_prayer %}
+        <h1
+        class="text-[36px] sm:text-[48px] xl:text-[64px] {% if featured_prayer.show_image %}
+        {% if featured_prayer.image %} text-white {% endif %} {% else %} text-[#3D3D3D] {% endif %} font-gt-super font-semibold sm:font-normal mb-1 lg:mb-[25px]"
+        data-aos="slide-up"
+        data-aos-duration="3000"
+        >
+        {% if LANGUAGE_CODE == "en" %}
+            {{ featured_prayer.name }}
+        {% elif LANGUAGE_CODE == "es" %}
+            {{ featured_prayer.name_es }}
+        {% endif %}
+        </h1>
+    <p 
+        class=" {% if featured_prayer.show_image %}
+        {% if featured_prayer.image %} text-white {% endif %} {% else %} text-[#3D3D3D] {% endif %} text-lg sm:text-2xl xl:text-3xl xl:w-[904px] font-twk-lausanne font-thin"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+    >
+    {% if LANGUAGE_CODE == "en" %}
+        {{ featured_prayer.body }}
+    {% elif LANGUAGE_CODE == "es" %}
+        {{ featured_prayer.body_es }}
+    {% endif %}
+    </p>
+    {% endif %}
+    </header>

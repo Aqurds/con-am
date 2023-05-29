@@ -1,0 +1,31 @@
+{% load staticfiles home_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+<section
+class="bg-[#627DA1] px-4 xl:px-[100px] flex md:items-center justify-start md:justify-center flex-col md:flex-row py-11 xl:py-20"
+>
+<div
+  class="w-full sm:h-[300px] md-[320px] lg:h-[367px] md:w-2/4 md:mr-6 xl:mr-20 mb-6 md:mb-0 cursor-pointer"
+>
+  <img
+    src="{{featured_prayer.image.url}}"
+    alt="Hurrican Image"
+    class="w-full h-full"
+  />
+</div>
+
+<div class="md:w-2/4">
+  <h3
+    class="text-2xl sm:text-3xl xl:text-5xl xl:leading-[55px] text-white font-normal mb-6"
+  >
+    {{featured_prayer.name}}
+  </h3>
+  <p class="text-sm font-normal text-white">
+    {{featured_prayer.body}}
+  </p>
+  <button
+    class="w-full sm:w-[175px] h-[56px] mt-8 bg-transparent hover:bg-white rounded-full text-lg text-white hover:scale-105 hover:text-black uppercase font-medium sm:mr-[24px] border-2 solid border-white transition duration-500 ease-in-out"
+  >
+    More info
+  </button>
+</div>
+</section>

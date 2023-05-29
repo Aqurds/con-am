@@ -1,0 +1,45 @@
+[
+    {
+        "model": "stories.region",
+        "pk": 1,
+        "fields": {
+            "name": "Asia Pacific"
+        }
+    },
+    {
+        "model": "stories.region",
+        "pk": 2,
+        "fields": {
+            "name": "Africa"
+        }
+    },
+    {
+        "model": "stories.region",
+        "pk": 3,
+        "fields": {
+            "name": "Eurasia"
+        }
+    },
+    {
+        "model": "stories.region",
+        "pk": 4,
+        "fields": {
+            "name": "Europe"
+        }
+    },
+    {
+        "model": "stories.region",
+        "pk": 5,
+        "fields": {
+            "name": "Latin America"
+        }
+    },
+    {
+        "model": "stories.region",
+        "pk": 6,
+        "fields": {
+            "name": "Northern Asia"
+        }
+    }
+]
+    

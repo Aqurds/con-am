@@ -1,0 +1,92 @@
+{% load i18n staticfiles wagtailcore_tags wagtailimages_tags %}
+{% get_current_language as LANGUAGE_CODE %}
+<section
+  class="swiper pl-4 xl:pl-[92px] mt-[30px] md:mt-[62px] mb-[30px] md:mb-[103px] prayer_slider relative"
+>
+<div class="mb-6 lg:mb-16" data-aos="fade-up" data-aos-duration="3000">
+  <h4
+    class="text-[24px] sm:text-[36px] md:text-[48px] xl:text-[64px] text-black font-normal font-gt-super"
+  >
+    {{ page.pray_header_title }}
+  </h4>
+  <p
+    class="text-lg sm:text-xl md:text-2xl xl:text-4xl text-black font-light font-twk-lausanne"
+  >
+    {{ page.pray_header_body }}
+  </p>
+</div>
+<div class="mySwiper h-[500px] md:h-[570px] relative">
+  <div 
+    class="swiper-wrapper" id="gallery" data-aos="fade-up"
+    data-aos-easing="linear"
+    data-aos-duration="1500"
+  >
+    {% for prayer in prayers %}
+    <div
+      data-sub-html="#caption{{prayer.id}}"
+      class="swiper-slide h-[454px] cursor-pointer border-2 solid border-[rgba(127, 167, 182, 0.22)] rounded-2xl flex items-center flex-col text-center pt-[30px] px-4 md:px-6 lg:px-8"
+    >
+      <div class="{% if prayer.show_image %} {% if prayer.image %} w-full h-[180px] {% endif %} {% else %} w-full h-[180px] {% endif %}">
+        <img
+          src="{% if prayer.show_image %} {% if prayer.image %} {{ prayer.image.url }} {% endif %} {% else %} {% static 'img/hand-above-for-pray.svg' %} {% endif %}"
+          alt="hand-above-for-pray"
+          class="w-full h-full"
+        />
+      </div>
+      <div class="text-base xl:text-lg text-[#3D3D3D] font-light font-gt-super mt-4">
+        {% if LANGUAGE_CODE == "en" %}
+          {{ prayer.body|truncatechars:250 }}
+        {% elif  LANGUAGE_CODE == "es" %}
+          {{ prayer.body_es|truncatechars:250 }}
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- This is the content for first box. -->
+  {% for prayer in prayers %}
+  <div id="caption{{prayer.id}}" style="display: none">
+    <div
+      class="absolute positon__center flex flex-col md:flex-row w-full justify-center md:items-center px-4 md:px-0 mt-4 sm:mt-0"
+    >
+      <div class="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  lg:w-[512px] lg:h-[512px] mt-2 mb-4 bg-white rounded-2xl">
+        <img
+          src="{% static 'img/hand-above-for-pray.svg' %}"
+          alt="hand-above-for-pray"
+          class="h-full w-full object-contain rounded-md"
+        />
+      </div>
+      <div class="flex flex-col items-start md:mx-[30px] xl:ml-[50px]">
+        <h4
+          class="text-lg lg:text-2xl xl:text-4xl text-white font-normal gallery__title font-gt-super"
+        >
+          {% if LANGUAGE_CODE == "en" %}
+            {{ prayer.name }}
+          {% elif LANGUAGE_CODE == "es" %}
+            {{ prayer.name_es }}
+          {% endif %}
+        </h4>
+        <div class="mt-4 text-left">
+          <h5
+            class="text-base xl:text-lg text-[#3D3D3D] font-light font-gt-super mt-4"
+          >
+          
+            {{ page.prayer_modal_header_title }}
+          </h5>
+          <p class="text-lg font-normal text-white md:w-[350px] font-twk-lausanne"">
+            {{ prayer.body }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="swiper-scrollbar"></div>
+  <div
+    class="swiper-button-next"
+  ></div>
+  <div class="swiper-button-prev left-4 lg:left-[30px]"></div>
+</div>
+</section>
+

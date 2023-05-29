@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailadmin_tags story_template_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as my_image %}
+    <header
+      class="pt-[70px] h-full px-4 md:px-[83px] pb-[150px] md:pb-[180px] bg-[url({{my_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div class="flex flex-col justify-center items-center md:pt-[115px]">
+        <h1 
+          class="text-4xl md:text-[64px] text-white font-normal md:w-[255px] font-gt-super"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          {{ page.title }}
+        </h1>
+        
+        <div class="mt-[60px]" data-aos="fade-up" data-aos-duration="3000">
+          <ul
+            class="tabs flex items-center justify-center md:justify-between flex-wrap md:flex-row h-[65px] md:h-auto"
+          >
+            {% get_regions %}
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full px-4 xl:px-40 -translate-y-[105px] 2xl:w-[1440px] 2xl:mx-auto">
+      <!-- //container -->
+      <div 
+        class="content_wrapper w-full"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <!-- content -->
+        <div
+          class="w-full  grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-5"
+        >
+        {% for childpage in page.specific.children %}
+          <div
+            class="flex stories hidden flex-col mb-4 sm:mb-[66px] items-start"
+            id="{{ childpage.region }}"
+          >
+          <a href="{% pageurl childpage %}" class="flex flex-col mb-4 sm:mb-[66px] items-start">
+            <div class="w-full md:w-[344px] lg:w-[310px] xl:w-[344px] h-[350px] sm:h-[349px] mb-4 sm:mb-6">
+              {% image childpage.image width-400 as my_image %}
+              <img src="{{ my_image.url }}" alt="stories_logo" class="w-full h-full object-cover rounded-md" />
+            </div>
+            <h5 class="text-2xl text-[#3D3D3D] font-normal font-twk-lausanne w-full text-left">
+              {{ childpage.title }}
+            </h5>
+            <div
+              class="text-base sm:text-lg text-black font-extralight text-left my-1 sm:my-3 font-twk-lausanne"
+            >
+              {{ childpage.body|striptags|truncatechars:"200" }}
+            </div>
+             <div class="text-lg text-[#8B3C3B] font-semibold font-twk-lausanne w-full text-left">{{ page.story_page_explore_button_text }}
+             </div>
+             </a>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </main>
+    {% endblock %}
+    {% block javascript %}
+    <script type="text/javascript">
+      // Grap all ul > li
+      const tabs = document.querySelectorAll(".tabs li");
+      // Grap all stories
+      const stories = document.querySelectorAll(".stories");
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          // Remove Active class
+          tabs.forEach((tab) => tab.classList.remove("active_story"));
+          // Add Active Class
+          tab.classList.add("active_story");
+          
+
+          if (tab.id === "All") {
+            stories.forEach((story) => story.classList.remove("hidden"))
+          }
+          else {
+            stories.forEach((story) => story.classList.add("hidden"))
+          }
+
+          //  Hide previous Stories
+          stories.forEach((story) => {
+            if (tab.id !== story.id) {
+              story.classList.remove("show__Stroy")
+            }
+            else {
+              story.classList.add("show__Stroy"); 
+            }
+          });
+        });
+      });
+      // When Page Realod Put Active On First Fab
+      tabs[0].click();
+    </script>
+    {% endblock %}

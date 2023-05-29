@@ -1,0 +1,316 @@
+{% extends "base.html" %}
+{% load i18n staticfiles wagtailcore_tags wagtailadmin_tags resource_templates_tags wagtailimages_tags %}
+
+{% block content %}
+  {% image page.header_image width-1200 as header_image %}
+  <header
+    class="pt-[70px] lg:pt-7 h-[400px] sm:h-[450px] md:h-[616px] px-4 lg:px-[83px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center"
+  >
+    <div class="flex flex-col justify-center items-center md:mt-32">
+      <h1
+        class="text-[36px] md:text-[64px] text-white font-normal sm:ml-[-92px] font-gt-super"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+     >
+       {{page.title}}
+    </h1>
+  </div>
+</header>
+ <!-- -translate-y-2/3 -->
+ <main
+ class="w-full px-4 lg:px-[60px] xl:px-[180px] 2xl:px-0 mb-[30px] xl:mb-[125px] -mt-16 sm:-mt-40 2xl:mx-auto 2xl:w-[1100px]">
+  <section
+    class="pt-6 relative flex items-start justify-center xl:justify-between flex-wrap lg:flex-nowrap gap-10 lg:gap-0"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
+    <div
+      class="w-auto sm:mr-4 hover:scale-105 transiton ease-in-out duration-500 cursor-pointer"
+    >
+    {% get_resource_items as resource_item %}
+          <div
+            class="w-[280px] sm:w-[300px] xl:w-[350px]  h-[300px] xl:h-[350px] flex items-center justify-center w-full mb-0 sm:mb-6"
+          >
+          {% if resource_item.first_story.image %}
+            {% image resource_item.first_story.image width-400 as my_image %}
+            <a href="{{ story_page.url }}">
+                <img
+                  src={{ my_image.url }}
+                  alt="{{resource_item.first_story.image_alt_text}}"
+                  class="w-full h-full rounded-lg object-contain"
+                />
+              {% else %}
+                <img
+                  alt="worldview-image"
+                />
+              {% endif %}
+              </div>
+              <p
+                class="text-lg sm:text-2xl text-white font-semibold text-[#3D3D3D] mt-3 sm:mt-0 xl:ml-4 font-twk-lausanne"
+              >
+                {{ page.stories_card_text }}
+              </p>
+            </a>
+    </div>
+    <div
+      class="w-auto sm:mr-4 hover:scale-105 transiton ease-in-out duration-500 cursor-pointer lg:mt-0"
+    >
+            <div
+              class="w-[280px] sm:w-[300px] xl:w-[350px] h-[300px] xl:h-[350px] flex items-center justify-center w-full mb-0 sm:mb-6"
+            >
+            {% if resource_item.first_photo.image %}
+              {% image resource_item.first_photo.image width-400 as my_image %}
+              <a href="{{ photos_page.url }}">
+                  <img
+                    src={{ my_image.url }}
+                    alt="{{stories__logo}}"
+                    class="w-full h-full rounded-lg object-contain"
+                  />
+                {% else %}
+                <img
+                  alt="worldview-image"
+                />
+                {% endif %}
+                </div>
+                <p
+                  class="text-lg sm:text-2xl text-white font-semibold text-[#3D3D3D] mt-3 sm:mt-0 xl:ml-4 font-twk-lausanne"
+                >
+                {{ page.photos_card_text }}
+                </p>
+              </a>
+    </div>
+    <div
+       class="w-auto hover:scale-105 transiton ease-in-out duration-500 cursor-pointer relative lg:mt-0"
+     >
+      <div
+        class="w-[280px] sm:w-[300px] xl:w-[350px]  h-[300px] xl:h-[350px] mb-6"
+      >
+          {% image resource_item.first_video.thumbnail_image width-400 as my_image %}
+          <div class="w-full h-[300px] xl:h-[350px] w-full mb-0 sm:mb-6">
+            <div
+              style="
+                position: relative;
+                height: 0;
+                overflow: hidden;
+                height: 100%;
+              "
+            >
+              <iframe
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  border: 0;
+                  border-radius: 8px;
+                "
+                loading="lazy"
+                ;
+                srcdoc="<style>
+                  * {
+                  padding: 0;
+                  margin: 0;
+                  overflow: hidden;
+                  }
+                  
+                  img {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    border-radius: 8px;
+                    height: 100%;
+                    object-fit: cover;
+
+                  }
+                  button {
+                    background-image: url({% static 'img/play.svg' %});
+                    background-color: transparent;
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    border: none;
+                    outline: none;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%)
+                  }
+                </style>
+                <a href='{{resource_item.first_video.embed_url}}'>
+                  <img src='{{my_image.url}}' alt='{{resource_item.first_video.thumbnail_image_alt_text}}' />
+                  <button>
+                  </button>                      
+                </a>
+                "
+                src="{{resource_item.first_video.embed_url}}"
+                title="{{resource_item.first_video.title}}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              >
+              </iframe>
+            </div>
+          </div>
+      <a href="{{ videos_page.url }}">
+        <p
+          class="text-lg sm:text-2xl text-white font-semibold text-[#3D3D3D] sm:mt-0 xl:ml-4 font-twk-lausanne"
+        >
+        {{ page.videos_card_text }}
+        </p>
+      </a>
+  </div>
+  </section>
+  <!-- Wrold__wide&More -->
+  <section 
+    class="mt-8 xl:mt-36 xl:px-0"
+    data-aos="fade-up"
+    data-aos-duration="1500"
+  >
+    <div class="flex items-center justify-between mb-2 md:mb-3">
+      <h4
+        class="text-[24px] sm:text-[36px] lg:text-[64px] tex-black font-semibold md:font-light font-gt-super"
+      >
+        {{ page.world_view_section_title }}
+      </h4>
+      <!-- TODO Add link to World View Page -->
+      <button
+        class="md:w-[120px] h-[40px] lg:w-[175px] lg:h-[56px] text-center rounded-full text-md font-twk-lausanne lg:text-lg font-normal text-[#8A4D32] uppercase md:border-2 solid border-[#8A4D32] uppercase md:hover:bg-[#8A4D32] md:hover:text-white transition duration-500 ease-in-out"
+      >
+        <a href="{{page.world_view_section.url}}">{{ page.world_view_view_all_button }}</a>
+      </button>
+    </div>
+    <p
+      class="text-base sm:text-2xl lg:text-4xl text-black font-extralight font-twk-lausanne"
+    >
+    {{ page.world_view_section_sub_title }}
+    </p>
+  </section>
+
+      <section
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 lg:gap-8 mt-4 sm:mt-8 xl:mt-[80px]"
+      >
+    {% get_world_views_pages as world_view_page %}
+    {% if page.world_view_section %}
+    {% for item in world_view_page.world_view_items %}
+        <a 
+          href="{{ item.world_view_url }}"
+          target="_blank"
+          class="w-full h-full flex flex-col"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <div
+            class="w-[344px] h-[438px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            {% if item.image %}
+              {% image item.image width-400 as my_image %}
+              <img
+                src="{{ my_image.url }}"
+                alt="item.image_alt_text"
+                class="w-full h-full object-cover rounded-md"
+              />
+              <!-- {% image childpage.image max-438x438 %} -->
+            {% else %}
+              <img
+                alt="worldview-image"
+              />
+            {% endif %}
+          </div>
+          <p
+            class="text-base sm:text-lg xl:text-2xl text-white font-semibold font-twk-lausanne text-[#3D3D3D] sm:ml-4"
+          >
+            {{ item.title }}
+          </p>
+        </a>
+        {% endfor %}
+    {% endif %}
+  </section>
+  <!-- Vital__status__section -->
+  <section
+    class="mt-6 xl:mt-32 bg-[url('../../static/img/vital_status.png')] w-full bg-no-repeat bg-cover bg-center py-[70px] md:py-[122px] px-4 lg:pl-[99px] rounded-md md:rounded-2xl text-left"
+  >
+  <div 
+    data-aos="fade-up"
+    data-aos-easing="linear"
+    data-aos-duration="1500"
+  >
+    <h3
+      class="text-[36px] lg:text-[64px] font-noraml text-white mb-4 font-gt-super"
+    >
+      {{ page.vital_stats_header_title }}
+    </h3>
+    <p
+      class="text-lg sm:text-2xl xl:text-4xl text-white font-extralight uppercase font-twk-lausanne"
+    >
+    {{ page.vital_stats_sub_title }}
+    </p>
+    <a 
+      href="{{page.vital_stats_file.url }}"
+      class="text-base md:text-lg text-black font-semibold font-twk-lausanne uppercase flex items-center justify-center w-[158px] h-[45px] md:h-[56px] rounded-full bg-white mt-4 md:mt-[40px] hover:scale-105 transition duration-500 ease-in-out"
+      target="_blank"
+    >
+    {{ page.vital_stats_view_button }}</a>
+  </div>
+  </section>
+  <!-- AGWM Resource Center -->
+  {% get_featured_products %}
+</main>
+{% if page.videos_section %}
+  {% for childpage in page.videos_section.specific.children|slice:"1" %}
+    <div
+      id="resourcesModal"
+      class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+        <div class="scale_1 w-full h-full flex items-center justify-center">
+          <iframe
+            class="w-[1200px] h-[590px]"
+            src={{ childpage.embed_url }}
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <button id="closeResourcesModal" class="absolute top-2 right-2 w-16 h-16">
+          <svg
+            width="56"
+            height="56"
+            viewBox="0 0 56 56"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+    </div>
+  {% endfor %}
+{% endif %}
+{% endblock %}
+{% block javascript %}
+<script>
+    // Resources Page Modal
+      const openResources = document.getElementById("openResourcesModal");
+      const resourcesModal = document.getElementById("resourcesModal");
+      const closeResourcesModal = document.getElementById(
+        "closeResourcesModal"
+      );
+
+    // Open ResourcesMoal
+      openResources.addEventListener("click", () => {
+        resourcesModal.classList.add("show");
+      });
+
+    //Close ResourcesMoal
+      closeResourcesModal.addEventListener("click", () => {
+        resourcesModal.classList.remove("show");
+      });
+</script>
+{% endblock %}

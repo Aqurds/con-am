@@ -1,0 +1,296 @@
+{% extends "base_black_logo.html" %}
+{% load staticfiles i18n story_template_tags giving_initiatives_template_tags simple_prayer_template_tags wagtailcore_tags wagtailadmin_tags story_template_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.image width-800 as story_image %}
+    <header
+      class="h-[350px]  sm:h-[550px] lg:h-[733px] bg-[url({{story_image.url}})] bg-no-repeat bg-cover bg-center sm:mx-4 lg:mx-[60px] sm:rounded-xl"
+      data-aos="fade-up" data-aos-duration="3000"
+    ></header>
+    <!-- h-[300px] md:h-[568px] 2xl:h-full -->
+    <main class="w-full sm:px-6 pt-6 md:pt-[120px]">
+      <section 
+        class="flex justify-center items-center flex-col px-6"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h1
+          class="text-[24px] sm:text-[32px] md:text-[64px] text-black font-normal font-gt-super"
+        >
+          {{ page.title }}
+        </h1>
+        <span class="text-2xl text-[#3D3D3D] font-extralight font-twk-lausanne">{{ page.region }}</span>
+        <div class="xl:w-[837px] mx-auto mt-6 md:mt-[75px]">
+          <div
+            class="text-lg sm:text-2xl font-extralight text-[#3D3D3D] mb-6 sm:mb-[60px] font-twk-lausanne"
+          >
+            {{ page.body|richtext }}
+          </div>
+        </div>
+      </section>
+
+      <!-- Today’s simple prayer  -->
+      <section
+        class="flex items-center justify-center flex-col lg:px-[60px] mx-auto"
+      >
+      {% simple_prayer as simple_prayer_details %}
+        <h2
+        class="w-full text-[24px] sm:text-[36px] xl:text-[64px] text-black font-normal font-gt-super text-center px-6 sm:px-0  mb-6 lg:mb-[40px] lg:ml-[50px] xl:ml-[65px]"
+        data-aos="fade-up" data-aos-duration="1500"
+        >
+          {{ simple_prayer_details.simple_prayer_header }}
+        </h2>
+        <div 
+          class="lg:w-[820px] text-left text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-extralight px-6 sm:px-0"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          {{ simple_prayer_details.simple_prayer|richtext }}
+        </div>
+        {% giving_initiative_details as giving_initiative_detail %}
+        <div
+          class="w-full lg:h-[500px] lg:h-[600px] mt-[30px] lg:mt-[100px] bg-[url({% static 'img/giving-intiative.png' %})] bg-center bg-cover lg:rounded-2xl flex justify-center flex-col py-12 lg:py-0 pl-4 lg:pl-[120px] pr-4"
+        >
+          <h3
+            class="text-[36px] xl:text-[64px] text-white font-normal mb-2 lg:mb-[40px] font-gt-super"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            {{ giving_initiative_detail.giving_initiative_header }}
+          </h3>
+          <p 
+            class="text-white text-lg sm:text-xl lg:text-3xl font-twk-lausanne font-light"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            {{ giving_initiative_detail.giving_initiative_content }}
+          </p>
+          <button
+            class="text-base md:text-lg text-black font-semibold font-twk-lausanne w-[230px] md:w-[268px] h-[56px] rounded-full bg-white mt-[38px] uppercase"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            {{ giving_initiative_detail.giving_initiative_button_text }}
+          </button>
+        </div>
+      </section>
+      <!-- Stories Details Slider -->
+      {% stories_slides_header as story_slide_header %}
+      {% get_current_language as LANGUAGE_CODE %}
+      <section
+        class="stories__wrapper overflow-hidden mt-7 lg:mt-[76px] ml-4 xl:ml-[100px]"
+      >
+        <div
+          class="flex items-center justify-between mb-6 lg:mb-11 pr-4 lg:pr-[60px]"
+        >
+          <div>
+            <h2
+              class="text-[36px] lg:text-[64px] font-gt-super font-light text-black"
+            >
+            {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.slider_header_text }}{% else %}{{ story_slide_header.slider_header_text_es }}{% endif %}
+          </h2>
+            <p
+              class="text-base lg:text-[36px] font-twk-lausanne font-extralight text-black"
+            >
+            {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.slider_subheader_text }}{% else %}{{ story_slide_header.slider_subheader_text_es }}{% endif %}
+            </p>
+          </div>
+          <a href="{{ story_page.url }}">
+            <button
+              class="w-[110px] sm:w-[175px] h-[40px] sm:h-[56px] text-sm sm:text-lg font-twk-lausanne font-normal uppercase text-[#8A4D32] border-2 solid border-[#8A4D32] hover:bg-[#8A4D32] hover:text-white rounded-full transition duration-500 ease-in-out">
+              {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.header_button_text }}{% else %}{{ story_slide_header.header_button_text_es }}{% endif %}
+            </button>
+          </a>
+        </div>
+        <!-- Stories,, Real people's - real lives -->
+        <div 
+          class="w-full h-[550px] md:h-[630px]"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+        <div
+        class="stories_swiper pl-0 relative swiper-scrollbar-home home_stories"  
+        >
+          <div class="swiper-wrapper greg__munids">
+            {% get_stories_for_specific_page %}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next" id="arrow-right"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+      </section>
+
+    </main>
+    {% endblock %}
+    {% block javascript %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript">
+      AOS.init();
+
+      let storiesSwiper = new Swiper(".stories_swiper", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+        },
+        draggable: true,
+        allowTouchMove: true,
+        loop: true,
+        //centeredSlides: true,
+        //direction: 'horizontal',
+        initialSlide: 0,
+  
+        direction: "horizontal",
+        //centeredSlides: false,
+        speed: 800,
+        //slidesPerView: "auto",
+        threshold: 5,
+  
+  
+        //freeMode: true,
+        //watchSlidesProgress: true,
+        breakpoints: {
+          100: {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+          },
+  
+          450: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+          },
+          692: {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+          }
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+  
+      });
+
+      let RegionsSwiper = new Swiper(".region_explore", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+  
+          // hide: true,
+        },
+        // slidesPerView: 3,
+        initialSlide: 0,
+  
+        allowTouchMove: true,
+        draggable: true,
+        direction: "horizontal",
+        speed: 800,
+        threshold: 5,
+        loop: true,
+  
+        breakpoints: {
+          // when window width is >= 320px
+          300: {
+            slidesPerView: 1.1,
+            spaceBetween: 10,
+          },
+          // when window width is >= 480px
+  
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1192: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1490: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+  
+        on: {
+          init: function () {
+  
+            //const regionsCover = document.querySelectorAll(".regions__cover");
+            //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+  
+  
+            const readStories = document.querySelectorAll(".explore__continent");
+            readStories.forEach((c) => c.classList.add("toglle_continent"));
+  
+            readStories.forEach((itemSlide, index) => {
+              if (index === this.activeIndex) {
+                itemSlide.classList.add("toglle_continent");
+                //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+              } else {
+                itemSlide.classList.remove("toglle_continent");
+                //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+  
+              }
+            });
+  
+            //toggle banners
+            const exploreHeaders = document.querySelectorAll(".explore_banners");
+            exploreHeaders.forEach((h) => h.classList.add("show_explore_banners"));
+  
+            exploreHeaders.forEach((itemSlide, index) => {
+              if (index === this.activeIndex) {
+                itemSlide.classList.add("show_explore_banners")
+              } else {
+                itemSlide.classList.remove("show_explore_banners")
+              }
+            })
+          },
+        },
+      });
+  
+      RegionsSwiper.on("slideChange", function () {
+        //const regionsCover = document.querySelectorAll(".regions__cover");
+        //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+        const readStories = document.querySelectorAll(".explore__continent");
+  
+  
+  
+        readStories.forEach((c) => c.classList.add("toglle_continent"));
+        readStories.forEach((itemSlide, index) => {
+          if (index === this.activeIndex) {
+            itemSlide.classList.add("toglle_continent");
+            //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+          } else {
+            itemSlide.classList.remove("toglle_continent");
+            //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+  
+          }
+        });
+      });
+  
+      RegionsSwiper.on("slideChange", function () {
+        const exploreHeaders = document.querySelectorAll(".explore_banners");
+        exploreHeaders.forEach((c) => c.classList.add("show_explore_banners"));
+        exploreHeaders.forEach((itemSlide, index) => {
+          if (index === this.activeIndex) {
+            itemSlide.classList.add("show_explore_banners");
+            //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+          } else {
+            itemSlide.classList.remove("show_explore_banners");
+          }
+        });
+      });
+      </script>
+    {% endblock %}

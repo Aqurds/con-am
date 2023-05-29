@@ -1,0 +1,47 @@
+{% load staticfiles %}
+<html>
+  <div
+    hx-target="this"
+    class="my-4 rounded-md md:w-[753px] relative bg-white pt-8 px-8 pb-10"
+  >
+    {% if not flag %}
+    <h2
+      class="text-lg sm:text-2xl xl:text-4xl text-[#3D3D3D] font-gt-super font-normal px-4"
+    >
+      Invalid Password. Please try again.
+    </h2>
+    {% endif %}
+    <h5
+      class="text-base md:text-xl xl:text-3xl text-[#3D3D3D] font-twk-lausanne font-light mb-4 px-4 py-4"
+    >
+      Verification Required
+    </h5>
+    <p
+      class="text-sm md:text-lg xl:text-xl text-[#3D3D3D] font-twk-lausanne font-thin text-white px-4"
+    >
+      Please enter the last name of the missionary or the name of the
+      ministry to proceed.
+    </p>
+
+    <form
+      method="POST"
+      class="w-full flex items-center mt-8 flex-col md:flex-row px-4 py-2"
+    >
+      {% csrf_token %}
+      <input
+        type="password"
+        name="password"
+        placeholder="enter missionary name"
+        class="w-full py-2 px-8 rounded-lg border solid border-[#3D3D3D] text-[#3D3D3D] text-lg placeholder:text-base placeholder:text-medium outline-none"
+      />
+      <div class="w-full flex justify-end items-end"> 
+      <button
+        hx-post="{% url 'search-missionary' query %}"
+        class="w-full md:w-[300px] py-2 px-[50px] bg-[#3D3D3D] mt-6 md:mt-0 md:ml-2 rounded-lg text-base lg:text-lg bg-white text-white uppercase font-twk-lausanne font-medium uppercase"
+        type="submit"
+      >
+        confirm
+      </button>
+    </form>
+  </div>
+</html>

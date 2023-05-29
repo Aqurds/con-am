@@ -1,0 +1,447 @@
+
+{% extends "base.html" %}
+{% load staticfiles photo_template_tags find_a_missionary_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="pt-[70px] lg:pt-7 h-auto pb-[40px] md:pb-[80px] px-4 lg:px-[83px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div class="flex flex-col justify-center items-center md:mt-32">
+        <h1
+          class="text-[36px] md:text-[64px] text-white font-normal font-gt-super sm:ml-[-92px]"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          {{ page.header_text }}
+        </h1>
+        <div
+          hx-target="this"
+          hx-swap="outerHTML"
+          class="flex items-center mt-9 md:mt-[60px] border-2 solid border-white w-full h-[45px] md:h-[56px] rounded-full md:w-[753px] relative"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          data-aos-delay="200"
+        >
+          <span class="pl-4 md:pl-7 mt-1">
+            <svg
+              class="w-[15px] h-[15px] md:w-[24px] md:h-[24px]"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10ZM10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.0916 20 14.0333 19.3578 15.6386 18.2599L21.1893 23.8107L23.3107 21.6893L17.8354 16.2141C19.1905 14.5076 20 12.3484 20 10C20 4.47715 15.5228 0 10 0Z"
+                fill="white"
+              />
+            </svg>
+          </span>
+          <form class="w-full flex flex-col" action="{% pageurl page %}" method="get">
+            {% csrf_token %}
+            <input
+              type="text"
+              class="h-full w-full outline-none border-none pl-12 text-lg text-white font-semibold bg-transparent rounded-lg"
+              name="query"
+              placeholder="{{ page.search_input_placeholder_text }}"
+            />
+            <button
+              hx-post="{% url 'search-missionary' 'false' %}"
+              class="w-[100px] md:w-[235px] h-full bg-white text-sm md:text-lg font-medium rounded-full uppercase absolute -right-1 top-0"
+              type="submit"
+            >
+              {{ page.search_button_text }}
+            </button>
+          </form>
+        </div>
+
+        <div
+          class="flex items-center justify-start md:justify-center flex-wrap mt-[70px]"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          data-aos-delay="200"
+        >
+          <!-- All regions menu -->
+          <div class="all_regions relative">
+            <button class="all_region_button flex items-center mr-4 lg:mr-12">
+              <span
+                class="text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+              >
+                {{ page.all_region_dropdown_text }}
+              </span>
+              <span
+                class="bg-[url({% static 'img/fat-arrow-down.svg' %})] bg-no-repeat w-[17px] h-[10px] inline-block ml-[8px]"
+              >
+              </span>
+            </button>
+            
+            <ul
+              class="regions_menu opacity-0 pointer-events-none w-40 absolute top-6 z-50 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out h-[250px] overflow-y-scroll"
+            >
+              {% get_regions as regions %}
+              {% for region in regions %}
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2"
+              >
+              <a href="{% url 'find-a-missionary-filter-by-region' region.region_guid %}">
+                {{ region.name }}
+              </a>
+              </li>
+              {% endfor %}              
+            </ul>
+          </div>
+
+          <div class="all_areas relative">
+            <button
+              class="all_areas_button flex items-center text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne mr-4 lg:mr-12"
+            >
+              <span
+                class="text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+              >
+                {{ page.all_areas_countries_ministries_dropdown_text }}
+              </span>
+              <span
+                class="bg-[url({% static 'img/fat-arrow-down.svg' %})] bg-no-repeat w-[17px] h-[10px] inline-block ml-[8px]"
+              >
+              </span>
+            </button>
+
+            <ul
+              class="areas_menu opacity-0 pointer-events-none w-60 absolute top-6 z-50 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out h-[250px] overflow-y-scroll"
+            >
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2 caret flex items-center justify-between"
+              >
+                <span>{{ page.areas_dropdown_text }}</span>
+                <span>
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 23 37"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.0462 35.3464L22.1138 21.3774C22.681 20.8142 23 20.0479 23 19.2486V17.7514C23 16.9521 22.681 16.1858 22.1138 15.6226L8.0462 1.65355C5.82591 -0.551184 2.2203 -0.551184 0 1.65355L16.9653 18.5L0 35.3464C2.2203 37.5512 5.82591 37.5512 8.0462 35.3464Z"
+                      fill="#8d959f"
+                    />
+                  </svg>
+                </span>
+              </li>
+              <ul class="minssionary-nested pl-8 pr-1 py-2">
+              {% get_cam "Area" as cams %}
+              {% for cam in cams %}
+                <li class="text-xs text-[#8d959f] cursor-pointer mb-1">
+                  <a href="{% url 'find-a-missionary-cam' cam.value %}">
+                    {{ cam.text }}
+                  </a> 
+                </li>
+                {% endfor %}
+              </ul>
+              <li class="border-b-[.7px] solid border-[#8d959f] pl-8 pr-8 py-2">
+                <div
+                  class="caret text-lg text-[#8d959f] cursor-pointer mb-1 flex items-center justify-between"
+                >
+                  <span> {{ page.countries_dropdown_text }} </span>
+                  <span>
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 23 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.0462 35.3464L22.1138 21.3774C22.681 20.8142 23 20.0479 23 19.2486V17.7514C23 16.9521 22.681 16.1858 22.1138 15.6226L8.0462 1.65355C5.82591 -0.551184 2.2203 -0.551184 0 1.65355L16.9653 18.5L0 35.3464C2.2203 37.5512 5.82591 37.5512 8.0462 35.3464Z"
+                        fill="#8d959f"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <ul class="minssionary-nested pl-4">
+                  {% get_cam "Country" as countries %}
+                  {% for country in countries %}
+                    <li class="text-xs text-[#8d959f] cursor-pointer mb-1">
+                      <a href="{% url 'find-a-missionary-cam' country.value %}">
+                        {{ country.text }}
+                      </a> 
+                    </li>
+                    {% endfor %}
+                  </ul>
+              </li>
+              <li class="border-b-[.7px] solid border-[#8d959f] pl-8 pr-8 py-2">
+                <div
+                  class="caret text-lg text-[#8d959f] cursor-pointer mb-1 flex items-center justify-between"
+                >
+                  <span> {{ page.ministries_dropdown_text }} </span>
+                  <span>
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 23 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.0462 35.3464L22.1138 21.3774C22.681 20.8142 23 20.0479 23 19.2486V17.7514C23 16.9521 22.681 16.1858 22.1138 15.6226L8.0462 1.65355C5.82591 -0.551184 2.2203 -0.551184 0 1.65355L16.9653 18.5L0 35.3464C2.2203 37.5512 5.82591 37.5512 8.0462 35.3464Z"
+                        fill="#8d959f"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <ul class="minssionary-nested pl-4">
+                  {% get_cam "Ministry" as ministries %}
+                  {% for ministry in ministries %}
+                    <li class="text-xs text-[#8d959f] cursor-pointer mb-1">
+                      <a href="{% url 'find-a-missionary-cam' ministry.value %}">
+                        {{ ministry.text }}
+                      </a> 
+                    </li>
+                    {% endfor %}
+                  </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="all_sending relative">
+            <button
+              class="all_sending_button flex items-center text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+            >
+              <span
+                class="text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+              >
+                {{ page.all_sending_districts_dropdown_text }}
+              </span>
+              <span
+                class="bg-[url({% static 'img/fat-arrow-down.svg' %})] bg-no-repeat w-[17px] h-[10px] inline-block ml-[8px]"
+              >
+              </span>
+            </button>
+
+            <ul
+              class="sending_menu opacity-0 pointer-events-none w-40 absolute top-6 z-50 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              {% get_sending_districts as districts %}
+              {% for district in districts %}
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2"
+              >
+                <a href="{% url 'find-a-missionary-sending-districts' district.number %}">
+                  {{ district.name }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- -translate-y-2/3 -->
+    <main class="w-full px-4 mb-[30px] xl:mb-[125px] 2xl:w-[1440px] 2xl:mx-auto">
+
+      <!-- <section
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-x-5 md:gap-y-14 mt-4 sm:mt-8 xl:mt-[63px]"
+      >
+      </section> -->
+      <section
+        class="flex items-center justify-center flex-col  flex-wrap sm:flex-row gap-6 md:gap-x-5 md:gap-y-14 mt-4 sm:mt-8 xl:mt-[63px] sm:px-[70px] md:px-[40px] lg:px-[50px] xl:px-[100px] 2xl:px-[150px]"
+      >
+        {% for missionary in missionaries %}
+          <a 
+            href="{% url 'individual-missionary' missionary.AccountNumber missionary.Name2 %}" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="1500"
+          >
+            <div
+              class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+            >
+              <img
+                src="https://agmd.org/Profile/ViewImage?ProfileGUID={{missionary.ProfileGUID}}&AssetId=8"
+                alt="missionary-image"
+                class="w-full h-full object-cover rounded-md"
+              />
+            </div>
+            <div class="flex flex-col">
+              <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+                {{missionary.Name2}}, {{missionary.Name1}}
+              </h4>
+              <p class="text-lg text-black font-light font-twk-lausanne">
+                {% if missionary.missionaryProfile.Country.CountryName %}{{missionary.missionaryProfile.Country.CountryName}}, {% endif %} {{missionary.missionaryProfile.Region.RegionName}}
+              </p>
+            </div>
+          </a>
+        {% endfor %}
+      </section>
+      {% get_page_parameters request.GET is_page_number=False as params %}
+      {% get_page_parameters request.GET is_page_number=True as page_number %}
+      <input id="params" type="hidden" value={{params}} />
+      {% if posts.paginator.num_pages > 1 %}
+      <div class="pagination flex justify-center items-center">
+        <ul class="w-full">
+          <section class="pagination flex items-center">
+          {% if posts.has_previous %}
+          <button id="pg-button-prev" type="button" class="pagination__button">
+            <a href="?page={{ posts.previous_page_number }}{{ params }}" class="page-link">&laquo;
+            </a>
+          </button>
+          {% endif %}
+          
+          {% for page_num in posts.paginator.page_range %}
+          <input id="page_num" type="hidden" value={{page_number}} />
+            {% if posts.number == page_num %}
+              <li class="pagination__item pagination__item">
+                <a href="?page={{ page_num }}{{ params }}" type="button" class="page-item active-page-item">
+                {{page_num}}
+                </a>
+              </li>
+            {% else %}
+            <ul class="pagination__list flex items-center">
+              <li class="pagination__item pagination__item">
+                <a href="?page={{ page_num }}{{ params }}" type="button" class="page-item active-page-item">
+                {{page_num}}
+                </a>
+              </li>
+            </ul>
+            {% endif %}
+          {% endfor %}
+          
+          {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}{{ params }}" class="page-link">
+              &raquo;
+            </a>
+          {% endif %}
+          </section>
+        </ul>
+      </div>
+      {% endif %}
+    </main>
+    {% endblock %}
+    {% block javascript %}
+      <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      
+
+      <script type="text/javascript">
+        // Pagination
+        
+        // selecting required element
+      const element = document.querySelector(".pagination ul");
+      // Number of pages
+      
+      // default page
+      let page_num = parseInt(document.getElementById("page_num").value);
+      let totalPages = parseInt("{{ total_pages }}")
+      if (isNaN(page_num) === true) {
+        page_num = 1
+      }
+      
+      //calling function with passing parameters and adding inside element which is ul tag
+      function createPagination(totalPages, page_num){
+        let liTag = '';
+        let active;
+        let beforePage = page_num - 1;
+        let afterPage = page_num + 1;
+        var params = document.getElementById("params").value;
+
+        //show the next button if the page value is greater than 1
+        if(page_num > 1){ 
+          liTag += `<a href="?page=${page_num - 1}${params}"><li class="numbPrev">Prev</li></a>`;
+        }
+
+        //if page value is less than 2 then add 1 after the previous button
+        if(page_num > 2 && totalPages !== 4){ 
+          liTag += `<a href="?page=1${params}"><li class="first numb">1</li></a>`;
+          if(page_num > 3){ //if page value is greater than 3 then add this (...) after the first li or page
+            liTag += `<li class="dots"><a>...</a></li>`;
+          }
+        }
+
+        // how many pages or li show before the current li
+        if (page_num == totalPages) {
+          beforePage = beforePage - 2;
+        } else if (page_num == totalPages - 1) {
+          beforePage = beforePage - 1;
+        }
+
+        // how many pages or li show after the current li
+        if (page_num == 1) {
+          afterPage = afterPage + 2;
+        } else if (page_num == 2) {
+          afterPage  = afterPage + 1;
+        }
+
+        for (var pageLength = beforePage; pageLength <= afterPage; pageLength++) {
+          //if pageLength is greater than totalPage length then continue
+          if (pageLength > totalPages) {
+            continue;
+          }
+          //if pageLength is 0 than add +1 in pageLength value
+          if (pageLength == 0) { 
+            pageLength = pageLength + 1;
+          }
+          //if page is equal to pageLength than assign active string in the active variable
+          if(page_num == pageLength){ 
+            active = "active";
+          }
+          //else leave empty to the active variable
+          else{ 
+            active = "";
+          }
+          liTag += `<a href="?page=${pageLength}${params}"><li class="numb ${active}"">${pageLength}</li></a>`;
+        }
+
+        //if page value is less than totalPage value by -1 then show the last li or page
+        if(page_num < totalPages - 1 && totalPages !== 4){
+          //if page value is less than totalPage value by -2 then add this (...) before the last li or page
+          if(page_num < totalPages - 2){ 
+            liTag += `<li class="dots"><a>...</a></li>`;
+          }
+          liTag += `<a href="?page=${totalPages}${params}"><li class="last numb">${totalPages}</li></a>`;
+        } 
+        
+        //show the next button if the page value is less than totalPage
+        if (page_num < totalPages) { 
+          liTag += `<a href="?page=${page_num + 1}${params}"><li class="numbPrev">Next</li></a>`;
+        }
+
+        //add li tag inside ul tag
+        element.innerHTML = liTag; 
+        //reurn the li tag  
+        return liTag; 
+      }
+
+      let pages = createPagination(totalPages, page_num);
+      element.innerHTML = pages;        
+      AOS.init();
+      </script>
+      <script>
+        // Find missionary menus
+        const allReggion = document.querySelector(".all_region_button");
+      const regionsMenu = document.querySelector(".regions_menu");
+      allReggion.addEventListener("click", () => {
+        regionsMenu.classList.toggle("active");
+      });
+
+      const allArea = document.querySelector(".all_areas_button");
+      const areasMenu = document.querySelector(".areas_menu");
+      allArea.addEventListener("click", () => {
+        areasMenu.classList.toggle("active");
+      });
+
+      const allSending = document.querySelector(".all_sending_button");
+      const sendingMenu = document.querySelector(".sending_menu");
+      allSending.addEventListener("click", () => {
+        sendingMenu.classList.toggle("active");
+      });
+
+      var toggler = document.getElementsByClassName("caret");
+      var i;
+
+      for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+          this.parentElement
+            .querySelector(".minssionary-nested")
+            .classList.toggle("minssionary-active");
+          this.classList.toggle("caret-down");
+        });
+      }
+      </script>
+    {% endblock %}

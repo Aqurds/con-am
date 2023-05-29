@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            backgroundImage: {
+              "burger-menu": "url('./assets/img/berger-menu.svg')",
+            },
+            fontFamily: {
+              "gt-super": ["gt-super"],
+              "twk-lausanne": ["twk-lausanne"],
+            },
+          },
+        },
+      };
+    </script>
+    <title>Resources</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="w-full flex items-center justify-between px-4 lg:px-[83px] pt-[20px] sm:pt-[35px] absolute z-50"
+    >
+      <div class="flex items-center">
+        <button
+          class="w-6 h-6 bg-[url('./assets/img/berger-menu.svg')] mr-4 lg:mr-[47px]"
+        ></button>
+
+        <div class="">
+          <!--  Custome drop down.. -->
+          <div class="dropdown relative">
+            <div
+              class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out"
+            >
+              <span
+                class="selected text-lg text-white uppercase font-normal mr-[12px]"
+                >EN</span
+              >
+              <span class="ml-1"
+                ><svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              <li
+                class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md"
+              >
+                EN
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md"
+              >
+                FR
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md"
+              >
+                DU
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md"
+              >
+                AR
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="md:flex flex-col items-center w-[100px] md:w-[275px]">
+        <img src="./assets/img/app-logo.svg" alt="app-logo" class="" />
+        <span class="hidden md:inline-block text-sm text-white font-normal"
+          >Assemblies of God World Mission</span
+        >
+      </div>
+      <div class="hidden md:flex items-center relative">
+        <!-- Search Bar -->
+        <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+          <span
+            class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search.svg')] bg-no-repeat"
+          ></span>
+          <input
+            id="my__search"
+            class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+            type="text"
+            placeholder="Search"
+          />
+          <div class="clear absolute right-2 top-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#fff"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- End Search Bar -->
+        <button
+          class="w-[211px] h-[56px] text-center rounded-full text-lg text-white border-2 solid border-white font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+        >
+          Are you called?
+        </button>
+      </div>
+    </nav>
+    <header
+      class="pt-[70px] lg:pt-7 h-auto pb-[40px] md:pb-[80px] px-4 lg:px-[83px] bg-[url('./assets/img/resources_hero_poster.png')] bg-no-repeat bg-cover bg-center"
+    >
+      <div class="flex flex-col justify-center items-center md:mt-32">
+        <h2
+          class="text-[36px] md:text-[64px] text-white font-normal font-gt-super"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          Find a Missionary
+        </h2>
+        <div
+          class="flex items-center mt-9 md:mt-[60px] border-2 solid border-white w-full h-[45px] md:h-[56px] rounded-full md:w-[753px] relative"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          data-aos-delay="200"
+        >
+          <span class="pl-4 md:pl-7 mt-1">
+            <svg
+              class="w-[15px] h-[15px] md:w-[24px] md:h-[24px]"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10ZM10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.0916 20 14.0333 19.3578 15.6386 18.2599L21.1893 23.8107L23.3107 21.6893L17.8354 16.2141C19.1905 14.5076 20 12.3484 20 10C20 4.47715 15.5228 0 10 0Z"
+                fill="white"
+              />
+            </svg>
+          </span>
+          <input
+            class="h-full w-[calc(100%-120px)] md:w-[calc(100%-290px)] pl-2 md:pl-[23px] rounded-full bg-transparent text-base sm:text-lg text-white font-normal outline-none placeholder:text-xs sm:placeholder:text-lg placeholder:text-white font-twk-lausanne"
+            placeholder="Misionary name or Account number"
+          />
+
+          <button
+            class="w-[100px] md:w-[235px] h-full bg-white text-sm md:text-lg font-medium rounded-full uppercase absolute -right-1 top-0"
+          >
+            Search
+          </button>
+        </div>
+<!-- 
+        <div
+          class="my-2 w-full rounded-md md:w-[753px] relative bg-white shadow-2xl px-8 pt-8 pb-16"
+        >
+          <h2
+            class="text-lg sm:text-2xl xl:text-4xl text-[#3D3D3D] font-gt-super font-normal"
+          >
+            Invalid Password. Please try again.
+          </h2>
+          <h5
+            class="text-base md:text-xl xl:text-3xl text-[#3D3D3D] font-twk-lausanne font-light mb-4"
+          >
+            Verification Required
+          </h5>
+          <p
+            class="text-sm md:text-lg xl:text-xl text-[#3D3D3D] font-twk-lausanne font-thin text-white"
+          >
+            Please enter the last name of the missionary or the name of the
+            ministry to proceed.
+          </p>
+
+          <form
+            action=""
+            class="w-full flex items-center mt-8 flex-col md:flex-row"
+          >
+            <input
+              placeholder="enter missionary name"
+              class="w-full h-[44px] px-4 rounded-lg border solid border-[#3D3D3D] text-[#3D3D3D] text-lg placeholder:text-base placeholder:text-medium outline-none"
+            />
+            <div class="w-full flex justify-end items-end mt-6 md:mt-0 md:ml-2">
+              <button
+                class="w-full md:w-[300px] h-[44px] px-[50px] bg-[#3D3D3D] rounded-lg text-base lg:text-lg bg-white text-white uppercase font-twk-lausanne font-medium uppercase"
+              >
+                confirm
+              </button>
+            </div>
+          </form>
+        </div> -->
+
+        <div
+          class="flex items-center justify-start md:justify-center flex-wrap mt-[70px]"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          data-aos-delay="200"
+        >
+          <!-- All regions menu -->
+          <div class="all_regions relative">
+            <button class="all_region_button flex items-center mr-4 lg:mr-12">
+              <span
+                class="text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+              >
+                All Regions
+              </span>
+              <span
+                class="bg-[url('./assets/img/fat-arrow-down.svg')] bg-no-repeat w-[17px] h-[10px] inline-block ml-[8px]"
+              >
+              </span>
+            </button>
+            <ul
+              class="regions_menu opacity-0 pointer-events-none w-[230px] absolute top-6 z-50 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out h-[250px] overflow-y-scroll"
+            >
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2"
+              >
+                EN
+              </li>
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2"
+              >
+                FR
+              </li>
+              <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li>
+
+              <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li>
+              <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li> <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li>
+            </ul>
+          </div>
+
+          <div class="all_areas relative">
+            <button
+              class="all_areas_button flex items-center text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne mr-4 lg:mr-12"
+            >
+              <span
+                class="text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+              >
+                All Areas, Countries, and Ministers
+              </span>
+
+              <span
+                class="bg-[url('./assets/img/fat-arrow-down.svg')] bg-no-repeat w-[17px] h-[10px] inline-block ml-[8px]"
+              >
+              </span>
+            </button>
+
+            <div
+              class="areas_menu opacity-0 pointer-events-none w-60 absolute top-6 z-50 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out h-[250px] overflow-y-scroll"
+            >
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-4 py-2 caret flex items-center justify-between flex-col"
+              >
+              <input type="checkbox" name="" id="btn-1" class="caret_checkbox" />
+                <label  for="btn-1" class="w-full flex justify-between items-center cursor-pointer">
+                  <span> EN </span>
+                  <span class="arrow__down">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 23 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.0462 35.3464L22.1138 21.3774C22.681 20.8142 23 20.0479 23 19.2486V17.7514C23 16.9521 22.681 16.1858 22.1138 15.6226L8.0462 1.65355C5.82591 -0.551184 2.2203 -0.551184 0 1.65355L16.9653 18.5L0 35.3464C2.2203 37.5512 5.82591 37.5512 8.0462 35.3464Z"
+                        fill="#8d959f"
+                      />
+                    </svg>
+                  </span>
+                </label>
+
+                <ul class="w-full minssionary-nested pl-4 pr-1 py-2">
+                  <li class="text-xs text-[#8d959f] cursor-pointer mb-1">
+                    Water
+                  </li>
+                  <li class="text-xs text-[#8d959f] mb-1">Coffee</li>
+                </ul>
+              </li>
+              <li
+
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-4 py-2 caret flex items-center justify-between flex-col"
+              >
+              <input type="checkbox" name="" id="btn-2"  class="caret_checkbox"/>
+                <label for="btn-2" class="w-full flex justify-between items-center cursor-pointer">
+                  <span> EN </span>
+                  <span class="arrow__down">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 23 37"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M8.0462 35.3464L22.1138 21.3774C22.681 20.8142 23 20.0479 23 19.2486V17.7514C23 16.9521 22.681 16.1858 22.1138 15.6226L8.0462 1.65355C5.82591 -0.551184 2.2203 -0.551184 0 1.65355L16.9653 18.5L0 35.3464C2.2203 37.5512 5.82591 37.5512 8.0462 35.3464Z"
+                        fill="#8d959f"
+                      />
+                    </svg>
+                  </span>
+                </label>
+
+
+                <ul class="w-full minssionary-nested pl-4 pr-1 py-2">
+                  <li class="text-xs text-[#8d959f] cursor-pointer mb-1">
+                    Water
+                  </li>
+                  <li class="text-xs text-[#8d959f] mb-1">Coffee</li>
+
+                  <li class="">
+                    <input type="checkbox" name="" id="btn-3"  class="caret_checkbox"/>
+                    <label
+                    for="btn-3"
+                      class="w-full caret text-lg text-[#8d959f] cursor-pointer mb-1 flex items-center justify-between"
+                    >
+                      <span> Tea </span>
+                      <span class="arrow__down">
+                        <svg
+                          width="10"
+                          height="10"
+                          viewBox="0 0 23 37"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M8.0462 35.3464L22.1138 21.3774C22.681 20.8142 23 20.0479 23 19.2486V17.7514C23 16.9521 22.681 16.1858 22.1138 15.6226L8.0462 1.65355C5.82591 -0.551184 2.2203 -0.551184 0 1.65355L16.9653 18.5L0 35.3464C2.2203 37.5512 5.82591 37.5512 8.0462 35.3464Z"
+                            fill="#8d959f"
+                          />
+                        </svg>
+                      </span>
+                    </label>
+                    <ul class="minssionary-nested pl-4">
+                      <li class="text-xs text-[#8d959f] mb-1">Black Tea</li>
+                      <li class="text-xs text-[#8d959f] mb-1">White Tea</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+             
+              <li
+                class="list-none text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-4 py-2"
+              >
+                FR
+              </li>
+              <li class="list-none text-lg text-[#8d959f] cursor-pointer px-4 py-2">
+                DU
+              </li>
+            </div>
+          </div>
+
+          <div class="all_sending relative">
+            <button
+              class="all_sending_button flex items-center text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+            >
+              <span
+                class="text-white text-lg lg:text-[22px] font-semibold lg:font-black font-twk-lausanne"
+              >
+                All Sending Districts
+              </span>
+              <span
+                class="bg-[url('./assets/img/fat-arrow-down.svg')] bg-no-repeat w-[17px] h-[10px] inline-block ml-[8px]"
+              >
+              </span>
+            </button>
+
+            <ul
+              class="sending_menu opacity-0 pointer-events-none w-40 absolute top-6 z-50 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2"
+              >
+                EN
+              </li>
+              <li
+                class="text-lg text-[#8d959f] border-b-[.7px] solid border-[#8d959f] cursor-pointer px-8 py-2"
+              >
+                FR
+              </li>
+              <li class="text-lg text-[#8d959f] cursor-pointer px-8 py-2">
+                DU
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- -translate-y-2/3 -->
+    <main class="w-full px-4 mb-[30px] xl:mb-[125px] 2xl:w-[1440px] 2xl:mx-auto">
+      <div
+        class="mt-6 lg:mt-8 xl:mt-[70px] xl:px-0 flex items-center justify-center md:mb-2"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
+        <h4
+          class="text-[22px] lg:text-[32px] text-[#3D3D3D] font-normal font-twk-lausanne"
+        >
+          Results: 1215 Missionaries Found
+        </h4>
+      </div>
+
+      <section
+        class="flex items-center justify-center flex-col  flex-wrap sm:flex-row gap-6 md:gap-x-5 md:gap-y-14 mt-4 sm:mt-8 xl:mt-[63px] sm:px-[70px] md:px-[40px] lg:px-[50px] xl:px-[100px] 2xl:px-[150px]"
+      >
+        <a href="#" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="1500">
+          <div
+            class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            <img
+              src="./assets/img/resources/v7n1africa.png"
+              alt="Logo"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+              Abina Jordan & Vanessa
+            </h4>
+            <p class="text-lg text-black font-light font-twk-lausanne">
+              France, Europe
+            </p>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="2000">
+          <div
+            class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            <img
+              src="./assets/img/resources/v7n2universityministries.png"
+              alt="Logo"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+              Abina Jordan & Vanessa
+            </h4>
+            <p class="text-lg text-black font-light font-twk-lausanne">
+              France, Europe
+            </p>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="3000">
+          <div
+            class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            <img
+              src="./assets/img/resources/v7n3germany.png"
+              alt="Logo"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+              Abina Jordan & Vanessa
+            </h4>
+            <p class="text-lg text-black font-light font-twk-lausanne">
+              France, Europe
+            </p>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="2000">
+          <div
+            class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            <img
+              src="./assets/img/resources/v7n2universityministries.png"
+              alt="Logo"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+              Abina Jordan & Vanessa
+            </h4>
+            <p class="text-lg text-black font-light font-twk-lausanne">
+              France, Europe
+            </p>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="2000">
+          <div
+            class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            <img
+              src="./assets/img/resources/v7n2universityministries.png"
+              alt="Logo"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+              Abina Jordan & Vanessa
+            </h4>
+            <p class="text-lg text-black font-light font-twk-lausanne">
+              France, Europe
+            </p>
+          </div>
+        </a>
+        <a href="#" target="_blank" class="w-auto" data-aos="fade-up" data-aos-duration="2000">
+          <div
+            class="w-[250px] h-[250px] lg:w-[344px] lg:h-[349px] flex items-center justify-center w-full rounded-lg mb-2 md:mb-6"
+          >
+            <img
+              src="./assets/img/resources/v7n2universityministries.png"
+              alt="Logo"
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+          <div class="flex flex-col">
+            <h4 class="text-2xl text-[#8B3C3A] font-normal font-twk-lausanne">
+              Abina Jordan & Vanessa
+            </h4>
+            <p class="text-lg text-black font-light font-twk-lausanne">
+              France, Europe
+            </p>
+          </div>
+        </a>
+      </section>
+
+
+      <div class="pagination flex justify-center items-center">
+        <ul class="w-full"> <!--pages or li are comes from javascript --> </ul>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 px-4 lg:px-[75px] mb-4 md:pb-9"
+      >
+        <div
+          class="col-span-2 flex flex-col xl:border-r solid border-[#f0f0f0] mb-8 xl:mb-0 sm:pr-4 lg:pr-6 xl:pr-10"
+        >
+          <div class="mb-4 sm:mb-7">
+            <img
+              src="./assets/img/colored-logo.svg"
+              alt="App-Logo"
+              class="h-[30px] sm:h-auto"
+            />
+          </div>
+
+          <p class="text-[#3D3D3D] font-light text-sm font-twk-lausanne">
+            1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+            Phone: 1-417-862-3420
+          </p>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6"
+          >
+            Are you called?
+          </button>
+          <p class="text-[10px] text-[#3D3D3D] font-normal">
+            © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+          </p>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Executive Office</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Privacy & Permissions</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Stories</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Photos</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Videos</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >WorldView & More</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Merchandise</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Explore </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >International Ministress</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Africa </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Europe</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Asia Pacific</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Latin America</a
+              >
+            </li>
+
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Eurasia </a>
+            </li>
+
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Northen Asia</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex lg:justify-center my-1 md:my-0">
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Strategy </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Reaching</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Planting </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Training </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Serving</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col w-full md:w-auto mx-auto my-2 sm:my-0">
+          <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+          <div class="flex items-center">
+            <div
+              class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/facebook.svg" alt="facebook" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/viemo.svg" alt="viemo" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/youtube.svg" alt="Youtube" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/insta.svg" alt="Instagram" />
+            </div>
+          </div>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </div>
+      <div class="w-full">
+        <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script type="text/javascript">
+      // Pagination
+
+      // selecting required element
+    const element = document.querySelector(".pagination ul");
+    // Number of pages
+    let totalPages = 1220;
+    // default page
+    let page = 1;
+    //calling function with passing parameters and adding inside element which is ul tag
+    element.innerHTML = createPagination(totalPages, page);
+    function createPagination(totalPages, page){
+     let liTag = '';
+     let active;
+     let beforePage = page - 1;
+     let afterPage = page + 1;
+      if(page > 1){ //show the next button if the page value is greater than 1
+        liTag += `<li class="btn prev" onclick="createPagination(totalPages, ${page - 1})"><a>Prev</a></li>`;
+      }
+    if(page > 2){ //if page value is less than 2 then add 1 after the previous button
+      liTag += `<li class="first numb" onclick="createPagination(totalPages, 1)"><a>1</a></li>`;
+      if(page > 3){ //if page value is greater than 3 then add this (...) after the first li or page
+        liTag += `<li class="dots"><a>...</a></li>`;
+      }
+    }
+    // how many pages or li show before the current li
+    if (page == totalPages) {
+      beforePage = beforePage - 2;
+    } else if (page == totalPages - 1) {
+      beforePage = beforePage - 1;
+    }
+    // how many pages or li show after the current li
+    if (page == 1) {
+      afterPage = afterPage + 2;
+    } else if (page == 2) {
+      afterPage  = afterPage + 1;
+    }
+    for (var plength = beforePage; plength <= afterPage; plength++) {
+      if (plength > totalPages) { //if plength is greater than totalPage length then continue
+        continue;
+      }
+      if (plength == 0) { //if plength is 0 than add +1 in plength value
+        plength = plength + 1;
+      }
+      if(page == plength){ //if page is equal to plength than assign active string in the active variable
+        active = "active";
+      }else{ //else leave empty to the active variable
+        active = "";
+      }
+      liTag += `<li class="numb ${active}" onclick="createPagination(totalPages, ${plength})"><a>${plength}</a></li>`;
+    }
+    if(page < totalPages - 1){ //if page value is less than totalPage value by -1 then show the last li or page
+      if(page < totalPages - 2){ //if page value is less than totalPage value by -2 then add this (...) before the last li or page
+        liTag += `<li class="dots"><a>...</a></li>`;
+      }
+      liTag += `<li class="last numb" onclick="createPagination(totalPages, ${totalPages})"><a>${totalPages}</a></li>`;
+    }
+    if (page < totalPages) { //show the next button if the page value is less than totalPage(20)
+      liTag += `<li class="btn next" onclick="createPagination(totalPages, ${page + 1})"><a>Next</a></li>`;
+    }
+    element.innerHTML = liTag; //add li tag inside ul tag
+    return liTag; //reurn the li tag
+  } 
+      AOS.init();
+      // Toggle Language menu
+      const LangMenu = document.querySelector(".dropdown-select");
+      const dropDown = document.querySelector(".dropdown-menu");
+      const listText = document.querySelector(".selected");
+      const dropDownItem = document.querySelectorAll(".item");
+
+      LangMenu.addEventListener("click", () => {
+        LangMenu.classList.toggle("active");
+        dropDown.classList.toggle("active");
+        dropDownItem.forEach((item) => {
+          if (item.innerText === listText.innerText) {
+            item.classList.add("active-lang");
+          } else {
+            item.classList.remove("active-lang");
+          }
+        });
+      });
+
+      for (item of dropDownItem) {
+        item.addEventListener("click", showItem);
+      }
+      function showItem() {
+        event.preventDefault();
+
+        listText.innerHTML = this.textContent;
+        dropDown.classList.toggle("active");
+        LangMenu.classList.toggle("active");
+      }
+
+      //  Search Icon
+      const searchBar = document.querySelector(".search__bar");
+      const searchIcon = document.querySelector(".search__icon");
+      const mySearch = document.querySelector("#my__search");
+      const clear = document.querySelector(".clear");
+
+      searchIcon.addEventListener("click", () => {
+        searchBar.classList.toggle("active");
+      });
+
+      clear.addEventListener("click", () => {
+        mySearch.value = "";
+        searchBar.classList.toggle("active");
+      });
+
+      // Find missionary menus
+      const allReggion = document.querySelector(".all_region_button");
+      const regionsMenu = document.querySelector(".regions_menu");
+      allReggion.addEventListener("click", () => {
+        regionsMenu.classList.toggle("active");
+      });
+
+      const allArea = document.querySelector(".all_areas_button");
+      const areasMenu = document.querySelector(".areas_menu");
+      allArea.addEventListener("click", () => {
+        areasMenu.classList.toggle("active");
+      });
+
+      const allSending = document.querySelector(".all_sending_button");
+      const sendingMenu = document.querySelector(".sending_menu");
+      allSending.addEventListener("click", () => {
+        sendingMenu.classList.toggle("active");
+      });
+
+      var toggler = document.getElementsByClassName("caret");
+      var arrowDown = document.getElementsByClassName("arrow__down");
+      var i;
+/*
+      for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+          
+            document.querySelector(".minssionary-nested")
+            .classList.toggle("minssionary-active");
+          this.classList.toggle("caret-down");
+
+          arrowDown.classList.add("is-this-work")
+        });
+      }
+      */
+    </script>
+  </body>
+</html>

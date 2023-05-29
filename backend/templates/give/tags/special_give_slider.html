@@ -1,0 +1,33 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% image first_give.thumbnail_image width-800 as first_give_thumbnail_image %}
+<div class="swiper-slide cursor-pointer h-[439px] rounded-lg relative">
+  <img
+    src="{{first_give_thumbnail_image.url}}"
+    alt="{{first_give.thumbnail_image_alt_text}}"
+    class="w-full"
+  />
+  <p
+    class="text-lg md:text-2xl text-white font-black px-4 font-twk-lausanne text-center absolute bottom-8 hover:underline transition duration-200"
+  >
+    {{first_give.title}}
+  </p>
+</div>
+
+{% for page in other_gives %}
+{% image page.thumbnail_image width-800 as thumbnail_image %}
+<div
+  class="swiper-slide h-[439px] cursor-pointer relative rounded-lg"
+>
+  <img
+    src="{{thumbnail_image.url}}"
+    alt="{{page.thumbnail_image_alt_text}}"
+    class="w-full"
+  />
+  <p
+    class="text-lg md:text-2xl text-white font-black px-4 font-twk-lausanne text-center absolute bottom-8 hover:underline transition duration-200"
+  >
+    {{page.title}}
+  </p>
+</div>
+{% endfor %}

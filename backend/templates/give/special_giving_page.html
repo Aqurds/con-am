@@ -1,0 +1,275 @@
+{% extends "base_black_logo.html" %}
+{% load special_give_template_tags staticfiles wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="h-auto bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center bg-unset py-[60px] lg:pt-[245px] lg:pb-[240px] pl-4 xl:pl-[485px] pr-4 sm:mx-4 lg:mx-[60px] rounded-xl"
+    >
+      <div
+        class="w-full flex justify-center flex-col"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h1
+          class="text-[18px] sm:text-[30px] xl:text-[64px] text-white font-gt-super font-normal mb-4 lg:mb-[25px]"
+        >
+          {{page.header_title_text}}
+        </h1>
+        <p class="text-white text-sm sm:text-xl xl:text-2xl xl:w-[646px] font-twk-lausanne font-extralight text-center md:text-left">
+          {{page.header_title_description}}
+        </p>
+
+        <button
+          class="text-xs md:text-lg text-black font-twk-lausanne font-semibold w-[180px] md:w-[268px] h-[40px] sm:h-[56px] rounded-full bg-white mt-4 md:mt-[38px] uppercase"
+        >
+          <a href="{{page.giving_link_url}}" target="_blank">
+            Start your gift today
+          </a>
+        </button>
+      </div>
+    </header>
+
+    <main class="w-full pt-6 lg:pt-[105px]">
+      <section
+        class="w-full flex justify-center items-center flex-col px-4 xl:px-0"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h4
+          class="text-[18px] sm:text-[24px] md:text-[32px] xl:text-[64px] text-black font-semibold lg:font-normal font-gt-super text-center mb-2 lg:mb-[45px]"
+        >
+          {{page.first_section_title}}
+        </h4>
+        <p
+          class="text-base sm:text-lg xl:text-2xl text-[#3D3D3D] font-twk-lausanne text-light text-center xl:w-[837px]"
+        >
+          {{page.first_section_content}}
+        </p>
+      </section>
+      <section
+        class="dedicated_slider swiper mySwiper2 mt-8 lg:mt-[75px] relative ml-4 xl:ml-[207px]"
+        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" data-aos="fade-up"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        {% get_gallery_items %}
+      </section>
+      <!-- Give to disaster Relief -->
+
+      <section
+        class="w-full lg:h-[436px] bg-[#D7B549] flex items-center justify-center flex-col md:flex-row py-8 px-4 lg:py-0 lg:py-0 mt-8 lg:mt-8"
+      >
+        <div
+          class="w-[250px] h-[250px] sm:w-[308px] sm:h-[308px] flex items-center justify-center bg-[#D7B549]"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          {% image page.give_section_icon_image width-400 as give_section_icon_image %}
+          <img
+            src="{{give_section_icon_image.url}}"
+            alt="{{page.give_section_icon_image_alt_text}}"
+            class="w-8/12 h-8/12"
+          />
+        </div>
+
+        <div 
+          class="md:pl-[64px] mt-4 md:pt-0 text-center md:text-left"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+          <h3
+            class="text-3xl lg:text-4xl xl:text-[48px] text-white font-gt-super font-semibold md:font-normal"
+          >
+            {{page.give_section_title}}
+          </h3>
+          <p class="text-lg lg:text-2xl font-twk-lausanne text-normal text-white my-3 md:my-6">
+            {{page.give_section_content}}
+          </p>
+          <button
+            class="w-[175px] h-[56px] bg-white rounded-full text-lg text-[#D7B549] font-twk-lausanne font-medium uppercase"
+          >
+            <a href="{{page.giving_link_url}}" target="_blank">
+              Give now
+            </a>
+          </button>
+        </div>
+      </section>
+
+      <section
+        class="w-full flex justify-center items-center flex-col pt-[30px] lg:pt-[195px] px-4 xl:px-0 mb-[30px] mb-[30px] md:mb-[80px] lg:mb-[255px]"
+      >
+        <h4
+          class="text-[18px] sm:text-[24px] md:text-[32px] xl:text-[64px] text-black font-twk-lausanne font-semibold lg:font-normal text-center lg:mb-[45px]"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          {{page.second_section_title}}
+        </h4>
+          <div
+            class="text-base sm:text-lg xl:text-2xl text-[#3D3D3D] font-twk-lausanne text-light text-center xl:w-[880px]"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            data-aos-delay="100"
+          >
+            {{page.second_section_content|richtext}}
+        </div>
+      </section>
+
+      <!-- Give to disaster Relief -->
+
+      <section
+        class="w-full lg:h-[436px] bg-[#D7B549] flex items-center justify-center flex-col md:flex-row py-8 px-4 lg:py-0 lg:py-0 mb-[80px] lg:mb-[118px]"
+      >
+        <div
+          class="w-[250px] h-[250px] sm:w-[308px] sm:h-[308px] flex items-center justify-center bg-[#D7B549]"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          {% image page.give_section_icon_image width-400 as give_section_icon_image %}
+          <img
+            src="{{give_section_icon_image.url}}"
+            alt="{{page.give_section_icon_image_alt_text}}"
+            class="w-8/12 h-8/12"
+          />
+        </div>
+
+        <div 
+          class="md:pl-[64px] mt-4 md:pt-0 text-center md:text-left"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+          <h3
+            class="text-3xl lg:text-4xl xl:text-[48px] text-white font-gt-super font-semibold md:font-normal"
+          >
+            {{page.give_section_title}}
+          </h3>
+          <p class="text-lg lg:text-2xl font-twk-lausanne text-normal text-white my-3 md:my-6">
+            {{page.give_section_content}}
+          </p>
+          <button
+            class="w-[175px] h-[56px] bg-white rounded-full text-lg text-[#D7B549] font-twk-lausanne font-medium uppercase"
+          >
+            <a href="{{page.giving_link_url}}" target="_blank">
+              Give now
+            </a>
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Video -->
+    {% get_video_items as videos %}
+    {% for item in videos %}
+    <div
+      id="dedicatedModal-{{item.id}}"
+      class="hidden pointer-events-none transition-all z-50 duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg dedicatedModal"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div class="scale_1 w-full h-full flex items-center justify-center">
+        <iframe
+          class="hero-video w-[1150px] h-[580px] rounded-md"
+          src="{{item.video_url}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button
+        id="closeopenDedicatedModal-{{item.id}}"
+        class="absolute top-3 right-3 w-16 h-16"
+      >
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 56 56"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+    {% endfor %}
+    {% endblock %}
+    {% block javascript %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript">
+      var swiper = new Swiper(".mySwiper", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          // hide: true,
+        },
+        // spaceBetween: 10,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+          // when window width is >= 320px
+          300: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          // when window width is >= 480px
+
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1192: {
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+          },
+          1300: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+        },
+      });
+      var swiper2 = new Swiper(".mySwiper2", {
+        spaceBetween: 10,
+        slidesPerView: 1,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+
+      // VideosPage
+      const videos = document.querySelectorAll(".videos");
+      const idArray = []
+      videos.forEach((video) => {
+        idArray.push(video.id.split("-")[1])
+      })
+
+      idArray.forEach((id) => {
+        const showDedicatedBtn = document.getElementById("showDedicatedBtn-"+id);
+        const dedicatedModal = document.getElementById("dedicatedModal-"+id);
+        const closeopenDedicatedModal = document.getElementById(
+          "closeopenDedicatedModal-"+id
+        );
+        showDedicatedBtn.addEventListener("click", () => {
+        dedicatedModal.classList.add("show");
+        });
+
+        //Close VideosModal
+        closeopenDedicatedModal.addEventListener("click", () => {
+          dedicatedModal.classList.remove("show");
+        });
+      })
+
+    </script>
+    {% endblock %}

@@ -1,0 +1,1141 @@
+{% extends "base.html" %}
+{% load staticfiles explore_ways_to_serve_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}  
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="pt-[70px] h-full px-4 md:px-[83px] pb-[150px] md:pb-[180px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div 
+        class="flex flex-col justify-center items-center md:pt-[115px]"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <div
+          class="explore_headers hidden flex-col justify-center items-center w-full text-center"
+        >
+          <h2
+            class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal"
+          >
+            {{page.short_term_header_title}}
+          </h2>
+          <!-- <p
+            class="text-[18px] md:text-[28px] xl:text-[32px] text-white font-twk-lausanne font-thin"
+          >
+
+          </p> -->
+        </div>
+
+        <div
+          class="explore_headers hidden flex-col justify-center items-center w-full text-center"
+        >
+          <h2
+            class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal"
+          >
+            {{page.one_to_two_year_header_title}}
+          </h2>
+          <p
+            class="text-[18px] md:text-[28px] xl:text-[32px] text-white font-twk-lausanne font-thin"
+          >
+            {{page.one_to_two_year_header_content}}
+          </p>
+        </div>
+
+        <div
+          class="explore_headers hidden flex-col justify-center items-center w-full text-center"
+        >
+          <h2
+            class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal"
+          >
+            {{page.career_header_title}}
+          </h2>
+          <p
+            class="text-[18px] md:text-[28px] xl:text-[32px] text-white font-twk-lausanne font-thin"
+          >
+            {{page.career_header_content}}
+          </p>
+        </div>
+
+        <div class="mt-[30px] md:mt-[60px] w-auto">
+          <ul
+            class="w-full md:w-auto tabs explore_ways-tabs flex items-center justify-between md:justify-center flex-wrap md:flex-row"
+          >
+            <li
+              id="short-term"
+              class="list-none text-sm sm:text-lg lg:text-[36px] text-white opacity-[57%] font-bold font-twk-lausanne mr-8 md:mr-[75px] cursor-pointer pb-6 lg:pb-12"
+            >
+              {{ page.header_tab_short_term_text }}
+            </li>
+            <li
+              id="oneToTwoyear"
+              class="text-sm sm:text-lg lg:text-[36px] text-white opacity-[57%] font-bold font-twk-lausanne list-none mr-8 md:mr-[75px] cursor-pointer pb-6 lg:pb-12"
+            >
+              {{ page.header_tab_one_to_two_year_text }}
+            </li>
+            <li
+              id="career"
+              class="text-sm sm:text-lg lg:text-[36px] text-[#aaabab] font-bold list-none cursor-pointer pb-6 lg:pb-12"
+            >
+              {{ page.header_tab_career_text }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full -translate-y-[105px] 2xl:w-[1400px] 2xl:mx-auto">
+      <div class="content_wrapper w-full">
+        <!-- PARENT TABS -->
+        <!-- TAB ONE -->
+        <div class="w-full explore_tabs hidden flex-col" id="shortTerm">
+          <div
+            class="w-full flex flex-col justify-center items-center bg-[#627CA1] py-8 md:py-[50px] xl:pt-[60px] xl:pb-[75px]"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            data-aos-delay="50"
+          >
+            <h3
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal pb-6 xl:pb-[40px]"
+            >
+              {{page.short_term_section_title}}
+            </h3>
+            <ul class="short_term-tabs flex items-center px-2 sm:px-0">
+              <li
+                class="flex flex-col justify-center items-center mr-2 sm:mr-4 xl:mr-[55px] cursor-pointer"
+              >
+                <strong
+                  class="text-white font-twk-lausanne text-[11px] sm:text-base md:text-lg"
+                >
+                  {{page.short_term_first_tab_title}}
+                </strong>
+                <span
+                  class="text-[10px] lg:text-lg font-twk-lausanne font-thin text-white my-1"
+                  >{{page.short_term_first_tab_bottom_text}}</span
+                >
+              </li>
+
+              <li
+                class="flex flex-col justify-center items-center mr-2 sm:mr-4 xl:mr-[55px] cursor-pointer"
+              >
+                <strong
+                  class="text-white font-twk-lausanne text-[11px] sm:text-base md:text-lg"
+                >
+                  {{page.short_term_second_tab_title}}
+                </strong>
+                <span
+                  class="text-[10px] lg:text-lg font-twk-lausanne font-thin text-white my-1"
+                  >{{page.short_term_second_tab_bottom_text}}
+                </span>
+              </li>
+              <li
+                class="flex flex-col justify-center items-center mr-2 sm:mr-4 xl:mr-[55px] cursor-pointer"
+              >
+                <strong
+                  class="text-white font-twk-lausanne text-[11px] sm:text-base md:text-lg"
+                >
+                  {{page.short_term_third_tab_title}}
+                </strong>
+                <span
+                  class="text-[10px] lg:text-lg font-twk-lausanne font-thin text-white my-1"
+                >
+                  {{page.short_term_third_tab_bottom_text}}
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="w-full explore_short-term hidden flex-col">
+            <section
+              class="p-4 xl:px-[200px] xl:pt-[105px] flex flex-col justify-center items-start"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
+              <h2
+                class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal"
+              >
+                {{page.short_term_first_tab_first_section_title}}
+              </h2>
+              <p
+                class="text-lg sm:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] pt-2.5"
+              >
+                {{page.short_term_first_tab_first_section_content}}
+              </p>
+            </section>
+
+            <section
+              class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[30px] md:mt-[95px] px-4 xl:px-[95px]"
+            >
+              {% image page.short_term_first_image width-1200 as short_term_first_image %}
+              <div
+                class="bg-[url({{short_term_first_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+                >
+                  {{page.short_term_first_image_text}}
+                </p>
+              </div>
+              {% image page.short_term_second_image width-1200 as short_term_second_image %}
+              <div
+                class="bg-[url({{short_term_second_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="100"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+                >
+                  {{page.short_term_second_image_text}}
+                </p>
+              </div>
+              {% image page.short_term_third_image width-1200 as short_term_third_image %}
+              <div
+                class="bg-[url({{short_term_third_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="200"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+                >
+                  {{page.short_term_third_image_text}}
+                </p>
+              </div>
+            </section>
+
+            <section
+              class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[120px] px-4 xl:px-[75px]"
+            >
+              {% image page.short_term_first_tab_qualifications_image width-1200 as short_term_first_tab_qualifications_image%}
+              <div
+                class="h-[350px] lg:h-[567px] bg-[url({{short_term_first_tab_qualifications_image.url}})] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              ></div>
+              <div
+                class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3"
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              >
+                <h2
+                  class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]"
+                >
+                  {{page.short_term_first_tab_qualifications_section_title}}
+                </h2>
+                {% get_qualifications "short-term" "first_section" %}
+              </div>
+            </section>
+
+            <section class="text-center mt-[30px] xl:mt-[150px]">
+              <h2
+                class="text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 lg:mb-[98px]"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+              >
+                {{page.short_term_opportunity_section_title}}
+              </h2>
+              <div
+              class="grid grid-cols-1 md:grid-cols-2 bg-[#E5E5E5] pt-[30px] xl:pt-[85px] pb-[30px] px-6 xl:px-[100px] 2xl:px-[150px] gap-[80px]"
+              >
+              <div
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              >
+                  {% image page.first_opportunity_image width-1200 as first_opportunity_image%}
+                  <div class="h-[350px] md:h-[400px] lg:h-[567px]">
+                    <img
+                      src="{{first_opportunity_image.url}}"
+                      class="rounded-xl w-full h-full object-contain"
+                      alt="{{page.first_opportunity_image_alt_text}}"
+                    />
+                  </div>
+                  <h3
+                    class="text-[24px] md:text-[36px] xl:text-[48px] text-black font-gt-super font-normal mt-[15px] text-left"
+                  >
+                    {{page.first_opportunity_title}}
+                  </h3>
+                  <p
+                    class="text-lg md:text-xl xl:text-2xl font-twk-lausanne font-normal text-[#3D3D3D] mt-2 md:mt-[15px] text-left"
+                  >
+                    {{page.first_opportunity_content}}
+                  </p>
+                  <a 
+                    class="flex items-center justify-center w-[250px] md:w-[329px] h-[56px] flex items-center justify-center border-2 solid border-[#8A4D32] text-sm md:text-base lg:text-lg font-medium text-[#8B3C3B] font-twk-lausanne uppercase rounded-full mt-3 md:mt-[35px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out"
+                    href="{{page.first_opportunity_button_url}}" 
+                    target="_blank"
+                  >
+                    {{ page.begin_application_button_text }}
+                  </a>
+                </div>
+
+                <div
+                  data-aos="fade-right"
+                  data-aos-easing="linear"
+                  data-aos-duration="1500"
+                >
+                  <div class="h-[350px] md:h-[400px] lg:h-[567px]">
+                    {% image page.second_opportunity_image width-1200 as second_opportunity_image%}
+                    <img
+                      src="{{second_opportunity_image.url}}"
+                      class="rounded-xl w-full h-full object-contain"
+                      alt="{{page.second_opportunity_image_alt_text}}"
+                    />
+                  </div>
+                  <h3
+                    class="text-[24px] md:text-[36px] xl:text-[48px] text-black font-gt-super font-normal mt-[15px] text-left"
+                  >
+                    {{page.second_opportunity_title}}
+                  </h3>
+                  <div
+                    class="text-lg md:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] mt-2 md:mt-[15px] text-left"
+                  >
+                    {{page.second_opportunity_content|richtext}}
+                  </div>
+                  <a
+                  class="flex items-center justify-center w-[250px] md:w-[329px] h-[56px] flex items-center justify-center border-2 solid border-[#8A4D32] text-sm md:text-base lg:text-lg font-medium text-[#8B3C3B] font-twk-lausanne uppercase rounded-full mt-3 md:mt-[35px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out"
+                  href="mailto:mapsteams@ag.org"
+                  >
+                    {{ page.email_mapstreams_button_text|email_for_button }}
+                  </a>                  
+                </div>
+              </div>
+            </section>
+
+            <section
+              class="flex flex-col justify-center items-center text-center mt-[50px] px-4 lg:px-[100px] xl:px-[260px] mt-[30px] md:mt-[60px] xl:mt-[155px]"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
+              <h2
+                class="text-[22px] sm:text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-4 xl:mb-[27px]"
+              >
+                {{page.last_section_title}}
+              </h2>
+              <div
+                class="text-lg lg:text-2xl font-twk-lausanne font-light text-[#3D3D3D] lg:px-[100px]"
+              >
+                {{page.last_section_first_content|richtext}}
+              </div>
+              <button
+                class="w-full md:w-[320px] h-[56px] flex items-center justify-center border-2 solid border-[#8A4D32] text-base lg:text-xl font-medium text-[#8B3C3B] rounded-full my-[35px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out"
+              >
+                <a href="{{page.last_section_button_url}}" target="_blank">
+                  {{ page.last_section_button_text }}
+                </a>
+              </button>
+              <div
+                class="text-lg lg:text-2xl font-twk-lausanne font-light text-[#3D3D3D] lg:px-[100px]"
+              >
+                {{page.last_section_second_content|richtext}}
+              </div>
+            </section>
+          </div>
+          <div class="w-full explore_short-term hidden flex-col">
+            <section
+              class="p-4 xl:px-[200px] xl:pt-[105px] flex flex-col justify-center items-start"
+              data-aos="fade-up"
+              data-aos-duration="3000"
+            >
+              <h2
+                class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal"
+              >
+                {{page.short_term_second_tab_first_section_title}}
+              </h2>
+              <div
+                class="text-lg sm:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] pt-2.5"
+              >
+                {{page.short_term_second_tab_first_section_content|richtext}}
+              </div>
+            </section>
+
+            <section
+              class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-4 md:mt-[60px] lg:mt-[90px] px-4 xl:px-[95px]"
+            >
+              {% image page.short_term_first_image width-1200 as short_term_first_image %}
+              {% image page.short_term_second_image width-1200 as short_term_second_image %}
+              {% image page.short_term_third_image width-1200 as short_term_third_image %}
+              <div
+                class="bg-[url({{short_term_first_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+                >
+                  {{page.short_term_first_image_text}}
+                </p>
+              </div>
+              <div
+                class="bg-[url({{short_term_second_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="100"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+                >
+                  {{page.short_term_second_image_text}}
+                </p>
+              </div>
+              <div
+                class="bg-[url({{short_term_third_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="200"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+                >
+                  {{page.short_term_third_image_text}}
+                </p>
+              </div>
+            </section>
+
+            <section
+              class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[120px] px-4 xl:px-[75px]"
+            >
+              {% image page.short_term_second_tab_qualifications_image width-1200 as short_term_second_tab_qualifications_image %}
+              <div
+                class="h-[350px] lg:h-[567px] bg-[url({{short_term_second_tab_qualifications_image.url}})] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              ></div>
+              <div
+                class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3"
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              >
+                <h2
+                  class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]"
+                >
+                  {{page.short_term_second_tab_qualifications_section_title}}
+                </h2>
+                {% get_qualifications "short-term" "second_section" %}
+              </div>
+            </section>
+            {% image page.short_term_second_tab_last_section_background_image width-1200 as short_term_second_tab_last_section_background_image %}
+            <section
+              class="mx-4 xl:mx-auto xl:w-[calc(100%-150px)] h-[325px] mg:h-[400px] xl:h-[542px] mt-6 lg:mt-[105px] bg-[url({{short_term_second_tab_last_section_background_image.url}})] bg-center bg-cover bg-no-repeat flex items-center justify-start flex-col rounded-2xl text-center px-4 sm:px-0"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <h3
+                class="text-[30px] xl:text-[64px] text-white font-normal font-gt-super mb-4 pt-8 lg:pt-[50px] lg:mb-[70px] text-center"
+              >
+                {{page.short_term_second_tab_last_section_title}}
+              </h3>
+              <div
+                class="text-lg lg:text-2xl text-white font-twk-lausanne font-normal text-left w-full lg:w-[calc(100%-350px)]"
+              >
+                {{page.short_term_second_tab_last_section_content|richtext}}
+              </div>
+              <button
+                class="h-[45px] md:h-[56px] px-4 rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase font-twk-lausanne font-medium mt-6 lg:mt-12"
+              >
+                <a href="mailto:{{page.short_term_second_tab_email}}">
+                  {{ page.short_term_second_tab_email|email_for_button }}
+                </a>
+              </button>
+            </section>
+          </div>
+          <div class="w-full explore_short-term hidden flex-col">
+            <section
+              class="p-4 xl:px-[200px] xl:pt-[105px] flex flex-col justify-center items-start"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <h2
+                class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal"
+              >
+                {{page.short_term_third_tab_first_section_title}}
+              </h2>
+              <p
+                class="text-lg sm:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] pt-2.5"
+              >
+                {{page.short_term_third_tab_first_section_content}}
+              </p>
+            </section>
+
+            <section
+              class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[70px] px-4 xl:px-[75px]"
+            >
+              {% image page.short_term_third_tab_qualifications_image width-1200 as short_term_third_tab_qualifications_image %}
+              <div
+                class="h-[350px] lg:h-[567px] bg-[url({{short_term_third_tab_qualifications_image.url}})] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              ></div>
+              <div
+                class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3"
+                data-aos="fade-right"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+              >
+                <h2
+                  class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]"
+                >
+                  {{page.short_term_third_tab_qualifications_section_title}}
+                </h2>
+                {% get_qualifications "short-term" "third_section" %}
+              </div>
+            </section>
+
+            <section
+              class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[120px] px-4 xl:px-[95px]"
+            >
+              {% image page.short_term_first_image width-1200 as short_term_first_image %}
+              {% image page.short_term_second_image width-1200 as short_term_second_image %}
+              {% image page.short_term_third_image width-1200 as short_term_third_image %}
+              <div
+                class="bg-[url({{short_term_first_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="100"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5"
+                >
+                  {{page.short_term_first_image_text}}
+                </p>
+              </div>
+              <div
+                class="bg-[url({{short_term_second_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="150"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5"
+                >
+                  {{page.short_term_second_image_text}}
+                </p>
+              </div>
+              <div
+                class="bg-[url({{short_term_third_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+                data-aos="fade-left"
+                data-aos-easing="linear"
+                data-aos-duration="1500"
+                data-aos-delay="200"
+              >
+                <p
+                  class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5"
+                >
+                  {{page.short_term_third_image_text}}
+                </p>
+              </div>
+            </section>
+            {% image page.short_term_third_tab_last_section_background_image width-1200 as short_term_third_tab_last_section_background_image %}
+            <section
+              class="w-ufll mx-4 xl:mx-auto xl:w-[calc(100%-150px)] h-[425px] mg:h-[400px] xl:h-[542px] mt-6 lg:mt-[105px] bg-[url({{short_term_third_tab_last_section_background_image.url}})] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col rounded-2xl text-center px-4 sm:px-6"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              <h3
+                class="text-[36px] sm:text-[48px] lg:text-[64px] text-white font-normal font-gt-super lg:leading-[75px] mb-2 md:mb-[25px]"
+              >
+                {{page.short_term_third_tab_last_section_title}}
+              </h3>
+              <p
+                class="text-lg lg:text-4xl text-white font-twk-lausanne font-thin text-center w-full"
+              >
+                {{page.short_term_third_tab_last_section_content}}
+              </p>
+              <div
+                class="w-full flex items-center justify-center flex-col md:flex-row"
+                data-aos="fade-up"
+                data-aos-duration="3000"
+              >
+                <button
+                  class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12"
+                >
+                  <a href="{{short_term_third_tab_first_button_url}}" target="_blank">
+                    {{ page.one_to_two_year_last_section_first_button_text }}
+                  </a>
+                </button>
+                <button
+                  class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase font-twk-lausanne font-medium mt-6 lg:mt-12"
+                >
+                  <a href="{{short_term_third_tab_second_button_url}}" target="_blank">
+                    {{ page.one_to_two_year_last_section_second_button_text }}
+                  </a>
+                </button>
+                <button
+                  class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12"
+                >
+                  <a href="{{short_term_third_tab_third_button_url}}" target="_blank">
+                    {{ page.one_to_two_year_last_section_third_button_text }}
+                  </a>
+                </button>
+              </div>
+            </section>
+          </div>
+        </div>
+        <!-- TAB TWO -->
+        <div class="explore_tabs hidden flex-wrap text-4xl text-white" >
+          <div
+            class="w-full flex flex-col justify-center items-center bg-[#8B3C3B] pt-8 pb-16 lg:pt-[85px] lg:pb-[200px] px-4 md:px-16 xl:px-[100px]"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super md:leading-[74px] font-normal xl:pl-[204px] mb-1 sm:mb-4 xl:mb-[45px] text-center md:text-left"
+            >
+              {{page.one_to_two_year_first_section_title}}
+            </h3>
+
+            <div
+              class="text-sm sm:text-lg md:text-2xl xl:leading-10 font-twk-lausanne font-thin text-white text-center md:text-left xl:pl-[302px] xl:pr-[100px]"
+            >
+              {{page.one_to_two_year_first_section_content|richtext}}
+            </div>
+          </div>
+
+          <div
+            class="swiper -mt-[30px] md:-mt-[50px] lg:-mt-[105px] one_year-career-videos mb-6 md:mb-12 mx-4"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <!-- Additional required wrapper -->
+            {% get_gallery "1_2_year" %}
+          </div>
+
+          <div
+            class="flex justify-center items-center flex-col px-4 lg:px-[277px]"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <button
+              class="text-lg text-white font-semibold font-twk-lausanne bg-[#3D3D3D] rounded-full border-2 solid border-[#3D3D3D] px-[75px] py-4 uppercase mb-[30px] sm:mb-[60px] lg:mb-[90px] xl:mb-[120px]"
+            >
+              {{ page.one_to_two_year_start_today_button_text }}
+            </button>
+            <h2
+              class="text-[28px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-4 md:mb-[60px]"
+            >
+              {{page.one_to_two_year_second_section_title}}
+            </h2>
+            <div
+              class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin text-center"
+            >
+              {{page.one_to_two_year_second_section_content|richtext}}
+            </div>
+          </div>
+          <section
+            class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[30px] md:mt-[95px] px-4 xl:px-[85px]"
+          >
+            {% image page.one_to_two_year_image_section_first_image width-1200 as one_to_two_year_image_section_first_image %}
+            {% image page.one_to_two_year_image_section_second_image width-1200 as one_to_two_year_image_section_second_image %}
+            {% image page.one_to_two_year_image_section_third_image width-1200 as one_to_two_year_image_section_third_image %}
+            <div
+              class="bg-[url({{one_to_two_year_image_section_first_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-left"
+              data-aos-easing="linear"
+              data-aos-duration="1000"
+            >
+              <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+              <p
+                class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+              >
+                {{page.one_to_two_year_image_section_first_image_text}}
+              </p>
+            </div>
+            <div
+              class="bg-[url({{one_to_two_year_image_section_second_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-left"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+            >
+              <p
+                class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+              >
+                {{page.one_to_two_year_image_section_second_image_text}}
+              </p>
+            </div>
+            <div
+              class="bg-[url({{one_to_two_year_image_section_third_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-left"
+              data-aos-easing="linear"
+              data-aos-duration="2000"
+            >
+              <p
+                class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+              >
+                {{page.one_to_two_year_image_section_third_image_text}}
+              </p>
+            </div>
+          </section>
+
+          <section 
+            class="mt-8 md:mt-[125px] px-4 xl:pl-[245px]"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h2
+              class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[60px]"
+            >
+              {{page.one_to_two_year_application_section_title}}
+            </h2>
+            {% get_application_processes "1-2-year" %}
+            <button
+              class="text-lg text-[#8B3C3B] font-twk-lausanne font-medium uppercase border-2 solid border-[#8A4D32] py-2 px-[60px] rounded-full lg:ml-[145px] mt-[30px] lg:mt-[50px] xl:mt-[67px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out"
+            >
+              {{ page.one_to_two_year_apply_now_button_text }}
+            </button>
+          </section>
+          <section
+            class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[87px] px-4 xl:px-[75px]"
+          >
+            {% image page.one_to_two_year_qualifications_image width-1200 as one_to_two_year_qualifications_image %}
+            <div
+              class="h-[350px] lg:h-[567px] bg-[url({{one_to_two_year_qualifications_image.url}})] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+              data-aos="fade-left"
+              data-aos-easing="linear"
+              data-aos-duration="1500"
+            ></div>
+
+            <div
+              class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3 px-6"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
+              <h2
+                class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]"
+              >
+                {{page.one_to_two_year_qualifications_section_title}}
+              </h2>
+              {% get_qualifications "1-2-year" "" %}
+
+              <button
+                class="text-sm md:text-lg text-white font-twk-lausanne font-normal w-full md:w-[329px] h-[45px] md:h-[56px] border-2 solid border-[#8A4D32] rounded-full mt-6 md:mt-[45px] bg-[#8B3C3B] uppercase"
+              >
+                <a href="{{page.one_to_two_year_qualifications_button_url}}" target="_blank">
+                  {{page.one_to_two_year_qualifications_button_text}}
+                </a>
+              </button>
+            </div>
+          </section>
+          {% image page.one_to_two_year_last_section_background_image width-1200 as one_to_two_year_last_section_background_image %}
+          <section
+            class="mx-4 xl:mx-auto w-full lg:w-[calc(100%-150px)] h-[425px] mg:h-[400px] xl:h-[542px] mt-6 lg:mt-[105px] bg-[url({{one_to_two_year_last_section_background_image.url}})] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col rounded-2xl text-center px-4 sm:px-0"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[36px] sm:text-[48px] lg:text-[64px] text-white font-normal font-gt-super lg:leading-[75px] mb-2 md:mb-[25px]"
+            >
+              {{page.one_to_two_year_last_section_title}}
+            </h3>
+            <p
+              class="text-lg lg:text-4xl text-white font-twk-lausanne font-thin text-center w-full"
+            >
+              {{page.one_to_two_year_last_section_content}}
+            </p>
+            <div
+              class="w-full flex items-center justify-center flex-col md:flex-row"
+            >
+              <button
+                class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12"
+              >
+                <a href="{{one_to_two_year_last_section_first_button_url}}" target="_blank">
+                  {{ page.one_to_two_year_last_section_first_button_text }}
+                </a>
+              </button>
+              <button
+                class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12"
+              >
+                <a href="{{one_to_two_year_last_section_second_button_url}}" target="_blank">
+                  {{ page.one_to_two_year_last_section_second_button_text }}
+                </a>
+              </button>
+              <button
+                class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12"
+              >
+                <a href="{{one_to_two_year_last_section_third_button_url}}" target="_blank">
+                  {{ page.one_to_two_year_last_section_third_button_text }}
+                </a>
+              </button>
+            </div>
+          </section>
+        </div>
+        <!-- TAB THREE -->
+        <div class="explore_tabs hidden flex-wrap text-4xl text-white">
+          <div
+            class="w-full flex flex-col justify-center items-start bg-[#9162A1] py-12 lg:pt-[85px] lg:pb-[200px] px-4 xl:pl-[154px] xl:pr-[154px] 2xl:pl-[254px] 2xl:pr-[154px]"
+          >
+            <h3
+              class="w-full text-[24px] sm:text-[32px] md:text-[48px] xl:text-[64px] text-white font-gt-super md:leading-[74px] font-normal mb-1 sm:mb-4 xl:mb-[45px] text-center md:text-left"
+            >
+              {{page.career_first_section_title}}
+            </h3>
+
+            <div
+              class="text-base sm:text-lg md:text-2xl font-twk-lausanne font-thin text-white md:px-8 xl:pl-[100px] xl:pr-[200px] text-center md:text-left"
+            >
+              {{page.career_first_section_content|richtext}}
+            </div>
+          </div>
+
+          <div
+            class="swiper -translate-y-[10px] md:-translate-y-[50px] lg:-translate-y-[105px] one_year-career-videos"
+          >
+            <!-- Additional required wrapper -->
+            {% comment %} Update this {% endcomment %}
+
+              <!-- Slides -->
+              {% get_gallery "career" %}
+          </div>
+
+          <div
+            class="flex justify-center items-center flex-col px-4 lg:px-[277px]"
+          >
+            <h2
+              class="text-[28px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[60px]"
+            >
+              {{page.career_second_section_title}}
+            </h2>
+            <div
+              class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin text-center"
+            >
+              {{page.career_second_section_content|richtext}}
+            </div>
+          </div>
+          <section
+            class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[30px] md:mt-[95px] px-4 xl:px-[85px]"
+          >
+            {% image page.career_image_section_first_image width-1200 as career_image_section_first_image %}
+            {% image page.career_image_section_second_image width-1200 as career_image_section_second_image %}
+            {% image page.career_image_section_third_image width-1200 as career_image_section_third_image %}
+            <div
+              class="bg-[url({{career_image_section_first_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+            >
+              <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+              <p
+                class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+              >
+                {{page.career_image_section_first_image_text}}
+              </p>
+            </div>
+            <div
+              class="bg-[url({{career_image_section_second_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+            >
+              <p
+                class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+              >
+                {{page.career_image_section_second_image_text}}
+              </p>
+            </div>
+            <div
+              class="bg-[url({{career_image_section_third_image.url}})] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url({% static 'img/card-footer.svg' %})] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+            >
+              <p
+                class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50"
+              >
+                {{page.career_image_section_third_image_text}}
+              </p>
+            </div>
+          </section>
+
+          <section class="mt-8 md:mt-[125px] px-4 xl:pl-[245px]">
+            <h2
+              class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[60px]"
+            >
+              {{page.career_application_section_title}}
+            </h2>
+            {% get_application_processes "" %}
+            <button
+              class="text-lg text-[#8B3C3B] font-twk-lausanne font-medium uppercase border-2 solid border-[#8A4D32] py-2 px-[60px] rounded-full lg:ml-[145px] mt-[30px] lg:mt-[50px] xl:mt-[67px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out"
+            >
+              <a href="{{page.career_apply_now_button_url}}" target="_blank">{{ page.career_apply_now_button_text }}</a>
+            </button>
+          </section>
+          <section
+            class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[87px] px-4 xl:px-[75px]"
+          >
+            {% image page.career_qualifications_image width-1200 as career_qualifications_image %}
+            <div
+              class="h-[350px] md:h-[400px] lg:h-[567px] bg-[url({{career_qualifications_image.url}})] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+            ></div>
+
+            <div class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3 px-6">
+              <h2
+                class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]"
+              >
+                {{page.career_qualifications_section_title}}
+              </h2>
+              {% get_qualifications "" "" %}
+              <button
+                class="text-base md:text-lg text-white font-twk-lausanne font-normal w-full md:w-[329px] h-[45px] md:h-[56px] border-2 solid border-[#8A4D32] rounded-full mt-[45px] bg-[#8B3C3B] uppercase"
+              >
+                <a href="{{page.career_qualifications_button_url}}" target="_blank">
+                  {{ page.career_qualifications_button_text }}
+                </a>
+              </button>
+            </div>
+          </section>
+          {% image page.career_last_section_background_image width-1200 as career_last_section_background_image%}
+          <section
+            class="mx-4 xl:mx-auto xl:w-[calc(100%-150px)] h-[425px] mg:h-[400px] xl:h-[542px] mt-[30px] lg:mt-[105px] bg-[url({{career_last_section_background_image.url}})] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col rounded-2xl text-center px-4 sm:px-0"
+          >
+            <h3
+              class="sm:text-[30px] md:text-[48px] text-white font-normal font-gt-super lg:leading-[75px] mb-[25px]"
+            >
+              {{page.career_last_section_title}}
+            </h3>
+            <button
+              class="h-[45px] md:h-[56px] w-[268px] rounded-full text-base lg:text-lg bg-white text-black uppercase font-twk-lausanne font-medium mt-6 lg:mt-10"
+            >
+              <a href="{{page.career_last_section_button_url}}" target="_blank" id="startJourney">
+                {{page.career_last_section_button_text}}
+              </a>  
+            </button>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    {% get_video_items "1_2_year" as one_to_two_year_videos %}
+    {% for video in one_to_two_year_videos %}
+    <div
+      id="dedicatedModal-1_2_year-{{video.id}}"
+      class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg dedicatedModal"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div class="scale_1 w-full h-full flex items-center justify-center">
+        <iframe
+          class="hero-video w-[1150px] h-[580px] rounded-md"
+          src="{{video.video_url}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button
+        id="closeopenDedicatedModal-1_2_year-{{video.id}}"
+        class="absolute top-3 right-3 w-16 h-16"
+      >
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 56 56"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+    {% endfor %}
+
+    {% get_video_items "career" as career_videos %}
+    {% for video in career_videos %}
+    <div
+      id="dedicatedModal-career-{{video.id}}"
+      class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg dedicatedModal"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div class="scale_1 w-full h-full flex items-center justify-center">
+        <iframe
+          class="hero-video w-[1150px] h-[580px] rounded-md"
+          src="{{video.video_url}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button
+        id="closeopenDedicatedModal-career-{{video.id}}"
+        class="absolute top-3 right-3 w-16 h-16"
+      >
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 56 56"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+    {% endfor %}
+    {% endblock %}
+    {% block javascript %}
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <!-- JsCode -->
+    <script type="text/javascript">
+      // getting URL from go page
+      const getUrl = window.location.href.split("/");
+      const getUrlParts = getUrl[getUrl.length - 1];
+
+      // VideosPage
+      const showVideosBtn = document.querySelectorAll("#showVideos");
+      const videosModal = document.getElementById("videosModal");
+      const closeopenVideosModal = document.getElementById(
+        "closeopenVideosModal"
+      );
+      
+      // 1-2-year gallery
+      const one_two_year_gallery_items = document.querySelectorAll(".gallery-button-1_2_year");
+      const oneTwoYearidArray = []
+      one_two_year_gallery_items.forEach((item) => {
+        oneTwoYearidArray.push(item.id.split("-")[2])
+      })
+      oneTwoYearidArray.forEach((id) => {
+        const showDedicatedBtn = document.getElementById("showDedicatedBtn-1_2_year-"+id);
+        const dedicatedModal = document.getElementById("dedicatedModal-1_2_year-"+id);
+        const closeopenDedicatedModal = document.getElementById(
+          "closeopenDedicatedModal-1_2_year-"+id
+        );
+        showDedicatedBtn.addEventListener("click", () => {
+          dedicatedModal.classList.add("show");
+        });
+        // Close VideosModal
+        closeopenDedicatedModal.addEventListener("click", () => {
+          dedicatedModal.classList.remove("show");
+        });
+      })
+
+      // career gallery
+      const career_gallery_items = document.querySelectorAll(".gallery-button-career");
+      const careerIdArray = []
+      career_gallery_items.forEach((item) => {
+        careerIdArray.push(item.id.split("-")[2])
+      })
+      careerIdArray.forEach((id) => {
+        const showDedicatedBtn = document.getElementById("showDedicatedBtn-career-"+id);
+        const dedicatedModal = document.getElementById("dedicatedModal-career-"+id);
+        const closeopenDedicatedModal = document.getElementById(
+          "closeopenDedicatedModal-career-"+id
+        );
+        showDedicatedBtn.addEventListener("click", () => {
+          dedicatedModal.classList.add("show");
+        });
+        // Close VideosModal
+        closeopenDedicatedModal.addEventListener("click", () => {
+          dedicatedModal.classList.remove("show");
+        });
+      })
+
+      const swiper = new Swiper(".swiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // Grap all ul > li
+      const tabs = document.querySelectorAll(".tabs li");
+      // Grap all stories
+      const exploreTabs = document.querySelectorAll(".explore_tabs");
+
+      const exploreHeaders = document.querySelectorAll(".explore_headers");
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          console.log(tab, index)
+          // Remove Active class
+          tabs.forEach((tab) => tab.classList.remove("explore__active-story"));
+          // Add Active Class
+          tab.classList.add("explore__active-story");
+          //  Hide previous Stories
+          exploreTabs.forEach((c) => c.classList.remove("show__explore-ways"));
+          // Show Content According To Tab Selected
+          exploreTabs[index].classList.add("show__explore-ways");
+
+          // show explore titles
+          exploreHeaders.forEach((c) =>
+            c.classList.remove("show__explore-title")
+          );
+          exploreHeaders[index].classList.add("show__explore-title");
+        });
+      });
+      // When Page Realod Put Active On First Fab
+      tabs[0].click();
+
+
+      if (getUrlParts == "#oneToTwoYear") {
+        let one_to_two_year = document.getElementById("oneToTwoyear");
+          // Remove Active class
+          tabs.forEach((tab) => tab.classList.remove("explore__active-story"));
+          // Add Active Class
+          one_to_two_year.classList.add("explore__active-story");
+          //  Hide previous Stories
+          exploreTabs.forEach((c) => c.classList.remove("show__explore-ways"));
+          // Show Content According To Tab Selected
+          exploreTabs[1].classList.add("show__explore-ways");
+
+          // show explore titles
+          exploreHeaders.forEach((c) =>
+            c.classList.remove("show__explore-title")
+          );
+          exploreHeaders[1].classList.add("show__explore-title");
+        };
+
+      if (getUrlParts == "#career") {
+        let career = document.getElementById("career");
+          // Remove Active class
+          tabs.forEach((tab) => tab.classList.remove("explore__active-story"));
+          // Add Active Class
+          career.classList.add("explore__active-story");
+          //  Hide previous Stories
+          exploreTabs.forEach((c) => c.classList.remove("show__explore-ways"));
+          // Show Content According To Tab Selected
+          exploreTabs[2].classList.add("show__explore-ways");
+
+          // show explore titles
+          exploreHeaders.forEach((c) =>
+            c.classList.remove("show__explore-title")
+          );
+          exploreHeaders[2].classList.add("show__explore-title");
+        };
+
+      //////////////////////////////// short_term-tabs
+      const shortTermTabs = document.querySelectorAll(".short_term-tabs li");
+      // Grap all stories
+      const exploreShortTabs = document.querySelectorAll(".explore_short-term");
+
+      shortTermTabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          // Remove Active class
+          shortTermTabs.forEach((tab) =>
+            tab.classList.remove("explore__active-story")
+          );
+          // Add Active Class
+          tab.classList.add("explore__active-story");
+          //  Hide previous Stories
+          exploreShortTabs.forEach((c) =>
+            c.classList.remove("toggle_show-term")
+          );
+          // Show Content According To Tab Selected
+          exploreShortTabs[index].classList.add("toggle_show-term");
+        });
+      });
+      // When Page Realod Put Active On First Fab
+      shortTermTabs[0].click();
+
+      
+      </script>
+      {% endblock %}

@@ -1,0 +1,177 @@
+{% extends "base_black_logo.html" %}
+{% load staticfiles wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="py-[100px] sm:h-[450px] md:h-[550px] lg:h-[733px] px-4 lg:pl-[180px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center flex items-start justify-center flex-col text-left lg:text-center mx-4 lg:mx-[60px] rounded-xl"
+    >
+      <h3
+        class="text-[36px] sm:text-[48px] xl:text-[64px] text-white font-semibold sm:font-normal font-gt-super mb-1 lg:mb-[25px]"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        {{ page.legacy_giving_header }}
+      </h3>
+      <p 
+        class="text-white text-base sm:text-lg sm:text-2xl font-twk-lausanne font-light"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        {{ page.legacy_giving_header_body }}
+      </p>
+      <a href="{{ give_page.url }}" target="_blank">
+        <button
+          class="w-full sm:w-[175px] h-[56px] mt-6 lg:mt-[45px] bg-white rounded-full text-lg hover:scale-105 text-black uppercase font-twk-lausanne font-medium sm:mr-[24px] border-2 solid border-white transition duration-500 ease-in-out"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          {{ page.header_give_now_button_text }}
+        </button>
+      </a>
+    </header>
+
+    <main
+      class="w-full pt-6 lg-pt-[50px] xl:pt-[120px] pb-[60px] lg:pb-[146px]"
+    >
+      <!-- Complimentary Estate and Gift Planning Services -->
+      <section class="px-4 lg:px-[188px] text-center pb-[45px]">
+        <h1
+          class="text-[32px] sm:text-[48px] lg:text-[64px] text-black font-normal font-gt-super text-center"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          {{ page.legacy_content_title }}
+        </h1>
+        <div 
+          class="mt-6 lg:mt-[65px]"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <div
+            class="text-lg sm:text-xl lg:text-2xl text-[#3D3D3D] mb-6 lg:mb-12 font-twk-lausanne font-thin"
+          >
+            {{ page.legacy_content_body|richtext }}
+          </div>
+        </div>
+      </section>
+      <!-- Methods of Planned Giving -->
+      <section class="px-4 lg:px-[97px] mb-8 lg:mb-[124px]">
+        <h2
+          class="text-[32px] sm:text-[48px] lg:text-[64px] text-black font-normal font-gt-super text-center"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          {{ page.methods_of_planned_giving_header_text }}
+        </h2>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[30px] sm:gap-[40px] mt-6 lg:mt-[87px]"
+        >
+          <div
+            class="flex items-center justify-center h-[226px] border border-[rgba(127, 167, 182, 0.22)] rounded-2xl"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
+            <span class="text-lg sm:text-2xl text-black font-normal font-twk-lausanne">
+              {{ page.methods_of_planned_giving_box_1_text }}
+            </span>
+          </div>
+          <div
+            class="flex items-center justify-center h-[226px] border border-[rgba(127, 167, 182, 0.22)] rounded-2xl"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
+            <span class="text-lg sm:text-2xl text-black font-normal font-twk-lausanne">
+              {{ page.methods_of_planned_giving_box_2_text }}
+            </span>
+          </div>
+          <div
+            class="flex items-center justify-center h-[226px] border border-[rgba(127, 167, 182, 0.22)] rounded-2xl"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
+            <span class="text-lg sm:text-2xl text-black font-normal font-twk-lausanne">
+              {{ page.methods_of_planned_giving_box_3_text }}
+            </span>
+          </div>
+
+          <div
+            class="flex items-center justify-center h-[226px] border border-[rgba(127, 167, 182, 0.22)] rounded-2xl"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
+            <span class="text-lg sm:text-2xl text-black font-normal font-twk-lausanne">
+              {{ page.methods_of_planned_giving_box_4_text }}
+            </span>
+          </div>
+
+          <div
+            class="flex items-center justify-center h-[226px] border border-[rgba(127, 167, 182, 0.22)] rounded-2xl"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
+            <span class="text-lg sm:text-2xl text-black font-normal font-twk-lausanne">
+              {{ page.methods_of_planned_giving_box_5_text }}
+            </span>
+          </div>
+
+          <div
+            class="flex items-center justify-center h-[226px] border border-[rgba(127, 167, 182, 0.22)] rounded-2xl"
+            data-aos="fade-left"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+          >
+            <span class="text-lg sm:text-2xl text-black font-normal font-twk-lausanne">
+              {{ page.methods_of_planned_giving_box_6_text }}
+            </span>
+          </div>
+        </div>
+      </section>
+      <!-- Start Giving! -->
+      <section
+        class="w-full lg:h-[436px] bg-[#D7B549] flex items-center justify-center flex-col md:flex-row py-8 px-4 lg:py-0 lg:py-0"
+      >
+        <div
+          class="w-[150px] h-[150px] md:w-[308px] md:h-[308px] flex items-center justify-center bg-[#D7B549] rounded-full"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          <img
+            src="{% static 'img/prayerband.svg' %}"
+            alt="give disaster logo"
+            class="w-11/12 h-11/12 lg:w-full lg:h-full"
+          />
+        </div>
+
+        <div 
+          class="md:pl-[64px] mt-4 md:pt-0 text-center md:text-left"
+          data-aos="fade-up"
+          data-aos-easing="fade-up"
+          data-aos-duration="2500"
+        >
+          <h3
+            class="text-2xl md:text-3xl lg:text-4xl xl:text-[48px] text-white font-semibold md:font-normal font-gt-super"
+          >
+            {{ page.start_giving_section_header }}
+          </h3>
+          <p class="text-sm md:text-lg lg:text-2xl text-white lg:w-[489px] my-4 md:my-7 font-twk-lausanne">
+            {{ page.start_giving_section_content }}
+          </p>
+          <a href="{{ give_page.url }}" target="_blank">
+            <button
+              class="w-[175px] h-[45px] md:h-[56px] bg-white rounded-full text-base md:text-lg text-[#D7B549] font-medium uppercase hover:scale-105 transition duration-500 ease-in-out font-twk-lausanne"
+            >
+              {{ page.start_giving_section_button_text }}
+            </button>
+          </a>
+        </div>
+      </section>
+    </main>
+{% endblock %}

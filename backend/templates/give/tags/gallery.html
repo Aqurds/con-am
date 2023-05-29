@@ -1,0 +1,109 @@
+{% load staticfiles wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+  <div class="swiper-wrapper big__preview">
+    {% for item in gallery_items %}
+        {% image item.image width-1000 as image %}
+        {% if item.is_video %}
+            <div class="swiper-slide px-4">
+              <div class="w-full h-full lg:w-[calc(100%-230px)]">
+                <div
+                  style="
+                    position: relative;
+                    padding-bottom: 56.15%;
+                    height: 0;
+                    overflow: hidden;
+                    height: 100%;
+                  "
+                >
+                  <iframe
+                    style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      border: 0;
+                      border-radius: 8px;
+                    "
+                    loading="lazy"
+                    ;
+                    srcdoc="<style>
+                  * {
+                  padding: 0;
+                  margin: 0;
+                  overflow: hidden;
+                  }
+                  
+                  img {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    border-radius: 8px;
+                    height: 100%;
+  
+                  }
+                  button {
+                    background-image: url({% static 'img/play.svg' %});
+                    background-color: transparent;
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    border: none;
+                    outline: none;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%)
+                  }
+                </style>
+                <a href='{{item.video_url}}'>
+                  <img src='{{image.url}}' alt={{item.image_alt_text}} />
+                  <button>
+                  </button>                      
+                </a>
+                "
+                    src="{{item.video_url}}"
+                    title="{{item.page.title}}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  >
+                  </iframe>
+                </div>
+              </div>
+            </div>
+        {% else %}
+            <div class="swiper-slide px-4">
+                <div class="w-full h-full lg:w-[calc(100%-230px)]">
+                <img src="{{image.url}}" />
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+<div 
+  thumbsSlider="" 
+  class="swiper mySwiper mt-[80px]"
+  data-aos="fade-left"
+  data-aos-easing="linear"
+  data-aos-duration="1500"
+>
+  <div class="swiper-wrapper">
+    {% for item in gallery_items %}
+      {% image item.image width-1200 as image %}
+      <div class="swiper-slide small__slide">
+        <img src="{{image.url}}" alt="{{item.image_alt_text}}" />
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div
+  class="give__arrows w-[200px] h-[80px] absolute bottom-[30px] md:bottom-[75px] lg:bottom-[85px] xl:bottom-[20px]"
+>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+<div class="swiper-scrollbar"></div>

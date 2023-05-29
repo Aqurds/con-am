@@ -1,0 +1,74 @@
+<section class="mt-6 md:mt-8 xl:mt-24">
+  <div
+    id="Merchandise"
+    class="flex items-center justify-between"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
+    <h4
+      
+      class="text-lg sm:text-[36px] xl:text-[64px] tex-black font-bold sm:text-fontsemibold xl:text-normal font-gt-super"
+    >
+      {{ resource_center.resource_center_header_title }}
+    </h4>
+    <a href="{{ featured_shop.agwm_shop_url }}" target="_blank">
+      <button
+        class="sm:w-[175px] sm:h-[56px] flex items-center justify-center text-center rounded-full text-xs sm:text-base lg:text-lg text-[#8A4D32] sm:border-2 solid border-[#8A4D32] font-semibold font-twk-lausanne sm:font-normal underline sm:no-underline sm:uppercase sm:hover:bg-[#8A4D32] sm:hover:text-white transition duration-500 ease-in-out"
+      >
+        {{ resource_center.resource_center_go_to_shop_button }}
+      </button>
+    </a>
+  </div>
+  <p
+    class="text-sm sm:text-lg lg:text-xl xl:text-4xl text-[#3D3D3D] font-light font-twk-lausanne sm:font-light mb-7 sm:mb-0"
+    data-aos="fade-up"
+    data-aos-duration="2000"
+  >
+    {{ resource_center.resource_center_sub_title }}
+  </p>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-[20px] mt-4 lg:mt-6 lg:mt-20" data-aos="fade-up"
+      data-aos-duration="2000"
+    >
+    {% for product in featured_products %}
+        <a target="_blank" href="{{ product.url }}">
+        <div class="h-[280px] lg:h-[349px] mb-2 sm:mb-6">
+          {% if product.image %}
+          <img
+            src="{{ product.image.url }}"
+            alt="product-Logo"
+            class="w-[345px] h-[350px] object-cover rounded-md"
+          />
+          {% else %}
+          <img
+            alt="product-Logo"
+          />
+          {% endif %}
+        </div>
+        <p
+          class="text-lg xl:text-2xl font-semibold xl:font-medium text-[#3D3D3D] font-twk-lausanne"
+        >
+          {{ product.name }}
+        </p>
+
+        <p class="text-base xl:text-2xl font-light font-twk-lausanne text-[#3D3D3D]">
+          {{ product.description }}
+        </p>
+        {% if product.footer_text %}
+        <p class="text-lg sm:text-2xl font-normal font-twk-lausanne text-[#3D3D3D]">
+          {{ product.footer_text }}
+        </p>
+        {% endif %}
+        {% if product.is_subscription %}
+          <button
+            class="flex justify-center items-center w-[175px] h-[50px] sm:h-[56px] text-center rounded-full text-lg font-normal text-[#8A4D32] uppercase border-2 solid border-[#8A4D32] font-normal font-twk-lausanne uppercase hover:bg-[#8A4D32] hover:text-white transition duration-500 ease-in-out mt-4 xl:mt-8"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            Subscribe
+          </button>
+        {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+  </section>

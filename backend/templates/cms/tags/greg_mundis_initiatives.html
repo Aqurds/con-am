@@ -1,0 +1,38 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% for initiative in greg_mundis_initiatives %}
+  {% image initiative.header_image width-800 as image %}
+  <div class="swiper-slide cursor-pointer">
+    <div class="flex items-center h-full w-full">
+    <div class="flex items-center justify-center w-full h-full">
+      <div class="relative w-full sm:max-w-[330px] h-[440px] read_story_bg">
+        <a href="{{ initiative.url }}">
+          <img src="{{ image.url }}"
+            alt="{{ image.image_alt_text }}"
+            class="w-full h-full object-cover object-top rounded-lg" />
+        </a>
+      </div>
+      <div
+        class="lg:w-[275px] flex flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+        <a href="{{ initiative.url }}">
+          <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 sm:mb-4">
+            {{ initiative.title }}
+          </h4>
+        </a>
+        <a href="{{ initiative.url }}">
+          <p
+            class="text-sm sm:text-base sm:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+            {{ initiative.first_section_content|richtext|slice:":250"|striptags }}...
+          </p>
+        </a>
+        <a 
+          class="text-lg text-[#8B3C3B] font-normal font-twk-lausanne font-normal uppercase"
+          href="{{ initiative.url }}""
+        >
+          read more
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+{% endfor %}

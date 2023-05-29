@@ -1,0 +1,25 @@
+<li
+    class="list-none text-sm sm:text-lg lg:text-[22px] text-white opacity-[61%] font-bold mr-3 md:mr-[40px] cursor-pointer font-twk-lausanne"
+    id="All"
+>
+    All
+</li>
+  {% for region in other_regions %}
+  {% if region.is_main_region %}
+    <li
+      class="text-xs sm:text-base lg:text-[22px] text-white opacity-[61%] font-bold list-none mr-3 md:mr-[40px] cursor-pointer font-twk-lausanne"
+      id="{{ region.name }}"
+    >
+      {{ region.name }}
+    </li>
+  {% endif %}
+  {% endfor %}
+  
+  {% if international_ministry_tab.is_main_region %}
+    <li
+    class="text-xs sm:text-base lg:text-[22px] text-white opacity-[61%] font-bold list-none mr-3 md:mr-[40px] cursor-pointer font-twk-lausanne"
+    id="{{ international_ministry_tab.name }}"
+  >
+    {{ international_ministry_tab.name }}
+  </li>  
+  {% endif %}

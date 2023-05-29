@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css" />
+  <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css" />
+  <!-- TailwindCss -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
+          },
+          backgroundImage: {
+            "burger-menu": "url('./assets/img/berger-menu.svg')",
+          },
+          fontFamily: {
+            "gt-super": ["gt-super"],
+            "twk-lausanne": ["twk-lausanne"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <!-- Navbar -->
+
+  <nav class="w-full flex items-center justify-between px-4 lg:px-[83px] pt-[20px] sm:pt-[35px] absolute z-50">
+    <div class="flex items-center">
+      <button class="w-6 h-6 bg-[url('./assets/img/berger-menu.svg')] mr-4 lg:mr-[47px]"></button>
+
+      <div class="">
+        <!--  Custome drop down.. -->
+        <div class="dropdown relative">
+          <div class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out">
+            <span class="selected text-lg text-white uppercase font-normal mr-[12px]">EN</span>
+            <span class="ml-1"><svg width="11" height="6" viewBox="0 0 11 6" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z" fill="white" />
+              </svg>
+            </span>
+          </div>
+
+          <ul
+            class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out">
+            <li class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md">
+              EN
+            </li>
+            <li class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md">
+              FR
+            </li>
+            <li class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md">
+              DU
+            </li>
+            <li class="item text-lg text-[#8d959f] cursor-pointer px-8 py-2 rounded-md">
+              AR
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="md:flex flex-col items-center w-[100px] md:w-[275px]">
+      <img src="./assets/img/app-logo.svg" alt="app-logo" class="" />
+      <span class="hidden md:inline-block text-sm text-white font-normal">Assemblies of God World Mission</span>
+    </div>
+    <div class="hidden md:flex items-center relative">
+      <!-- Search Bar -->
+      <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+        <span
+          class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search.svg')] bg-no-repeat"></span>
+        <input id="my__search"
+          class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+          type="text" placeholder="Search" />
+        <div class="clear absolute right-2 top-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#fff"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+      <!-- End Search Bar -->
+      <button
+        class="w-[211px] h-[56px] text-center rounded-full text-lg text-white border-2 solid border-white font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out">
+        Are you called?
+      </button>
+    </div>
+  </nav>
+
+  <header
+    class="h-auto h-[300px] sm:h-[450px] lg:h-[750px] xl:h-[848px] pt-[70px] sm:pt-[100px] md:pt-[190px] h-full pb-[60px] md:pb-[150px] px-4 bg-[url('./assets/img/go/discover-your-calling.png')] flex flex-col items-center bg-no-repeat bg-cover bg-unset sm:bg-center">
+    <h3
+      class="text-[36px] sm:text-[48px] xl:text-[64px] text-white font-gt-super font-normal mb-1 sm:mb-4 lg:mb-[25px] w-full md:w-auto"
+      data-aos="fade-up" data-aos-duration="3000">
+      Discover Your Calling
+    </h3>
+    <p class="text-white text-[22px] sm:text-[28px] xl:text-[32px] font-twk-lausanne font-thin text-left md:text-center lg:w-[672px]"
+      data-aos="fade-up" data-aos-duration="3000">
+      Ready for an opportunity that could change your life forever?
+    </p>
+  </header>
+
+  <main class="w-full pt-6 -mt-[70px] xl:-mt-[100px] lg:-mt-[350px] xl:-mt-[355px]">
+    <div class="flex flex-col justify-center items-center mx-auto">
+      <div
+        class="w-full h-[300px] md:h-[400px] lg:h-[568px] w-[calc(100%-16px)] sm:w-[calc(100%-30px)] lg:w-[calc(100%-150px)] xl:w-[1028px] cursor-pointer rounded-2xl">
+        <div class="rounded-md md:rounded-[24px]" style="
+              position: relative;
+              height: 0;
+              overflow: hidden;
+              height: 100%;">
+          <iframe style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;" loading="lazy" ; srcdoc="<style>
+        * {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        }
+        
+        img {
+          position: absolute;
+          width: 100%;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          border-radius: 8px;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+
+        }
+        button {
+          background-image: url('./assets/img/play.svg');
+          background-color: transparent;
+          width: 80px;
+          height: 80px;
+          background-repeat: no-repeat;
+          border: none;
+          outline: none;
+          margin: 0 auto;
+          cursor: pointer;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%)
+        }
+      </style>
+      <a href='https://www.youtube.com/embed/KaNW3Cnqza0'>
+        <img src='./assets/img/video__poster.png' alt='video cover' />
+        <button>
+        </button>                      
+      </a>
+      " src="https://www.youtube.com/embed/KaNW3Cnqza0" title="Coffee Recipe Javascript Project" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ways you can Serve -->
+    <section class="flex flex-col items-center justify-center px-4 xl:px-[100px] mt-[30px] lg:mt-[50px]"
+      data-aos="fade-up" data-aos-duration="2000">
+      <div class="w-full flex items-center justify-between md:justify-center">
+        <p
+          class="bg-transparent text-base md:text-[22px] lg:text-[32px] font-thin font-twk-lausanne text-black mr-2 sm:mr-8 lg:mr-10">
+          Are you called?
+        </p>
+        <button
+          class="text-sm sm:text-lg text-white font-semibold font-twk-lausanne bg-[#3D3D3D] rounded-full border-2 solid border-[#3D3D3D] w-[130px] sm:w-[170px] md:w-[268px] h-[45px] sm:h-[56px] uppercase">
+          Take the Quiz
+        </button>
+      </div>
+      <div class="flex flex-col mt-5 md:mt-[70px]">
+        <h3 class="text-[30px] sm:text-[36px] xl:text-[64px] text-black text-normal font-gt-super" data-aos="fade-up"
+          data-aos-duration="2000">
+          Ways you can Serve
+        </h3>
+
+        <p class="text-[28px] lg:text-[36px] text-black font-thin text-twk-lausanne lg:w-[730px]" data-aos="fade-up"
+          data-aos-duration="2000">
+          Choose your timeframe and location, and learn more about how you can
+          go.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 xl:gap-[88px] mt-[45px]">
+          <a
+            href="#"
+            class="flex flex-col justify-center items-center border-2 solid border-[rgba(127, 167, 182, 0.5)] rounded-2xl h-[230px] lg:h-[350px] px-[30px]"
+            data-aos="fade-up" data-aos-duration="1000">
+            <img src="./assets/img/go/short-term-arrows.svg" alt="Short term Picture" class="w-[150px] md:w-[290px] h-[100px] md:h-[130px]" />
+            <span class="text-[22px] sm:text-[28px] xl:text-[36px] font-normal font-twk-lausanne text-black  mt-2 lg:mt-7">Short
+              term</span>
+          </a>
+          <a
+            href="#"
+            class="flex flex-col justify-center items-center border-2 solid border-[rgba(127, 167, 182, 0.5)] rounded-2xl h-[230px] lg:h-[350px] px-[30px]"
+            data-aos="fade-up" data-aos-duration="1500">
+            <img src="./assets/img/go/1-2year.svg" alt="Short term Picture" class="w-[150px] md:w-[290px] h-[100px] md:h-[130px]" />
+            <span class="text-[22px] sm:text-[28px] xl:text-[36px] font-normal font-twk-lausanne text-black mt-2 lg:mt-7">Short
+              term</span>
+          </a>
+          <a
+            href="#"
+            class="flex flex-col justify-center items-center border-2 solid border-[rgba(127, 167, 182, 0.5)] rounded-2xl h-[230px] lg:h-[350px] px-[30px]"
+            data-aos="fade-up" data-aos-duration="2000">
+            <img src="./assets/img/go/carrer.svg" alt="Short term Picture" class="w-[150px] md:w-[290px] h-[100px] md:h-[130px]" />
+            <span term
+              class="text-[22px] sm:text-[28px] xl:text-[36px] font-normal font-twk-lausanne text-black mt-2 lg:mt-7">Carrer</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- Stories  Real people's - real lives -->
+    <section class="stories__wrapper overflow-hidden mt-7 lg:mt-[110px] ml-4 xl:ml-[100px]">
+      <div class="w-full flex items-center justify-between mb-5 md:mb-[60px]">
+        <div data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+          <h2
+            class="text-[36px] md:text-[48px] lg:text-[64px] xl:leading-[74px] font-normal text-[#3D3D3D] font-gt-super">
+            Stories
+          </h2>
+          <p class="text-[24px] xl:text-[36px] text-[#3D3D3D] font-light font-twk-lausanne">
+            Real people's - real lives
+          </p>
+        </div>
+      </div>
+      <div class="w-full h-[550px] md:h-[660px]" data-aos="fade-up" data-aos-easing="linear" data-aos-duration="1500">
+        <div class="stories_swiper pl-0 relative swiper-scrollbar-home home_stories">
+          <div class="swiper-wrapper greg__munids">
+
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex items-center justify-between h-full w-full">
+                <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                  <img src="./assets/img/greg-mundis/The-Plaid-Zebra_Faces-Of-Africa.png"
+                    alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                    class="w-full h-full object-cover object-top rounded-lg" />
+                </div>
+                <div
+                  class="w-[275px] flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                  <h4 class="text-lg lg:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                    God World Missions first one
+                  </h4>
+                  <p
+                    class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                    Missions has remained a central element of the AG’s
+                    corporate identity throughout its history. From 32
+                    missionaries endorsed by the Fellowship in 1914
+                  </p>
+                  <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex justify-between w-full h-full">
+                <div class="flex items-center justify-center w-full h-full">
+                  <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                    <img src="./assets/img/greg-mundis/The-Plaid-Zebra_Faces-Of-Africa.png"
+                      alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                      class="w-full h-full object-cover object-top rounded-lg" />
+                  </div>
+                  <div
+                    class="w-[275px]  flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                    <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                      God World Missions first one
+                    </h4>
+                    <p
+                      class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                      Missions has remained a central element of the AG’s
+                      corporate identity throughout its history. From 32
+                      missionaries endorsed by the Fellowship in 1914
+                    </p>
+                    <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex justify-between w-full h-full">
+                <div class="flex items-center justify-center w-full h-full">
+                  <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                    <img
+                      src="data:image/jpeg;base64,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"
+                      alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                      class="w-full h-full object-cover object-top rounded-lg" />
+                  </div>
+                  <div
+                    class="w-[275px]  flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                    <h4 class="text-lg lg:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                      God World Missions first one
+                    </h4>
+                    <p
+                      class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                      Missions has remained a central element of the AG’s
+                      corporate identity throughout its history. From 32
+                      missionaries endorsed by the Fellowship in 1914
+                    </p>
+                    <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex justify-between w-full h-full">
+                <div class="flex items-center justify-center w-full h-full">
+                  <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                    <img src="./assets/img/greg-mundis/The-Plaid-Zebra_Faces-Of-Africa.png"
+                      alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                      class="w-full h-full object-cover object-top rounded-lg" />
+                  </div>
+                  <div
+                    class="w-[275px]  flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                    <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                      God World Missions first one
+                    </h4>
+                    <p
+                      class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                      Missions has remained a central element of the AG’s
+                      corporate identity throughout its history. From 32
+                      missionaries endorsed by the Fellowship in 1914
+                    </p>
+                    <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex justify-between w-full h-full">
+                <div class="flex items-center justify-center w-full h-full">
+                  <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                    <img src="./assets/img/greg-mundis/The-Plaid-Zebra_Faces-Of-Africa.png"
+                      alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                      class="w-full h-full object-cover object-top rounded-lg" />
+                  </div>
+                  <div
+                    class="w-[275px]  flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                    <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                      God World Missions first one
+                    </h4>
+                    <p
+                      class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                      Missions has remained a central element of the AG’s
+                      corporate identity throughout its history. From 32
+                      missionaries endorsed by the Fellowship in 1914
+                    </p>
+                    <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex justify-between w-full h-full">
+                <div class="flex items-center justify-center w-full h-full">
+                  <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                    <img src="./assets/img/greg-mundis/The-Plaid-Zebra_Faces-Of-Africa.png"
+                      alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                      class="w-full h-full object-cover object-top rounded-lg" />
+                  </div>
+                  <div
+                    class="w-[275px]  flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                    <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                      God World Missions first one
+                    </h4>
+                    <p
+                      class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                      Missions has remained a central element of the AG’s
+                      corporate identity throughout its history. From 32
+                      missionaries endorsed by the Fellowship in 1914
+                    </p>
+                    <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide cursor-pointer">
+              <div class="flex justify-between w-full h-full">
+                <div class="flex items-center justify-center w-full h-full">
+                  <div class="w-full sm:max-w-[330px] h-[440px] read_story_bg">
+                    <img src="./assets/img/greg-mundis/The-Plaid-Zebra_Faces-Of-Africa.png"
+                      alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                      class="w-full h-full object-cover object-top rounded-lg" />
+                  </div>
+                  <div
+                    class="w-[275px]  flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+                    <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 lg:mb-4">
+                      God World Missions first one
+                    </h4>
+                    <p
+                      class="text-sm sm:text-base lg:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+                      Missions has remained a central element of the AG’s
+                      corporate identity throughout its history. From 32
+                      missionaries endorsed by the Fellowship in 1914
+                    </p>
+                    <a class="text-lg text-[#8B3C3B] fnot-normal font-twk-lausanne font-normal uppercase">read more</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next" id="arrow-right"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Start your Journey -->
+    <section
+      class="md:mx-4 xl:mx-auto xl:w-[calc(100%-184px)] py-12 md:py-0 md:h-[400px] xl:h-[542px] bg-[url('./assets/img/go/start-your-journey-cover.png')] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col md:rounded-2xl text-center px-4 sm:px-0 md:mb-8 lg:mb-[120px]">
+      <h3 class="text-[30px] md:text-[48px] xl:text-[64px] text-white font-normal mb-4 lg:mb-[15px] font-gt-super">
+        Start your Journey
+      </h3>
+
+      <p class="text-lg sm:text-xl lg:text-3xl xl:text-4xl font-light text-white font-twk-lausanne" data-aos="fade-up"
+        data-aos-duration="2000">
+        Begin your Go Mission using the button below.
+      </p>
+      <div class="flex items-center flex-wrap justify-center gap-[25px] pt-6 md:pt-0 md:mt-[50px]">
+        <a
+          href="#"
+          class="flex items-center justify-center w-[268px] h-[56px] bg-white rounded-full text-lg font-semibold text-black hover:scale-105 transition ease-in-out font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+          data-aos="fade-up" data-aos-duration="2000">
+          Short Term
+        </a>
+        <a
+          href="#"
+          class="flex items-center justify-center w-[268px] h-[56px] bg-white rounded-full text-lg font-semibold text-black hover:scale-105 transition ease-in-out font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+          data-aos="fade-up" data-aos-duration="2000">
+          1-2 Years
+        </a>
+        <a
+          href="#"
+          class="flex items-center justify-center w-[268px] h-[56px] bg-white rounded-full text-lg font-semibold text-black hover:scale-105 transition ease-in-out font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+          data-aos="fade-up" data-aos-duration="2000">
+          Career
+        </a>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 px-4 lg:px-[75px] mb-4 md:pb-9">
+      <div class="col-span-1 flex flex-col sm:border-r solid border-[#f0f0f0] mb-4 md:mb-0">
+        <div class="mb-4 sm:mb-7">
+          <img src="./assets/img/colored-logo.svg" alt="App-Logo" class="h-[30px] sm:h-auto" />
+        </div>
+
+        <p class="text-[#3D3D3D] font-normal text-sm">
+          1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+          Phone: 1-417-862-3420
+        </p>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6">
+          Are you called?
+        </button>
+        <p class="text-[10px] text-[#3D3D3D] font-normal">
+          © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+        </p>
+      </div>
+      <div class="md:col-span-1 flex sm:justify-center md:border-r solid border-[#f0f0f0] my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Privacy & Permissions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col w-full md:w-auto md:col-span-1 mx-auto my-2 sm:my-0">
+        <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+        <div class="flex items-center">
+          <div
+            class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/facebook.svg" alt="facebook" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/viemo.svg" alt="viemo" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/youtube.svg" alt="Youtube" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/insta.svg" alt="Instagram" />
+          </div>
+        </div>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6">
+          Get in Touch
+        </button>
+      </div>
+    </div>
+    <div class="w-full">
+      <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+    </div>
+  </footer>
+  <div id="videosModal"
+    class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg"
+    style="background-color: rgba(0, 0, 0, 0.8)">
+    <div class="scale_1 w-full h-full flex items-center justify-center">
+      <iframe class="hero-video w-[1150px] h-[580px] rounded-md" src="https://www.youtube.com/embed/iRYDYrj3Bfw"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <button id="closeopenVideosModal" class="absolute top-3 right-3 w-16 h-16">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+          fill="white" />
+      </svg>
+    </button>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script type="text/javascript">
+
+    $(".custom-carousel").owlCarousel({
+      autoWidth: true,
+      loop: true,
+      nav: true
+    });
+
+
+    AOS.init();
+
+    const swiper2 = new Swiper(".swiper_videos", {
+      // Optional parameters
+      // direction: "vertical",
+      // loop: true,
+      // slidesPerView: 1,
+
+      // Navigation arrows
+      loop: false,
+      allowTouchMove: false,
+
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    let storiesSwiper = new Swiper(".stories_swiper", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+      },
+      draggable: true,
+      allowTouchMove: true,
+      loop: true,
+      //centeredSlides: true,
+      //direction: 'horizontal',
+      initialSlide: 0,
+
+      direction: "horizontal",
+      //centeredSlides: false,
+      speed: 800,
+      //slidesPerView: "auto",
+      threshold: 5,
+
+
+      //freeMode: true,
+      //watchSlidesProgress: true,
+      breakpoints: {
+        100: {
+          slidesPerView: 1.2,
+          spaceBetween: 16,
+        },
+
+        450: {
+          slidesPerView: 1.4,
+          spaceBetween: 20,
+        },
+        692: {
+          slidesPerView: 'auto',
+          spaceBetween: 30,
+        }
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+    });
+
+
+    // Toggle Language menu
+    const LangMenu = document.querySelector(".dropdown-select");
+    const dropDown = document.querySelector(".dropdown-menu");
+    const listText = document.querySelector(".selected");
+    const dropDownItem = document.querySelectorAll(".item");
+
+    LangMenu.addEventListener("click", () => {
+      LangMenu.classList.toggle("active");
+      dropDown.classList.toggle("active");
+      dropDownItem.forEach((item) => {
+        if (item.innerText === listText.innerText) {
+          item.classList.add("active-lang");
+        } else {
+          item.classList.remove("active-lang");
+        }
+      });
+    });
+
+    for (item of dropDownItem) {
+      item.addEventListener("click", showItem);
+    }
+    function showItem() {
+      event.preventDefault();
+
+      listText.innerHTML = this.textContent;
+      dropDown.classList.toggle("active");
+      LangMenu.classList.toggle("active");
+    }
+
+    //  Search Icon
+    const searchBar = document.querySelector(".search__bar");
+    const searchIcon = document.querySelector(".search__icon");
+    const mySearch = document.querySelector("#my__search");
+    const clear = document.querySelector(".clear");
+
+    searchIcon.addEventListener("click", () => {
+      searchBar.classList.toggle("active");
+    });
+
+    clear.addEventListener("click", () => {
+      mySearch.value = "";
+      searchBar.classList.toggle("active");
+    });
+
+    // VideosPage
+    const showVideosBtn = document.querySelectorAll("#showVideos");
+    const videosModal = document.getElementById("videosModal");
+    const closeopenVideosModal = document.getElementById(
+      "closeopenVideosModal"
+    );
+
+    showVideosBtn.forEach((el, i) => {
+      el.addEventListener("click", () => {
+        videosModal.classList.add("show");
+      });
+    });
+
+    //Close VideosModal
+    closeopenVideosModal.addEventListener("click", () => {
+      videosModal.classList.remove("show");
+    });
+  </script>
+</body>
+
+</html>

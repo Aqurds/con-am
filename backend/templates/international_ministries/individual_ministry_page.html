@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load staticfiles individual_ministry_template_tags individual_ministry_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_background_image %}
+    <header
+      class="w-full md:h-[733px] py-[100px] md:py-0 px-4 lg:pl-[82px] xl:pl-[100px] bg-[url({{header_background_image.url}})] bg-no-repeat bg-cover bg-center flex items-center justify-center flex-col"
+    >
+    <div class="sm:pt-[195px] xl:pr-14">
+        <h2
+          class="text-5xl lg:text-7xl xl:text-8xl text-white text-normal uppercase"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          {% get_first_word page.title %}
+        </h2>
+        {% more_than_one_word_title page.title as flag %}
+        {% if flag %}
+          <div 
+            class="flex items-center justify-center mt-2"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <span class="h-[2px] w-[40px] bg-white mr-2"></span>
+            <p class="text-2xl xl:text-3xl text-white font-normal uppercase">
+              {% get_other_words page.title %}
+            </p>
+            <span class="h-[2px] w-[40px] bg-white ml-2"></span>
+          </div>
+        {% endif %}
+      </div>
+      <div
+        class="w-full flex items-center justify-center flex-col xl:flex-row mt-[35px] sm:mt-[100px] md:mt-[170px]"
+      >
+        <button
+          class="w-full md:w-[337px] h-[56px] bg-transparent border-2 solid border-white text-sm md:text-lg text-white font-medium rounded-full mt-6 md:mt-8 hover:bg-white hover:text-black transition duration-500 ease-in-out md:mr-5 uppercase"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <a href="{{page.ministry_website}}" target="_blank"> {{ page.title|btn_website }} </a>
+        </button>
+        <button
+          class="w-full md:w-[337px] h-[56px] bg-transparent border-2 solid border-white text-sm md:text-lg text-white font-medium rounded-full mt-6 md:mt-8 hover:bg-white hover:text-black transition duration-500 ease-in-out uppercase"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          <a href="{{page.give_page_url}}" target="_blank">
+            {{ page.title|btn_give_to }}
+          </a>
+        </button>
+      </div>
+    </header>
+
+    <main class="w-full pt-6 lg:pt-[90px]">
+      <section
+        class="px-4 sm:px-[100px] xl:px-[278px] mb-[60px] lg:mb-[110px] text-center"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h3
+          class="text-[28px] sm:text-[48px] xl:text-[64px] lg:leading-[70px] text-center text-black font-normal"
+        >
+          {{page.first_section_header}}
+        </h3>
+
+        <div
+          class="text-base sm:text-lg lg:text-2xl font-normal text-[#3D3D3D] mt-[30px] mb-[50px]"
+        >
+          {{page.first_section_content|richtext}}
+        </div>
+      </section>
+      {% image page.middle_section_image width-1200 as middle_section_image %}
+      <section
+        class="w-full h-[350px] md:h-[500px] xl:h-[900px] flex items-center justify-center flex-col mx-auto mb-[30px] lg:mb-[110px] bg-[url({{middle_section_image.url}})] bg-no-repeat bg-cover bg-center"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      ></section>
+
+      <section
+        class="px-4 sm:px-[100px] xl:px-[278px] mb-[60px] lg:mb-[120px] text-center"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <h3
+          class="text-[28px] sm:text-[48px] xl:text-[64px] lg:leading-[70px] text-center text-black font-normal mb-6 lg:mb-[111px]"
+        >
+          {{page.description_header}}
+        </h3>
+
+        <div
+          class="text-base sm:text-lg lg:text-2xl font-light text-[#3D3D3D] mt-[30px] mb-[50px]"
+        >
+          {{page.description|richtext}}
+        </div>
+      </section>
+    </main>
+  {% endblock %}

@@ -1,0 +1,279 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="pt-[170px] h-full px-4 md:px-[83px] pb-[160px] md:pb-[150px] md:pb-[310px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div 
+      class="flex flex-col justify-center items-center md:pt-[190px]"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        <h2
+          class="text-4xl md:text-[64px] text-white font-normal font-gt-super md:ml-[-80px]"
+        >
+          {{page.title}}
+        </h2>
+      </div>
+    </header>
+
+    <main class="w-full px-4 lg:pl-[93px] md:pr-4 md:mb-[140px]">
+      <div class="mt-8 md:mt-[65px]">
+        <div class="faq activ-faq cursor-pointer mb-4 md:mb-24">
+          <div 
+            class="question flex items-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[48px] 2xl:text-[64px] text-black font-normal font-gt-super mr-4 sm:mr-8"
+            >
+              {{ page.contributions_faq_text }}
+            </h3>
+            <svg
+              width="26"
+              height="13"
+              viewBox="0 0 26 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 13L25.1244 0.25H0.875645L13 13Z" fill="black" />
+            </svg>
+          </div>
+          <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
+            <div class="answer">
+              <div
+                class="border-2 solid border-[#e3ecef] p-4 md:py-12 md:pl-16 md:pr-10 rounded-2xl"
+              >
+                <div class="flex mb-[45px]">
+                  <div
+                    id="faq"
+                    class="text-lg md:text-2xl text-[#3D3D3D] font-thin font-twk-lausanne"
+                  >
+                    {{page.contributions_faq|richtext}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq cursor-pointer mb-4 md:mb-24">
+          <div 
+            class="question flex items-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[48px] 2xl:text-[64px] text-black font-normal font-gt-super mr-4 sm:mr-8"
+            >
+              {{page.online_commitment_forms_text}}
+            </h3>
+            <svg
+              width="26"
+              height="13"
+              viewBox="0 0 26 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 13L25.1244 0.25H0.875645L13 13Z" fill="black" />
+            </svg>
+          </div>
+          <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
+            <div class="answer">
+              <div
+                class="border-2 solid border-[#e3ecef] p-4 md:py-12 md:pl-16 md:pr-10 rounded-2xl"
+              >
+                <div class="flex mb-[45px]">
+                  <div
+                    id="faq"
+                    class="text-lg md:text-2xl text-[#3D3D3D] font-thin font-twk-lausanne"
+                  >
+                    {{page.online_commitment_forms|richtext}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq cursor-pointer mb-4 md:mb-24">
+          <div 
+            class="question flex items-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[48px] 2xl:text-[64px] text-black font-normal font-gt-super mr-4 sm:mr-8"
+            >
+              {{page.downloadable_commitment_forms_text}}
+            </h3>
+            <svg
+              width="26"
+              height="13"
+              viewBox="0 0 26 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 13L25.1244 0.25H0.875645L13 13Z" fill="black" />
+            </svg>
+          </div>
+          <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
+            <div class="answer">
+              <div
+                class="border-2 solid border-[#e3ecef] p-4 md:py-12 md:pl-16 md:pr-10 rounded-2xl"
+              >
+                <div class="flex mb-[45px]">
+                  <div
+                    id="faq"
+                    class="text-lg md:text-2xl text-[#3D3D3D] font-thin font-twk-lausanne"
+                  >
+                    {{page.downloadable_commitment_forms|richtext}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq cursor-pointer mb-4 md:mb-24">
+          <div 
+            class="question flex items-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[48px] 2xl:text-[64px] text-black font-normal font-gt-super mr-4 sm:mr-8"
+            >
+              {{page.other_online_contributions_text}}  
+            </h3>
+            <svg
+              width="26"
+              height="13"
+              viewBox="0 0 26 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 13L25.1244 0.25H0.875645L13 13Z" fill="black" />
+            </svg>
+          </div>
+          <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
+            <div class="answer">
+              <div
+                class="border-2 solid border-[#e3ecef] p-4 md:py-12 md:pl-16 md:pr-10 rounded-2xl"
+              >
+                <div class="flex mb-[45px]">
+                  <div
+                    id="faq"
+                    class="text-lg md:text-2xl text-[#3D3D3D] font-thin font-twk-lausanne"
+                  >
+                    {{page.other_online_contributions|richtext}}  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq cursor-pointer mb-4 md:mb-24">
+          <div 
+            class="question flex items-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[48px] 2xl:text-[64px] text-black font-normal font-gt-super mr-4 sm:mr-8"
+            >
+              {{page.automatic_monthly_contributions_text}}
+            </h3>
+            <svg
+              width="26"
+              height="13"
+              viewBox="0 0 26 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 13L25.1244 0.25H0.875645L13 13Z" fill="black" />
+            </svg>
+          </div>
+          <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
+            <div class="answer">
+              <div
+                class="border-2 solid border-[#e3ecef] p-4 md:py-12 md:pl-16 md:pr-10 rounded-2xl"
+              >
+                <div class="flex mb-[45px]">
+                  <div
+                    id="faq"
+                    class="text-lg md:text-2xl text-[#3D3D3D] font-thin font-twk-lausanne"
+                  >
+                    {{page.automatic_monthly_contributions|richtext}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq cursor-pointer mb-4 md:mb-24">
+          <div 
+            class="question flex items-center"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            <h3
+              class="text-[16px] sm:text-[18px] md:text-[24px] lg:text-[48px] 2xl:text-[64px] text-black font-normal font-gt-super mr-4 sm:mr-8"
+            >
+              {{page.claiming_world_missions_ministries_credit_text}}
+            </h3>
+            <svg
+              width="26"
+              height="13"
+              viewBox="0 0 26 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M13 13L25.1244 0.25H0.875645L13 13Z" fill="black" />
+            </svg>
+          </div>
+          <div class="w-full" data-aos="fade-up" data-aos-duration="2000">
+            <div class="answer">
+              <div
+                class="border-2 solid border-[#e3ecef] p-4 md:py-12 md:pl-16 md:pr-10 rounded-2xl"
+              >
+                <div class="flex mb-[45px]">
+                  <div
+                    id="faq"
+                    class="text-lg md:text-2xl text-[#3D3D3D] font-thin font-twk-lausanne"
+                  >
+                    {{page.claiming_world_missions_ministries_credit|richtext}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    {% endblock %}
+    {% block javascript %}
+    <script type="text/javascript">
+      const faqs = document.querySelectorAll(".faq");
+      faqs.forEach((faq) => {
+        faq.addEventListener("click", () => {
+          faq.classList.toggle("activ-faq");
+        });
+      });
+
+      const faqDivs = document.querySelectorAll("#faq");
+
+      faqDivs.forEach((faq) => {
+        let anchorTags = faq.getElementsByTagName('a');
+        for (let i = 0; i < anchorTags.length; i++) {
+          anchorTags[i].classList.add("text-lg", "md:text-2xl", "text-[#8B3C3A]", "font-normal", "font-twk-lausanne", "uppercase", "cursor-pointer");
+          anchorTags[i].target = "_blank";
+        }
+      })
+    </script>
+    {% endblock %}

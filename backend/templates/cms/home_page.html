@@ -1,0 +1,564 @@
+
+{% extends "base_black_logo.html" %}
+{% load i18n staticfiles home_template_tags mission_template_tags story_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+  <header>
+    {% get_home_page_images %}
+    <div class="center__div z-20 px-12 xl:px-0 w-full xl:w-[700px]">
+      <div class="w-full h-full flex flex-col justify-center items-center"  data-aos="fade-up" data-aos-duration="1500">
+        <div>
+          <h2 id="rotate_text"
+              class="relative text-[28px] md:text-[48px] lg:text-[64px] text-center text-white font-gt-super font-normal mb-1 sm:mb-4 lg:mb-[25px]"
+            >
+              {{ page.header_section_missions_text }} <br />
+              <span style="display: initial">{{ page.initial_subheader_section_missions_text }}</span>
+              <span >{{ page.subheader_section_missions_text }}</span>
+          </h2>
+        </div>
+        <div
+          class="w-full xl:w-auto sm:flex items-center justify-center flex-col sm:flex-row xl:grid grid-cols-3 gap-2 sm:gap-0 mt-4 lg:mt-[50px] xl:mt-[105px] z-20">
+          <a href="{{ prayer_page.url }}">
+            <button
+              class="w-full sm:w-[175px] h-[40px] sm:h-[56px] bg-transparent hover:bg-white rounded-full text-sm sm:text-lg text-white hover:scale-105 hover:text-black uppercase font-medium font-twk-lausanne sm:mr-[24px] border-2 solid border-white transition duration-500 ease-in-out mb-2 lg:mb-0"
+            >
+            {{ page.pray_button }}
+            </button>
+          </a>
+          <a href="{{ give_page.url }}">
+            <button
+              class="w-full sm:w-[175px] h-[40px] sm:h-[56px] bg-transparent hover:bg-white rounded-full text-sm sm:text-lg text-white hover:scale-105 hover:text-black uppercase font-medium font-twk-lausanne sm:mr-[24px]  border-2 solid border-white transition duration-500 ease-in-out mb-2 lg:mb-0"
+            >
+            {{ page.give_button }}
+            </button>
+          </a>
+          <a href="{{ go_page.url }}">
+            <button
+              class="w-full sm:w-[175px] h-[40px] sm:h-[56px] bg-transparent hover:bg-white rounded-full text-sm sm:text-lg text-white hover:scale-105 hover:text-black uppercase font-medium font-twk-lausanne sm:mr-[24px] border-2 solid border-white transition duration-500 ease-in-out mb-2 lg:mb-0"
+            >
+            {{ page.go_button }}
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <main class="w-full md:mt-14 lg:mt-[111px] overflow-hidden">
+      {% if page.show_prayer_section is True %}
+      <section
+        class="bg-[{{page.prayer_section_background_color}}] px-4 xl:px-[100px] flex md:items-center justify-start md:justify-center flex-col md:flex-row py-11 xl:py-20"
+      >
+        <div
+          class="w-full sm:h-[300px] md:w-2/4 lg:h-[367px] md:mr-6 xl:mr-20 mb-6 md:mb-0 cursor-pointer"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          {% image page.prayer_image width-1200 as my_image %}
+          <img
+            src="{{ my_image.url }}"
+            alt="{{ page.prayer_image_alt_text }}"
+            class="w-full h-full object-cover rounded-lg"
+          />
+        </div>
+        <div 
+          class="md:w-2/4"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+          <h3
+            class="text-2xl sm:text-3xl xl:text-5xl xl:leading-[55px] text-white font-normal mb-6 font-gt-super"
+            
+          >
+            {{page.prayer_title}}
+          </h3>
+          <p class="text-sm font-twk-lausanne font-normal text-white">
+            {{page.prayer_body}}
+          </p>
+          <div class="flex items-center">
+              <button
+                class="w-full sm:w-[175px] h-[56px] mt-8 bg-transparent hover:bg-white rounded-full text-lg text-white hover:scale-105 hover:text-black uppercase font-twk-lausanne font-medium sm:mr-[24px] border-2 solid border-white transition duration-500 ease-in-out"
+              >
+              <a 
+              href="{{ page.prayer_button_one_url }}"
+              >
+                {{ page.prayer_button_one }}
+              </button>
+            </a>
+              <button
+                class="w-full sm:w-[175px] h-[56px] mt-8 bg-white rounded-full text-lg hover:scale-105 text-black uppercase ml-2 font-twk-lausanne font-twk-lausanne font-medium sm:mr-[24px] border-2 solid border-white transition duration-500 ease-in-out"
+              >
+              <a 
+              href="{{ page.prayer_button_two_url }}"
+              target="_blank"
+              >
+                {{ page.prayer_button_two }}
+              </a>
+              </button>
+          </div>
+        </div>
+      </section>
+      {% endif %}
+      <!-- GO Stories  -->
+      {% stories_slides_header as story_slide_header %}
+      {% get_current_language as LANGUAGE_CODE %}
+      <section
+        class="stories__wrapper overflow-hidden mt-7 lg:mt-[76px] ml-4 xl:ml-[100px]"
+      >
+        <div data-aos="fade-up" data-aos-duration="2000"
+          class="flex items-center justify-between mb-6 lg:mb-11 pr-4 lg:pr-[60px]"
+        >
+          <div>
+            <h2
+              class="text-[36px] lg:text-[64px] font-gt-super font-light text-black"
+            >
+            {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.slider_header_text }}{% else %}{{ story_slide_header.slider_header_text_es }}{% endif %}
+          </h2>
+            <p
+              class="text-base lg:text-[36px] font-twk-lausanne font-extralight text-black"
+            >
+            {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.slider_subheader_text }}{% else %}{{ story_slide_header.slider_subheader_text_es }}{% endif %}
+            </p>
+          </div>
+          <a href="{{ story_page.url }}">
+            <button
+              class="w-[110px] sm:w-[175px] h-[40px] sm:h-[56px] text-sm sm:text-lg font-twk-lausanne font-normal uppercase text-[#8A4D32] border-2 solid border-[#8A4D32] hover:bg-[#8A4D32] hover:text-white rounded-full transition duration-500 ease-in-out">
+              {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.header_button_text }}{% else %}{{ story_slide_header.header_button_text_es }}{% endif %}
+            </button>
+          </a>
+        </div>
+        <!-- Stories,, Real people's - real lives -->
+        <div 
+          class="w-full h-[550px] md:h-[630px]"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+        <div
+        class="stories_swiper pl-0 relative swiper-scrollbar-home home_stories"  
+        >
+          <div class="swiper-wrapper greg__munids">
+            {% get_stories %}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next" id="arrow-right"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+      </section>
+      <!-- Choose a Region to Explore -->
+      <section
+      class="mySwiper-go flex flex-col go__slider-join pt-[30px] md:pt-[125px] pb-[30px] md:pb-0 h-[660px] sm:h-[750px] md:h-auto relative">
+      <div class="flex items-center justify-between mb-[30px] lg:mb-[114px] px-4 xl:px-[100px] z-50" data-aos="fade-up"
+        data-aos-duration="1500">
+        <h2
+          class="text-base sm:text-[36px] lg:text-[48px] xl:text-[64px] text-white  font-semibold sm:font-normal font-gt-super">
+          {{ page.region_section_header_text }}
+        </h2>
+        <a href="{{ regions_page.url }}"
+          class="w-[100px] sm:w-[249px] h-[40px] sm:h-[56px] bg-transparent rounded-full text-xs sm:text-lg font-twk-lausanne font-semibold text-white border solid border-white flex justify-center items-center hover:bg-white hover:text-black transition duration-200 ease-in-out uppercase">{{ page.region_section_map_view_text }}</a>
+      </div>
+        {% get_regions_slider_pages as region_slider_page %}
+        <div class="w-full flex flex-col-reverse md:flex-row">
+          <!-- left Cloumn -->
+          <!-- content to be changable uppon swipe -->
+          {% for region_item in region_slider_page.regions_slider_items %}
+          {% image region_item.region_slider_image width-800 as region_image %}
+          <div
+            class="explore_banners hidden  absolute top-0 right-0 left-0 bottom-0 h-full w-full bg-[url({{ region_image.url }})] bg-center bg-cover ">
+          </div>
+          {% endfor %}
+          
+          {% for region_item in region_slider_page.regions_slider_items %}
+          {% image region_item.region_slider_image width-800 as region_image %}
+          <div
+          class="explore_banners hidden  absolute top-0 right-0 left-0 bottom-0 h-full w-full bg-[url({{ region_image.url }})] bg-center bg-cover"
+          >
+          </div>
+          {% endfor %}
+
+          <div
+            class="w-full md:w-[35%] pl-4 xl:pl-[100px] 2xl:pl-[110px] 2xl:pr-[67px] mt-8 md:mt-0 pt-6 md:pt-0 relative"
+            data-aos="fade-up" data-aos-duration="1500"
+          >
+
+          {% for region_item in region_slider_page.regions_slider_items %}
+          <div class="flex items-start flex-col explore__continent">
+            <h3
+              class="text-[18px] md:text-[32px] lg:text-[48px] lg:leading-[55px] text-white font-semibold md:text-normal font-twk-lausanne">
+              {{ region_item.title }}
+            </h3>
+            <p class="text-base lg:text-lg text-white text-normal my-2 md:my-[22px] lg:w-[343px] font-twk-lausanne">
+              {{ region_item.header_sub_text }}
+            </p>
+            <a href="{% pageurl region_item.localized %}"
+              class="text-lg text-normal text-black w-[175px] h-[56px] bg-white rounded-full text-lg text-normal text-black border solid border-white flex justify-center items-center my-6 md:my-0 hover:scale-105 transition duration-500 ease-in-out font-twk-lausanne">{{ page.region_section_explore_button }}
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Start Swiper -->
+        <div class="swiper region_explore w-full pl-6 md:pl-0 md:w-[65%] md:h-[700px]">
+          <div class="swiper-wrapper go__slider" data-aos="fade-left" data-aos-duration="1500">
+            {% for region_item in region_slider_page.regions_slider_items %}
+              {% image region_item.header_background_image width-800 as region_image %}
+              <a
+                href="{% pageurl region_item.localized %}"
+                class="swiper-slide cursor-pointer rounded-lg relative bg-[url('{{ region_image.url }}')] bg-center bg-cover bg-no-repeat relative flex justify-center items-center"
+              >
+                <p
+                  class="text-lg md:text-2xl text-white font-black font-twk-lausanne px-4 text-center absolute bottom-8 hover:underline transition duration-200"
+                >
+                  {{ region_item.title }}  
+                </p>
+              </a>
+            {% endfor %}
+            <a
+              class="swiper-slide cursor-pointer rounded-lg relative bg-[url('./assets/img/go/swiper-pic-one.png')] bg-center bg-cover bg-no-repeat relative flex justify-center items-center invisible">
+              <p
+                class="text-lg md:text-2xl text-white font-black px-4 font-twk-lausanne text-center absolute bottom-8 hover:underline transition duration-200">
+                Engaging the Unreached
+
+              </p>
+            </a>
+            <a
+              class="swiper-slide cursor-pointer rounded-lg relative bg-[url('./assets/img/go/swiper-pic-one.png')] bg-center bg-cover bg-no-repeat relative flex justify-center items-center invisible">
+              <p
+                class="text-lg md:text-2xl text-white font-black px-4 font-twk-lausanne text-center absolute bottom-8 hover:underline transition duration-200">
+                Engaging the Unreached
+
+              </p>
+            </a>
+          </div>
+
+            <!-- <div class="swiper-button-next block md:hidden"></div>
+            <div class="swiper-button-prev block md:hidden"></div> -->
+            <div
+              class="give__arrows md:w-[200px] relative bottom-[194px] hidden lg:block"
+            >
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-scrollbar hidden lg:block"></div>
+          </div>
+          <!-- End Swiper -->
+        </div>
+      </section>
+      <!-- 
+       -->
+      <section class="mt-[30px] xl:mt-24">
+        <div 
+        class="text-center mb-[90px] lg:mb-[117px]"
+        data-aos="fade-up"
+        data-aos-duration="1500"
+        >
+          <h2
+            class="text-[32px] sm:text-[48px] md:text-[64px] text-[#3D3D3D] font-gt-super font-normal text-center x"
+          >
+            {{ page.greg_mundis_section_top_text }}
+          </h2>
+          <p
+            class="text-[22px] lg:text-[32px] text-[#3D3D3D] font-light font-twk-lausanne"
+          >
+            {{ page.greg_mundis_section_bottom_text }}
+          </p>
+        </div>
+        {% image page.greg_mundis_section_thumbnail_image width-1200 as video_thumbnail_image %}
+        <div
+          class="w-full h-[250px] md:h-[346px] bg-[#627CA1] flex items-center justify-center xl:px-[80px] flex-col md:flex-row"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          <div
+            class="w-full xl:w-7/12 relative top-1 px-4"
+          >
+            <div class="w-full xl:w-[755px] h-full mx-auto rounded-xl relative">
+                <div style="overflow: hidden;" class="relative h-[300px] md:h-[433px]">
+                  <iframe style="
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border: 0;
+                        border-radius: 16px;
+                      " loading="lazy" ; srcdoc="<style>
+                        * {
+                        padding: 0;
+                        margin: 0;
+                        overflow: hidden;
+                        }
+                        img {
+                          position: absolute;
+                          width: 100%;
+                          height: 100%;
+                          top: 0;
+                          bottom: 0;
+                          margin: auto;
+                          border-radius: 16px;
+                          object-fit: cover;
+                        }
+                        button {
+                          background-image: url('{% static 'img/play.svg' %}');
+                          background-color: transparent;
+                          width: 80px;
+                          height: 80px;
+                          background-repeat: no-repeat;
+                          border: none;
+                          outline: none;
+                          margin: 0 auto;
+                          cursor: pointer;
+                          position: absolute;
+                          top: 50%;
+                          left: 50%;
+                          transform: translate(-50%, -50%)
+                        }
+                      </style>
+                      <a href='{{ page.greg_mundis_section.message_video_embed_url }}'>
+                        <img src='{{ video_thumbnail_image.url }}' alt='video cover' />
+                        <button>
+                        </button>                      
+                      </a>
+                      " src="{{ page.greg_mundis_section.message_video_embed_url }}" title="Coffee Recipe Javascript Project"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% get_missions %}
+    </main>
+
+    <!-- Video -->
+    <div
+      id="gregMundis"
+      class="hidden pointer-events-none w-full h-full fixed top-0 left-0 transition-all duration-500 ease-in-out shadow-lg"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div
+        class="scale_1 w-full h-full flex items-center justify-center transition-all duration-500 ease-in-out"
+      >
+        <iframe
+          class="w-[1150px] h-[590px] rounded-md"
+          src="{{page.greg_mundis_section.message_video_embed_url}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button id="closegregMundis" class="absolute top-2 right-2 w-16 h-16">
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 56 56"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+  
+  {% endblock %}
+  {% block javascript %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+     <script src="https://cdn.plyr.io/3.7.2/plyr.polyfilled.js"></script>
+
+    <script src="../node_modules/video.js/dist/video.min.js"></script>
+    <script src="../dist/Youtube.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+      <!-- Sly slider call -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sly/1.6.1/sly.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- owl carouse -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script type="text/javascript">
+      const filePaths = {{ file_paths }}
+
+      AOS.init();
+    
+      let storiesSwiper = new Swiper(".stories_swiper", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+        },
+        draggable: true,
+        allowTouchMove: true,
+        loop: true,
+        initialSlide: 0,
+
+        direction: "horizontal",
+        speed: 800,
+        threshold: 5,
+        breakpoints: {
+          100: {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+          },
+
+          450: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+          },
+          692: {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+          }
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+      });
+
+      // Regions swiper
+      let RegionsSwiper = new Swiper(".region_explore", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+        },
+
+        allowTouchMove: true,
+        draggable: true,
+        direction: "horizontal",
+        speed: 800,
+        breakpoints: {
+          // when window width is >= 320px
+          300: {
+            slidesPerView: 1.1,
+            spaceBetween: 10,
+          },
+          // when window width is >= 480px
+
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1192: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1490: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        on: {
+          init: function () {
+            const readStories = document.querySelectorAll(".explore__continent");
+            readStories.forEach((c) => c.classList.add("toglle_continent"));
+
+            readStories.forEach((itemSlide, index) => {
+              if (index === this.activeIndex) {
+                itemSlide.classList.add("toglle_continent");
+              } else {
+                itemSlide.classList.remove("toglle_continent");
+              }
+            });
+
+            //toggle banners
+            const exploreHeaders = document.querySelectorAll(".explore_banners");
+            exploreHeaders.forEach((h) => h.classList.add("show_explore_banners"));
+
+            exploreHeaders.forEach((itemSlide, index) => {
+              if (index === this.activeIndex) {
+                itemSlide.classList.add("show_explore_banners")
+              } else {
+                itemSlide.classList.remove("show_explore_banners")
+              }
+            })
+          },
+        },
+      });
+
+      RegionsSwiper.on("slideChange", function () {
+        const readStories = document.querySelectorAll(".explore__continent");
+        readStories.forEach((c) => c.classList.add("toglle_continent"));
+        readStories.forEach((itemSlide, index) => {
+          if (index === this.activeIndex) {
+            itemSlide.classList.add("toglle_continent");
+          } else {
+            itemSlide.classList.remove("toglle_continent");
+          }
+        });
+      });
+
+      RegionsSwiper.on("slideChange", function () {
+        const exploreHeaders = document.querySelectorAll(".explore_banners");
+        exploreHeaders.forEach((c) => c.classList.add("show_explore_banners"));
+        exploreHeaders.forEach((itemSlide, index) => {
+          if (index === this.activeIndex) {
+            itemSlide.classList.add("show_explore_banners");
+          } else {
+            itemSlide.classList.remove("show_explore_banners");
+          }
+        });
+      });
+
+      // Change words
+      let words = document.querySelectorAll(".word");
+      words.forEach((word) => {
+        let letters = word.textContent.split("");
+        word.textContent = "";
+        letters.forEach((letter) => {
+          let span = document.createElement("span");
+          span.textContent = letter;
+          span.className = "letter";
+          word.append(span);
+        });
+      });
+
+      let headerText = document.getElementById("rotate_text");
+      let wordText = headerText.getElementsByTagName('span');
+      let index1 = 0;
+      
+      function rotater() {
+        wordText[index1].style.display = 'none';
+
+        index1 = (index1 + 1) % wordText.length;
+        
+        wordText[index1].style.display = 'initial';
+      }
+      setInterval(rotater, 5000)
+
+      //Handle fadeIn_FadeOut backgroundImage 
+      let headerbackgrounds = document.querySelectorAll(".wrap_hero");
+      let imageIndex = 0;
+
+      function changeBackground() {
+        headerbackgrounds[imageIndex].classList.remove("showing");
+        imageIndex++;
+
+        if (imageIndex >=  headerbackgrounds.length) {
+          imageIndex = 0;
+        }
+
+        headerbackgrounds[imageIndex].classList.add("showing");
+      } 
+      setInterval(changeBackground, 5000)
+    </script>
+  {% endblock %}

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- TailwindCss -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            backgroundImage: {
+              "burger-menu": "url('./assets/img/berger-menu.svg')",
+            },
+            fontFamily: {
+              "gt-super": ["gt-super"],
+              "twk-lausanne": ["twk-lausanne"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body>
+  <!-- HI lorence if you want to add a Navbar just copy paste the one in regions. thanks -->
+  <main class="relative w-full h-full pt-6 lg:pt-[98px] pb-[250px] bg-[url('./assets/img/discover_y_calling.png')] bg-no-repeat bg-cover z-50 after:bg-black after:absolute after:left-0 after:top-0 after:bottom-0 after:right-0 after:w-full :after:h-full :after:absolute after:opacity-25 after:z-10">
+    <section class="relative pt-[35px] flex justify-center items-center flex-col z-50">
+      <h3 class="text-white text-[32px] lg:text-[48px] xl:text-[64px] font-normal font-gt-super pt-6 xl:pt-0">
+        Choose your mission
+      </h3>
+      <div class="w-full pt-[80px] dicover_calling">
+        <div class="swiper dicover__calling__swiper ">
+          <div class="swiper-wrapper">
+          <div class="swiper-slide">
+              <div class="px-4 mt-8 lg:mt-0 text-center lg:text-left px-4 lg:px-[80px] xl:px-[170px]">
+                <h1 class="text-[28px] md:text-[36px] lg:text-[48px] xl:text-[64px] leading-[74px] text-white font-normal font-twk-lausanne mb-4 lg:mb-8">Hello, and thank you for your interest in becoming an AGWM missionary.</h1>
+                <p class="text-lg text-white font-light font-twk-lausanne mb-4">
+                  The calling God has placed on your life is invaluable, and we here at AGWM want
+                  nothing more than to help see your full capabilities be used for the kingdom of God as
+                  we establish the church among all peoples everywhere. While we are here to support
+                  you in your calling, we also want to be sure we are equipping you as best as possible to
+                  be effective on the field. With that, we would like to bring to attention the importance of
+                  your personal relationship with God and how that relationship inspires you to make
+                  disciples for Christ.
+                </p>
+
+                <p class="text-lg text-white font-light font-twk-lausanne mb-4">
+                  The life of a missionary is not one of luxury but self-surrender and sacrifice, as every
+                  interaction with others on the field has an eternal impact. If you can confidently say you
+                  are ready to answer the call of God in your life, please complete the acknowledgment
+                  below to take the missionary quiz so we can begin helping you discover the calling God
+                  placed on your life.
+                </p>
+
+                <p class="text-lg text-white font-light font-twk-lausanne mb-4">
+                  We are so excited to see how God is going to use your testimony to help establish the
+                  church among all peoples everywhere.
+                </p>
+                <p class="text-lg text-white font-light font-twk-lausanne mt-4">
+                  God Bless,
+                </p>
+              </div>
+
+              <div class="flex flex-col mt-8 px-4 lg:px-[80px] xl:px-[170px]">
+                <span class="text-white text-sm font-thin font-twk-lausanne">*“Please complete the following information to begin the quiz.” *</span>
+
+                <form action="" class="w-full md:w-[400px] lg:w-[500px]">
+                  <div class="mt-4 lg:mt-[40px]">
+                    <input type="text" placeholder="Name"
+                      class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none block" />
+                  </div>
+
+                  <div class="mt-4 lg:mt-[40px]">
+                    <input type="text" placeholder="Email"
+                      class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none block" />
+                    <span class="text-xs text-normal font-twk-lausanne text-red-400">email is not valid</span>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+             <div class="swiper-slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-[42px] px-4 lg:px-[80px] xl:px-[170px]">
+                <div class="dicsover__box flex items-center px-4 lg:px-7 cursor-pointer">
+                    <div class="answer_chosen w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] rounded-full flex items-center justify-center mr-4 lg:mr-7">
+                      <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1 0L6.46 10.1111L1.9 5.77778L0 7.58333L5.7 13H7.22L19 1.80556L17.1 0Z" fill="white" fill-opacity="0.35"/>
+                      </svg>                      
+                    </div>
+                    <p class="text-sm lg:text-lg xl:text-2xl text-white font-twk-lausanne font-light">Care for health and safety others</p>
+                </div>
+                <div class="dicsover__box flex items-center px-4 lg:px-7 cursor-pointer">
+                    <div class="answer_chosen w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] rounded-full flex items-center justify-center mr-4 lg:mr-7">
+                      <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1 0L6.46 10.1111L1.9 5.77778L0 7.58333L5.7 13H7.22L19 1.80556L17.1 0Z" fill="white" fill-opacity="0.35"/>
+                      </svg>                      
+                    </div>
+                    <p class="text-sm lg:text-lg xl:text-2xl text-white font-twk-lausanne font-light">Care for health and safety others</p>
+                </div>
+
+                <div class="dicsover__box flex items-center px-4 lg:px-7 cursor-pointer">
+                    <div class="answer_chosen w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] rounded-full flex items-center justify-center mr-4 lg:mr-7">
+                      <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1 0L6.46 10.1111L1.9 5.77778L0 7.58333L5.7 13H7.22L19 1.80556L17.1 0Z" fill="white" fill-opacity="0.35"/>
+                      </svg>                      
+                    </div>
+                    <p class="text-sm lg:text-lg xl:text-2xl text-white font-twk-lausanne font-light">Care for health and safety others</p>
+                </div>
+
+                <div class="dicsover__box flex items-center px-4 lg:px-7 cursor-pointer">
+                    <div class="answer_chosen w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] rounded-full flex items-center justify-center mr-4 lg:mr-7">
+                      <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1 0L6.46 10.1111L1.9 5.77778L0 7.58333L5.7 13H7.22L19 1.80556L17.1 0Z" fill="white" fill-opacity="0.35"/>
+                      </svg>                      
+                    </div>
+                    <p class="text-sm lg:text-lg xl:text-2xl text-white font-twk-lausanne font-light">Care for health and safety others</p>
+                </div>
+
+                <div class="dicsover__box flex items-center px-4 lg:px-7 cursor-pointer">
+                    <div class="answer_chosen w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] rounded-full flex items-center justify-center mr-4 lg:mr-7">
+                      <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1 0L6.46 10.1111L1.9 5.77778L0 7.58333L5.7 13H7.22L19 1.80556L17.1 0Z" fill="white" fill-opacity="0.35"/>
+                      </svg>                      
+                    </div>
+                    <p class="text-sm lg:text-lg xl:text-2xl text-white font-twk-lausanne font-light">Care for health and safety others</p>
+                </div>
+                <div class="dicsover__box flex items-center px-4 lg:px-7 cursor-pointer">
+                    <div class="answer_chosen w-[40px] lg:w-[50px] h-[40px] lg:h-[50px] rounded-full flex items-center justify-center mr-4 lg:mr-7">
+                      <svg width="19" height="13" viewBox="0 0 19 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.1 0L6.46 10.1111L1.9 5.77778L0 7.58333L5.7 13H7.22L19 1.80556L17.1 0Z" fill="white" fill-opacity="0.35"/>
+                      </svg>                      
+                    </div>
+                    <p class="text-sm lg:text-lg xl:text-2xl text-white font-twk-lausanne font-light">Care for health and safety others</p>
+                </div>
+              </div>
+            </div>
+         
+             <div class="swiper-slide">
+              <div class="flex flex-col justify-center px-6 lg:px-8">
+                <div class="flex items-center justify-center flex-wrap gap-6 mt-6 mx-8">
+                  <a class="bg-transparent  hover:scale-105 transition duration-500 ease-in-out flex items-center justify-center py-6 px-4 text-center cursor-pointer text-xs md:text-base text-white font-light font-twk-lausanne border solid border-white rounded-full hover:text-black hover:bg-white transition duration-400 ease-in-out w-[270px] md:w-[330px]  ">
+                    Connect with an Advisor
+                  </a>
+                  <a class="bg-transparent hover:scale-105 transition duration-500 ease-in-out flex items-center justify-center py-6 px-4 text-center cursor-pointer text-xs md:text-base text-white font-light font-twk-lausanne border solid border-white rounded-full hover:text-black hover:bg-white transition duration-400 ease-in-out  w-[270px] md:w-[330px]">
+                    Prospect
+  
+                  </a>
+                  <a class="bg-transparent hover:scale-105 transition duration-500 ease-in-out flex items-center justify-center py-6 px-4 text-center cursor-pointer text-xs md:text-base text-white font-light font-twk-lausanne border solid border-white rounded-full hover:text-black hover:bg-white transition duration-400 ease-in-out w-[270px] md:w-[330px]">
+                    Regular Involvement with a local church
+                  </a>
+                </div>
+                <p class="text-lg xl:text-xl text-white font-light font-twk-lausanne mt-16 xl:pl-[260px] xl:pr-[100px]">
+                
+                      We recognize that this quiz is not comprehensive and would love to connect with
+                      you, hear how God is leading you, and learn how we can best support you as you
+                      seek to make Him known among the nations.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next w-[250px] md:w-[329px] h-[56px] bg-white text-lg text-[#8B3C3B] font-normal font-twk-lausanne">Next</div>
+          <!-- <div class="swiper-button-prev"></div> -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  
+    <!-- //  JS CODE -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+
+      var swiper = new Swiper(".dicover__calling__swiper", {
+        cssMode: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+      });
+
+
+    // Grap all ul > li
+    const miscTabs = document.querySelectorAll(".dicsover__box");
+    // Grap all stories
+
+    miscTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        // Remove Active class
+        miscTabs.forEach((tab) => tab.classList.remove("active"));
+        // Add Active Class
+        tab.classList.add("active");
+
+      });
+    });
+    // When Page Realod Put Active On First Fab
+    miscTabs[3].click();
+
+    </script>
+  </body>
+</html>

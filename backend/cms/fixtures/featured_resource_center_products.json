@@ -1,0 +1,39 @@
+[
+    {
+        "model": "cms.featuredresourcecenterproduct",
+        "pk": 1,
+        "fields": {
+            "name": "Subscribe Today",
+            "description": "Worldview 12 issues / 1 year Single Subscription - $ 7.95",
+            "footer_text": "Single Monthly Subscription",
+            "url": "https://agwm.myhealthychurch.com",
+            "is_subscription": true,
+            "subscription_link": "https://agwm.myhealthychurch.com"
+        }
+    },
+    {
+        "model": "cms.featuredresourcecenterproduct",
+        "pk": 2,
+        "fields": {
+            "name": "Bluetooth Audio Speaker",
+            "description": "$20.00",
+            "footer_text": "",
+            "url": "https://agwm.myhealthychurch.com",
+            "is_subscription": false,
+            "subscription_link": ""
+        }
+    },
+    {
+        "model": "cms.featuredresourcecenterproduct",
+        "pk": 3,
+        "fields": {
+            "name": "All for Jesus Vinyl Sticker Pkg 5",
+            "description": "$2.50",
+            "footer_text": "",
+            "url": "https://agwm.myhealthychurch.com",
+            "is_subscription": false,
+            "subscription_link": ""
+        }
+    }
+]
+    

@@ -1,0 +1,205 @@
+{% extends "base_black_logo.html" %}
+{% load staticfiles about_template_tags mission_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content%}
+  {% image page.header_image width-1200 as header_image %}
+  <header
+    class="h-auto bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center xl:mx-[60px] md:rounded-xl flex justify-center items-center px-4 pt-8 pb-[70px] lg:py-[70px] xl:pt-[185px] xl:pb-[215px] sm:mx-4 xl:mx-[56px]"
+  >
+    <div
+      data-aos="fade-up"
+      data-aos-duration="3000"
+      class="flex flex-col justify-center text-left sm:text-center xl:w-[800px] 2xl:w-[904px] mx-auto"
+    >
+      <h3
+        class="text-[36px] sm:text-[48px] xl:text-[64px] text-white font-normal font-gt-super sm:mb-2 xl:mb-[33px]"
+      >
+        {{page.header_title}}
+      </h3>
+
+      <p
+        class="text-[24px] xl:text-[32px] text-white font-twk-lausanne font-thin"
+      >
+        {{page.header_content}}
+      </p>
+    </div>
+  </header>
+  <!-- -translate-y-2/3 -->
+  <main class="w-full">
+    
+    <section
+      class="px-4 mt-[30px] lg:mt-[60px] xl:mt-[111px] w-full xl:w-[837px] mx-auto mb-[30px] lg:mb-[60px] xl:mb-[175px]"
+    >
+      <div
+        class="flex flex-col justify-start items-start"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        <div
+          class="description__text text-[20px] md:text-[24px] text-[#3D3D3D] font-twk-lausanne font-thin lg:leading-[40px]"
+        >
+          {{page.mission_content|richtext}}
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 xl:px-[90px]">
+      <h3
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        class="text-[32px] sm:text-[48px] xl:text-[64px] text-black font-normal font-gt-super mb-6 xl:mb-[33px]"
+      >
+        {{page.team_section_title}}
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-[20px]">
+        <div
+          class="col-span-2"
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          <ul class="flex flex-col overflow-y-scroll h-[700px] avatar-tabs pr-4 xl:pr-2">
+            {% for team_member in page.executive_team_members.all %}
+              <li
+                class="flex flex-col items-start rounded-2xl cursor-pointer block w-auto xl:w-[452px] px-6 xl:px-[50px]  mr-6 lg:mr-0 text-[18px] md:text-[28px] font-twk-lausanne text-back font-light mb-4 pt-[25px] pb-[20px]"
+              >
+                <span class="font-thin"> {{team_member.position}} </span>
+                <span> {{team_member.name}} </span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div
+          class="col-span-3 flex-col"
+          data-aos="fade-left"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          {% for team_member in page.executive_team_members.all %}
+            {% image team_member.photo width-1200 as team_member_photo %}
+            <div class="w-full flex avatars hidden justify-end rounded-2xl">
+              <img
+                src="{{team_member_photo.url}}"
+                alt="{{team_member.photo_alt_text}}"
+                class="w-full h-full rounded-2xl"
+              />
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="mt-[60px] px-6 xl:px-[60px]"
+      data-aos="fade-up"
+      data-aos-duration="3000"
+    >
+      <h2
+        class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-normal font-gt-super"
+      >
+        {{page.world_missions_title}}
+      </h2>
+      {% image page.world_missions_image width-1200 as world_missions_image %}
+      <div class="w-full h-full rounded-2xl mt-6 xl:mt-[50px]">
+        <img
+          src="{{world_missions_image.url}}"
+          alt="{{page.world_missions_image_alt_text}}"
+          class="w-full h-full rounded-2xl"
+        />
+      </div>
+    </section>
+
+    <section
+      class="px-6 xl:px-[160px] mt-[103px] flex justify-center flex-col items-center"
+      data-aos="fade-up"
+      data-aos-duration="3000"
+    >
+      <div class="w-full grid grid-cols-2 gap-y-[70px] gap-x-[230px]">
+        {% get_first_team_member as first_team_member %}
+        <li
+          class="flex flex-col items-start rounded-2xl cursor-pointer block text-[18px] md:text-[28px] font-twk-lausanne text-back font-light"
+        >
+          <span class="font-thin"> {{first_team_member.position}} </span>
+          <span> {{first_team_member.name}} </span>
+        </li>
+        {% get_second_team_member as second_team_member %}
+        <li
+          class="flex flex-col items-start rounded-2xl cursor-pointer block text-[18px] md:text-[28px] font-twk-lausanne text-back font-light"
+        >
+          <span class="font-thin"> {{second_team_member.position}} </span>
+          <span> {{second_team_member.name}} </span>
+        </li>
+      </div>
+
+      <div
+        class="w-full grid grid-cols-2 items-center justify-center gap-y-[70px] gap-x-[230px] border-t solid border-[rgba(0, 0, 0, 0.24)] px-4 xl:px-[80px] pt-6 xl:mt-[67px] pt-6 xl:pt-[75px]"
+      >
+        {% get_other_team_members as other_members %}
+        {% for member in other_members %}
+        <li
+          class="flex flex-col items-start rounded-2xl cursor-pointer block text-[18px] md:text-[28px] font-twk-lausanne text-back font-light"
+        >
+          <span class="font-thin"> {{member.position}} </span>
+          <span> {{member.name}} </span>
+        </li>
+        {% endfor %}
+      </div>
+    </section>
+    {% get_missions %}    
+    </div>
+  </main>
+  {% endblock %}
+  <!-- End of login menu -->
+  {% block javascript %}
+  <script type="text/javascript">
+    const readMoreBtn = document.querySelector('.read__more__button');
+    const moreText = document.querySelector('.description__text');
+
+    readMoreBtn.addEventListener('click', (e) => {
+      //e.preventDefault();
+      moreText.classList.toggle("show__more");
+
+      if (readMoreBtn.innerText === 'READ MORE') {
+        readMoreBtn.innerText = 'READ LESS';
+      } else {
+        readMoreBtn.innerText = 'READ MORE'
+      }
+    })
+
+    // directroes avatars
+    const tabs = document.querySelectorAll(".avatar-tabs li");
+    // Grap all stories
+    const avatars = document.querySelectorAll(".avatars");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        // Remove Active class
+        tabs.forEach((tab) => tab.classList.remove("active__avatar"));
+        // Add Active Class
+        tab.classList.add("active__avatar");
+        //  Hide previous Stories
+        avatars.forEach((c) => c.classList.remove("show__avatar"));
+        // Show Content According To Tab Selected
+        avatars[index].classList.add("show__avatar");
+      });
+    });
+    // When Page Realod Put Active On First Fab
+    tabs[0].click();
+    
+    //VIEW__ALL__DIRECOTORS
+
+    const showMoreDirecotors = document.querySelector('.view__all');
+    const moreDirectors = document.querySelector('.more_directors');
+
+    showMoreDirecotors.addEventListener('click', (e) => {
+      e.preventDefault();
+      moreDirectors.classList.toggle("show__more");
+
+      if (showMoreDirecotors.innerText === 'VIEW ALL') {
+        showMoreDirecotors.innerText = 'VIEW LESS';
+      } else {
+        showMoreDirecotors.innerText = 'VIEW MORE'
+      }
+    })
+  </script>
+  {% endblock %}

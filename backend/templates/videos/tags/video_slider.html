@@ -1,0 +1,92 @@
+{% load staticfiles wagtailimages_tags %}
+<div class=" swiper one_year-career-videos _videos mb-6 md:mb-12" data-aos="fade-up"
+      data-aos-duration="2000">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        {% for video in slider_videos %}
+        {% image video.thumbnail_image width-1000 as video_thumbnail %}
+        <div class="swiper-slide">
+          <div class="flex flex-col justify-center items-center mx-auto">
+            <div class="w-full xl:w-[1100px] 2xl:w-[1129px] h-[250px] sm:h-[400px] lg:h-[625px]">
+            
+            <div
+            style="
+                position: relative;
+                height: 0;
+                overflow: hidden;
+                height: 100%;
+            "
+            >
+            <iframe
+                style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+                border-radius: 8px;
+                "
+                loading="lazy"
+                ;
+                srcdoc="
+                <style>
+                    * {
+                    padding: 0;
+                    margin: 0;
+                    overflow: hidden;
+                    }
+                    
+                    img {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    border-radius: 8px;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+
+                    }
+                    button {
+                    background-image: url({% static 'img/play.svg' %});
+                    background-color: transparent;
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    border: none;
+                    outline: none;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%)
+                    }
+                </style>
+                <a href='{{ video.embed_url }}'>
+                    <img src='{{ video_thumbnail.url }}' alt='video cover' />
+                    <button>
+                    </button>                      
+                </a>
+                "
+                src="{{ video.embed_url }}"
+                title="Coffee Recipe Javascript Project"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            >
+            </iframe>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    </div>

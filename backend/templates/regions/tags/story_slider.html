@@ -1,0 +1,39 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% image first_story.image width-800 as first_story_image %}
+<div class="swiper-slide small__slide h-[439px] cursor-pointer">
+  <img
+    src={{ first_story_image.url }}
+    alt={{ first_story.image_alt_text }}
+  />
+</div>
+<div 
+  class="swiper-slide small__slide h-[439px] flex flex-col justify-center cursor-pointer"
+  data-aos="fade-left"
+  data-aos-easing="linear"
+  data-aos-duration="1500"
+>
+  <div class="flex flex-col justify-center items-start">
+    <h4 class="text-[#3D3D3D] text-2xl font-twk-lausanne font-normal mb-4">{{ first_story.title }}</h4>
+    <div class="text-base sm:text-lg text-black font-twk-lausanne font-light b-6">
+      {{first_story.body|richtext|slice:":250"}}...
+    </div>
+    <a href={{first_story.url}} target="_blank" class="text-lg text-[#8B3C3B] font-normal">Learn More</a>
+  </div>
+</div>
+{% for story in other_stories %}
+{% image story.image width-800 as story_image %}
+<div 
+  class="swiper-slide small__slide h-[439px] cursor-pointer"
+  data-aos="fade-left"
+  data-aos-easing="linear"
+  data-aos-duration="1500"
+>
+  <a href="{{story.url}}">
+  <img
+    src={{ story_image.url }}
+    alt={{ story.image_alt_text }}
+  />
+  </a>
+</div>
+{% endfor %}

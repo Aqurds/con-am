@@ -1,0 +1,536 @@
+{% extends "base_black_logo.html" %}
+{% load staticfiles wagtailcore_tags wagtailadmin_tags prayer_template_tags wagtailimages_tags %}
+
+{% block content %}
+    {% get_featured_prayer %}
+    <main class="w-full pt-6 lg:pt-[80px] pb-[60px] lg:pb-[146px]">
+      <!-- Pray Band -->
+      <section
+        class="w-full lg:h-[436px] bg-[#D7B549] flex items-center justify-center flex-col md:flex-row py-8 px-4 lg:py-0 lg:py-0"
+      >
+        <div
+          class="w-[250px] h-[250px] sm:w-[308px] sm:h-[308px] flex items-center justify-center bg-[#D7B549] rounded-full"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          <img
+            src="{% static 'img/prayerband.svg' %}"
+            alt="give disaster logo"
+            class="w-11/12 h-11/12 lg:w-full lg:h-full"
+          />
+        </div>
+
+        <div 
+          class="md:pl-[64px] mt-4 md:pt-0 text-center md:text-left"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+          <h3
+            class="text-3xl lg:text-4xl xl:text-[48px] text-white font-semibold md:font-normal font-gt-super"
+          >
+            {{ page.pray_band_title }}
+          </h3>
+          <div class="text-sm text-normal text-white my-3 md:my-6 lg:w-[489px] font-twk-lausanne">
+            {{page.pray_band_body|richtext}}
+          </div>
+          <button
+            class="w-[175px] h-[56px] bg-transparent rounded-full text-lg text-white font-normal uppercase border-2 solid border-white hover:bg-white hover:text-black transition duration-500 ease-in-out"
+          >
+            Sign up
+          </button>
+        </div>
+      </section>
+
+      <!-- Join us in Prayer slider -->
+      {% get_prayers %}
+
+
+      <!-- Social Prayer Feed  -->
+
+      {% comment %} <section class="pl-4 xl:pl-[92px] mb-[30px] social_prayer_feed">
+        <div class="mb-6 lg:mb-16" data-aos="fade-up" data-aos-duration="2000">
+          <h4
+            class="text-[24px] sm:text-[36px] md:text-[48px] xl:text-[64px] text-black font-normal font-gt-super"
+          >
+            {{ page.social_prayer_feed_section_title }}
+          </h4>
+          <p
+            class="text-lg sm:text-xl md:text-2xl xl:text-4xl text-black font-light font-twk-lausanne"
+          >
+            {{ page.social_prayer_feed_section_description }}
+          </p>
+        </div>
+        <div
+          class="swiper mySwiper h-[660px] lg:h-[765px] relative"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          <div class="swiper-wrapper" id="gallery2">
+            <div
+              class="swiper-slide  cursor-pointer text-center"
+              data-sub-html="#prayer-feed-1"
+            >
+              <div class="w-full xl:min-w-[359px] h-[439px]">
+                <img
+                  src="{% static 'img/temp/slider-pic-one.png' %}"
+                  alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                  class="w-full h-full rounded-lg"
+                />
+              </div>
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-lg xl:text-2xl text-[#3D3D3D] font-normal mb-[20px] font-gt-super"
+                >
+                  {{ page.social_prayer_feed_card_title }}
+                </h5>
+                <p
+                  class="text-base lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne"
+                >
+                  {{ page.social_prayer_feed_card_description }}
+                </p>
+              </div>
+            </div>
+            <div
+              class="swiper-slide  cursor-pointer text-center"
+              data-sub-html="#prayer-feed-2"
+            >
+              <div class="w-full xl:min-w-[359px] h-[439px]">
+                <img
+                  src="{% static 'img/temp/slider-pic-two.png' %}"
+                  alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                  class="w-full h-full rounded-lg bg-cover"
+                />
+              </div>
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-lg xl:text-2xl text-[#3D3D3D] font-normal font-gt-super mb-[20px]"
+                >
+                  A PRAYER REQUEST FROM THE SILK ROAD:
+                </h5>
+                <p
+                  class="text-base lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne"
+                >
+                  There is a new believer in Turkey! Will you
+                  <br class="hidden xl:inline" />
+                  pray for heart transformation? Pray that she
+                  <br class="hidden xl:inline" />
+                  learns to rely on the Holy Spirit for strength
+                </p>
+              </div>
+            </div>
+            <div
+              class="swiper-slide  cursor-pointer text-center"
+              data-sub-html="#prayer-feed-3"
+            >
+              <div class="w-full xl:min-w-[359px] h-[439px]">
+                <img
+                  src="{% static 'img/temp/slider-pic-one.png' %}"
+                  alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                  class="w-full h-full rounded-lg bg-cover"
+                />
+              </div>
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-lg xl:text-2xl text-[#3D3D3D] font-normal mb-[20px] font-gt-super"
+                >
+                  Are you a part of a LD Pray Band?
+                </h5>
+                <p
+                  class="text-base lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne"
+                >
+                  Pray Band is a simple prayer network
+                  <br class="hidden xl:inline" />
+
+                  that organizes, stabilizes, and multiplies
+                  <br class="hidden xl:inline" />
+
+                  prayer for Live Dead teams ...
+                </p>
+              </div>
+            </div>
+            <div
+              class="swiper-slide  cursor-pointer text-center"
+              data-sub-html="#prayer-feed-4"
+            >
+              <div class="w-full xl:min-w-[359px] h-[439px]">
+                <img
+                  src="{% static 'img/temp/slider-pic-four.png' %}"
+                  alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                  class="h-full w-full rounded-lg bg-cover"
+                />
+              </div>
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-lg xl:text-2xl text-[#3D3D3D] font-normal mb-[20px] font-gt-super"
+                >
+                  A PRAYER REQUEST FROM THE SILK ROAD:
+                </h5>
+                <p
+                  class="text-base lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne"
+                >
+                  There is a new believer in Turkey! Will you
+                  <br class="hidden xl:inline" />
+
+                  pray for heart transformation? Pray that she
+                  <br class="hidden xl:inline" />
+
+                  learns to rely on the Holy Spirit for strength
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide  cursor-pointer text-center">
+              <div class="w-full xl:min-w-[359px] h-[439px]">
+                <img
+                  src="{% static 'img/temp/slider-pic-one.png' %}"
+                  alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                  class="w-full h-full rounded-lg bg-cover"
+                />
+              </div>
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-lg xl:text-2xl text-[#3D3D3D] font-normal mb-[20px] font-gt-super"
+                >
+                  Are you a part of a LD Pray Band?
+                </h5>
+                <p
+                  class="text-base lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne"
+                >
+                  Pray Band is a simple prayer network that organizes,
+                  <br class="hidden xl:inline" />
+                  stabilizes, and multiplies prayer for
+                  <br class="hidden xl:inline" />
+                  Live Dead teams ...
+                </p>
+              </div>
+            </div>
+            <div class="swiper-slide  cursor-pointer text-center">
+              <div class="w-full xl:min-w-[359px] h-[439px]">
+                <img
+                  src="{% static 'img/temp/slider-pic-three.png' %}"
+                  alt="The-Plaid-Zebra_Faces-Of-Africa.png"
+                  class="w-full h-full rounded-lg bg-cover"
+                />
+              </div>
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-lg xl:text-2xl text-[#3D3D3D] font-normal mb-[20px] font-gt-super"
+                >
+                  A PRAYER REQUEST FROM THE SILK ROAD:
+                </h5>
+                <p
+                  class="text-base lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne"
+                >
+                  There is a new believer in Turkey! Will you
+                  <br class="hidden xl:inline" />
+                  pray for heart transformation? Pray that she
+                  <br class="hidden xl:inline" />
+                  learns to rely on the Holy Spirit for strength
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="prayer-feed-1" style="display: none">
+            <div
+              class="absolute positon__center flex flex-col md:flex-row w-full justify-center md:items-center px-4 md:px-0 mt-4 sm:mt-0"
+            >
+              <div
+                class="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  lg:w-[512px] lg:h-[512px] mt-2 mb-4 rounded-2xl"
+              >
+                <img
+                  src="{% static 'img/temp/slider-pic-one.png' %}"
+                  alt="Picture Logo"
+                  class="h-full w-full object-cover rounded-md"
+                />
+              </div>
+              <div class="flex flex-col items-start md:mx-[30px] xl:ml-[50px]">
+                <h4
+                  class="text-lg lg:text-2xl xl:text-4xl text-white font-normal gallery__title font-twk-lausanne"
+                >
+                  {{ page.social_prayer_feed_modal_title }}
+                </h4>
+                <span
+                  class="text-base xl:text-lg text-white font-thin font-twk-lausanne"
+                  >{{ page.social_prayer_feed_modal_sub_title }}</span
+                >
+                <div class="mt-8 text-left">
+                  <h5
+                    class="text-base xl:text-lg text-white font-normal text-white uppercase font-twk-lausanne"
+                  >
+                    {{ page.social_prayer_feed_modal_header_description }}
+                  </h5>
+                  <p
+                    class="text-lg font-light text-white md:w-[350px] font-twk-lausanne"
+                  >
+                    {{ page.social_prayer_feed_modal_body }}
+                  </p>
+                  <button
+                    class="block sm:hidden w-full lg:w-[314px] h-[56px] rounded-full border-2 solid border-white text-sm sm:text-base xl:text-lg font-normal font-twk-lausanne text-white mt-[20px] mb-[40px] hover:bg-white hover:text-black uppercase"
+                  >
+                    Login to Download Image
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="prayer-feed-2" style="display: none">
+            <div
+              class="absolute positon__center flex flex-col md:flex-row w-full justify-center md:items-center px-4 md:px-0 mt-4 sm:mt-0"
+            >
+              <div
+                class="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  lg:w-[512px] lg:h-[512px]  mt-2 mb-4 rounded-2xl"
+              >
+                <img
+                  src="{% static 'img/temp/slider-pic-two.png' %}"
+                  alt="Picture Logo"
+                  class="h-full w-full object-cover rounded-md"
+                />
+              </div>
+              <div class="flex flex-col items-start md:mx-[30px] xl:ml-[50px]">
+                <h4
+                  class="text-lg lg:text-2xl xl:text-4xl text-white font-normal gallery__title font-twk-lausanne"
+                >
+                  Here is the Tilte if needed
+                </h4>
+                <span
+                  class="text-base xl:text-lg text-white font-thin font-twk-lausanne"
+                  >Small Title</span
+                >
+                <div class="mt-8 text-left">
+                  <h5
+                    class="text-base xl:text-lg text-white font-normal font-twk-lausanne text-white uppercase"
+                  >
+                    Head of description if needed!
+                  </h5>
+                  <p
+                    class="text-lg font-light text-white md:w-[350px] font-twk-lausanne"
+                  >
+                    You are free to share and adapt AGWM photos. You must Lorem
+                    ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
+                    eligendi ratione ut similique et nisi nihil magnam nam
+                    doloremque ducimus. Delectus nulla enim modi nihil autem
+                    commodi et asperus. Delectus nulla enim modi nihil autem
+                    commodi et asper us. Delectus nulla enim modi nihil autem
+                    commodi et asper
+                  </p>
+                  <button
+                    class="block sm:hidden w-full lg:w-[314px] h-[56px] rounded-full border-2 solid border-white text-sm sm:text-base xl:text-lg font-normal font-twk-lausanne text-white mt-[20px] mb-[40px] hover:bg-white hover:text-black uppercase"
+                  >
+                    Login to Download Image
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="prayer-feed-3" style="display: none">
+            <div
+              class="absolute positon__center flex flex-col md:flex-row w-full justify-center md:items-center px-4 md:px-0 mt-4 sm:mt-0"
+            >
+              <div
+                class="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  lg:w-[512px] lg:h-[512px] mt-2 mb-4 rounded-2xl"
+              >
+                <img
+                  src="{% static 'img/temp/slider-pic-three.png' %}"
+                  alt="Picture Logo"
+                  class="h-full w-full object-cover rounded-md"
+                />
+              </div>
+              <div class="flex flex-col items-start md:mx-[30px] xl:ml-[50px]">
+                <h4
+                  class="text-lg lg:text-2xl xl:text-4xl text-white font-normal gallery__title font-twk-lausanne"
+                >
+                  Here is the Tilte if needed
+                </h4>
+                <span
+                  class="text-base xl:text-lg text-white font-thin font-twk-lausanne"
+                  >Small Title</span
+                >
+                <div class="mt-8 text-left">
+                  <h5
+                    class="text-base xl:text-lg text-white font-normal text-white uppercase font-twk-lausanne"
+                  >
+                    Head of description if needed!
+                  </h5>
+                  <p
+                    class="text-lg font-light text-white md:w-[350px] font-twk-lausanne"
+                  >
+                    You are free to share and adapt AGWM photos. You must Lorem
+                    ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
+                    eligendi ratione ut similique et nisi nihil magnam nam
+                    doloremque ducimus. Delectus nulla enim modi nihil autem
+                    commodi et asperus. Delectus nulla enim modi nihil autem
+                    commodi et asper us. Delectus nulla enim modi nihil autem
+                    commodi et asper
+                  </p>
+                  <button
+                    class="block sm:hidden w-full lg:w-[314px] h-[56px] rounded-full border-2 solid border-white text-sm sm:text-base xl:text-lg font-normal font-twk-lausanne text-white mt-[20px] mb-[40px] hover:bg-white hover:text-black uppercase"
+                  >
+                    Login to Download Image
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="prayer-feed-4" style="display: none">
+            <div
+              class="absolute positon__center flex flex-col md:flex-row w-full justify-center md:items-center px-4 md:px-0 mt-4 sm:mt-0"
+            >
+              <div
+                class="w-[250px] h-[250px] sm:w-[300px] sm:h-[300px]  lg:w-[512px] lg:h-[512px]  mt-2 mb-4 rounded-2xl"
+              >
+                <img
+                  src="{% static 'img/temp/slider-pic-four.png' %}"
+                  alt="Picture Logo"
+                  class="h-full w-full object-cover rounded-md"
+                />
+              </div>
+              <div class="flex flex-col items-start md:mx-[30px] xl:ml-[50px]">
+                <h4
+                  class="text-lg lg:text-2xl xl:text-4xl font-twk-lausanne text-white font-normal gallery__title"
+                >
+                  Here is the Tilte if needed
+                </h4>
+                <span
+                  class="text-base xl:text-lg text-white font-thin font-twk-lausanne"
+                  >Small Title</span
+                >
+                <div class="mt-8 text-left">
+                  <h5
+                    class="text-base xl:text-lg text-white font-twk-lausanne font-normal text-white uppercase"
+                  >
+                    Head of description if needed!
+                  </h5>
+                  <p
+                    class="text-lg font-light font-twk-lausanne text-white md:w-[350px]"
+                  >
+                    You are free to share and adapt AGWM photos. You must Lorem
+                    ipsum dolor sit amet consectetur, adipisicing elit. Ipsa
+                    eligendi ratione ut similique et nisi nihil magnam nam
+                    doloremque ducimus. Delectus nulla enim modi nihil autem
+                    commodi et asperus. Delectus nulla enim modi nihil autem
+                    commodi et asper us. Delectus nulla enim modi nihil autem
+                    commodi et asper
+                  </p>
+                  <button
+                    class="block sm:hidden w-full lg:w-[314px] h-[56px] rounded-full border-2 solid border-white text-sm sm:text-base xl:text-lg font-normal font-twk-lausanne text-white mt-[20px] mb-[40px] hover:bg-white hover:text-black uppercase"
+                  >
+                    Login to Download Image
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </section> {% endcomment %}
+      
+
+      <!-- Follow Us for Urgent Prayer Requests -->
+      {% image page.last_section_image width-1200 as last_section_image %}
+      <section
+        class="mx-4 xl:mx-auto xl:w-[calc(100%-184px)] h-[400px] xl:h-[542px] mt-4 bg-[url({{last_section_image.url}})] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col rounded-2xl text-center px-4 sm:px-0"
+      >
+        <h3
+          class="text-[24px] sm:text-[30px] xl:text-[64px] text-white font-normal font-gt-super mb-4 lg:mb-[25px]"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          {{ page.last_section_header_title }}
+        </h3>
+
+        <div 
+          class="flex justify-center items-center flex-col sm:flex-row"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <div
+            class="flex flex-col justify-center items-center sm:mr-[50px] lg:mr-[100px] mb-6 sm:mb-0"
+          >
+            <div
+              class="w-[60px] h-[60px] lg:w-[104px] lg:h-[104px] cursor-pointer hover:scale-105 transition duration-500 ease-in-out mb-4 lg:mb-6"
+            >
+            <a href={{social_media_accounts.facebook_url}} target="_blank">
+              <img src="{% static 'img/facebook-prayer.svg' %}" alt="Facebook Logo" />
+            </a>
+            </div>
+            <span class="text-lg lg:text-2xl text-white font-normal font-twk-lausanne">
+              {{ page.last_section_facebook_button }}
+            </span>
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <div
+              class="w-[60px] h-[60px] lg:w-[104px] lg:h-[104px] cursor-pointer hover:scale-105 transition duration-500 ease-in-out mb-4 lg:mb-6"
+            >
+              <a href={{social_media_accounts.instagram_url}} target="_blank">
+                <img
+                  src="{% static 'img/insta-icon.svg' %}"
+                  alt="Instagram Logo"
+                />
+              </a>
+            </div>
+            <span class="text-lg lg:text-2xl text-white font-normal font-twk-lausanne">
+              {{ page.last_section_instagram_button }}
+            </span>
+          </div>
+        </div>
+      </section>
+    </main>
+    {% endblock %}
+  </body>
+  {% block javascript %}
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.5.0-beta.4/lightgallery.min.js"
+      integrity="sha512-OXh5TOMI5Ai7h7xS7j7yUYHk1WRtFUkfclpRsCgHv6HDzPi901GitnGEXYuuQ4/JzRZ5HBAZpvl8KD00sIMFPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script type="text/javascript">
+      AOS.init();
+
+      lightGallery(document.getElementById("gallery"));
+      lightGallery(document.getElementById("gallery2"));
+
+      // lightGallery(document.getElementById("");
+      var swiper = new Swiper(".mySwiper", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          // hide: true,
+        },
+        // slidesPerView: 3,
+        allowTouchMove: true,
+
+        breakpoints: {
+          // when window width is >= 320px
+          300: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 480px
+          480: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    {% endblock %}

@@ -1,0 +1,35 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% for story in stories %}
+  {% image story.image width-800 as story_image %}
+  <div class="swiper-slide cursor-pointer">
+    <div class="flex items-center h-full w-full">
+      <div class="flex items-center justify-center w-full h-full">
+        <div class="relative w-full sm:max-w-[330px] h-[440px] read_story_bg">
+          <a href="{{ story.url }}">
+          <img 
+            src="{{ story_image.url }}"
+            alt="{{ story_image.image_alt_text }}"
+            class="w-full h-full object-cover object-top rounded-lg" />
+          </a>
+        </div>
+        <div
+          class="lg:w-[275px] flex flex-col justify-center items-start ml-4 lg:ml-[30px] hidden read_stories">
+          <a href="{{ story.url }}">
+            <h4 class="text-lg sm:text-2xl text-[#3D3D3D] font-normal font-twk-lausanne mb-1 sm:mb-4">
+              {{ story.title }}
+            </h4>
+          </a>
+          <a href="{{ story.url }}">
+            <p
+              class="text-sm sm:text-base sm:text-lg text-black font-thin b-6 font-twk-lausanne iline-block mb-2 lg:mb-[28px]">
+              {{ story.body|richtext|slice:":250"|striptags}}...
+            </p>
+          </a>
+          <br />
+          <a href="{{ story.url }}" class="text-lg text-[#8B3C3B] font-normal font-twk-lausanne font-normal uppercase">{{ story_index_page.story_slider_read_more_text }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

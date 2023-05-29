@@ -1,0 +1,534 @@
+{% extends "base.html" %}
+{% load i18n home_template_tags go_template_tags story_template_tags staticfiles wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="h-auto h-[300px] sm:h-[450px] lg:h-[750px] xl:h-[848px] pt-[70px] sm:pt-[100px] md:pt-[190px] h-full pb-[60px] md:pb-[150px] px-4 bg-[url({{header_image.url}})] flex flex-col items-center bg-no-repeat bg-cover bg-unset sm:bg-center"
+    >
+      <h1
+        class="text-[36px] sm:text-[48px] xl:text-[64px] text-white font-gt-super font-normal mb-1 sm:mb-4 lg:mb-[25px] w-full md:w-auto"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        {{page.header_title}}
+      </h1>
+      <p
+        class="text-white text-[22px] sm:text-[28px] xl:text-[32px] font-twk-lausanne font-thin text-left md:text-center lg:w-[672px]"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        {{page.header_content}}
+      </p>
+    </header>
+
+    <main class="w-full pt-6 -mt-[70px] xl:-mt-[100px] lg:-mt-[350px] xl:-mt-[355px]">
+      {% image page.header_section_thumbnail width-1000 as thumbnail_image %}
+      <div class="flex flex-col justify-center items-center mx-auto">
+        <div
+          class="w-full h-[300px] md:h-[400px] lg:h-[568px] w-[calc(100%-16px)] sm:w-[calc(100%-30px)] lg:w-[calc(100%-150px)] xl:w-[1028px] cursor-pointer rounded-2xl"
+        >
+          <div
+            class="rounded-md md:rounded-[24px]"
+            style="
+              position: relative;
+              height: 0;
+              overflow: hidden;
+              height: 100%;
+            "
+          >
+            <iframe
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;" loading="lazy" ; srcdoc="<style>
+                * {
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                }
+                
+                img {
+                  position: absolute;
+                  width: 100%;
+                  top: 0;
+                  bottom: 0;
+                  margin: auto;
+                  border-radius: 8px;
+                  height: 100%;
+                  object-fit: cover;
+
+                }
+                button {
+                  background-image: url({% static 'img/play.svg' %});
+                  background-color: transparent;
+                  width: 80px;
+                  height: 80px;
+                  background-repeat: no-repeat;
+                  border: none;
+                  outline: none;
+                  margin: 0 auto;
+                  cursor: pointer;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%)
+                }
+              </style>
+              <a href='{{page.header_section_video_url}}'>
+                <img src='{{thumbnail_image.url}}' alt='{{header_section_thumbnail_alt_text}}' />
+                <button>
+                </button>                      
+              </a>
+              "
+              src="{{page.header_section_video_url}}"
+              title="{{page.url}}"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <!-- Ways you can Serve -->
+      <section
+        class="flex flex-col items-center justify-center px-4 xl:px-[100px] mt-[30px] lg:mt-[50px]"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        <div class="{% if not page.has_quiz %} hidden {% else %} {% endif %} w-full flex items-center justify-between md:justify-center">
+          <a href="#" target="_blank">
+            <button
+              class="bg-transparent text-base md:text-[22px] lg:text-[32px] font-thin font-twk-lausanne text-black mr-2 sm:mr-8 lg:mr-10"
+            >
+              <a href="{{ go_page.url }}">
+                {{ page.are_you_called_button }}
+              </a>
+            </button>
+          </a>
+
+          <a href="#" target="_blank">
+            <button
+              class="text-sm sm:text-lg text-white font-semibold font-twk-lausanne bg-[#3D3D3D] rounded-full border-2 solid border-[#3D3D3D] w-[130px] sm:w-[170px] md:w-[268px] h-[45px] sm:h-[56px] uppercase"
+            >
+              {{ page.take_the_quiz_button }}
+            </button>
+          </a>
+        </div>
+        <div class="flex flex-col mt-5 md:mt-[70px]">
+          <h3
+            class="text-[30px] sm:text-[36px] xl:text-[64px] text-black text-normal font-gt-super"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            {{page.ways_to_serve_title}}
+          </h3>
+
+          <p
+            class="text-[28px] lg:text-[36px] text-black font-thin text-twk-lausanne lg:w-[730px]"
+            data-aos="fade-up"
+            data-aos-duration="2000"
+          >
+            {{page.ways_to_serve_bottom_text}}
+          </p>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 xl:gap-[88px] mt-[45px]"
+          ><a href="{{ explore_page.url }}#short-term">
+            <div
+              class="flex flex-col justify-center items-center border-2 solid border-[rgba(127, 167, 182, 0.5)] rounded-2xl h-[230px] lg:h-[350px] px-[30px]"
+              data-aos="fade-up"
+              data-aos-duration="1000"
+            >
+              {% image page.short_term_image width-1200 as short_term_image %}
+              
+              <img
+                src="{{short_term_image.url}}#shortTerm"
+                alt="{{page.short_term_image_alt_text}}"
+                class="w-[150px] md:w-[290px] h-[100px] md:h-[130px]"
+              />
+              <span
+                class="text-[22px] sm:text-[28px] xl:text-[36px] font-normal font-twk-lausanne text-black  mt-2 lg:mt-7"
+                >{{ page.short_term_text }}</span
+              >
+              
+            </div>
+          </a>
+          <a href="{{ explore_page.url }}#oneToTwoYear">
+            <div
+              class="flex flex-col justify-center items-center border-2 solid border-[rgba(127, 167, 182, 0.5)] rounded-2xl h-[230px] lg:h-[350px] px-[30px]"
+              data-aos="fade-up"
+              data-aos-duration="1500"
+            >
+              {% image page.one_to_two_year_image width-1200 as one_to_two_year_image %}
+              <img
+                src="{{one_to_two_year_image.url}}"
+                alt="{{page.one_to_two_year_image_alt_text}}"
+                class="w-[150px] md:w-[290px] h-[100px] md:h-[130px]"
+              />
+              <span
+                class="text-[22px] sm:text-[28px] xl:text-[36px] font-normal font-twk-lausanne text-black mt-2 lg:mt-7"
+                >{{ page.one_to_two_year_text }}</span
+              >
+            </div>
+          </a>
+          <a href="{{ explore_page.url }}#career">
+            <div
+              class="flex flex-col justify-center items-center border-2 solid border-[rgba(127, 167, 182, 0.5)] rounded-2xl h-[230px] lg:h-[350px] px-[30px]"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+            >
+              {% image page.career_image width-1200 as career_image %}
+              <img
+                src="{{career_image.url}}"
+                alt="{{page.career_image_alt_text}}"
+                class="w-[150px] md:w-[290px] h-[100px] md:h-[130px]"
+              />
+              <span
+                class="text-[22px] sm:text-[28px] xl:text-[36px] font-normal font-twk-lausanne text-black mt-2 lg:mt-7"
+                >{{ page.career_text }}</span
+              >
+            </div>
+          </a>
+          </div>
+        </div>
+      </section>
+      <!-- GO Stories  -->
+      {% stories_slides_header as story_slide_header %}
+      {% get_current_language as LANGUAGE_CODE %}
+      <section
+        class="stories__wrapper overflow-hidden mt-7 lg:mt-[76px] ml-4 xl:ml-[100px]"
+      >
+        <div
+          class="flex items-center justify-between mb-6 lg:mb-11 pr-4 lg:pr-[60px]"
+        >
+          <div>
+            <h2
+              class="text-[36px] lg:text-[64px] font-gt-super font-light text-black"
+            >
+            {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.slider_header_text }}{% else %}{{ story_slide_header.slider_header_text_es }}{% endif %}
+          </h2>
+            <p
+              class="text-base lg:text-[36px] font-twk-lausanne font-extralight text-black"
+            >
+            {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.slider_subheader_text }}{% else %}{{ story_slide_header.slider_subheader_text_es }}{% endif %}
+            </p>
+          </div>
+          <a href="{{ story_page.url }}">
+            <button
+              class="w-[110px] sm:w-[175px] h-[40px] sm:h-[56px] text-sm sm:text-lg font-twk-lausanne font-normal uppercase text-[#8A4D32] border-2 solid border-[#8A4D32] hover:bg-[#8A4D32] hover:text-white rounded-full transition duration-500 ease-in-out">
+              {% if LANGUAGE_CODE == 'en' %}{{ story_slide_header.header_button_text }}{% else %}{{ story_slide_header.header_button_text_es }}{% endif %}
+            </button>
+          </a>
+        </div>
+        <!-- Stories,, Real people's - real lives -->
+        <div 
+          class="w-full h-[550px] md:h-[630px]"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
+        <div
+        class="stories_swiper pl-0 relative swiper-scrollbar-home home_stories"  
+        >
+          <div class="swiper-wrapper greg__munids">
+            {% get_stories %}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next" id="arrow-right"></div>
+          <div class="swiper-scrollbar"></div>
+        </div>
+      </div>
+      </section>
+      <!-- Start your Journey -->
+      {% image page.start_your_journey_background_image width-1200 as start_your_journey_background_image %}
+      <section
+        class="md:mx-4 xl:mx-auto xl:w-[calc(100%-184px)] py-12 md:py-0 md:h-[400px] xl:h-[542px] bg-[url({{start_your_journey_background_image.url}})] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col md:rounded-2xl text-center px-4 sm:px-0 md:mb-8 lg:mb-[120px]"
+      >
+        <h3
+          class="text-[30px] md:text-[48px] xl:text-[64px] text-white font-normal mb-4 lg:mb-[15px] font-gt-super"
+        >
+          {{page.start_your_journey_title}}
+        </h3>
+
+        <p
+          class="text-lg sm:text-xl lg:text-3xl xl:text-4xl font-light text-white font-twk-lausanne"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          {{page.start_your_journey_content}}
+        </p>
+        <div class="flex items-center flex-wrap justify-center gap-[25px] pt-6 md:pt-0 md:mt-[50px]">
+          <a
+            href="{{ explore_page.url }}#short-term"
+            class="flex items-center justify-center w-[268px] h-[56px] bg-white rounded-full text-lg font-semibold text-black hover:scale-105 transition ease-in-out font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out uppercase"
+            data-aos="fade-up" data-aos-duration="2000">
+            {{ page.start_your_journey_first_button_name }}
+          </a>
+          <a
+            href="{{ explore_page.url }}#oneToTwoYear"
+            class="flex items-center justify-center w-[268px] h-[56px] bg-white rounded-full text-lg font-semibold text-black hover:scale-105 transition ease-in-out font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out uppercase"
+            data-aos="fade-up" data-aos-duration="2000">
+            {{ page.start_your_journey_second_button_name }}
+          </a>
+          <a
+            href="{{ explore_page.url }}#career"
+            class="flex items-center justify-center w-[268px] h-[56px] bg-white rounded-full text-lg font-semibold text-black hover:scale-105 transition ease-in-out font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out uppercase"
+            data-aos="fade-up" data-aos-duration="2000">
+            {{ page.start_your_journey_third_button_name }}
+          </a>
+        </div>
+      </section>
+    </main>
+    {% get_video_items as videos %}
+    {% for item in videos %}
+    <div
+      id="dedicatedModal-{{item.id}}"
+      class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg"
+      style="background-color: rgba(0, 0, 0, 0.8)"
+    >
+      <div class="scale_1 w-full h-full flex items-center justify-center">
+        <iframe
+          class="hero-video w-[1150px] h-[580px] rounded-md"
+          src="{{item.video_url}}"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <button
+        id="closeopenDedicatedModal-{{item.id}}"
+        class="absolute top-3 right-3 w-16 h-16"
+      >
+        <svg
+          width="56"
+          height="56"
+          viewBox="0 0 56 56"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+            fill="white"
+          />
+        </svg>
+      </button>
+    </div>
+    {% endfor %}
+    {% endblock %}
+    {% block javascript %}
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+      $(".custom-carousel").owlCarousel({
+        autoWidth: true,
+        loop: true,
+        nav: true
+      });
+  
+  
+      AOS.init();
+  
+      const swiper2 = new Swiper(".swiper_videos", {
+        // Optional parameters
+        // direction: "vertical",
+        // loop: true,
+        // slidesPerView: 1,
+  
+        // Navigation arrows
+        loop: false,
+        allowTouchMove: false,
+  
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      let storiesSwiper = new Swiper(".stories_swiper", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+        },
+        draggable: true,
+        allowTouchMove: true,
+        loop: true,
+        //centeredSlides: true,
+        //direction: 'horizontal',
+        initialSlide: 0,
+  
+        direction: "horizontal",
+        //centeredSlides: false,
+        speed: 800,
+        //slidesPerView: "auto",
+        threshold: 5,
+  
+  
+        //freeMode: true,
+        //watchSlidesProgress: true,
+        breakpoints: {
+          100: {
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+          },
+  
+          450: {
+            slidesPerView: 1.4,
+            spaceBetween: 20,
+          },
+          692: {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+          }
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+  
+      });
+
+      let RegionsSwiper = new Swiper(".region_explore", {
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+  
+          // hide: true,
+        },
+        // slidesPerView: 3,
+        initialSlide: 0,
+  
+        allowTouchMove: true,
+        draggable: true,
+        direction: "horizontal",
+        speed: 800,
+        threshold: 5,
+        loop: true,
+  
+        breakpoints: {
+          // when window width is >= 320px
+          300: {
+            slidesPerView: 1.1,
+            spaceBetween: 10,
+          },
+          // when window width is >= 480px
+  
+          // when window width is >= 640px
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          992: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1192: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1490: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+  
+        on: {
+          init: function () {
+  
+            //const regionsCover = document.querySelectorAll(".regions__cover");
+            //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+  
+  
+            const readStories = document.querySelectorAll(".explore__continent");
+            readStories.forEach((c) => c.classList.add("toglle_continent"));
+  
+            readStories.forEach((itemSlide, index) => {
+              if (index === this.activeIndex) {
+                itemSlide.classList.add("toglle_continent");
+                //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+              } else {
+                itemSlide.classList.remove("toglle_continent");
+                //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+  
+              }
+            });
+  
+            //toggle banners
+            const exploreHeaders = document.querySelectorAll(".explore_banners");
+            exploreHeaders.forEach((h) => h.classList.add("show_explore_banners"));
+  
+            exploreHeaders.forEach((itemSlide, index) => {
+              if (index === this.activeIndex) {
+                itemSlide.classList.add("show_explore_banners")
+              } else {
+                itemSlide.classList.remove("show_explore_banners")
+              }
+            })
+          },
+        },
+      });
+  
+      RegionsSwiper.on("slideChange", function () {
+        //const regionsCover = document.querySelectorAll(".regions__cover");
+        //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+        const readStories = document.querySelectorAll(".explore__continent");
+  
+  
+  
+        readStories.forEach((c) => c.classList.add("toglle_continent"));
+        readStories.forEach((itemSlide, index) => {
+          if (index === this.activeIndex) {
+            itemSlide.classList.add("toglle_continent");
+            //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+          } else {
+            itemSlide.classList.remove("toglle_continent");
+            //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+  
+          }
+        });
+      });
+  
+      RegionsSwiper.on("slideChange", function () {
+        const exploreHeaders = document.querySelectorAll(".explore_banners");
+        exploreHeaders.forEach((c) => c.classList.add("show_explore_banners"));
+        exploreHeaders.forEach((itemSlide, index) => {
+          if (index === this.activeIndex) {
+            itemSlide.classList.add("show_explore_banners");
+            //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+  
+          } else {
+            itemSlide.classList.remove("show_explore_banners");
+          }
+        });
+      });
+
+      // VideosPage
+    const showVideosBtn = document.querySelectorAll("#showVideos");
+    const videosModal = document.getElementById("videosModal");
+    const closeopenVideosModal = document.getElementById(
+      "closeopenVideosModal"
+    );
+
+    showVideosBtn.forEach((el, i) => {
+      el.addEventListener("click", () => {
+        videosModal.classList.add("show");
+      });
+    });
+
+    //Close VideosModal
+    closeopenVideosModal.addEventListener("click", () => {
+      videosModal.classList.remove("show");
+    });
+    </script>
+    {% endblock %}

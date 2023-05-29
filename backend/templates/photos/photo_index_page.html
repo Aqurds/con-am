@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+{% load staticfiles photo_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as my_image %}
+    <header
+      class="pt-[70px] h-full px-4 md:px-[83px] pb-[150px] md:pb-[180px] bg-[url({{my_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div class="flex flex-col justify-center items-center md:pt-[115px]">
+        <h1 
+          class="text-4xl md:text-[64px] text-white font-normal font-gt-super"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          {{ page.title }}
+        </h1>
+        
+        <div class="mt-[60px] px-2 sm:px-0" data-aos="fade-up" data-aos-duration="3000">
+          <ul class="tabs flex items-center justify-center md:justify-between flex-wrap md:flex-row h-[65px] md:h-auto">
+            {% get_regions %}
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="w-full px-4 xl:px-[80px] -translate-y-[105px] 2xl:w-[1440px] mx-auto">
+      <!-- //container -->
+      <div 
+        class="content_wrapper w-full"
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
+        <!-- content -->
+        <div
+          class="w-full stories hidden flex items-center justify-center flex-wrap gap-5"
+          id="gallery"
+        >
+        {% for childpage in page.specific.children %}
+        {% image childpage.image width-290 as my_image %}
+
+            <a
+              href="#"
+              target="_blank"
+              class="flex stories hidden flex-col pictures items-center sm:items-start w-[280px] h-[280px] lg:w-[344px] lg:h-[344px] w-full justify-center"
+              data-sub-html="#caption{{ childpage.id }}"
+              data-region="{{childpage.region}}"
+            >
+              <div class="w-full h-full">
+                <img src={{ my_image.url }} alt={{ childpage.image_alt_text }} class="w-full h-full object-cover rounded-md"/>
+              </div>
+            </a>
+            
+            {% endfor %}
+        </div>
+        {% for childpage in page.specific.children %}
+        {% image childpage.image width-800 as my_image %}
+        <div id="caption{{childpage.id}}" style="display: none">
+          <div
+            class="absolute positon__center flex flex-col md:flex-row w-full justify-center px-4 md:px-0 mt-4 sm:mt-0"
+          >
+            <div class="w-full h-[200px] md:w-[512px] md:h-[512px] mt-4 mb-4">
+              <img
+                src={{ my_image.url }}
+                alt={{ childpage.image_alt_text }}
+                class="w-full h-full object-cover rounded-md"
+              />
+            </div>
+            <div class="flex flex-col items-start md:ml-[30px] xl:ml-[50px]">
+              <h4
+                class="text-lg sm:text-xl md:text-2xl xl:text-4xl text-white font-normal font-twk-lausanne gallery__title"
+              >
+                {{ childpage.title }}
+              </h4>
+              <span class="text-base xl:text-lg text-white font-normal font-twk-lausanne"> {{childpage.region}} </span
+              >
+              <div class="mt-4 text-left">
+                <h5
+                  class="text-base xl:text-lg text-white font-normal text-white uppercase font-twk-lausanne"
+                >
+                  {{ page.modal_usage_header }}
+                </h5>
+                <p class="text-lg font-normal text-white font-twk-lausanne max-w-md">
+                  {{ page.modal_usage_description|striptags }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
+    {% endblock %}
+
+    {% block javascript %}
+    <!-- lightgallery plugins -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.5.0-beta.4/lightgallery.min.js"
+      integrity="sha512-OXh5TOMI5Ai7h7xS7j7yUYHk1WRtFUkfclpRsCgHv6HDzPi901GitnGEXYuuQ4/JzRZ5HBAZpvl8KD00sIMFPw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- JsCode -->
+    <script type="text/javascript">
+      AOS.init();
+      
+      lightGallery(document.getElementById("gallery"));
+
+      // Grap all ul > li
+      const tabs = document.querySelectorAll(".tabs li");
+      // Grap all stories
+      const stories = document.querySelectorAll(".stories");
+      const pictures = document.querySelectorAll(".pictures");
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          // Remove Active class
+          tabs.forEach((tab) => tab.classList.remove("active_story"));
+          // Add Active Class
+          tab.classList.add("active_story");
+
+          if (tab.id === "All") {
+            stories.forEach((story) => story.classList.remove("hidden"))
+          }
+          else {
+            pictures.forEach((story) => story.classList.add("hidden"))
+          }
+
+          //  Hide previous Stories
+          pictures.forEach((picture) => {
+            if (tab.id !== picture.dataset.region) {
+              picture.classList.remove("show__Story")
+            }
+            else {
+              picture.classList.add("show__Story"); 
+            }
+          });
+        });
+      });
+      // When Page Realod Put Active On First Fab
+      tabs[0].click();
+      
+    
+    </script>
+    {% endblock %}

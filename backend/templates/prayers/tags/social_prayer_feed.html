@@ -1,0 +1,85 @@
+{% load static %}
+<section class="pl-4 xl:pl-[92px] mb-[30px] social_prayer_feed">
+  <div class="mb-6 lg:mb-16" data-aos="fade-up" data-aos-duration="2000">
+    <h4
+      class="text-[24px] sm:text-[36px] md:text-[48px] xl:text-[64px] text-black font-normal"
+    >
+      Social Prayer Feed
+    </h4>
+    <p
+      class="text-lg sm:text-xl md:text-2xl xl:text-4xl text-black font-normal"
+    >
+      Join our community, be part of us!
+    </p>
+  </div>
+  <div 
+    class="swiper mySwiper h-[660px] lg:h-[765px] relative"
+    data-aos="fade-left"
+    data-aos-easing="linear"
+    data-aos-duration="1500"
+  >
+    <div class="swiper-wrapper" id="gallery2">
+      {% for social_prayer_feed in page.social_prayer_feeds %}
+      <div
+        class="swiper-slide small__slide cursor-pointer text-center"
+        data-sub-html="#prayer-feed-{{social_prayer_feed.id}}"
+      >
+        <div class="h-[439px]">
+          <img
+            src={{ social_prayer_feed.image.url }}
+            alt="{{social_prayer_feed.image_alt_text}}"
+            class="w-full h-full rounded-lg"
+          />
+        </div>
+        <div class="mt-4 text-left">
+          <h5
+            class="text-lg xl:text-2xl text-[#3D3D3D] font-normal mb-[20px]"
+          >
+            {{ social_prayer_feed.name }}
+          </h5>
+          <p class="text-base lg:text-lg text-[#3D3D3D] font-normal">
+            {{ social_prayer_feed.body }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% for social_prayer_feed in page.social_prayer_feeds %}
+    <div id="prayer-feed-{{social_prayer_feed.id}}" style="display: none">
+      <div
+        class="absolute positon__center flex flex-col md:flex-row w-full justify-center px-4 md:px-0 mt-4 sm:mt-0"
+      >
+        <div
+          class="w-[200px] h-[200px] md:w-[350px] md:h-[350px] mt-2 mb-4 rounded-2xl"
+        >
+          <img
+            src={{ social_prayer_feed.image.url }}
+            alt="{{social_prayer_feed.image_alt_text}}"
+            class="h-full w-full object-contain"
+          />
+        </div>
+        <div class="flex flex-col items-start md:mx-[30px] xl:ml-[50px]">
+          <h4
+            class="text-lg lg:text-2xl xl:text-4xl text-white font-normal gallery__title"
+          >
+            {{social_prayer_feed.name}}
+          </h4>
+          <div class="mt-4 text-left">
+            <h5
+              class="text-base xl:text-lg text-white font-normal text-white uppercase"
+            >
+              Full Social Prayer Feed
+            </h5>
+            <p class="text-lg font-normal text-white md:w-[350px]">
+              {{social_prayer_feed.body}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-scrollbar"></div>
+  </div>
+</section>

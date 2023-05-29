@@ -1,0 +1,98 @@
+{% load staticfiles wagtailimages_tags %}
+
+<div 
+  class="swiper swiper_videos one_year-career-videos go__header-swiper"
+  data-aos="fade-up"
+  data-aos-duration="2000"
+>
+  <div class="swiper-wrapper">
+    {% for item in gallery_items %}
+      {% image item.image width-1000 as image %}
+      {% if item.is_video %}
+        <div class="swiper-slide px-4 lg:px-0">
+          <div class="flex flex-col justify-center items-center mx-auto">
+            <div
+              class="w-full h-[300px] md:h-[400px] lg:h-[568px] w-[calc(100%-16px)] sm:w-[calc(100%-30px)] lg:w-[calc(100%-150px)] xl:w-[1028px] cursor-pointer rounded-2xl"
+            >
+              <div
+                class="rounded-md md:rounded-[24px]"
+                style="
+                  position: relative;
+                  height: 0;
+                  overflow: hidden;
+                  height: 100%;
+                "
+              >
+                <iframe
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: 0;" loading="lazy" ; srcdoc="<style>
+                    * {
+                    padding: 0;
+                    margin: 0;
+                    overflow: hidden;
+                    }
+                    
+                    img {
+                      position: absolute;
+                      width: 100%;
+                      top: 0;
+                      bottom: 0;
+                      margin: auto;
+                      border-radius: 8px;
+                      height: 100%;
+                      object-fit: cover;
+
+                    }
+                    button {
+                      background-image: url({% static 'img/play.svg' %});
+                      background-color: transparent;
+                      width: 80px;
+                      height: 80px;
+                      background-repeat: no-repeat;
+                      border: none;
+                      outline: none;
+                      margin: 0 auto;
+                      cursor: pointer;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      transform: translate(-50%, -50%)
+                    }
+                  </style>
+                  <a href='{{item.video_url}}'>
+                    <img src='{{image.url}}' alt='{{item.image_alt_text}}' />
+                    <button>
+                    </button>                      
+                  </a>
+                  "
+                  src="{{item.video_url}}"
+                  title="{{item.page.url}}"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                >
+                </iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% else %}
+      <div class="swiper-slide px-4 lg:px-0">
+        <div class="flex flex-col justify-center items-center mx-auto">
+          <div>
+            <img src="{{image.url}}" />
+          </div>
+        </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+</div>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
+          },
+          backgroundImage: {
+            "burger-menu": "url('./assets/img/berger-menu.svg')",
+          },
+          fontFamily: {
+            "gt-super": ["gt-super"],
+            "twk-lausanne": ["twk-lausanne"],
+          },
+        },
+      },
+    };
+  </script>
+  <title>Resources</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="w-full flex items-center justify-between px-4 lg:px-[60px] pt-[20px] sm:pt-[30px] pb-[25px] z-50">
+    <div class="flex items-center">
+      <button class="w-6 h-6 bg-[url('./assets/img/burger-menu-black.svg')] mr-4 lg:mr-[47px]"></button>
+
+      <div class="">
+        <!--  Custome drop down.. -->
+        <div class="dropdown relative">
+          <div class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out">
+            <span class="selected text-lg text-black uppercase font-normal mr-[12px]">EN</span>
+            <span class="ml-1"><svg width="11" height="6" viewBox="0 0 11 6" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z" fill="black" />
+              </svg>
+            </span>
+          </div>
+
+          <ul
+            class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out">
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md">
+              EN
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md">
+              FR
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2">
+              DU
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2">
+              AR
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="md:flex flex-col items-center w-[100px] md:w-[275px]">
+      <img src="./assets/img/app-logo-black.svg" alt="app-logo" class="" />
+      <span class="hidden md:inline-block text-sm text-black font-normal">Assemblies of God World Mission</span>
+    </div>
+    <div class="hidden md:flex items-center relative">
+      <!-- Search Bar -->
+      <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+        <span
+          class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search-black-logo.svg')] bg-no-repeat"></span>
+        <input id="my__search"
+          class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+          type="text" placeholder="Search" />
+        <div class="clear absolute right-2 top-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#000"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+      <!-- End Search Bar -->
+      <button
+        class="w-[211px] h-[56px] text-center rounded-full text-lg text-black border-2 solid border-black font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out">
+        Are you called?
+      </button>
+    </div>
+  </nav>
+  <header
+    class="w-full h-[300px] flex justify-center items-center bg-[url('./assets/img/misc-cover.png')] bg-no-repeat bg-cover bg-center">
+    <h1 class="text-[36px] lg:text-[48px] xl:text-[64px] text-white font-normal font-gt-super">
+      Assemblies of God World Missions
+    </h1>
+  </header>
+  <!-- -translate-y-2/3 -->
+  <main class="w-full px-8 py-8 xl:px-[85px] xl:pt-[93px]">
+    <section class="w-full flex flex-col md:flex-row">
+      <div class="flex flex-col w-auto md:w-[300px] xl:w-[400px] xl:pr-[66px] md:border-r solid border-[#D8D8D8]">
+        <h3 class="text-[28px] font-gt-super font-black font-light mb-5">
+          Quick Pages
+        </h3>
+        <ul class="misc-tabs">
+          <li class="active-mics-page text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            Assemblies of God World Missions
+          </li>
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            AGWM Executive Committee
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            AGWM Missionary Directory
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            AGWM World Missions Board
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            International Society of Missionary Kids
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            State of the Mission
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            Vital Statistics
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            Resource Catalog
+          </li>
+
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            Resource Catalog
+          </li>
+
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            Wide Open Mission Guide
+          </li>
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            AGWM Media Hub
+          </li>
+
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            AGWM Online Store
+          </li>
+          <li class="text-md text-[#3D3D3D] font-light italic font-twk-lausanne mb-2.5 cursor-pointer">
+            Contact AGWM
+          </li>
+        </ul>
+      </div>
+
+      <div class="w-full md:w-[calc(100%-300px)] xl:w-[calc(100%-400px)] md:pl-6 xl:pl-[57px]">
+        <div class="misc_content hidden  w-full flex-col">
+          <h4 class="text-[28px] font-gt-super font-black font-light mb-5">
+            Quick page Title here
+          </h4>
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum, posuere orci, id vestibulum hendrerit
+            justo in. Lorem tellus mi, eu sed scelerisque adipiscing at massa, vel. Et
+          </p>
+
+          <h4 class="text-md font-twk-lausanne font-normal text-black mb-4">
+            Title here
+
+          </h4>
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            nunc parturient rhoncus leo eu euismod. Lectus diam elit magna dolor ultrices blandit sed eget neque. Ornare
+            ipsum fermentum nec duis non. Sollicitudin congue pellentesque lacus sollicitudin. Nec sit vel vel nisl sed
+            at neque. Mattis in sit eleifend ut leo accumsan amet ac quisque. Metus convallis augue dignissim eget dui
+            sapien, amet quis nam. Sed con~
+          </p>
+
+          <div class="mt-5 mb-12 w-full">
+            <div class="flex flex-col justify-center items-center mx-auto" data-aos="fade-up" data-aos-duration="3000">
+              <div class="w-full h-[250px] md:h-[410px]">
+                <div style="
+                    position: relative;
+                    width: 100%;
+                    height: 0;
+                    overflow: hidden;
+                    height: 100%;
+                  ">
+                  <iframe style="
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      border: 0;
+                      border-radius: 8px;
+                    " loading="lazy" ; srcdoc="<style>
+                * {
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+                }
+                
+                img {
+                  position: absolute;
+                  width: 100%;
+                  top: 0;
+                  bottom: 0;
+                  margin: auto;
+                  border-radius: 8px;
+                  height: 100%;
+                  object-fit: cover;
+
+                }
+                button {
+                  background-image: url('./assets/img/play.svg');
+                  background-color: transparent;
+                  width: 80px;
+                  height: 80px;
+                  background-repeat: no-repeat;
+                  border: none;
+                  outline: none;
+                  margin: 0 auto;
+                  cursor: pointer;
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%)
+                }
+              </style>
+              <a href='https://www.youtube.com/embed/KaNW3Cnqza0'>
+                <img src='./assets/img/video__poster.png' alt='video cover' />
+                <button>
+                </button>                      
+              </a>
+              " src="https://www.youtube.com/embed/KaNW3Cnqza0" title="Coffee Recipe Javascript Project"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fermentum, posuere orci, id vestibulum hendrerit
+            justo in. Lorem tellus mi, eu sed scelerisque adipiscing at massa, vel. Et
+          </p>
+
+          <h4 class="text-md font-twk-lausanne font-normal text-black mb-4">
+            Title here
+
+          </h4>
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            nunc parturient rhoncus leo eu euismod. Lectus diam elit magna dolor ultrices blandit sed eget neque. Ornare
+            ipsum fermentum nec duis non. Sollicitudin congue pellentesque lacus sollicitudin. Nec sit vel vel nisl sed
+            at neque. Mattis in sit eleifend ut leo accumsan amet ac quisque. Metus convallis augue dignissim eget dui
+            sapien, amet quis nam. Sed con~
+          </p>
+
+
+
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            nunc parturient rhoncus leo eu euismod. Lectus diam elit magna dolor ultrices blandit sed eget neque. Ornare
+            ipsum fermentum nec duis non. Sollicitudin congue pellentesque lacus sollicitudin. Nec sit vel vel nisl sed
+            at neque. Mattis in sit eleifend ut leo accumsan amet ac quisque. Metus convallis augue dignissim eget dui
+            sapien, amet quis nam. Sed con~
+          </p>
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            nunc parturient rhoncus leo eu euismod. Lectus diam elit magna dolor ultrices blandit sed eget neque. Ornare
+            ipsum fermentum nec duis non. Sollicitudin congue pellentesque lacus sollicitudin. Nec sit vel vel nisl sed
+            at neque. Mattis in sit eleifend ut leo accumsan amet ac quisque. Metus convallis augue dignissim eget dui
+            sapien, amet quis nam. Sed con~
+          </p>
+
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            nunc parturient rhoncus leo eu euismod. Lectus diam elit magna dolor ultrices blandit sed eget neque. Ornare
+            ipsum fermentum nec duis non. Sollicitudin congue pellentesque lacus sollicitudin. Nec sit vel vel nisl sed
+            at neque. Mattis in sit eleifend ut leo accumsan amet ac quisque. Metus convallis augue dignissim eget dui
+            sapien, amet quis nam. Sed con~
+          </p>
+          <p class="text-md font-twk-lausanne font-thin text-black mb-4">
+            nunc parturient rhoncus leo eu euismod. Lectus diam elit magna dolor ultrices blandit sed eget neque. Ornare
+            ipsum fermentum nec duis non. Sollicitudin congue pellentesque lacus sollicitudin. Nec sit vel vel nisl sed
+            at neque. Mattis in sit eleifend ut leo accumsan amet ac quisque. Metus convallis augue dignissim eget dui
+            sapien, amet quis nam. Sed con~
+          </p>
+
+
+          <section class="misc__swiper mt-8 relative pb-[110px] overflow-hidden">
+
+            <div class="swiper miscSwiper mt-[80px]" data-aos="fade-left"
+              data-aos-duration="2000">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://swiperjs.com/demos/images/nature-1.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://swiperjs.com/demos/images/nature-2.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-3.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-4.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-5.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-6.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-7.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-8.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-9.jpg" class="w-full h-full bg-cover rounded-lg" />
+                </div>
+                <div class="swiper-slide ">
+                  <img src="https://swiperjs.com/demos/images/nature-10.jpg"  class="w-full h-full bg-cover rounded-lg" />
+                </div>
+              </div>
+            </div>
+            <div
+              class="give__arrows w-[200px] h-[80px] absolute bottom-[30px] md:bottom-[75px] lg:bottom-[85px] xl:bottom-[20px]">
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-scrollbar"></div>
+          </section>
+        </div>
+        <div class="misc_content hidden bg-red-100 w-[200px] h-[200px]"></div>
+        <div class="misc_content hidden bg-red-500 w-[200px] h-[200px]"></div>
+        <div class="misc_content hidden bg-red-700 w-[200px] h-[200px]"></div>
+        <div class="misc_content hidden bg-blue-300 w-[200px] h-[200px]"></div>
+      </div>
+
+
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 px-4 lg:px-[75px] mb-4 md:pb-9">
+      <div class="col-span-2 flex flex-col xl:border-r solid border-[#f0f0f0] mb-8 xl:mb-0 sm:pr-4 lg:pr-6 xl:pr-10">
+        <div class="mb-4 sm:mb-7">
+          <img src="./assets/img/colored-logo.svg" alt="App-Logo" class="h-[30px] sm:h-auto" />
+        </div>
+
+        <p class="text-[#3D3D3D] font-light text-sm font-twk-lausanne">
+          1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+          Phone: 1-417-862-3420
+        </p>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6">
+          Are you called?
+        </button>
+        <p class="text-[10px] text-[#3D3D3D] font-normal">
+          © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+        </p>
+      </div>
+
+      <div class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Executive Office</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Privacy & Permissions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Stories</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Photos</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Videos</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">WorldView & More</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Merchandise</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Explore </a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">International Ministress</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Africa </a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Europe</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Asia Pacific</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Latin America</a>
+          </li>
+
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]"> Eurasia </a>
+          </li>
+
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Northen Asia</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex lg:justify-center my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Strategy </a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Reaching</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]"> Planting </a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]"> Training </a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Serving</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col w-full md:w-auto mx-auto my-2 sm:my-0">
+        <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+        <div class="flex items-center">
+          <div
+            class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/facebook.svg" alt="facebook" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/viemo.svg" alt="viemo" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/youtube.svg" alt="Youtube" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/insta.svg" alt="Instagram" />
+          </div>
+        </div>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6">
+          Get in Touch
+        </button>
+      </div>
+    </div>
+    <div class="w-full">
+      <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <script type="text/javascript">
+
+    const swiper2 = new Swiper(".miscSwiper", {
+      spaceBetween: 10,
+      slidesPerView: 2.4,
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        // hide: true,
+      },
+
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+    });
+
+    // SMOOTH SCROLL BEHAVIOUR
+    AOS.init();
+    // Grap all ul > li
+    const miscTabs = document.querySelectorAll(".misc-tabs li");
+    // Grap all stories
+    const miscContent = document.querySelectorAll(".misc_content");
+
+    miscTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        // Remove Active class
+        miscTabs.forEach((tab) => tab.classList.remove("active-misc"));
+        // Add Active Class
+        tab.classList.add("active-misc");
+        //  Hide previous Stories
+        miscContent.forEach((c) => c.classList.remove("show__misc"));
+        // Show Content According To Tab Selected
+        miscContent[index].classList.add("show__misc");
+      });
+    });
+    // When Page Realod Put Active On First Fab
+    miscTabs[0].click();
+
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+    // Toggle Language menu
+    const LangMenu = document.querySelector(".dropdown-select");
+    const dropDown = document.querySelector(".dropdown-menu");
+    const listText = document.querySelector(".selected");
+    const dropDownItem = document.querySelectorAll(".item");
+
+    LangMenu.addEventListener("click", () => {
+      LangMenu.classList.toggle("active");
+      dropDown.classList.toggle("active");
+      dropDownItem.forEach((item) => {
+        if (item.innerText === listText.innerText) {
+          item.classList.add("active-lang");
+        } else {
+          item.classList.remove("active-lang");
+        }
+      });
+    });
+
+    for (item of dropDownItem) {
+      item.addEventListener("click", showItem);
+    }
+    function showItem() {
+      event.preventDefault();
+
+      listText.innerHTML = this.textContent;
+      dropDown.classList.toggle("active");
+      LangMenu.classList.toggle("active");
+    }
+
+    //  Search Icon
+    const searchBar = document.querySelector(".search__bar");
+    const searchIcon = document.querySelector(".search__icon");
+    const mySearch = document.querySelector("#my__search");
+    const clear = document.querySelector(".clear");
+
+    searchIcon.addEventListener("click", () => {
+      searchBar.classList.toggle("active");
+    });
+
+    clear.addEventListener("click", () => {
+      mySearch.value = "";
+      searchBar.classList.toggle("active");
+    });
+  </script>
+</body>
+
+</html>

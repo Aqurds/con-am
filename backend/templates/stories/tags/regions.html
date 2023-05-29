@@ -1,0 +1,16 @@
+<li
+    class="list-none text-sm sm:text-lg lg:text-[22px] text-white opacity-[61%] font-bold mr-3 md:mr-[40px] cursor-pointer font-twk-lausanne"
+    id="All"
+>
+    All
+</li>
+{% for region in regions %}
+  {% if region.is_main_region %}
+    <li
+      class="text-sm sm:text-lg lg:text-[22px] text-white opacity-[61%] font-bold list-none mr-3 md:mr-[40px] cursor-pointer font-twk-lausanne"
+      id="{{ region.name }}"
+    >
+      {{ region.name }}
+    </li>
+  {% endif %}
+{% endfor %}

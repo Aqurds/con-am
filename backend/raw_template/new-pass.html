@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/style.css" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- TailwindCss -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
+          },
+          backgroundImage: {
+            "burger-menu": "url('./assets/img/berger-menu.svg')",
+          },
+          fontFamily: {
+            "gt-super": ["gt-super"],
+            "twk-lausanne": ["twk-lausanne"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <main class="bg-[url('./assets/img/set__new__pass__bg.png')] w-full w-full h-screen bg-cover bg-no-repeat pt-[50px] lg:pt-[100px] xl:pt-[150px]">
+      <div
+        class="w-full lg:w-[505px] px-6 lg:px-0 mx-auto flex justify-center items-center flex-col login__screen"
+      >
+
+        <h2 class="text-[24px] font-gt-super text-white font-normal">
+          Create a New Password
+        </h2>
+      
+        <form action="" class="w-full flex flex-col mt-6 lg:mt-8">
+          <div class="mt-4 lg:mt-[40px]">
+            <input type="text" placeholder="Enter New Password"
+              class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none block placeholder:font-light" />
+            <!-- <span class="text-xs text-normal font-twk-lausanne text-red-400">email is not valid</span> -->
+          </div>
+  
+          <div class="mt-[40px]">
+            <div class="w-full relative">
+              <input id="myPassword" type="password" placeholder="Confirm New Password"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none block placeholder:font-light" />
+            </div>
+            <!-- <span class="text-xs text-normal font-twk-lausanne text-red-400">Pasword is not valid</span> -->
+          </div>
+
+          <button
+            class="bg-white flex items-center justify-center w-full lg:w-[473px] h-[56px] text-lg text-[#121A15] font-semibold font-twk-lausanne uppercase rounded-full mt-[52px]">
+            Save
+          </button>
+
+          <button
+            class="bg-transparent flex items-center justify-center w-full lg:w-[473px] h-[56px]  text-lg text-white font-semibold font-twk-lausanne uppercase rounded-full mt-[38px] border-2 solid border-white hover:bg-[#8B3C3A] hover:border-none transition duration-500 ease-in-out">
+          Cancel
+          </button>
+        </form>
+      </div>
+   
+  </main>
+  <!-- Footer -->
+  <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 px-4 lg:px-[75px] mb-4 md:pb-9">
+      <div class="col-span-1 flex flex-col sm:border-r solid border-[#f0f0f0] mb-4 md:mb-0">
+        <div class="mb-4 sm:mb-7">
+          <img src="./assets/img/colored-logo.svg" alt="App-Logo" class="h-[30px] sm:h-auto" />
+        </div>
+
+        <p class="text-[#3D3D3D] font-normal text-sm">
+          1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+          Phone: 1-417-862-3420
+        </p>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase font-twk-lausanne hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6">
+          Are you called?
+        </button>
+        <p class="text-[10px] text-[#3D3D3D] font-normal font-twk-lausanne">
+          © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+        </p>
+      </div>
+      <div class="md:col-span-1 flex sm:justify-center md:border-r solid border-[#f0f0f0] my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Privacy & Permissions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col w-full md:w-auto md:col-span-1 mx-auto my-2 sm:my-0">
+        <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+        <div class="flex items-center">
+          <div
+            class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/facebook.svg" alt="facebook" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/viemo.svg" alt="viemo" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/youtube.svg" alt="Youtube" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/insta.svg" alt="Instagram" />
+          </div>
+        </div>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6">
+          Get in Touch
+        </button>
+      </div>
+    </div>
+    <div class="w-full">
+      <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+    </div>
+  </footer>
+</body>
+
+</html>

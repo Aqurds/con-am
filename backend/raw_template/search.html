@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            backgroundImage: {
+              "burger-menu": "url('./assets/img/berger-menu.svg')",
+            },
+            fontFamily: {
+              "gt-super": ["gt-super"],
+              "twk-lausanne": ["twk-lausanne"],
+            },
+          },
+        },
+      };
+    </script>
+    <title>Resources</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+    class="w-full flex items-center justify-between px-4 xl:px-[60px] pt-[20px] sm:pt-[30px] pb-[25px] z-50 relative">
+    <div class="flex items-center">
+      <button onclick="openNav()"
+        class="w-6 h-6 bg-[url('./assets/img/burger-menu-black.svg')] mr-4 lg:mr-[47px]"></button>
+
+        <div class="">
+          <!--  Custome drop down.. -->
+          <div class="dropdown relative">
+            <div class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out">
+              <span class="selected text-lg text-black uppercase font-normal mr-[8px]">EN</span>
+              <span class="ml-1"><svg width="11" height="6" viewBox="0 0 11 6" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z" fill="black" />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out">
+              <li
+                class="item text-lg font-twk-lausanne font-thin text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md">
+                <a href="" class="flex w-full px-8 py-2">EN</a>
+              </li>
+              <li
+                class="item text-lg font-twk-lausanne font-thin text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md">
+                <a href="/france" _blank class="w-full flex px-8 py-2">FR</a>
+              </li>
+              <li
+                class="item text-lg font-twk-lausanne font-thin text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer">
+                <a href="/germany" _blank class="flex w-full px-8 py-2">DU</a>
+              </li>
+              <!-- border-b solid border-[#e2e2e2] -->
+              <li class="item font-twk-lausanne font-thin text-lg text-[#8d959f] cursor-pointer">
+                <a href="/ar" _blank class="flex w-full px-8 py-2">AR</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="md:flex flex-col items-center w-[150px] sm:w-[220px] lg:w-[275px] center__logo">
+        <img src="./assets/img/app-logo-black.svg" alt="app-logo" class="" />
+        <span class="hidden md:inline-block text-sm text-black font-normal font-twk-lausanne">Assemblies of God World
+          Mission</span>
+      </div>
+      <div class="hidden lg:flex items-center relative">
+        <!-- Search Bar -->
+        <div class="relative cursor-pointer rounded-md mr-2 xl:mr-4 search__bar">
+          <span
+            class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search-black-logo.svg')] bg-no-repeat"></span>
+          <input id="my__search"
+            class="h-full w-full outline-none border-none pl-12 pr-9 text-sm text-black font-semibold bg-transparent rounded-lg"
+            type="text" placeholder="Search" />
+          <div class="clear absolute right-2 top-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#000"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <!-- End Search Bar -->
+        <button
+          class="w-[150px] xl:w-[211px] h-[45px] xl:h-[56px] text-center rounded-full text-xs xl:text-lg text-black font-twk-lausanne border-2 solid border-black font-normal xl:font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out font-twk-lausanne hover:bg-black hover:text-white transition duration-500 ease-in-out">
+          Are you called?
+        </button>
+        <div class="flex items-center ml-2 flex-col md:flex-row">
+
+          <!-- This is the updated sign up with working search bar and working dropdown-->
+          <button onclick="openSignup()"
+            class="w-auto p-1 text-center rounded-full text-sm font-normal text-black uppercase font-semibold uppercase font-twk-lausanne cursor-pointer hover:underline transition duration-500 ease-in-out">
+            sign up
+          </button>
+          <!-- <span class="mx-1 text-black"> / </span> -->
+
+          <button onclick="openLogin()" id="login"
+            class="w-auto p-1 text-center rounded-full text-sm font-normal text-black uppercase font-semibold uppercase font-twk-lausanne cursor-pointer hover:underline transition duration-500 ease-in-out">
+            Login
+          </button>
+
+          <!-- Profile Dropdown -->
+
+          <!-- _white -->
+
+          <div class="dropdown5 relative ml-2">
+            <div class="dropdown-select5 flex items-center cursor-pointer transition duration-500 ease-in-out">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 user_icon" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="user_name text-xs md:text-sm xl:text-lg text-[#3D3D3D] font-twk-lausanne font-semibold mx-1">
+                Name
+              </span>
+              <span class="ml-1 arrow_down"><svg width="11" height="6" viewBox="0 0 11 6" fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z" fill="black" />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-52 absolute top-6 right-1 z-50 dropdown-menu5 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out">
+              <li class="item5 border-b solid border-[#e2e2e2] cursor-pointer rounded-md px-4 py-2">
+                <button onclick="openNotification()" class="w-full cursor-pointer flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#8d959f"
+                    stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                  <span class="text-base text-[#8d959f] ml-2">
+                    Notifications
+                  </span>
+
+                </button>
+              </li>
+              <li class="text-base text-[#8d959f] cursor-pointer px-4 py-2 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#8d959f"
+                  stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                </svg>
+                <span class="text-base text-[#8d959f] ml-2">
+                  Logout
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- -translate-y-2/3 -->
+    <main class="w-full px-4 lg:px-6 xl:px-[70px] mb-[30px] xl:mb-[125px] mt-4 2xl:w-[1440px] 2xl:mx-auto border-t solid border-[#D8D8D8]">
+      <div
+        class="mt-6 lg:mt-8 xl:mt-[70px] xl:px-0 flex items-center justify-center flex-col md:mb-2"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+      <div class="w-full flex flex-col justify-center items-start">
+        <div
+        class="flex items-center mt-9 md:mt-[60px]  mb-6 md:mb-[40px] border-2 solid border-black w-full h-[45px] md:h-[56px] rounded-full md:w-[753px] relative"
+  
+      >
+        <span class="pl-4 md:pl-7 mt-1">
+          <svg
+            class="w-[15px] h-[15px] md:w-[24px] md:h-[24px]"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10ZM10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.0916 20 14.0333 19.3578 15.6386 18.2599L21.1893 23.8107L23.3107 21.6893L17.8354 16.2141C19.1905 14.5076 20 12.3484 20 10C20 4.47715 15.5228 0 10 0Z"
+              fill="black"
+            />
+          </svg>
+        </span>
+        <input
+          class="h-full w-[calc(100%-120px)] md:w-[calc(100%-290px)] pl-2 md:pl-[23px]  bg-transparent text-base sm:text-lg text-black font-normal outline-none placeholder:text-xs sm:placeholder:text-lg placeholder:text-black"
+          placeholder="Begin your search here"
+        />
+  
+        <button
+          class="w-[100px] md:w-[235px] h-full text-white text-sm md:text-lg font-medium rounded-full uppercase absolute -right-1 bg-black"
+        >
+          Search
+        </button>
+        </div>
+          <p
+            class="text-[28px] text-black font-light font-gt-super"
+          >
+          Search Results for <span class="font-bold">
+            Prayer
+          </span>
+          </p>
+      </div>
+        
+      </div>
+
+      <section class="mt-6 sm:mt-[95px]">
+        <div class="flex flex-col sm:flex-row mt-6 md:mt-[95px]" data-aos="fade-up"
+        data-aos-duration="2000">
+          <div class="w-[205px] h-[250px]">
+            <img 
+            class="rounded-lg w-full h-full object-cover"
+            src="https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif" alt="resutls_cover">
+          </div>
+          <div class="sm:w-[calc(100%-245px)] sm:ml-[30px] mt-4 sm:mt-0">
+            <h2 class="text-[28px] text-black font-gt-super font-light">
+              Prayer Title
+            </h2>
+            <p class="text-lg font-twk-lausanne text-black font-thin">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie accumsan, commodo molestie tellus nisi, dictum. Sed tortor venenatis elit aliquet in tempus vestibulum viverra ut. Rhoncus sed adipiscing feugiat sed facilisis adipiscing Prayer sodales. Netus consequat et at diam, ornare vel lorem nunc.
+              Gravida velit pellentesque <span class="text-[#8B3C3A]">Prayer</span> tristique nibh elementum habitasse ut. Scelerisque sit elit egestas natoque quam nam gravida. Blandit id cursus sit eu porttitor rhoncus tortor tempor tellus. Quam faucibus viverra porttitor elit auctor. Id amet, ornare nisi, et odio pharetra hendrerit elementum in. Elementum blandit enim purus sem purus morbi mi pharetra. Eget urna, feugiat risus, odio commodo, diam feugiat massa leo.
+              Eget elit eu, lectus placerat quis urna cras faucibus lacus. Odio Prayer quis et egestas purus. Amet lacus, tincidunt lorem volutpat nisl amet. Sit arcu egestas donec commodo nunc. Morbi velit facilisis elementum lacus lacinia. Nec, risus, vitae libero erat dictumst vitae netus est. Sed suspendisse turpis iaculis cras nibh ultrices nunc. Faucibus libero, at id tortor, dignissim tellus. Vivamus nunc nunc cras...  EXPLORE
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row mt-6 md:mt-[95px]" data-aos="fade-up"
+        data-aos-duration="2000">
+          <div class="w-[205px] h-[250px]">
+            <img 
+            class="rounded-lg w-full h-full object-cover"
+            src="https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif" alt="resutls_cover">
+          </div>
+          <div class="sm:w-[calc(100%-245px)] sm:ml-[30px] mt-4 sm:mt-0">
+            <h2 class="text-[28px] text-black font-gt-super font-light">
+              Prayer Title
+            </h2>
+            <p class="text-lg font-twk-lausanne text-black font-thin">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie accumsan, commodo molestie tellus nisi, dictum. Sed tortor venenatis elit aliquet in tempus vestibulum viverra ut. Rhoncus sed adipiscing feugiat sed facilisis adipiscing Prayer sodales. Netus consequat et at diam, ornare vel lorem nunc.
+              Gravida velit pellentesque <span class="text-[#8B3C3A]">Prayer</span> tristique nibh elementum habitasse ut. Scelerisque sit elit egestas natoque quam nam gravida. Blandit id cursus sit eu porttitor rhoncus tortor tempor tellus. Quam faucibus viverra porttitor elit auctor. Id amet, ornare nisi, et odio pharetra hendrerit elementum in. Elementum blandit enim purus sem purus morbi mi pharetra. Eget urna, feugiat risus, odio commodo, diam feugiat massa leo.
+              Eget elit eu, lectus placerat quis urna cras faucibus lacus. Odio Prayer quis et egestas purus. Amet lacus, tincidunt lorem volutpat nisl amet. Sit arcu egestas donec commodo nunc. Morbi velit facilisis elementum lacus lacinia. Nec, risus, vitae libero erat dictumst vitae netus est. Sed suspendisse turpis iaculis cras nibh ultrices nunc. Faucibus libero, at id tortor, dignissim tellus. Vivamus nunc nunc cras...  EXPLORE
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row mt-6 md:mt-[95px]" data-aos="fade-up"
+        data-aos-duration="2000">
+          <div class="w-[205px] h-[250px]">
+            <img 
+            class="rounded-lg w-full h-full object-cover"
+            src="https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif" alt="resutls_cover">
+          </div>
+          <div class="sm:w-[calc(100%-245px)] sm:ml-[30px] mt-4 sm:mt-0">
+            <h2 class="text-[28px] text-black font-gt-super font-light">
+              Prayer Title
+            </h2>
+            <p class="text-lg font-twk-lausanne text-black font-thin">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie accumsan, commodo molestie tellus nisi, dictum. Sed tortor venenatis elit aliquet in tempus vestibulum viverra ut. Rhoncus sed adipiscing feugiat sed facilisis adipiscing Prayer sodales. Netus consequat et at diam, ornare vel lorem nunc.
+              Gravida velit pellentesque <span class="text-[#8B3C3A]">Prayer</span> tristique nibh elementum habitasse ut. Scelerisque sit elit egestas natoque quam nam gravida. Blandit id cursus sit eu porttitor rhoncus tortor tempor tellus. Quam faucibus viverra porttitor elit auctor. Id amet, ornare nisi, et odio pharetra hendrerit elementum in. Elementum blandit enim purus sem purus morbi mi pharetra. Eget urna, feugiat risus, odio commodo, diam feugiat massa leo.
+              Eget elit eu, lectus placerat quis urna cras faucibus lacus. Odio Prayer quis et egestas purus. Amet lacus, tincidunt lorem volutpat nisl amet. Sit arcu egestas donec commodo nunc. Morbi velit facilisis elementum lacus lacinia. Nec, risus, vitae libero erat dictumst vitae netus est. Sed suspendisse turpis iaculis cras nibh ultrices nunc. Faucibus libero, at id tortor, dignissim tellus. Vivamus nunc nunc cras...  EXPLORE
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row mt-6 md:mt-[95px]" data-aos="fade-up"
+        data-aos-duration="2000">
+          <div class="w-[205px] h-[250px]">
+            <img 
+            class="rounded-lg w-full h-full object-cover"
+            src="https://www.whatsappimages.in/wp-content/uploads/2021/07/Top-HD-sad-quotes-for-whatsapp-status-in-hindi-Pics-Images-Download-Free.gif" alt="resutls_cover">
+          </div>
+          <div class="sm:w-[calc(100%-245px)] sm:ml-[30px] mt-4 sm:mt-0">
+            <h2 class="text-[28px] text-black font-gt-super font-light">
+              Prayer Title
+            </h2>
+            <p class="text-lg font-twk-lausanne text-black font-thin">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie accumsan, commodo molestie tellus nisi, dictum. Sed tortor venenatis elit aliquet in tempus vestibulum viverra ut. Rhoncus sed adipiscing feugiat sed facilisis adipiscing Prayer sodales. Netus consequat et at diam, ornare vel lorem nunc.
+              Gravida velit pellentesque <span class="text-[#8B3C3A]">Prayer</span> tristique nibh elementum habitasse ut. Scelerisque sit elit egestas natoque quam nam gravida. Blandit id cursus sit eu porttitor rhoncus tortor tempor tellus. Quam faucibus viverra porttitor elit auctor. Id amet, ornare nisi, et odio pharetra hendrerit elementum in. Elementum blandit enim purus sem purus morbi mi pharetra. Eget urna, feugiat risus, odio commodo, diam feugiat massa leo.
+              Eget elit eu, lectus placerat quis urna cras faucibus lacus. Odio Prayer quis et egestas purus. Amet lacus, tincidunt lorem volutpat nisl amet. Sit arcu egestas donec commodo nunc. Morbi velit facilisis elementum lacus lacinia. Nec, risus, vitae libero erat dictumst vitae netus est. Sed suspendisse turpis iaculis cras nibh ultrices nunc. Faucibus libero, at id tortor, dignissim tellus. Vivamus nunc nunc cras...  EXPLORE
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Pagination -->
+      <div class="pagination flex justify-center items-center">
+        <ul class="w-full"> <!--pages or li are comes from javascript --> </ul>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 px-4 lg:px-[75px] mb-4 md:pb-9"
+      >
+        <div
+          class="col-span-2 flex flex-col xl:border-r solid border-[#f0f0f0] mb-8 xl:mb-0 sm:pr-4 lg:pr-6 xl:pr-10"
+        >
+          <div class="mb-4 sm:mb-7">
+            <img
+              src="./assets/img/colored-logo.svg"
+              alt="App-Logo"
+              class="h-[30px] sm:h-auto"
+            />
+          </div>
+
+          <p class="text-[#3D3D3D] font-light text-sm font-twk-lausanne">
+            1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+            Phone: 1-417-862-3420
+          </p>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6"
+          >
+            Are you called?
+          </button>
+          <p class="text-[10px] text-[#3D3D3D] font-normal">
+            © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+          </p>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Executive Office</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Privacy & Permissions</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Stories</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Photos</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Videos</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >WorldView & More</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Merchandise</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Explore </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >International Ministress</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Africa </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Europe</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Asia Pacific</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Latin America</a
+              >
+            </li>
+
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Eurasia </a>
+            </li>
+
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Northen Asia</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex lg:justify-center my-1 md:my-0">
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Strategy </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Reaching</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Planting </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Training </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Serving</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col w-full md:w-auto mx-auto my-2 sm:my-0">
+          <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+          <div class="flex items-center">
+            <div
+              class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/facebook.svg" alt="facebook" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/viemo.svg" alt="viemo" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/youtube.svg" alt="Youtube" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/insta.svg" alt="Instagram" />
+            </div>
+          </div>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </div>
+      <div class="w-full">
+        <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script type="text/javascript">
+      // Pagination
+
+      // selecting required element
+    const element = document.querySelector(".pagination ul");
+    // Number of pages
+    let totalPages = 1220;
+    // default page
+    let page = 1;
+    //calling function with passing parameters and adding inside element which is ul tag
+    element.innerHTML = createPagination(totalPages, page);
+    function createPagination(totalPages, page){
+     let liTag = '';
+     let active;
+     let beforePage = page - 1;
+     let afterPage = page + 1;
+      if(page > 1){ //show the next button if the page value is greater than 1
+        liTag += `<li class="btn prev" onclick="createPagination(totalPages, ${page - 1})"><a>Prev</a></li>`;
+      }
+    if(page > 2){ //if page value is less than 2 then add 1 after the previous button
+      liTag += `<li class="first numb" onclick="createPagination(totalPages, 1)"><a>1</a></li>`;
+      if(page > 3){ //if page value is greater than 3 then add this (...) after the first li or page
+        liTag += `<li class="dots"><a>...</a></li>`;
+      }
+    }
+    // how many pages or li show before the current li
+    if (page == totalPages) {
+      beforePage = beforePage - 2;
+    } else if (page == totalPages - 1) {
+      beforePage = beforePage - 1;
+    }
+    // how many pages or li show after the current li
+    if (page == 1) {
+      afterPage = afterPage + 2;
+    } else if (page == 2) {
+      afterPage  = afterPage + 1;
+    }
+    for (var plength = beforePage; plength <= afterPage; plength++) {
+      if (plength > totalPages) { //if plength is greater than totalPage length then continue
+        continue;
+      }
+      if (plength == 0) { //if plength is 0 than add +1 in plength value
+        plength = plength + 1;
+      }
+      if(page == plength){ //if page is equal to plength than assign active string in the active variable
+        active = "active";
+      }else{ //else leave empty to the active variable
+        active = "";
+      }
+      liTag += `<li class="numb ${active}" onclick="createPagination(totalPages, ${plength})"><a>${plength}</a></li>`;
+    }
+    if(page < totalPages - 1){ //if page value is less than totalPage value by -1 then show the last li or page
+      if(page < totalPages - 2){ //if page value is less than totalPage value by -2 then add this (...) before the last li or page
+        liTag += `<li class="dots"><a>...</a></li>`;
+      }
+      liTag += `<li class="last numb" onclick="createPagination(totalPages, ${totalPages})"><a>${totalPages}</a></li>`;
+    }
+    if (page < totalPages) { //show the next button if the page value is less than totalPage(20)
+      liTag += `<li class="btn next" onclick="createPagination(totalPages, ${page + 1})"><a>Next</a></li>`;
+    }
+    element.innerHTML = liTag; //add li tag inside ul tag
+    return liTag; //reurn the li tag
+  } 
+      AOS.init();
+      // Toggle Language menu
+      const LangMenu = document.querySelector(".dropdown-select");
+      const dropDown = document.querySelector(".dropdown-menu");
+      const listText = document.querySelector(".selected");
+      const dropDownItem = document.querySelectorAll(".item");
+
+      LangMenu.addEventListener("click", () => {
+        LangMenu.classList.toggle("active");
+        dropDown.classList.toggle("active");
+        dropDownItem.forEach((item) => {
+          if (item.innerText === listText.innerText) {
+            item.classList.add("active-lang");
+          } else {
+            item.classList.remove("active-lang");
+          }
+        });
+      });
+
+      for (item of dropDownItem) {
+        item.addEventListener("click", showItem);
+      }
+      function showItem() {
+        event.preventDefault();
+
+        listText.innerHTML = this.textContent;
+        dropDown.classList.toggle("active");
+        LangMenu.classList.toggle("active");
+      }
+
+      //  Search Icon
+      const searchBar = document.querySelector(".search__bar");
+      const searchIcon = document.querySelector(".search__icon");
+      const mySearch = document.querySelector("#my__search");
+      const clear = document.querySelector(".clear");
+
+      searchIcon.addEventListener("click", () => {
+        searchBar.classList.toggle("active");
+      });
+
+      clear.addEventListener("click", () => {
+        mySearch.value = "";
+        searchBar.classList.toggle("active");
+      });
+
+      // Find missionary menus
+      const allReggion = document.querySelector(".all_region_button");
+      const regionsMenu = document.querySelector(".regions_menu");
+      allReggion.addEventListener("click", () => {
+        regionsMenu.classList.toggle("active");
+      });
+
+      const allArea = document.querySelector(".all_areas_button");
+      const areasMenu = document.querySelector(".areas_menu");
+      allArea.addEventListener("click", () => {
+        areasMenu.classList.toggle("active");
+      });
+
+      const allSending = document.querySelector(".all_sending_button");
+      const sendingMenu = document.querySelector(".sending_menu");
+      allSending.addEventListener("click", () => {
+        sendingMenu.classList.toggle("active");
+      });
+
+      var toggler = document.getElementsByClassName("caret");
+      var arrowDown = document.getElementsByClassName("arrow__down");
+      var i;
+/*
+      for (i = 0; i < toggler.length; i++) {
+        toggler[i].addEventListener("click", function () {
+          
+            document.querySelector(".minssionary-nested")
+            .classList.toggle("minssionary-active");
+          this.classList.toggle("caret-down");
+
+          arrowDown.classList.add("is-this-work")
+        });
+      }
+      */
+    </script>
+  </body>
+</html>

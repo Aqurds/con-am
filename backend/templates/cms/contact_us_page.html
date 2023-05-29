@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load staticfiles wagtailadmin_tags wagtailcore_tags wagtailimages_tags general_template_tags %}
+
+{% block content %}
+{% image page.header_image width-1200 as header_image %}
+<header
+      class="w-full xl:h-[600px] py-[120px] lg:py-[100px] px-4 xl:px-[90px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center flex items-center justify-center z-20 relative after:absolute after:bg-black after:top-0 after:left-0 after:bottom-0 after:right-0 after:w-full after:h-full after:opacity-25 after:sm:rounded-xl after:z-10"
+    >
+    </header>
+
+  <main class="w-full px-4 lg:px-[90px] pt-6 py-8 lg:py-[98px]">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <form method="POST" class="w-full flex flex-col" id="contact-form">
+      {% csrf_token %}
+    </form>
+    <div>
+      <h3 class="text-3xl lg:text-5xl text-[#3D3D3D] font-normal font-twk-lausanne border-b solid border-gray500 pb-6">{{ page.location_header_text }}</h3>
+      <p class="text-lg lg:text-lg text-[#3D3D3D] font-light font-twk-lausanne pt-8 pb-4">{{ page.location_sub_text }}
+      </p>
+      <span class="text-base lg:text-lg text-[#3D3D3D] font-extralight font-twk-lausanne block">{{ page.contact_us_address_text1 }}</span>
+      <span class="text-base lg:text-lg text-[#3D3D3D] font-extralight font-twk-lausanne block">{{ page.contact_us_address_text2 }}
+      </span>
+      <span class="text-base lg:text-lg text-[#3D3D3D] font-extralight font-twk-lausanne block">{{ page.contact_us_phone_number }}
+      </span>
+    </div>
+   </div>
+  </main>
+  <script>
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "//mas.agwm.org/form/generate.js?id=17";
+    document.getElementById("contact-form").appendChild(script)
+  </script>
+{% endblock %}

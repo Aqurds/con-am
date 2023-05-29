@@ -1,0 +1,21 @@
+[
+    {
+        "model": "cms.contactperson",
+        "pk": 1,
+        "fields": {
+            "name": "Bretta Gonsalez",
+            "email_address": "bgonsalez@ag.org",
+            "position": "Executive Administrative Coordinator"
+        }
+    },
+    {
+        "model": "cms.contactperson",
+        "pk": 2,
+        "fields": {
+            "name": "Sandie Cross",
+            "email_address": "scross@ag.org",
+            "position": "Executive Administrative Assistant"
+        }
+    }
+]
+    

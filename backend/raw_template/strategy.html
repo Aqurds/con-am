@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+            },
+            backgroundImage: {
+              "burger-menu": "url('./assets/img/berger-menu.svg')",
+            },
+            fontFamily: {
+              "gt-super": ["gt-super"],
+              "twk-lausanne": ["twk-lausanne"],
+            },
+          },
+        },
+      };
+    </script>
+    <title>Resources</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav
+      class="w-full flex items-center justify-between px-4 lg:px-[60px] pt-[20px] sm:pt-[30px] pb-[25px] z-50"
+    >
+      <div class="flex items-center">
+        <button
+          class="w-6 h-6 bg-[url('./assets/img/burger-menu-black.svg')] mr-4 lg:mr-[47px]"
+        ></button>
+
+        <div class="">
+          <!--  Custome drop down.. -->
+          <div class="dropdown relative">
+            <div
+              class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out"
+            >
+              <span
+                class="selected text-lg text-black uppercase font-normal mr-[12px]"
+                >EN</span
+              >
+              <span class="ml-1"
+                ><svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z"
+                    fill="black"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md"
+              >
+                EN
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md"
+              >
+                FR
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2"
+              >
+                DU
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2"
+              >
+                AR
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="md:flex flex-col items-center w-[100px] md:w-[275px]">
+        <img src="./assets/img/app-logo-black.svg" alt="app-logo" class="" />
+        <span class="hidden md:inline-block text-sm text-black font-normal"
+          >Assemblies of God World Mission</span
+        >
+      </div>
+      <div class="hidden md:flex items-center relative">
+        <!-- Search Bar -->
+        <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+          <span
+            class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search-black-logo.svg')] bg-no-repeat"
+          ></span>
+          <input
+            id="my__search"
+            class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+            type="text"
+            placeholder="Search"
+          />
+          <div class="clear absolute right-2 top-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#000"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- End Search Bar -->
+        <button
+          class="w-[211px] h-[56px] text-center rounded-full text-lg text-black border-2 solid border-black font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+        >
+          Are you called?
+        </button>
+      </div>
+    </nav>
+    <header
+      class="h-auto bg-[url('./assets/img/strategy/header-cover.png')] bg-no-repeat bg-cover bg-center pt-[30px] sm:pt-[60px] pb-[60px] xl:pt-[56px] xl:pb-[100px] px-6 lg:px-[70px] paralax"
+    >
+      <div
+        class="flex items-start sm:items-center mb-[25px] flex-col md:flex-row"
+      >
+        <div
+          class="w-[150px] h-[100px] md:w-[257px] md:h-[154px] md:mr-[30px] mb-4 md:mb-0 md:mr-[40px] xl:mr-[70px]"
+        >
+          <img
+            src="./assets/img/strategy/header-logo.svg"
+            alt="arrows-logo"
+            class="w-full h-full"
+          />
+        </div>
+
+        <h3
+          class="text-[24px] md:text-[32px] sm:text-[48px] xl:text-[64px] text-white font-normal font-gt-super"
+          data-aos="fade-left"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+        >
+          Our Missional Strategy
+        </h3>
+      </div>
+
+      <div
+        class="pt-[30px] sm:pt-[60px] xl:pl-[145px] xl:mr-[120px] 2xl:pr-[200px] border-t-2 solid border-white"
+      >
+        <p
+          class="text-[18px] md:text-[22px] xl:text-[36px] text-white font-twk-lausanne font-thin"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          Fundamental to Assemblies of God World Mission’s outlook is our
+          commitment to establishing the Church among all people everywhere. We
+          do that by reaching, planting, training, and serving. These four
+          categories of ministry actions support the breadth of God’s work. They
+          are rarely separate acts or processes but woven together in the work
+          of our global teams and partners. So all can hear the hope of the
+          gospel.
+        </p>
+      </div>
+      <!-- xl:pl-[145px]  -->
+      <div
+        class="grid grid-cols-2 sm:flex items-center justify-center  gap-[30px] lg:gap-[60px] pt-[30px] lg:pt-[60px] xl:pt-[130px] flex-wrap lg:flex-row"
+      >
+        <a
+          href="#reaching"
+          class="w-full sm:w-[175px] h-[40px] sm:h-[56px]  flex items-center justify-center text-sm sm:text-lg text-white font-twk-lausanne font-semibold border-2 solid border-white rounded-full uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          reaching
+        </a>
+
+        <a
+          href="#planting"
+          class="w-full sm:w-[175px] h-[40px] sm:h-[56px]  flex items-center justify-center text-sm sm:text-lg text-white font-twk-lausanne font-semibold border-2 solid border-white rounded-full uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          planting
+        </a>
+
+        <a
+          href="#training"
+          class="w-full sm:w-[175px] h-[40px] sm:h-[56px]  flex items-center justify-center text-sm sm:text-lg text-white font-twk-lausanne font-semibold border-2 solid border-white rounded-full uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          tranining
+        </a>
+
+        <a
+          href="#serving"
+          class="w-full sm:w-[175px] h-[40px] sm:h-[56px]  flex items-center justify-center text-sm sm:text-lg text-white font-twk-lausanne font-semibold border-2 solid border-white rounded-full uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          data-aos-delay="150"
+        >
+          serving
+        </a>
+      </div>
+    </header>
+    <!-- -translate-y-2/3 -->
+    <main class="w-full">
+      <section
+        id="reaching"
+        class="flex justify-start flex-col bg-[url('./assets/img/strategy/reaching.png')] bg-no-repeat bg-cover bg-center px-6 lg:px-[80px] xl:pl-[215px] py-[60px] lg:py-[170px] h-full paralax"
+      >
+        <h3
+          class="text-[32px] md:text-[48px] lg:text-[64px] font-gt-super font-normal text-white mb-4 lg:mb-[ 30px]"
+          data-aos="fade-up"
+          data-aos-duration="1500"
+        >
+          Reaching
+        </h3>
+        <p
+          class="text-[22px] sm:text-[28px] xl:text-[32px] text-white font-thin font-twk-lausanne lg:w-[570px] large-screen"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          Following the witness of scripture, we seek to proclaim the good news
+          where Jesus has not been named. The great sobering reality is that the
+          message of Christ has not been presented to more than two - thirds of
+          the world’s population. Our commitment is that under the guidance of
+          the Spirit, we will expendevery effort through every effective means
+          to proclaim the message of Jesus to those who do not know Him.
+        </p>
+      </section>
+
+      <section
+        id="planting"
+        class="flex items-end flex-col bg-[url('./assets/img/strategy/planting-cover.png')] bg-no-repeat bg-cover bg-center px-6 lg:px-[80px] py-[60px]  xl:pr-[215px] lg:py-[170px] paralax"
+      >
+        <div class="w-full md:lg:w-[570px] large-screen">
+          <h3
+            class="text-[32px] text-left md:text-[48px] lg:text-[64px] font-gt-super font-normal text-white mb-4 lg:mb-[ 30px]"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            Planting
+          </h3>
+          <p
+            class="text-[22px] sm:text-[28px] xl:text-[32px] text-white font-thin font-twk-lausanne"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            We believe that sustainable growth in the Kingdom rests on the
+            planting of healthy churches. The Spirit-reliant church flourishes
+            as it depends on the Spirit to empower its work among its local
+            context. These indigenous churches are self-supporting,
+            self-propagating, and self-governing. Our goal is national church
+            movements that plant churches and send cross-cultural workers.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="training"
+        class="flex items-start flex-col bg-[url('./assets/img/strategy/traning-cover.png')] bg-no-repeat bg-cover bg-center px-6 lg:px-[80px] py-[60px] xl:pl-[215px] lg:py-[170px] paralax"
+      >
+        <div class="w-full md:lg:w-[570px] large-screen">
+          <h3
+            class="text-[32px] text-left md:text-[48px] lg:text-[64px] font-gt-super font-normal text-white mb-4 lg:mb-[ 30px]"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            Training
+          </h3>
+          <p
+            class="text-[22px] sm:text-[28px] xl:text-[32px] text-white font-thin font-twk-lausanne"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            Assemblies of God World Missions trains spiritual leaders to serve
+            effectively as pastors, evangelists, teachers, and missionaries.
+            Following the discipleship patterns of Jesus Christ and the early
+            church, we train emerging leaders to undertake the Great Commission.
+            Historically, AGWM has focused on training in community using
+            localized quality resources. Spirit-empowered leaders bring up
+            Spirit-empowered leaders that work to establish His Church.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="serving"
+        class="flex items-end flex-col bg-[url('./assets/img/strategy/serving-cover.png')] bg-no-repeat bg-cover bg-center px-6 lg:px-[80px] py-[60px]  xl:pr-[215px] lg:py-[170px] paralax"
+      >
+        <div class="w-full md:lg:w-[570px] large-screen">
+          <h3
+            class="text-[32px] text-left md:text-[48px] lg:text-[64px] font-gt-super font-normal text-white mb-4 lg:mb-[ 30px]"
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            Serving
+          </h3>
+          <p
+            class="text-[22px] sm:text-[28px] xl:text-[32px] text-white font-thin font-twk-lausanne"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            We partner with local believers and churches to serve poor and
+            suffering people with the compassion of Christ and invite them to
+            become His followers. Assemblies of God missionaries, national
+            churches, and compassion ministries serve people’s physical needs.
+            We believe the words of Jesus: “For what does it profit a man to
+            gain the whole world, and forfeit his soul?” Yet Jesus also
+            commanded us not to ignore the suffering of others. We integrate
+            compassion ministry into sharing the gospel and establishing the
+            Church.
+          </p>
+
+       
+        </div>
+      </section>
+
+
+  <section class="h-full sm:h-[450px] bg-black bg-[url('./assets/img/strategy/header-cover.png')] bg-no-repeat bg-cover bg-center flex items-start flex-col py-[30px] px-4 sm:px-[70px] paralax">
+     <div
+    class="w-[150px] h-[100px] sm:w-[257px] sm:h-[154px] sm:mr-[30px] mb-4 sm:mb-0 sm:mr-[40px] xl:mr-[70px]"
+  >
+    <img
+      src="./assets/img/strategy/header-logo.svg"
+      alt="arrows-logo"
+      class="w-full h-full"
+    />
+    </div> 
+      <div 
+      class="mt-6 w-full grid grid-cols-3 sm:flex items-center justify-center flex-col sm:flex-row gap-2 sm:gap-16"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      >
+        <a
+        href="#"
+        class="flex w-full sm:w-[175px] h-[40px] sm:h-[56px] flex items-center justify-center text-sm sm:text-lg font-twk-lausanne font-semibold  rounded-full uppercase text-white transition duration-500 ease-in-out bg-transparent hover:bg-white border border-white hover:text-black"
+      
+      >
+      Text
+      </a>
+        <a
+        href="#"
+        class="flex w-full sm:w-[175px] h-[40px] sm:h-[56px] flex items-center justify-center text-sm sm:text-lg font-twk-lausanne font-semibold  rounded-full uppercase text-white transition duration-500 ease-in-out bg-transparent hover:bg-white border border-white hover:text-black"
+      
+      >
+        Text
+      </a>
+      <a
+      href="#"
+      class="flex w-full sm:w-[175px] h-[40px] sm:h-[56px] flex items-center justify-center text-sm sm:text-lg font-twk-lausanne font-semibold  rounded-full uppercase text-white transition duration-500 ease-in-out bg-transparent hover:bg-white border border-white hover:text-black"
+    
+    >
+      Text
+    </a>
+    </div>
+  </section>
+    </main>
+    <!-- Footer -->
+    <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+      <div
+        class="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 px-4 lg:px-[75px] mb-4 md:pb-9"
+      >
+        <div
+          class="col-span-2 flex flex-col xl:border-r solid border-[#f0f0f0] mb-8 xl:mb-0 sm:pr-4 lg:pr-6 xl:pr-10"
+        >
+          <div class="mb-4 sm:mb-7">
+            <img
+              src="./assets/img/colored-logo.svg"
+              alt="App-Logo"
+              class="h-[30px] sm:h-auto"
+            />
+          </div>
+
+          <p class="text-[#3D3D3D] font-light text-sm font-twk-lausanne">
+            1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+            Phone: 1-417-862-3420
+          </p>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6"
+          >
+            Are you called?
+          </button>
+          <p class="text-[10px] text-[#3D3D3D] font-normal">
+            © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+          </p>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Executive Office</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Privacy & Permissions</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Stories</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Photos</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Videos</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >WorldView & More</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Merchandise</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="flex lg:justify-center xl:border-r solid border-[#f0f0f0] my-1 md:my-0"
+        >
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Explore </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >International Ministress</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Africa </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Europe</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Asia Pacific</a
+              >
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Latin America</a
+              >
+            </li>
+
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Eurasia </a>
+            </li>
+
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"
+                >Northen Asia</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex lg:justify-center my-1 md:my-0">
+          <ul>
+            <li
+              class="text-[#3D3D3D] text-sm font-semibold font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Strategy </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Reaching</a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Planting </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]"> Training </a>
+            </li>
+            <li
+              class="text-[#3D3D3D] text-sm font-light font-twk-lausanne mb-2"
+            >
+              <a href="#" class="hover:border-b border-[#3D3D3D]">Serving</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-col w-full md:w-auto mx-auto my-2 sm:my-0">
+          <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+          <div class="flex items-center">
+            <div
+              class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/facebook.svg" alt="facebook" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/viemo.svg" alt="viemo" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/youtube.svg" alt="Youtube" />
+            </div>
+            <div
+              class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer"
+            >
+              <img src="./assets/img/insta.svg" alt="Instagram" />
+            </div>
+          </div>
+          <button
+            class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </div>
+      <div class="w-full">
+        <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+      </div>
+    </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <script type="text/javascript">
+      // SMOOTH SCROLL BEHAVIOUR
+      AOS.init();
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+      // Toggle Language menu
+      const LangMenu = document.querySelector(".dropdown-select");
+      const dropDown = document.querySelector(".dropdown-menu");
+      const listText = document.querySelector(".selected");
+      const dropDownItem = document.querySelectorAll(".item");
+
+      LangMenu.addEventListener("click", () => {
+        LangMenu.classList.toggle("active");
+        dropDown.classList.toggle("active");
+        dropDownItem.forEach((item) => {
+          if (item.innerText === listText.innerText) {
+            item.classList.add("active-lang");
+          } else {
+            item.classList.remove("active-lang");
+          }
+        });
+      });
+
+      for (item of dropDownItem) {
+        item.addEventListener("click", showItem);
+      }
+      function showItem() {
+        event.preventDefault();
+
+        listText.innerHTML = this.textContent;
+        dropDown.classList.toggle("active");
+        LangMenu.classList.toggle("active");
+      }
+
+      //  Search Icon
+      const searchBar = document.querySelector(".search__bar");
+      const searchIcon = document.querySelector(".search__icon");
+      const mySearch = document.querySelector("#my__search");
+      const clear = document.querySelector(".clear");
+
+      searchIcon.addEventListener("click", () => {
+        searchBar.classList.toggle("active");
+      });
+
+      clear.addEventListener("click", () => {
+        mySearch.value = "";
+        searchBar.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>

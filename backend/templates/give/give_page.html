@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+{% load i18n staticfiles give_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+{% block content %}
+    {% image page.header_image width-1200 as header_image %}
+    <header
+      class="pt-[70px] sm:pt-[130px] lg:pt-[70px] pb-[50px] lg:pb-0 h-full px-4 xl:px-[60px] lg:h-[830px] bg-[url({{header_image.url}})] bg-no-repeat bg-cover bg-center relative flex justify-center flex-col lg:flex-row"
+    >
+      <div
+        class="lg:bg-[url({% static 'img/blue-bar.png'%})] lg:absolute left-0 top-0 bottom-0 z-10 w-full lg:w-[411px] h-full flex items-center pl-4 xl:pl-[60px] xl:pr-[72px]"
+      >
+        <p
+          class="text-white text-[24px] ms:text-[36px] lg:text-[48px] lg:text-white font-gt-super font-semibold lg:font-normal lg:-translate-y-12"
+          data-aos="fade-up"
+          data-aos-duration="2000"
+        >
+          {{page.header_side_text}}
+        </p>
+      </div>
+      <div 
+        class="lg:w-[646px] lg:ml-[520px] pt-6 lg:pt-[140px]"
+        data-aos="fade-left"
+        data-aos-duration="3000"
+      >
+        <h1
+          class="text-[18px] lg:text-[32px] lg:text-[64px] text-white font-gt-super font-medium lg:font-normal"
+        >
+          {{page.header_title_text}}
+        </h1>
+        <p
+          class="text-base lg:text-2xl font-twk-lausanne font-normal text-white mt-[12px] mb-[40px]"
+        >
+          {{page.header_title_description}}
+        </p>
+        {% get_current_language as LANGUAGE_CODE %}
+        <div class="flex items-start sm:items-center flex-col sm:flex-row">
+          <a href="{{ find_a_missionary_page.url }}">
+            <button
+              class="w-[240px] h-[56px] rounded-full text-lg text-black font-twk-lausanne font-medium mr-6 bg-white mb-6 sm:mb-0 hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+            >
+              {{ page.give_to_missionary_button }}
+            </button>
+          </a>
+          <a href="{{ greg_mundis_initiative_page.url }}#executive-initiatives">
+            <button
+              class="w-[240px] h-[56px] rounded-full text-lg text-white font-twk-lausanne font-medium bg-transparent border-2 solid border-white hover:bg-white hover:text-black transition duration-500 ease-in-out"
+            >
+              {{ page.executive_initiatives_button }}
+
+            </button>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mt-8 lg:mt-8 lg:pt-12">
+      <!-- Find a Missionary -->
+      <section class="mb-8 md:mb-20 mx-4 lg:mx-[60px]">
+        {% image page.first_section_image width-1200 as first_section_image %}
+        <div
+          class="bg-[url({{first_section_image.url}})] bg-right md:bg-center bg-cover bg-no-repeat w-full h-[440px] md:h-[575px] flex items-center rounded-2xl px-6 lg:pl-[104px]"
+        >
+          <div 
+            class="w-full flex flex-col lg:pl-[105px]"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <h2
+              class="text-[26px] lg:text-[64px] text-white text-semibold sm:text-normal font-gt-super"
+            >
+              {{page.first_section_title}}
+            </h2>
+            <!-- Search Bar -->
+            <a
+              href="{{ find_a_missionary_page.url }}"
+              class="w-[240px] text-base sm:text-lg text-white border-b solid border-white font-normal uppercase font-twk-lausanne"
+              >{{ page.list_of_missionary_button }}</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Give Slider -->
+      <!-- Choose a Giving Initiative to Explore -->
+      {% image page.initiatives_background_image width-1200 as initiatives_background_image %}
+      <section
+        class="mySwiper-go flex flex-col go__slider-join pt-[30px] md:pt-[125px] pb-[30px] md:pb-0 h-[660px] sm:h-[750px] md:h-auto relative">
+      <div
+        class="flex items-center justify-between mb-[30px] lg:mb-[114px] px-4 xl:px-[100px] z-50"
+        data-aos="fade-up" data-aos-duration="1500">
+        <h2 class="text-base sm:text-[36px] lg:text-[48px] xl:text-[64px] text-white  font-semibold sm:font-normal font-gt-super">
+          {{ page.slider_header_text }}
+        </h2>
+        <a 
+          href="{% pageurl special_give_page.localized %}"
+          class="w-[100px] sm:w-[249px] h-[40px] sm:h-[56px] bg-transparent rounded-full text-xs sm:text-lg font-twk-lausanne font-semibold text-white border solid border-white flex justify-center items-center hover:bg-white hover:text-black transition duration-200 ease-in-out uppercase"
+        >
+          {{ page.giving_initiatives_slider_view_all_button }}
+        </a>
+      </div>
+      {% get_special_give_pages as special_give_page %}
+      <div class="w-full flex flex-col-reverse md:flex-row">
+        <!-- left Cloumn -->
+        <!-- content to be changable uppon swipe -->
+        {% for special_give in special_give_page.special_give_items %}
+        {% image special_give.thumbnail_image width-800 as special_give_thumbnail_image %}
+          <div
+            class="explore_banners hidden  absolute top-0 right-0 left-0 bottom-0 h-full w-full bg-[url({{ special_give_thumbnail_image.url }})] bg-center bg-cover ">
+          </div>
+        {% endfor %}
+
+        {% for special_give in special_give_page.special_give_items %}
+        {% image special_give.thumbnail_image width-800 as special_give_thumbnail_image %}
+          <div
+            class="explore_banners hidden  absolute top-0 right-0 left-0 bottom-0 h-full w-full bg-[url({{ special_give_thumbnail_image.url }})] bg-center bg-cover ">
+          </div>
+        {% endfor %}
+
+        <div
+          class="w-full md:w-[35%] pl-4 xl:pl-[100px] 2xl:pl-[110px] 2xl:pr-[67px] mt-8 md:mt-0 pt-6 md:pt-0 relative"
+          data-aos="fade-up" data-aos-duration="1500"
+        >
+
+        {% for special_give in special_give_page.special_give_items %}
+          <div class="flex items-start flex-col explore__continent">
+            <h3
+              class="text-[18px] md:text-[32px] lg:text-[48px] lg:leading-[55px] text-white font-semibold md:text-normal font-twk-lausanne">
+                {{ special_give.first_section_title }}
+            </h3>
+            <p class="text-base lg:text-lg text-white text-normal my-2 md:my-[22px] lg:w-[343px] font-twk-lausanne">
+              {{ special_give.first_section_content | richtext | slice:":250" }}...
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a 
+                href="{{ special_give.giving_link_url }}"
+                class="w-[175px] h-[56px] bg-white rounded-full text-lg text-black border solid border-white flex justify-center items-center uppercase font-twk-lausanne font-medium hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+                target="_blank"
+              >
+                {{ page.giving_initiatives_slider_give_now_button }}
+              </a>
+              <a href="{% pageurl special_give.localized %}"
+                class="w-[175px] h-[56px] bg-transparent rounded-full text-lg text-white border solid border-white flex justify-center items-center uppercase font-twk-lausanne font-medium sm:ml-2 hover:bg-white hover:text-black transition duration-500 ease-in-out">
+                {{ page.giving_initiatives_slider_learn_more_button }}
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+        <!-- Start Swiper -->
+        <div class="swiper region_explore w-full pl-6 md:pl-0 md:w-[65%] md:h-[700px]">
+          <div class="swiper-wrapper go__slider" data-aos="fade-left" data-aos-duration="1500">
+            {% for special_give in special_give_page.special_give_items %}
+            {% image special_give.header_image width-400 as image %}
+            <a
+              href="{% pageurl special_give.localized %}"
+              class="swiper-slide cursor-pointer rounded-lg relative bg-[url({{ image.url }})] bg-center bg-cover bg-no-repeat relative flex justify-center items-center"
+            >
+              <p
+                class="text-lg md:text-2xl text-white font-black font-twk-lausanne px-4 text-center absolute bottom-8 hover:underline transition duration-200"
+              >
+                {{ special_give.title }}  
+              </p>
+            </a>
+            {% endfor %}
+            <a
+              class="swiper-slide cursor-pointer rounded-lg relative bg-[url('./assets/img/go/swiper-pic-one.png')] bg-center bg-cover bg-no-repeat relative flex justify-center items-center invisible">
+              <p
+                class="text-lg md:text-2xl text-white font-black px-4 font-twk-lausanne text-center absolute bottom-8 hover:underline transition duration-200">
+                Engaging the Unreached
+
+              </p>
+            </a>
+            <a
+              class="swiper-slide cursor-pointer rounded-lg relative bg-[url('./assets/img/go/swiper-pic-one.png')] bg-center bg-cover bg-no-repeat relative flex justify-center items-center invisible">
+              <p
+                class="text-lg md:text-2xl text-white font-black px-4 font-twk-lausanne text-center absolute bottom-8 hover:underline transition duration-200">
+                Engaging the Unreached
+
+              </p>
+            </a>
+          </div>
+        
+            <!-- <div class="swiper-button-next block md:hidden"></div>
+            <div class="swiper-button-prev block md:hidden"></div> -->
+            <div class="give__arrows md:w-[200px] relative bottom-[194px] hidden lg:block">
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+            </div>
+            <div class="swiper-scrollbar hidden lg:block"></div>
+          </div>
+          <!-- End Swiper -->
+        </div>
+    </section>
+
+      <!-- Senders Fund -->
+      <section class="w-full mt-[60px] lg:mt-[135px] mb-[60px] md:mb-20 px-4 lg:px-14">
+        {% image page.second_section_image width-1200 as second_section_image %}
+        <div
+          class="bg-[url({{second_section_image.url}})] bg-center bg-cover bg-no-repeat w-full h-[580px] md:h-[733px] flex items-center rounded-xl lg:rounded-3xl add__shadow"
+        >
+          <div 
+            class="flex flex-col px-4 sm:px-12 lg:pl-[105px] z-20"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            <h2
+              class="text-[32px] lg:text-[64px] text-white text-normal font-gt-super"
+            >
+              {{page.second_section_dedicated_page.title}}
+            </h2>
+            <p
+              class="text-[18px] lg:text-[24px] text-white font-twk-lausanne text-normal lg:w-[646px]"
+            >
+              {{page.second_section_dedicated_page.header_title_description}}
+            </p>
+
+            <div class="w-full flex items-start md:items-center mt-[40px] flex-col md:flex-row gap-6 md:gap-0">
+              <a
+                href="{{page.second_section_dedicated_page.giving_link_url}}"
+                target="_blank"
+                class="w-[175px] h-[56px] bg-white rounded-full text-lg text-medium text-black border solid border-white flex justify-center items-center mr-6 uppercase font-twk-lausanne hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+                >{{ page.disaster_relief_slider_give_now_button }}</a
+              >
+              <a
+                href="{% pageurl page.second_section_dedicated_page.localized %}"
+                class="w-[175px] h-[56px] bg-transparent rounded-full text-lg text-medium text-white border solid border-white flex justify-center items-center uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out font-twk-lausanne"
+                >{{ page.disaster_relief_slider_learn_more_button }}</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-[50px] px-4 lg:px-[60px]">
+        {% image page.legacy_giving_image width-1200 as legacy_giving_image %}
+        <div
+          class="flex items-end justify-center bg-[url({{legacy_giving_image.url}})] bg-no-repeat bg-cover h-[350px] rounded-lg pb-[70px] add__shadow bg-center"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <a
+            href="{% if page.is_legacy_page_external %} {{page.legacy_giving_external_url}} {% else %} {% pageurl page.legacy_giving_page.localized %} {% endif %}"
+            class="w-[235px] h-[56px] bg-white rounded-full text-lg font-twk-lausanne font-medium text-black border solid border-white flex justify-center items-center  uppercase z-20 hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+            >{{ page.legacy_giving_button }}
+          </a>
+        </div>
+        {% image page.giving_faq_image width-1200 as giving_faq_image %}
+        <div
+          class="flex items-end justify-center bg-[url({{giving_faq_image.url}})] bg-no-repeat bg-cover h-[350px] rounded-lg pb-[70px] add__shadow bg-center"
+          data-aos="fade-up"
+          data-aos-duration="3000"
+        >
+          <a
+            href="{% pageurl page.giving_faq_page.localized %}"
+            class="w-[235px] h-[56px] bg-white rounded-full text-lg font-twk-lausanne font-medium text-black border solid border-white flex justify-center items-center uppercase z-20 hover:bg-transparent hover:border hover:solid hover:border-white hover:text-white transition duration-500 ease-in-out"
+            >{{ page.giving_faq_button }}
+          </a>
+        </div>
+      </section>
+    </main>
+  {% endblock %}
+  {% block javascript %}
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <!-- Java Script -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+  <!-- owl carouse -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script type="text/javascript">
+    AOS.init();
+    
+    let storiesSwiper = new Swiper(".stories_swiper", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+      },
+      draggable: true,
+      allowTouchMove: true,
+      loop: true,
+      //centeredSlides: true,
+      //direction: 'horizontal',
+      initialSlide: 0,
+
+      direction: "horizontal",
+      //centeredSlides: false,
+      speed: 800,
+      //slidesPerView: "auto",
+      threshold: 5,
+
+
+      //freeMode: true,
+      //watchSlidesProgress: true,
+      breakpoints: {
+        100: {
+          slidesPerView: 1.2,
+          spaceBetween: 16,
+        },
+
+        450: {
+          slidesPerView: 1.4,
+          spaceBetween: 20,
+        },
+        692: {
+          slidesPerView: 'auto',
+          spaceBetween: 30,
+        }
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+    });
+
+    // Regions swiper
+    let RegionsSwiper = new Swiper(".region_explore", {
+      scrollbar: {
+        el: ".swiper-scrollbar",
+        draggable: true,
+
+        // hide: true,
+      },
+      // slidesPerView: 3,
+      //initialSlide: 0,
+
+      allowTouchMove: true,
+      draggable: true,
+      direction: "horizontal",
+      speed: 800,
+      //threshold: 5,
+      
+      //loop: true,
+
+      breakpoints: {
+        // when window width is >= 320px
+        300: {
+          slidesPerView: 1.1,
+          spaceBetween: 10,
+        },
+        // when window width is >= 480px
+
+        // when window width is >= 640px
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+        1192: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1490: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      on: {
+        init: function () {
+
+          //const regionsCover = document.querySelectorAll(".regions__cover");
+          //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+
+
+          const readStories = document.querySelectorAll(".explore__continent");
+          readStories.forEach((c) => c.classList.add("toglle_continent"));
+
+          readStories.forEach((itemSlide, index) => {
+            if (index === this.activeIndex) {
+              itemSlide.classList.add("toglle_continent");
+              //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+            } else {
+              itemSlide.classList.remove("toglle_continent");
+              //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+
+            }
+          });
+
+          //toggle banners
+          const exploreHeaders = document.querySelectorAll(".explore_banners");
+          exploreHeaders.forEach((h) => h.classList.add("show_explore_banners"));
+
+          exploreHeaders.forEach((itemSlide, index) => {
+            if (index === this.activeIndex) {
+              itemSlide.classList.add("show_explore_banners")
+            } else {
+              itemSlide.classList.remove("show_explore_banners")
+            }
+          })
+        },
+      },
+    });
+
+    RegionsSwiper.on("slideChange", function () {
+      //const regionsCover = document.querySelectorAll(".regions__cover");
+      //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+      const readStories = document.querySelectorAll(".explore__continent");
+
+
+
+      readStories.forEach((c) => c.classList.add("toglle_continent"));
+      readStories.forEach((itemSlide, index) => {
+        if (index === this.activeIndex) {
+          itemSlide.classList.add("toglle_continent");
+          //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+        } else {
+          itemSlide.classList.remove("toglle_continent");
+          //regionsCover.forEach((c) => c.classList.remove("toggle__cover"));
+
+        }
+      });
+    });
+
+    RegionsSwiper.on("slideChange", function () {
+      const exploreHeaders = document.querySelectorAll(".explore_banners");
+      exploreHeaders.forEach((c) => c.classList.add("show_explore_banners"));
+      exploreHeaders.forEach((itemSlide, index) => {
+        if (index === this.activeIndex) {
+          itemSlide.classList.add("show_explore_banners");
+          //regionsCover.forEach((c) => c.classList.add("toggle__cover"));
+
+        } else {
+          itemSlide.classList.remove("show_explore_banners");
+        }
+      });
+    });
+  </script>
+  {% endblock %}

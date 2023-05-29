@@ -1,0 +1,13 @@
+[
+    {
+        "model": "cms.contactinformation",
+        "pk": 1,
+        "fields": {
+            "company_name": "Assemblies of God World Missions",
+            "address1": "1445 N. Boonville Avenue",
+            "address2": "Springfield, MO 65802-1894",
+            "phone_number": "417-862-2781 ext. 3050"
+        }
+    }
+]
+    

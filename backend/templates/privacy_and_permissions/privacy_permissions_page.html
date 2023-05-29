@@ -1,0 +1,17 @@
+{% extends "base_black_logo.html" %}
+{% load staticfiles about_template_tags privacy_and_permissions_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+
+{% block content%}
+    <main class="w-full px-4 xl:px-[60px]">
+        <section class="mb-6 pt-8">
+        <h1 class="font-normal font-gt-super text-[#3D3D3D] text-3xl lg:text-4xl xl:text-6xl">
+            {{ page.title }}
+        </h1>
+        <span class="pl-4 lg:pl-8 text-base font-twk-lausanne text-[#3D3D3D] font-extralight mt-8 inline-block">
+            {{ page.latest_revision_created_at }}
+        </span>
+        {% get_privacy_permissions_content %}
+        </section>
+  </main>
+{% endblock %}

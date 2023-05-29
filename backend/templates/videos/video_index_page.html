@@ -1,0 +1,698 @@
+{% extends "base.html" %}
+{% load staticfiles video_template_tags wagtailcore_tags wagtailadmin_tags wagtailimages_tags %}
+
+
+{% block content %}
+    {% image page.header_image width-1200 as my_image %}
+    <header
+      class="pt-[70px] h-full px-4 md:px-[83px] h-[400px] md:[550px] lg:h-[682px] bg-[url({{my_image.url}})] bg-no-repeat bg-cover bg-center"
+    >
+      <div 
+        class="flex flex-col justify-center items-center md:mt-16 lg:mt-20"
+        data-aos="fade-up"
+        data-aos-duration="2000"
+      >
+        <h2
+        class="text-[36px] md:text-[64px] text-white font-normal font-gt-super"
+        >
+          {{ page.title }}
+        </h2>
+      </div>
+    </header>
+
+    <main class="w-full px-4 xl:px-[60px] mb-[30px] xl:mb-[129px] -mt-[150px] lg:-mt-[390px] 2xl:w-[1440px] mx-auto">
+      {% get_slider_videos %}
+      {% get_videos %}
+
+      <!-- AGWM Media Hub -->
+      <section class="mt-8 md:mt-24">
+        <h3
+          class="text-[24px] md:text-[64px] text-black font-semibold md:font-normal font-gt-super"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          {{ page.media_hub_section_header_title }}
+        </h3>
+        <ul class="mt-4 md:mt-14">
+          {% for item in page.media_hub_videos_list.all %}
+          <li
+            class="flex items-center text-lg md:text-4xl font-twk-lausanne font-extralight text-black mb-10"
+            data-aos="fade-up"
+            data-aos-duration="1300"
+          >
+            <svg
+              width="8"
+              height="8"
+              viewBox="0 0 8 8"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="4" cy="4" r="4" fill="black" />
+            </svg>
+
+            <span class="ml-4 md:ml-10"
+              >{{ item.media_hub_item }}</span
+            >
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="flex items-center mt-4 md:mt-10 flex-col md:flex-row">
+          <button
+            onclick="openLogin()"
+            class="w-[175px] h-[56px] text-center rounded-full text-lg font-normal text-[#8A4D32] uppercase border-2 solid border-[#8A4D32] font-semibold uppercase hover:bg-[#8A4D32] hover:text-white transition duration-500 ease-in-out mt-6 md:ml-4"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+          >
+            {{ page.register_button }}
+          </button>
+          <button
+            onclick="openLogin()"
+            class="w-[175px] h-[56px] text-center rounded-full text-lg font-normal text-[#8A4D32] uppercase border-2 solid border-[#8A4D32] font-semibold uppercase font-twk-lausanne hover:bg-[#8A4D32] hover:text-white transition duration-500 ease-in-out mt-6 md:ml-4"
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            data-aos-delay="150"
+          >
+            {{ page.login_button }}
+          </button>
+        </div>
+      </section>
+      <!-- Videos__popup__Hero-Videos -->
+    </main>
+    <!-- Log in -->
+    <div id="login__screen" class="w-full signin_overlay">
+      <div
+        class="w-full flex items-center justify-between relavtive z-50 py-[28px] px-4 lg:px-[60px]"
+      >
+        <div class="flex items-center">
+          <button class="closebtn" onclick="closeLogin()">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="28" cy="28" r="28" fill="white" fill-opacity="0.26" />
+              <path
+                d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+
+          <!--  Custome drop down.. -->
+          <div class="dropdown relative ml-[40px]">
+            <div
+              class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out"
+            >
+              <span
+                class="selected text-lg text-white uppercase font-normal mr-[12px]"
+                >EN</span
+              >
+              <span class="ml-1"
+                ><svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md"
+              >
+                <a href="" class="flex w-full px-8 py-2">EN</a>
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md"
+              >
+                <a href="/france" _blank class="w-full flex px-8 py-2">FR</a>
+              </li>
+              <li
+                class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer"
+              >
+                <a href="/germany" _blank class="flex w-full px-8 py-2">DU</a>
+              </li>
+              <!-- border-b solid border-[#e2e2e2] -->
+              <li class="item text-lg text-[#8d959f] cursor-pointer">
+                <a href="/ar" _blank class="flex w-full px-8 py-2">AR</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="hidden lg:flex flex-col items-center w-[100px] md:w-[275px]"
+        >
+          <img src={% static 'img/app-logo.svg' %} alt="app-logo" class="" />
+          <span class="hidden md:inline-block text-sm text-white font-normal"
+            >Assemblies of God World Mission</span
+          >
+        </div>
+        <div class="flex items-center text-white">
+          <div
+          class="relative cursor-pointer rounded-full mr-4 menu_search__bar"
+        >
+          <span
+            class="menu_search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url({% static 'img/search.svg' %})] bg-no-repeat"
+          ></span>
+          <input
+            id="menu_my__search"
+            class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg placeholder:text-white"
+            type="text"
+            placeholder="Search"
+          />
+          <div class="menu_clear absolute right-2 top-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#fff"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
+        </div>
+          <button
+            class="w-[211px] h-[56px] text-center rounded-full text-lg bg-white text-black font-semibold font-twk-lausanne uppercase ease-in-out"
+          >
+            {% comment %} Temporary set redirect to homepage {% endcomment %}
+            <a href="{{ home_page.url }}">
+              Are you called?
+            </a>
+          </button>
+        </div>
+      </div>
+      <!-- log In screen -->
+       <div
+        class="add_animate w-full lg:w-[505px] px-6 lg:px-0 mx-auto mt-[60px] flex justify-center items-center flex-col login__screen"
+      >
+        <h4
+          class="text-lg md:text-xl xl:text-2xl font-gt-super font-normal text-white text-center"
+        >
+          Welcome to Assemblies of God World Mission. Please log in below.
+        </h4>
+        <!-- centred text  for validation -->
+        <div id="nonFieldErrors" class="w-full text-center mt-4">
+        </div>
+
+        <form id="loginForm" class="w-full flex flex-col">
+          {% csrf_token %}
+          <div class="mt-[40px]">
+            <input
+              type="text"
+              id="loginEmail"
+              name="emailLogin"
+              placeholder="Email"
+              class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none block"
+            />
+          </div>
+  
+        <div class="mt-[40px]">
+          <div class="w-full relative">
+            <input
+              type="password"
+              id="loginPassword"
+              name="passwordLogin"
+              placeholder="Enter Password"
+              class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none block"
+            />
+            <button id="eye__icon" class="show_password w-6 h-6 absolute top-0 right-0">
+            </button>
+          </div>
+        </div>
+  
+          <div class="flex items-center justify-between mt-[20px]">
+            <div class="flex items-center mt-[20px]">
+              <label for="" class="checkbox blue cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="w-[22px] h-[22px] cursor-pointer rounded-md"
+                />
+                <span class="indicator cursor-pointer"></span>
+              </label>
+  
+              <span
+                class="text-sm text-white font-normal font-twk-lausanne ml-4"
+              >
+                Remember Me
+              </span>
+            </div>
+            <button
+              id="forgetPass"
+              class="text-sm font-normal text-white font-twk-lausanne font-normal"
+            >
+              Forgot password?
+            </button>
+          </div>
+  
+       
+  
+          <button
+            type="submit"
+            name="submit"
+            class="bg-white flex items-center justify-center w-full lg:w-[473px] h-[56px] text-lg text-[#121A15] font-semibold font-twk-lausanne uppercase rounded-full mt-[52px]"
+          >
+            Login
+          </button>
+          <div class="flex items-start mt-8">
+            <p class=" flex text-sm text-white text-light font-twk-lausanne">Not a member sign up below</p>
+          </div>
+  
+          <button
+            id="signup__button"
+            type="submit"
+            class="bg-transparent flex items-center justify-center w-full lg:w-[473px] h-[56px] text-lg text-white font-semibold font-twk-lausanne uppercase rounded-full mt-2 border-2 solid border-white hover:bg-[#8B3C3A] hover:border-none transition duration-500 ease-in-out"
+          >
+            Sign Up
+          </button>
+        </form>
+      </div>
+      <!-- Sign up screen  -->
+      <div
+        class="add_animate hidden signup__screen mt-[20px] px-6 flex-col justify-center items-center"
+      >
+        <div class="w-full md:w-[400px] xl:w-[500px]">
+          <h4
+            class="text-lg md:text-xl xl:text-2xl font-gt-super font-normal text-white text-center ml-[-20px]"
+          >
+            Welcome to Assemblies of God World Mission. Please Sign up below.
+          </h4>
+
+          <form id="signUpForm" method="POST" class="w-[483px] flex flex-col relative">
+            <button id="go__back_to_login" class="absolute top-[-65px] left-[-55px] hover:scale-110 transition duration-500 ease-in-out">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="white">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+              </svg>
+            </button>
+            <div class="mt-[40px]">
+              {% csrf_token %}
+              <input
+                id="first_name"
+                name="first_name"
+                type="text"
+                placeholder="First Name"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+  
+            <div class="mt-[40px]">
+              <input
+                id="last_name"
+                name="last_name"
+                type="text"
+                placeholder="Last Name"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+  
+            <div class="mt-[40px]">
+              <input
+                id="email"
+                name="email"
+                type="text"
+                placeholder="Email"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+  
+            <div class="mt-[40px]">
+              <input
+                id="password1"
+                name="password"
+                type="password"
+                placeholder="Enter Password"
+                onChange="onChange()"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+  
+            <div class="mt-[40px]">
+              <input
+                id="password2"
+                name="password2"
+                type="password"
+                placeholder="Repeat Password"
+                onChange="onChange()"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+  
+            <div class="flex items-start mt-[20px]">
+              <label for="" class="checkbox blue cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="w-[22px] h-[22px] cursor-pointer rounded-md"
+                />
+                <span class="indicator cursor-pointer"></span>
+              </label>
+  
+              <span
+                class="text-sm text-white font-normal font-twk-lausanne ml-4"
+              >
+                Remember Me
+              </span>
+            </div>
+  
+            <button
+              type="submit"
+              name="submit"
+              class="bg-transparent flex items-center justify-center w-full lg:w-[483px] h-[56px] text-lg text-white font-semibold font-twk-lausanne rounded-full mt-[30px] border-2 solid border-white hover:bg-[#8B3C3A] hover:border-none transition duration-500 ease-in-out"
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- forget password? -->
+      <div
+        class="add_animate hidden items-center justify-center flex-col mt-[120px] px-6 forget__pass"
+      >
+        <form
+          action=""
+          class="w-[500px] flex flex-col justify-center items-center text-center relative"
+        >
+        {% csrf_token %}
+        <button id="go__back_from_forget_pass" class="absolute top-[-40px] left-0 hover:scale-110 transition duration-500 ease-in-out">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="white">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z" clip-rule="evenodd" />
+          </svg>
+        </button>
+          <div class="w-full w-[500px]">
+            <div class="flex justify-center items-center flex-col">
+              <h4
+                class="text-2xl text-white font-normal font-gt-super mb-[25px]"
+              >
+                Forgot Password?
+              </h4>
+              <p
+                class="text-sm text-white font-light font-twk-lausanne mb-[57px]"
+              >
+                Enter your email address and we’ll send you instructions to
+                reset your password.
+              </p>
+            </div>
+
+            <input
+              type="text"
+              name="emailForgot"
+              id="sendEmailForReset"
+              placeholder="Email"
+              class="w-full md:w-[300px] lg:w-[473px] bg-transparent border-b solid border-white pr-2 py-6 outline-none text-sm font-twk-lausanne font-normal text-white placeholder:text-white"
+            />
+
+            <button
+              id="resetPassword"
+              class="text-lg text-black font-semibold text-[#121A15] font-twk-lausanne uppercase w-full md:w-[300px] xl:w-[473px] bg-white rounded-full h-[56px] my-[72px]"
+            >
+              Send reset instructions
+            </button>
+          </div>
+        </form>
+      </div>
+      <!-- end forget password? -->
+    </div>
+    <!-- End Log in  -->
+    <!-- Sign up -->
+    <div id="signup__screen" class="w-full signup_overlay">
+      <div
+        class="w-full flex items-center justify-between relavtive z-50 py-[28px] px-4 lg:px-[60px]"
+      >
+        <div class="flex items-center">
+          <button class="closebtn" onclick="closeSignup()">
+            <svg
+              width="56"
+              height="56"
+              viewBox="0 0 56 56"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="28" cy="28" r="28" fill="white" fill-opacity="0.26" />
+              <path
+                d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+                fill="white"
+              />
+            </svg>
+          </button>
+          <!-- **** ************************************************************************************************************************************************************************************************************************************************ ***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************** -->
+          <!--  Custome drop down.. -->
+          <div class="dropdown3 relative ml-[40px]">
+            <div
+              class="dropdown-select3 flex items-center cursor-pointer transition duration-500 ease-in-out"
+            >
+              <span
+                class="selected3 text-lg text-white uppercase font-normal mr-[12px]"
+                >EN</span
+              >
+              <span class="ml-1"
+                ><svg
+                  width="11"
+                  height="6"
+                  viewBox="0 0 11 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </div>
+
+            <ul
+              class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu3 bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out"
+            >
+              <li
+                class="item3 text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md"
+              >
+                <a href="" class="flex w-full px-8 py-2">EN</a>
+              </li>
+              <li
+                class="item3 text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md"
+              >
+                <a href="/france" _blank class="w-full flex px-8 py-2">FR</a>
+              </li>
+              <li
+                class="item3 text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer"
+              >
+                <a href="/germany" _blank class="flex w-full px-8 py-2">DU</a>
+              </li>
+              <!-- border-b solid border-[#e2e2e2] -->
+              <li class="item3 text-lg text-[#8d959f] cursor-pointer">
+                <a href="/ar" _blank class="flex w-full px-8 py-2">AR</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="hidden lg:flex flex-col items-center w-[100px] md:w-[275px]"
+        >
+          <img src="{% static 'img/app-logo-black.svg' %}" alt="app-logo" class="" />
+          <span class="hidden md:inline-block text-sm text-white font-normal"
+            >Assemblies of God World Mission</span
+          >
+        </div>
+        <div class="flex items-center text-white">
+          <div
+            class="relative cursor-pointer rounded-full mr-4 menu_search__bar2"
+          >
+            <span
+              class="menu_search__icon2 inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search.svg')] bg-no-repeat"
+            ></span>
+            <input
+              id="menu_my__search2"
+              class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg placeholder:text-white"
+              type="text"
+              placeholder="Search"
+            />
+            <div class="menu_clear2 absolute right-2 top-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#fff"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+          </div>
+          <button
+            class="w-[211px] h-[56px] text-center rounded-full text-lg bg-white text-black font-semibold font-twk-lausanne uppercase ease-in-out"
+          >
+            {% comment %} Temporary set redirect to homepage {% endcomment %}
+            <a href="{{ home_page.url }}">
+              Are you called?
+            </a>
+          </button>
+        </div>
+      </div>
+      <!-- Sign up screen  -->
+      <div class="mt-[20px] px-6 flex-col justify-center items-center">
+        <div class="w-full md:w-[400px] xl:w-[500px] mx-auto">
+          <h4
+            class="text-lg md:text-xl xl:text-2xl font-gt-super font-normal text-white text-center"
+          >
+            Welcome to Assemblies of God World Mission. Please log in below.
+          </h4>
+
+          <form action="" class="w-full flex flex-col">
+            <div class="mt-[40px]">
+              <input
+                type="text"
+                placeholder="First Name"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+
+            <div class="mt-[40px]">
+              <input
+                type="text"
+                placeholder="Last Name"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+
+            <div class="mt-[40px]">
+              <input
+                type="text"
+                placeholder="Email"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+
+            <div class="mt-[40px]">
+              <input
+                type="password"
+                placeholder="Enter Password"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+
+            <div class="mt-[40px]">
+              <input
+                type="password"
+                placeholder="Repeat Password"
+                class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none"
+              />
+            </div>
+
+            <div class="flex items-start mt-[20px]">
+              <label for="" class="checkbox blue cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="w-[22px] h-[22px] cursor-pointer rounded-md"
+                />
+                <span class="indicator cursor-pointer"></span>
+              </label>
+
+              <span
+                class="text-sm text-white font-normal font-twk-lausanne ml-4"
+              >
+                Remember Me
+              </span>
+            </div>
+
+            <button
+              type="submit"
+              class="bg-transparent flex items-center justify-center w-full lg:w-[473px] h-[56px] text-lg text-white font-semibold font-twk-lausanne uppercase rounded-full mt-[30px] border-2 solid border-white hover:bg-[#8B3C3A] hover:border-none transition duration-500 ease-in-out"
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- End Sign up  -->
+      <div
+        id="videosModal"
+        class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg"
+        style="background-color: rgba(0, 0, 0, 0.8)"
+        >
+        <div class="scale_1 w-full h-full flex items-center justify-center">
+            <iframe
+            id="iframe"
+            class="hero-video w-[1150px] h-[580px] rounded-md"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            ></iframe>
+        </div>
+        <button
+            id="closeopenVideosModal"
+            class="absolute top-3 right-3 w-16 h-16"
+        >
+            <svg
+            width="56"
+            height="56"
+            viewBox="0 0 56 56"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <path
+                d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+                fill="white"
+            />
+            </svg>
+        </button>
+      </div> 
+    {% endblock %}
+
+    {% block javascript %}  
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script type="text/javascript">
+      AOS.init();
+      
+
+      const swiper = new Swiper(".swiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      // VideosPage
+      const showVideosBtn = document.querySelectorAll(".videos");
+      const videosModal = document.getElementById("videosModal");
+      const iframe = document.getElementById("iframe")
+      const closeopenVideosModal = document.getElementById(
+        "closeopenVideosModal"
+      );
+
+      showVideosBtn.forEach((element, i) => {
+        element.addEventListener("click", () => {
+          videosModal.classList.add("show");
+          iframe.src = `${element.dataset.embed_url}`
+        });
+      });
+
+      //Close VideosModal
+      closeopenVideosModal.addEventListener("click", () => {
+        videosModal.classList.remove("show");
+      });
+    </script>
+    {% endblock %}

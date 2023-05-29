@@ -1,0 +1,9 @@
+<ul class="mt-6 lg:mt-[23px]">
+  {% for qualification in qualifications %}
+    <li 
+      class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]"
+    >
+      {{qualification.qualification}}
+    </li>
+  {% endfor %}
+</ul>

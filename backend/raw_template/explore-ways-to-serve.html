@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: "#da373d",
+          },
+          backgroundImage: {
+            "burger-menu": "url('./assets/img/berger-menu.svg')",
+          },
+          fontFamily: {
+            "gt-super": ["gt-super"],
+            "twk-lausanne": ["twk-lausanne"],
+          },
+        },
+      },
+    };
+  </script>
+  <title>Videos</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="w-full flex items-center justify-between px-4 lg:px-[83px] pt-[20px] sm:pt-[35px] absolute z-50">
+    <div class="flex items-center">
+      <button class="w-6 h-6 bg-[url('./assets/img/berger-menu.svg')] mr-4 lg:mr-[55px]"></button>
+
+      <div class="flex items-center">
+        <!--  Custome drop down.. -->
+        <div class="dropdown relative">
+          <div class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out">
+            <span class="selected text-lg text-white uppercase font-normal mr-[12px]">EN</span>
+            <span class="ml-1"><svg width="11" height="6" viewBox="0 0 11 6" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z" fill="white" />
+              </svg>
+            </span>
+          </div>
+
+          <ul
+            class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out">
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md">
+              EN
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2 rounded-md">
+              FR
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2">
+              DU
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer px-8 py-2">
+              AR
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="md:flex flex-col items-center w-[100px] md:w-[275px]">
+      <img src="./assets/img/app-logo.svg" alt="app-logo" class="" />
+      <span class="hidden md:inline-block text-sm text-white font-normal">Assemblies of God World Mission</span>
+    </div>
+    <div class="hidden md:flex items-center">
+      <!-- Search Bar -->
+      <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+        <span
+          class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search.svg')] bg-no-repeat"></span>
+        <input id="my__search"
+          class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+          type="text" placeholder="Search" />
+        <div class="clear absolute right-2 top-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#fff"
+            stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+      <!-- End Search Bar -->
+      <button
+        class="w-[211px] h-[56px] text-center rounded-full text-lg text-white border-2 solid border-white font-semibold uppercase hover:bg-white hover:text-black transition duration-500 ease-in-out">
+        Are you called?
+      </button>
+    </div>
+  </nav>
+
+  <header
+    class="pt-[70px] h-full px-4 md:px-[83px] pb-[150px] md:pb-[180px] bg-[url('./assets/img/explore-ways/hero.png')] bg-no-repeat bg-cover bg-center">
+    <div class="flex flex-col justify-center items-center md:pt-[115px]" data-aos="fade-up" data-aos-duration="1500">
+      <div class="explore_headers hidden flex-col justify-center items-center w-full text-center">
+        <h2 class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal">
+          Global Ministry Opportunities
+        </h2>
+        <!-- <p
+            class="text-[18px] md:text-[28px] xl:text-[32px] text-white font-twk-lausanne font-thin"
+          >
+
+          </p> -->
+      </div>
+
+      <div class="explore_headers hidden flex-col justify-center items-center w-full text-center">
+        <h2 class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal">
+          Vaya con Dios.
+        </h2>
+        <p class="text-[18px] md:text-[28px] xl:text-[32px] text-white font-twk-lausanne font-thin">
+          Go with God. Experience practical global ministry.
+        </p>
+      </div>
+
+      <div class="explore_headers hidden flex-col justify-center items-center w-full text-center">
+        <h2 class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal">
+          Step into your call
+        </h2>
+        <p class="text-[18px] md:text-[28px] xl:text-[32px] text-white font-twk-lausanne font-thin">
+          Discover opportunities for a lifetime.
+        </p>
+      </div>
+
+      <div class="mt-[30px] md:mt-[60px] w-auto">
+        <ul
+          class="w-full md:w-auto tabs explore_ways-tabs flex items-center justify-between md:justify-center flex-wrap md:flex-row">
+          <li
+            class="list-none text-sm sm:text-lg lg:text-[36px] text-white opacity-[57%] font-bold font-twk-lausanne mr-8 md:mr-[75px] cursor-pointer pb-6 lg:pb-12">
+            Short Term
+          </li>
+          <li
+            class="text-sm sm:text-lg lg:text-[36px] text-white opacity-[57%] font-bold font-twk-lausanne list-none mr-8 md:mr-[75px] cursor-pointer pb-6 lg:pb-12">
+            1-2 Year
+          </li>
+          <li
+            class="text-sm sm:text-lg lg:text-[36px] text-white opacity-[57%] font-bold font-twk-lausanne list-none cursor-pointer pb-6 lg:pb-12">
+            Career
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="w-full -translate-y-[105px] 2xl:w-[1400px] 2xl:mx-auto">
+    <div class="content_wrapper w-full">
+      <!-- PARENT TABS -->
+      <!-- TAB ONE -->
+      <div class="w-full explore_tabs hidden flex-col">
+        <div
+          class="w-full flex flex-col justify-center items-center bg-[#627CA1] py-8 md:py-[50px] xl:pt-[60px] xl:pb-[75px]"
+          data-aos="fade-up" data-aos-duration="2000" data-aos-delay="50">
+          <h3 class="text-[32px] md:text-[48px] xl:text-[64px] text-white font-gt-super font-normal pb-6 xl:pb-[40px]">
+            Short-Term Trips
+          </h3>
+          <ul class="short_term-tabs flex items-center px-2 sm:px-0">
+            <li class="flex flex-col justify-center items-center mr-2 sm:mr-4 xl:mr-[55px] cursor-pointer">
+              <strong class="text-white font-twk-lausanne text-[11px] sm:text-base md:text-lg">
+                Short-Term Trips
+              </strong>
+              <span class="text-[10px] lg:text-lg font-twk-lausanne font-thin text-white my-1">31 Days or less</span>
+            </li>
+
+            <li class="flex flex-col justify-center items-center mr-2 sm:mr-4 xl:mr-[55px] cursor-pointer">
+              <strong class="text-white font-twk-lausanne text-[11px] sm:text-base md:text-lg">
+                Short-Term Minister Abroad
+              </strong>
+              <span class="text-[10px] lg:text-lg font-twk-lausanne font-thin text-white my-1">1-11 Months
+              </span>
+            </li>
+            <li class="flex flex-col justify-center items-center cursor-pointer">
+              <strong class="text-white font-twk-lausanne text-[11px] sm:text-base md:text-lg">
+                MAPS Volonteer
+              </strong>
+              <span class="text-[10px] lg:text-lg font-twk-lausanne font-thin text-white my-1">
+                up to 6 months
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="w-full explore_short-term hidden flex-col">
+          <section class="p-4 xl:px-[200px] xl:pt-[105px] flex flex-col justify-center items-start" data-aos="fade-up"
+            data-aos-duration="2000">
+            <h2 class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal">
+              Short-Term (Under 31 days)
+            </h2>
+            <p class="text-lg sm:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] pt-2.5 xl:leading-10">
+              For the quickest time to the field, these opportunities are less
+              than 31 days in length. You need an invitation from an AGWM
+              missionary who will get you engaged in an existing ministry.
+              Gain practical ministry experience while reaching the unreached.
+            </p>
+          </section>
+
+          <section
+            class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[30px] md:mt-[95px] px-4 xl:px-[95px]">
+            <div
+              class="bg-[url('./assets/img/explore-ways/reach-the-reach.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="2000">
+              <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Reach the Unreached
+              </p>
+            </div>
+            <div
+              class="bg-[url('./assets/img/explore-ways/assist-missionary.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="2000" data-aos-delay="100">
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Assist Missionary
+              </p>
+            </div>
+            <div
+              class="bg-[url('./assets/img/explore-ways/ministry-experience.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Ministry Experience
+              </p>
+            </div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[120px] px-4 xl:px-[75px]">
+            <div
+              class="h-[350px] lg:h-[567px] bg-[url('./assets/img/explore-ways/qualification-avatar.png')] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+              data-aos="fade-up" data-aos-duration="1500"></div>
+            <div class="flex flex-col md:ml-[50px] ml-6 lg:ml-[95px] mt-8 md:mt-0 md:col-span-3" data-aos="fade-up"
+              data-aos-duration="2000">
+              <h2
+                class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]">
+                Qualifications
+              </h2>
+              <ul class="mt-6 lg:mt-[23px]">
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]"
+                >
+                  Invitation from AGWM Missionary
+                </li>
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Be a believer and connect with your local church
+                </li>
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Agree with AGWM Policies regarding overseas trips
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="text-center mt-[30px] xl:mt-[150px]">
+            <h2 class="text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 lg:mb-[98px]"
+              data-aos="fade-up" data-aos-duration="2000">
+              Opportunities
+            </h2>
+
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 bg-[#E5E5E5] py-[30px] xl:py-[85px] px-4 xl:px-[130px] 2xl:px-[150px] gap-[30px] xl:gap-[180px]">
+              <div data-aos="fade-up" data-aos-duration="2000">
+                <div class="h-[350px] md:h-[400px] lg:h-[567px]">
+                  <img src="./assets/img/explore-ways/non-team.png" class="rounded-xl w-full h-full object-cover"
+                    alt="explore non-team picture" />
+                </div>
+                <h3
+                  class="text-[24px] md:text-[36px] xl:text-[48px] text-black font-gt-super font-normal mt-[15px] text-left">
+                  Non-Team Ministry Trip
+                </h3>
+                <p
+                  class="text-lg md:text-xl xl:text-2xl font-twk-lausanne font-normal text-[#3D3D3D] mt-2 md:mt-[15px] text-left">
+                  Are you going as an individual, couple, or family?
+                </p>
+                <a href="#"
+                  class="flex items-center justify-center w-[250px] md:w-[329px] h-[56px] flex items-center justify-center border-2 solid border-[#8A4D32] text-sm md:text-base lg:text-lg font-medium text-[#8B3C3B] font-twk-lausanne uppercase rounded-full mt-3 md:mt-[35px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out">
+                  Begin application
+                </a>
+              </div>
+
+              <div data-aos="fade-up" data-aos-duration="2000">
+                <div class="h-[350px] md:h-[400px] lg:h-[567px]">
+                  <img src="./assets/img/explore-ways/lead-team.png" class="rounded-xl w-full h-full object-cover"
+                    alt="explore non-team picture" />
+                </div>
+                <h3
+                  class="text-[24px] md:text-[36px] xl:text-[48px] text-black font-gt-super font-normal mt-[15px] text-left">
+                  Non-Team Ministry Trip
+                </h3>
+                <p
+                  class="text-lg md:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] mt-2 md:mt-[15px] text-left">
+                  Begin application by emailing
+                  <a href="#" class="text-lg md:text-2xl text-[#8B3C3B] font-normal">
+                    our maps team.</a>
+                </p>
+                <a href="#"
+                  class="flex items-center justify-center w-[250px] md:w-[329px] h-[56px] flex items-center justify-center border-2 solid border-[#8A4D32] text-sm md:text-base lg:text-lg font-medium text-[#8B3C3B] font-twk-lausanne uppercase rounded-full mt-3 md:mt-[35px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out">
+                  Email mapsteams@ag.org
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="flex flex-col justify-center items-center text-center mt-[50px] px-4 lg:px-[100px] xl:px-[260px] mt-[30px] md:mt-[60px] xl:mt-[155px]"
+            data-aos="fade-up" data-aos-duration="2000">
+            <h2
+              class="text-[22px] sm:text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-4 xl:mb-[27px]">
+              Invited Guests
+            </h2>
+            <p class="text-lg lg:text-2xl font-twk-lausanne font-light text-[#3D3D3D] lg:px-[100px]">
+              For Invited Guests Doing Non-Ministry Related Activities
+              Complete the assessment form at this link:
+            </p>
+            <button
+              class="w-full md:w-[329px] h-[56px] flex items-center justify-center border-2 solid border-[#8A4D32] text-base lg:text-lg font-medium text-[#8B3C3B] font-twk-lausanne rounded-full my-[35px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out">
+              Invited guests Non-Ministry
+            </button>
+            <p class="text-lg lg:text-2xl font-twk-lausanne font-light text-[#3D3D3D] lg:px-[100px]">
+              An application specialist will assist you personally with
+              registration.
+            </p>
+          </section>
+        </div>
+        <div class="w-full explore_short-term hidden flex-col">
+          <section class="p-4 xl:px-[200px] xl:pt-[105px] flex flex-col justify-center items-start" data-aos="fade-up"
+            data-aos-duration="2000">
+            <h2 class="text-[24px] sm:text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal">
+              Ministers Abroad
+            </h2>
+            <p class="text-lg sm:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] pt-2.5">
+              <a href="#" class="text-[#8A4D32] font-medium"> The Short-Term </a>
+              Minister Abroad (STMA) program allows AG ministers to be
+              involved in overseas ministry for up to six months.
+            </p>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-4 md:mt-[60px] lg:mt-[90px] px-4 xl:px-[95px]">
+            <div
+              class="bg-[url('./assets/img/explore-ways/reach-the-reach.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="1500">
+              <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Reach the Unreached
+              </p>
+            </div>
+            <div
+              class="bg-[url('./assets/img/explore-ways/assist-missionary.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Assist Missionary
+              </p>
+            </div>
+            <div
+              class="bg-[url('./assets/img/explore-ways/ministry-experience.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Ministry Experience
+              </p>
+            </div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[120px] px-4 xl:px-[75px]">
+            <div
+              class="h-[350px] lg:h-[567px] bg-[url('./assets/img/explore-ways/qualification-avatar.png')] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+              data-aos="fade-up" data-aos-duration="1500"></div>
+            <div class="flex flex-col md:ml-[50px] ml-6 lg:ml-[95px] mt-8 md:mt-0 md:col-span-3" data-aos="fade-up"
+              data-aos-duration="1500">
+              <h2
+                class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]">
+                Qualifications
+              </h2>
+              <ul class="mt-6 lg:mt-[23px]">
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Invitation from AGWM Missionary
+                </li>
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Be a believer and connect with your local church
+                </li>
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Agree with AGWM Policies regarding overseas trips
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="mx-4 xl:mx-auto xl:w-[calc(100%-150px)] h-[325px] mg:h-[400px] xl:h-[542px] mt-6 lg:mt-[105px] bg-[url('./assets/img/explore-ways/mail-cover.png')] bg-center bg-cover bg-no-repeat flex items-center justify-start flex-col rounded-2xl text-center px-4 sm:px-0"
+            data-aos="fade-up" data-aos-duration="2000">
+            <h3
+              class="text-[30px] xl:text-[64px] text-white font-normal font-gt-super mb-4 pt-8 lg:pt-[50px] lg:mb-[70px] text-center">
+              Get Started
+            </h3>
+            <p
+              class="text-base sm:text-lg lg:text-2xl text-white font-twk-lausanne font-normal text-center md:text-left w-full lg:w-[calc(100%-350px)]">
+              Contact stma@ag.org to get started. (please contact at least 6
+              weeks prior to your desired departure date)
+            </p>
+            <button
+              class="h-[45px] md:h-[56px] px-4 rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase font-twk-lausanne font-medium mt-6 lg:mt-12">
+              Email stma@ag.org
+            </button>
+          </section>
+        </div>
+        <div class="w-full explore_short-term hidden flex-col">
+          <section class="p-4 xl:px-[200px] xl:pt-[105px] flex flex-col justify-center items-start" data-aos="fade-up"
+            data-aos-duration="2000">
+            <h2 class="text-[22px] sm:text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal">
+              Missions Abroad Placement Services (MAPS)
+            </h2>
+            <p class="text-lg sm:text-xl xl:text-2xl font-twk-lausanne font-thin text-[#3D3D3D] pt-2.5">
+              Discover and participate in what God is doing around the world
+              as a MAPS worker for 1 to 11 months. MAPS workers connect their
+              areas of ministry interest with needs on the field. University
+              students can fulfill practicum and internship requirements for
+              cross-cultural courses with an overseas assignment—generally 1
+              to 3 months in length.
+            </p>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[70px] px-4 xl:px-[75px]">
+            <div
+              class="h-[350px] lg:h-[567px] bg-[url('./assets/img/explore-ways/qualification-avatar.png')] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+              data-aos="fade-up" data-aos-duration="1500"></div>
+            <div class="flex flex-col md:ml-[50px] ml-6 lg:ml-[95px] mt-8 md:mt-0 md:col-span-3" data-aos="fade-up"
+              data-aos-duration="1500">
+              <h2
+                class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]">
+                Qualifications
+              </h2>
+              <ul class="mt-6 lg:mt-[23px]">
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Invitation from AGWM Missionary
+                </li>
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Be a believer and connect with your local church
+                </li>
+                <li
+                  class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                  Agree with AGWM Policies regarding overseas trips
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[120px] px-4 xl:px-[95px]">
+            <div
+              class="bg-[url('./assets/img/explore-ways/reach-the-reach.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100">
+              <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Reach the Unreached
+              </p>
+            </div>
+            <div
+              class="bg-[url('./assets/img/explore-ways/assist-missionary.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150">
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Assist Missionary
+              </p>
+            </div>
+            <div
+              class="bg-[url('./assets/img/explore-ways/ministry-experience.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+              data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+              <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+                Ministry Experience
+              </p>
+            </div>
+          </section>
+          <section
+            class="w-ufll mx-4 xl:mx-auto xl:w-[calc(100%-150px)] h-[425px] mg:h-[400px] xl:h-[542px] mt-6 lg:mt-[105px] bg-[url('./assets/img/explore-ways/mail-cover.png')] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col rounded-2xl text-center px-4 sm:px-6"
+            data-aos="fade-up" data-aos-duration="2000">
+            <h3
+              class="text-[36px] sm:text-[48px] lg:text-[64px] text-white font-normal font-gt-super lg:leading-[75px] mb-2 md:mb-[25px]">
+              Apply
+            </h3>
+            <p class="text-lg lg:text-4xl text-white font-twk-lausanne font-thin text-center w-full">
+              Begin your Go Mission using the button below.
+            </p>
+            <div class="w-full flex items-center justify-center flex-col md:flex-row">
+              <button
+                class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12">
+                Start Today
+              </button>
+              <button onclick="openLogin()"
+                class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12">
+                sIGN IN
+              </button>
+              <button
+                class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase font-twk-lausanne font-medium mt-6 lg:mt-12">
+                REAPPLY
+              </button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <!-- TAB TWO -->
+      <div class="explore_tabs hidden flex-wrap text-4xl text-white">
+        <div
+          class="w-full flex flex-col justify-center items-center bg-[#8B3C3B] pt-8 pb-16 lg:pt-[85px] lg:pb-[200px] px-4 md:px-16 xl:px-[100px]"
+          data-aos="fade-up" data-aos-duration="2000">
+          <h3
+            class="text-[24px] md:text-[48px] xl:text-[64px] text-white font-gt-super md:leading-[74px] font-normal xl:pl-[204px] mb-1 sm:mb-4 xl:mb-[45px] text-center md:text-left">
+            Don’t miss this moment. Invest in yourself, impact their eternity.
+          </h3>
+
+          <p class="text-sm sm:text-lg md:text-2xl xl:leading-10 font-twk-lausanne font-thin text-white text-center md:text-left xl:pl-[302px] xl:pr-[100px]">
+            Missionary Associates are placed in dynamic ministry contexts with experienced
+            mentors. MA’s join a sending agency that draws on over 100 years
+            of experience to provide prayer, care, communication, and
+            financial support for establishing the Church among all peoples
+            everywhere.
+          </p>
+        </div>
+
+        <div class="swiper -mt-[30px] md:-mt-[50px] lg:-mt-[105px] one_year-career-videos mb-6 md:mb-12 mx-4" data-aos="fade-up"
+          data-aos-duration="2000">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="flex flex-col justify-center items-center mx-auto">
+                <div class="w-full xl:w-[1100px] 2xl:w-[1129px] h-[250px] sm:h-[400px] lg:h-[625px]">
+                  <div style="
+                        position: relative;
+                        height: 0;
+                        overflow: hidden;
+                        height: 100%;
+                      ">
+                    <iframe style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          border: 0;
+                          border-radius: 8px;
+                        " loading="lazy"  srcdoc="<style>
+                  * {
+                  padding: 0;
+                  margin: 0;
+                  overflow: hidden;
+                  }
+                  
+                  img {
+                    position: absolute;
+                    width: 100%;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto;
+                    border-radius: 8px;
+                    height: 100%;
+  
+                  }
+                  button {
+                    background-image: url('./assets/img/play.svg');
+                    background-color: transparent;
+                    width: 80px;
+                    height: 80px;
+                    background-repeat: no-repeat;
+                    border: none;
+                    outline: none;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%)
+                  }
+                </style>
+                <a href='https://www.youtube.com/embed/KaNW3Cnqza0'>
+                  <img src='./assets/img/video__poster.png' alt='video cover' />
+                  <button>
+                  </button>                      
+                </a>
+                " src="https://www.youtube.com/embed/KaNW3Cnqza0" title="Coffee Recipe Javascript Project"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+          </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="flex justify-center items-center flex-col px-4 lg:px-[277px]" data-aos="fade-up"
+          data-aos-duration="2000">
+          <button
+            class="text-lg text-white font-semibold font-twk-lausanne bg-[#3D3D3D] rounded-full border-2 solid border-[#3D3D3D] px-[75px] py-4 uppercase mb-[30px] sm:mb-[60px] lg:mb-[90px] xl:mb-[120px]">
+            Start Today
+          </button>
+          <h2 class="text-[28px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-4 md:mb-[60px]">
+            Missionary Associate
+          </h2>
+          <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin text-center">
+            MAs engage fully in missions work, building relationships on the
+            field, and assimilating into another culture. They serve in an
+            established ministry on the field through their skills and
+            interests under supervision of an experienced missionary. MAs
+            serve for 1-2 years and their experiences can be foundational to a
+            potential career in missions.
+          </p>
+        </div>
+        <section class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[30px] md:mt-[95px] px-4 xl:px-[85px]">
+          <div
+            class="bg-[url('./assets/img/explore-ways/reach-the-reach.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+            data-aos="fade-up" data-aos-duration="1000">
+            <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+            <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+              Reach the Unreached
+            </p>
+          </div>
+          <div
+            class="bg-[url('./assets/img/explore-ways/assist-missionary.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+            data-aos="fade-up" data-aos-duration="1500">
+            <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+              Refine Your Skills
+            </p>
+          </div>
+          <div
+            class="bg-[url('./assets/img/explore-ways/ministry-experience.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl"
+            data-aos="fade-up" data-aos-duration="2000">
+            <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+              Gain Real Experience
+            </p>
+          </div>
+        </section>
+
+        <section class="mt-8 md:mt-[125px] px-4 xl:pl-[245px]" data-aos="fade-up" data-aos-duration="2000">
+          <h2 class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[60px]">
+            The Application Process
+          </h2>
+          <div class="flex items-center mb-8 md:mb-[90px]">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center relative after:absolute after:bg-[url('./assets/img/explore-ways/step-line.svg')] after:w-0.5 after:h-[50px] after:-bottom-[70px]">
+              1
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 1: Application
+              </h4>
+              <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                Begin your journey by applying today.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center mb-8 md:mb-[90px]">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center relative after:absolute after:bg-[url('./assets/img/explore-ways/step-line.svg')] after:w-0.5 after:h-[50px] after:-bottom-[70px]">
+              2
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[18px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 2: Placement and Approvals
+              </h4>
+              <p class="text-base lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                You’re matched with an opportunity specific to your calling.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center">
+              3
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 3: Training
+              </h4>
+              <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                Equipping you to be successful in your assigned calling
+              </p>
+            </div>
+          </div>
+
+          <button
+            class="text-lg text-[#8B3C3B] font-twk-lausanne font-medium uppercase border-2 solid border-[#8A4D32] h-[56px] px-[60px] rounded-full lg:ml-[145px] mt-[30px] lg:mt-[50px] xl:mt-[67px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out">
+            APPLY NOW
+          </button>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[87px] px-4 xl:px-[75px]">
+          <div
+            class="h-[350px] lg:h-[567px] bg-[url('./assets/img/explore-ways/qulaif.png')] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2"
+            data-aos="fade-up" data-aos-duration="1500"></div>
+          <div class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3 px-6" data-aos="fade-up"
+            data-aos-duration="1500">
+            <h2
+              class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]">
+              Qualifications
+            </h2>
+
+            <ul class="mt-6 lg:mt-[23px]">
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Agree with AGWM Policies regarding overseas trips
+              </li>
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Agree with AGWM Policies regarding overseas trips
+              </li>
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Agree with AGWM Policies regarding overseas trips
+              </li>
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne lg:leading-10 font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Agree with AGWM Policies regarding overseas trips
+              </li>
+            </ul>
+            <!-- need -->
+            <button
+              class="text-sm md:text-lg text-white font-twk-lausanne font-normal w-full md:w-[329px] h-[45px] md:h-[56px] border-2 solid border-[#8A4D32] rounded-full mt-6 md:mt-[45px] bg-[#8B3C3B] uppercase">
+              Search MA Opportunities
+            </button>
+          </div>
+        </section>
+        <section
+          class="mx-4 xl:mx-auto w-full lg:w-[calc(100%-150px)] h-[425px] mg:h-[400px] xl:h-[542px] mt-6 lg:mt-[105px] bg-[url('./assets/img/explore-ways/mail-cover.png')] bg-center bg-cover bg-no-repeat flex items-center justify-center flex-col rounded-2xl text-center px-4 sm:px-0"
+          data-aos="fade-up" data-aos-duration="2000">
+          <h3
+            class="sm:text-[30px] md:text-[48px] lg:text-[64px] text-white font-normal font-gt-super lg:leading-[75px] mb-[25px]">
+            Apply
+          </h3>
+          <p class="text-lg lg:text-4xl text-white font-twk-lausanne font-thin text-center w-full">
+            Begin your Go Mission using the button below.
+          </p>
+          <div class="w-full flex items-center justify-center flex-col md:flex-row">
+            <button
+              class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12">
+              ATART tODAY
+            </button>
+            <button onclick="openLogin()"
+              class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12">
+              sIGN IN
+            </button>
+            <button
+              class="h-[45px] md:h-[56px] w-[268px] rounded-full text-sm sm:text-base lg:text-lg bg-white text-black uppercase md:mr-6 font-twk-lausanne font-medium mt-6 lg:mt-12">
+              REAPPLY
+            </button>
+          </div>
+        </section>
+      </div>
+      <!-- TAB THREE -->
+      <div class="explore_tabs hidden flex-wrap text-4xl text-white">
+        <div
+          class="w-full flex flex-col justify-center items-start bg-[#9162A1] py-12 lg:pt-[85px] lg:pb-[200px] px-4 xl:pl-[154px] xl:pr-[154px] 2xl:pl-[254px] 2xl:pr-[154px]">
+          <h3
+            class="w-full text-[24px] sm:text-[32px] md:text-[48px] xl:text-[64px] text-white font-gt-super md:leading-[74px] font-normal mb-1 sm:mb-4 xl:mb-[45px] text-center md:text-left">
+            Anointed communities, Generations of impact
+          </h3>
+
+          <p
+            class="text-base sm:text-lg md:text-2xl font-twk-lausanne font-thin text-white md:px-8 xl:pl-[100px] xl:pr-[200px] text-center md:text-left">
+            Your call is just the beginning of a unique ministry focus. Our
+            team will help find your place among opportunities in the hundreds
+            of countries and territories we work. We will help you navigate
+            the preparation, training, and development of your lifework of
+            making Christ known to the nations.
+          </p>
+        </div>
+
+        <div class="swiper -mt-[30px] md:-mt-[50px] lg:-mt-[105px] one_year-career-videos mb-6 md:mb-[50px] mx-4">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+              <div class="flex flex-col justify-center items-center mx-auto">
+                <div
+                  class="w-full md:w-[500px] xl:w-[1100px] 2xl:w-[1129px] h-[250px] md:[400px] lg:h-[625px] cursor-pointer rounded-lg">
+                  <div style="
+                        position: relative;
+                        height: 0;
+                        overflow: hidden;
+                        height: 100%;
+                      ">
+                    <iframe style="
+                          position: absolute;
+                          top: 0;
+                          left: 0;
+                          width: 100%;
+                          height: 100%;
+                          border: 0;
+                          border-radius: 8px;
+                        " loading="lazy"  srcdoc="<style>
+              * {
+              padding: 0;
+              margin: 0;
+              overflow: hidden;
+              }
+              
+              img {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                border-radius: 8px;
+                height: 100%;
+                object-fit: cover;
+
+              }
+              button {
+                background-image: url('./assets/img/play.svg');
+                background-color: transparent;
+                width: 80px;
+                height: 80px;
+                background-repeat: no-repeat;
+                border: none;
+                outline: none;
+                margin: 0 auto;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%)
+              }
+            </style>
+            <a href='https://www.youtube.com/embed/KaNW3Cnqza0'>
+              <img src='./assets/img/video__poster.png' alt='video cover' />
+              <button>
+              </button>                      
+            </a>
+            " src="https://www.youtube.com/embed/KaNW3Cnqza0" title="Coffee Recipe Javascript Project" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+                    </iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">Slide 2</div>
+            <div class="swiper-slide">Slide 3</div>
+          </div>
+
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+
+        <div class="flex justify-center items-center flex-col px-4 lg:px-[277px]">
+          <button
+            class="text-lg text-white font-semibold font-twk-lausanne bg-[#3D3D3D] rounded-full border-2 solid border-[#3D3D3D] px-[75px] py-4 uppercase mb-[30px] sm:mb-[60px] lg:mb-[90px] xl:mb-[120px]">
+            Start Today
+          </button>
+          <h2 class="text-[28px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[60px]">
+            Career Missionary
+          </h2>
+          <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin text-center">
+            Dedicate your life to fulfilling the Great Commission overseas as
+            a career missionary. Career missionaries have diverse ministries
+            and represent a wide range of educational and ministry
+            backgrounds, but they all express a clear lifetime call to
+            missions.
+          </p>
+        </div>
+        <section class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[40px] mt-[30px] md:mt-[95px] px-4 xl:px-[85px]">
+          <div
+            class="bg-[url('./assets/img/explore-ways/reach-the-reach.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl">
+            <!-- <img src="bg-[url('./assets/img/explore-ways/card---footer.png')] after:w-full after:h-[132px] absolute left-0 right-0 bottom-0 bg-no-repeat"/> -->
+            <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+              Reach the Unreached
+            </p>
+          </div>
+          <div
+            class="bg-[url('./assets/img/explore-ways/assist-missionary.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl">
+            <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+              Refine Your Skills
+            </p>
+          </div>
+          <div
+            class="bg-[url('./assets/img/explore-ways/ministry-experience.png')] bg-no-repeat bg-cover bg-center rounded-xl flex flex-col items-center justify-end h-[350px] md:h-[390px] relative after:bg-[url('./assets/img/explore-ways/card-footer.svg')] after:bg-cover after:w-full after:h-[132px] after:absolute after:left-0 after:right-0 after:bottom-0 after:bg-no-repeat after:rounded-br-xl after:rounded-bl-xl">
+            <p class="text-[22px] md:text-[28px] xl:text-[32px] text-white font-gt-super font-normal z-50 mb-5">
+              Gain Real Experience
+            </p>
+          </div>
+        </section>
+
+        <section class="mt-8 md:mt-[125px] px-4 xl:pl-[245px]">
+          <h2 class="text-[24px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal mb-6 md:mb-[60px]">
+            The Application Process
+          </h2>
+          <div class="flex items-center mb-8 md:mb-[90px]">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center relative after:absolute after:bg-[url('./assets/img/explore-ways/step-line.svg')] after:w-0.5 after:h-[50px] after:-bottom-[70px]">
+              1
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 1: Apply
+              </h4>
+              <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                This 6-9 month process ensures you are positioned for success
+                in your assignment.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center mb-8 md:mb-[90px]">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center relative after:absolute after:bg-[url('./assets/img/explore-ways/step-line.svg')] after:w-0.5 after:h-[50px] after:-bottom-[70px]">
+              2
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[18px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 2: Candidate Orientation
+              </h4>
+              <p class="text-base lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                A one week orientation where you prepare for the work
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center mb-8 md:mb-[90px]">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-gt-super font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center relative after:absolute after:bg-[url('./assets/img/explore-ways/step-line.svg')] after:w-0.5 after:h-[50px] after:-bottom-[70px]">
+              3
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 3: Fundraise
+              </h4>
+              <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                Experience the confirmation of your call as you raise your
+                budget.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <div
+              class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-twk-lausanne font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center">
+              4
+            </div>
+            <div class="ml-4 lg:ml-14">
+              <h4 class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal">
+                Step 4: Start Assignment
+              </h4>
+              <p class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin">
+                After everything is in place, the journey really begins.
+              </p>
+            </div>
+          </div>
+
+          <button
+            class="text-lg text-[#8B3C3B] font-twk-lausanne font-medium uppercase border-2 solid border-[#8A4D32] h-[56px] px-[60px] rounded-full lg:ml-[145px] mt-[30px] lg:mt-[50px] xl:mt-[67px] hover:bg-[#8B3C3B] hover:text-white transition duration-500 ease-in-out">
+            aPPLY NOW
+          </button>
+        </section>
+        <section class="grid grid-cols-1 md:grid-cols-5 pt-[30px] xl:mt-[87px] px-4 xl:px-[75px]">
+          <div
+            class="h-[350px] md:h-[400px] lg:h-[567px] bg-[url('./assets/img/explore-ways/career-qual.png')] bg-no-repeat bg-cover md:bg-center rounded-xl md:col-span-2">
+          </div>
+
+          <div class="flex flex-col md:ml-[50px] lg:ml-[70px] mt-8 md:mt-0 md:col-span-3 px-6">
+            <h2
+              class="text-[28px] sm:text-[32px] lg:text-[48px] xl:text-[64px] text-black font-gt-super font-normal lg:leading-[75px] -ml-[27px]">
+              Qualifications
+            </h2>
+            <ul class="mt-6 lg:mt-[23px]">
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] lg:leading-10 font-twk-lausanne font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                A lifetime call to missions
+              </li>
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] lg:leading-10 font-twk-lausanne font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Baptism in the Holy Spirit according to Acts 2:4
+              </li>
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] lg:leading-10 font-twk-lausanne font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Licensed, ordained, or eligible for AG ministerial credentials
+              </li>
+
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] lg:leading-10 font-twk-lausanne font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Limited personal debt; see Financial Guidelines.
+              </li>
+
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] lg:leading-10 font-twk-lausanne font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                Endorsement from candidate’s AG district missions department
+              </li>
+
+              <li
+                class="text-lg lg:text-2xl text-[#3D3D3D] lg:leading-10 font-twk-lausanne font-thin relative after:absolute after:w-[8px] after:h-[8px] after:bg-black after:rounded-full after:left-[-25px] after:top-[50%] after:translate-y-[-50%]">
+                U.S. citizens or valid resident alien permit that allows
+                travel to and from the U.S. with a valid U.S. work permit that
+                allows return to the U.S. after living in another country for
+                a year or more
+              </li>
+            </ul>
+
+            <button
+              class="text-base md:text-lg text-white font-twk-lausanne font-normal w-full md:w-[329px] h-[45px] md:h-[56px] border-2 solid border-[#8A4D32] rounded-full mt-[45px] bg-[#8B3C3B] uppercase">
+              Start Today
+            </button>
+          </div>
+        </section>
+        <section
+          class="mx-4 xl:mx-auto xl:w-[calc(100%-150px)] h-[425px] mg:h-[400px] xl:h-[542px] mt-[30px] lg:mt-[105px] bg-[url('./assets/img/explore-ways/start-journey-cover.png')] bg-center bg-cover bg-no-repeat flex items-center justify-end flex-col rounded-2xl text-center px-4 sm:px-0 pb-16">
+          <h3 class="sm:text-[30px] md:text-[48px] text-white font-normal font-gt-super lg:leading-[75px] mb-[25px]">
+            MA interested in going career
+          </h3>
+          <button
+            class="h-[45px] md:h-[56px] w-[268px] rounded-full text-base lg:text-lg bg-white text-black uppercase font-twk-lausanne font-medium mt-6 lg:mt-10">
+            Start Journey
+          </button>
+        </section>
+      </div>
+    </div>
+  </main>
+  <!-- Footer -->
+  <footer class="pt-6 sm:pt-16 border-t solid border-[#f0f0f0]">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 px-4 lg:px-[75px] mb-4 md:pb-9">
+      <div class="col-span-1 flex flex-col sm:border-r solid border-[#f0f0f0] mb-4 md:mb-0">
+        <div class="mb-4 sm:mb-7">
+          <img src="./assets/img/colored-logo.svg" alt="App-Logo" class="h-[30px] sm:h-auto" />
+        </div>
+
+        <p class="text-[#3D3D3D] font-normal text-sm">
+          1445 N. Boonville Avenue Springfield, MO 65802-1894 <br />
+          Phone: 1-417-862-3420
+        </p>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-xs sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out my-3 sm:my-6">
+          Are you called?
+        </button>
+        <p class="text-[10px] text-[#3D3D3D] font-normal">
+          © 2021 ASSEMBLIES OF GOD WORLD MISSIONS
+        </p>
+      </div>
+      <div class="md:col-span-1 flex sm:justify-center md:border-r solid border-[#f0f0f0] my-1 md:my-0">
+        <ul>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Home</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">pray</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Give</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Go</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">About Us</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Resources</a>
+          </li>
+          <li class="text-[#3D3D3D] text-sm font-normal mb-2">
+            <a href="#" class="hover:border-b border-[#3D3D3D]">Privacy & Permissions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col w-full md:w-auto md:col-span-1 mx-auto my-2 sm:my-0">
+        <h6 class="text-sm font-normal text-[#3D3D3D] mb-3">Connect</h6>
+        <div class="flex items-center">
+          <div
+            class="bg-[#8B3C3A] rounded-md w-8 h-8 mr-4 flex justify-center items-center hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/facebook.svg" alt="facebook" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/viemo.svg" alt="viemo" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 mr-4 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/youtube.svg" alt="Youtube" />
+          </div>
+          <div
+            class="flex items-center justify-center w-8 h-8 rounded-md hover:scale-105 transition duration-500 ease-in-out cursor-pointer">
+            <img src="./assets/img/insta.svg" alt="Instagram" />
+          </div>
+        </div>
+        <button
+          class="w-[150px] sm:w-[205px] h-[40px] sm:h-[56px] text-center rounded-full text-sm sm:text-lg text-[#8B3C3A] border-2 solid border-[#8B3C3A] font-semibold uppercase hover:bg-[#8B3C3A] hover:text-white transition duration-500 ease-in-out mt-4 sm:my-6">
+          Get in Touch
+        </button>
+      </div>
+    </div>
+    <div class="w-full">
+      <img src="./assets/img/footer-logos.svg" alt="Logos" class="w-full" />
+    </div>
+  </footer>
+
+  <div id="videosModal"
+    class="hidden pointer-events-none transition-all duration-500 ease-in-out w-full h-full fixed top-0 left-0 right-0 bottom-0 shadow-lg"
+    style="background-color: rgba(0, 0, 0, 0.8)">
+    <div class="scale_1 w-full h-full flex items-center justify-center">
+      <iframe class="hero-video w-[1150px] h-[580px] rounded-md" src="https://www.youtube.com/embed/iRYDYrj3Bfw"
+        frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+    <button id="closeopenVideosModal" class="absolute top-3 right-3 w-16 h-16">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+          fill="white" />
+      </svg>
+    </button>
+  </div>
+
+
+  <!-- Login OverLay -->
+  <div id="myNav" class="signin_overlay">
+    <div class="flex items-center justify-between relavtive z-50 py-[28px] px-4 lg:px-[60px]">
+      <div class="flex items-center">
+        <button class="closebtn" onclick="closeLogin()">
+          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="28" cy="28" r="28" fill="white" fill-opacity="0.26" />
+            <path
+              d="M39.24 18.8799C38.07 17.7099 36.17 17.7099 35 18.8799L28.12 25.7599L21.24 18.8799C20.07 17.7099 18.17 17.7099 17 18.8799L25.94 27.8199L17 36.7599C18.17 37.9299 20.07 37.9299 21.24 36.7599L28.12 29.8799L35 36.7599C36.17 37.9299 38.07 37.9299 39.24 36.7599L30.3 27.8199L39.24 18.8799Z"
+              fill="white" />
+          </svg>
+        </button>
+
+        <!--  Custome drop down.. -->
+        <div class="dropdown relative ml-[40px]">
+          <div class="dropdown-select flex items-center cursor-pointer transition duration-500 ease-in-out">
+            <span class="selected text-lg text-white uppercase font-normal mr-[12px]">EN</span>
+            <span class="ml-1"><svg width="11" height="6" viewBox="0 0 11 6" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.5 6L0.73686 0.75L10.2631 0.75L5.5 6Z" fill="white" />
+              </svg>
+            </span>
+          </div>
+
+          <ul
+            class="opacity-0 pointer-events-none w-40 absolute top-6 z-50 dropdown-menu bg-white border solid border-[#e2e2e2] mt-2 rounded-md shadow-2xl scale-90 transition duration-500 ease-in-out">
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md">
+              <a href="" class="flex w-full px-8 py-2">EN</a>
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer rounded-md">
+              <a href="/france" _blank class="w-full flex px-8 py-2">FR</a>
+            </li>
+            <li class="item text-lg text-[#8d959f] border-b solid border-[#e2e2e2] cursor-pointer">
+              <a href="/germany" _blank class="flex w-full px-8 py-2">DU</a>
+            </li>
+            <!-- border-b solid border-[#e2e2e2] -->
+            <li class="item text-lg text-[#8d959f] cursor-pointer">
+              <a href="/ar" _blank class="flex w-full px-8 py-2">AR</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hidden lg:flex flex-col items-center w-[100px] md:w-[275px]">
+        <img src="./assets/img/app-logo.svg" alt="app-logo" class="" />
+        <span class="hidden md:inline-block text-sm text-white font-normal">Assemblies of God World Mission</span>
+      </div>
+      <div class="flex items-center text-white">
+        <div class="relative cursor-pointer rounded-full mr-4 search__bar">
+          <span
+            class="search__icon inline-block absolute top-2 left-2 w-8 h-8 bg-center bg-[url('./assets/img/search.svg')] bg-no-repeat"></span>
+          <input id="my__search"
+            class="h-full w-full outline-none border-none pl-12 pr-9 text-lg text-white font-semibold bg-transparent rounded-lg"
+            type="text" placeholder="Search" />
+          <div class="clear absolute right-2 top-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#000"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <button
+          class="w-[211px] h-[56px] text-center rounded-full text-lg bg-white text-black font-semibold font-twk-lausanne uppercase ease-in-out">
+          Are you called?
+        </button>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-[505px] px-4 lg:px-0 mx-auto mt-[150px] flex justify-center items-center flex-col">
+      <h4 class="text-lg md:text-xl xl:text-2xl font-gt-super font-normal text-white text-center">
+        Welcome to Assemblies of God World Mission. Please log in below.
+      </h4>
+      <form action="" class="w-full flex flex-col">
+        <div class="mt-[40px]">
+          <input type="text" placeholder="Email"
+            class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none" />
+        </div>
+
+        <div class="mt-[40px]">
+          <input type="text" placeholder="Enter Password"
+            class="w-full h-full border-b solid border-white text-lg text-white text-sm pb-[25px] font-normal font-twk-lausanne border-b solid border-white bg-transparent placeholder-white outline-none" />
+        </div>
+
+        <div class="flex items-center justify-between mt-[20px]">
+          <!-- <div class="flex items-center check__box">
+              <input type="checkbox" class="hidden" />
+              <span class="checkmark"></span>
+
+              <span
+                class="text-sm font-normal text-white font-twk-lausanne font-normal ml-4"
+                >Remember Me</span
+              >
+            </div> -->
+
+          <input type="checkbox" class="border-gray-300 rounded h-5 w-5" />
+          <button class="text-sm font-normal text-white font-twk-lausanne font-normal">
+            Forgot password?
+          </button>
+        </div>
+
+        <button type="submit"
+          class="bg-white flex items-center justify-center w-full lg:w-[473px] h-[56px] text-lg text-[#121A15] font-semibold font-twk-lausanne rounded-full mt-[52px]">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <!-- JsCode -->
+  <script type="text/javascript">
+    AOS.init();
+
+    function openLogin() {
+      document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeLogin() {
+      document.getElementById("myNav").style.height = "0%";
+    }
+    // VideosPage
+    const showVideosBtn = document.querySelectorAll("#showVideos");
+    const videosModal = document.getElementById("videosModal");
+    const closeopenVideosModal = document.getElementById(
+      "closeopenVideosModal"
+    );
+
+    showVideosBtn.forEach((el, i) => {
+      el.addEventListener("click", () => {
+        videosModal.classList.add("show");
+      });
+    });
+
+    //Close VideosModal
+    closeopenVideosModal.addEventListener("click", () => {
+      videosModal.classList.remove("show");
+    });
+
+    const swiper = new Swiper(".swiper", {
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    // Grap all ul > li
+    const tabs = document.querySelectorAll(".tabs li");
+    // Grap all stories
+    const exploreTabs = document.querySelectorAll(".explore_tabs");
+
+    const exploreHeaders = document.querySelectorAll(".explore_headers");
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        // Remove Active class
+        tabs.forEach((tab) => tab.classList.remove("explore__active-story"));
+        // Add Active Class
+        tab.classList.add("explore__active-story");
+        //  Hide previous Stories
+        exploreTabs.forEach((c) => c.classList.remove("show__explore-ways"));
+        // Show Content According To Tab Selected
+        exploreTabs[index].classList.add("show__explore-ways");
+
+        // show explore titles
+        exploreHeaders.forEach((c) =>
+          c.classList.remove("show__explore-title")
+        );
+        exploreHeaders[index].classList.add("show__explore-title");
+      });
+    });
+    // When Page Realod Put Active On First Fab
+    tabs[0].click();
+
+    //////////////////////////////// short_term-tabs
+    const shortTermTabs = document.querySelectorAll(".short_term-tabs li");
+    // Grap all stories
+    const exploreShortTabs = document.querySelectorAll(".explore_short-term");
+
+    shortTermTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        // Remove Active class
+        shortTermTabs.forEach((tab) =>
+          tab.classList.remove("explore__active-story")
+        );
+        // Add Active Class
+        tab.classList.add("explore__active-story");
+        //  Hide previous Stories
+        exploreShortTabs.forEach((c) =>
+          c.classList.remove("toggle_show-term")
+        );
+        // Show Content According To Tab Selected
+        exploreShortTabs[index].classList.add("toggle_show-term");
+      });
+    });
+    // When Page Realod Put Active On First Fab
+    shortTermTabs[0].click();
+
+    //////////////////////////////////////////////////////////////////
+    //  Search Icon
+    const searchBar = document.querySelector(".search__bar");
+    const searchIcon = document.querySelector(".search__icon");
+    const mySearch = document.querySelector("#my__search");
+    const clear = document.querySelector(".clear");
+
+    searchIcon.addEventListener("click", () => {
+      searchBar.classList.toggle("active");
+    });
+
+    clear.addEventListener("click", () => {
+      mySearch.value = "";
+      searchBar.classList.toggle("active");
+    });
+
+    // Toggle Language menu
+    const LangMenu = document.querySelector(".dropdown-select");
+    const dropDown = document.querySelector(".dropdown-menu");
+    const listText = document.querySelector(".selected");
+    const dropDownItem = document.querySelectorAll(".item");
+
+    LangMenu.addEventListener("click", () => {
+      LangMenu.classList.toggle("active");
+      dropDown.classList.toggle("active");
+      dropDownItem.forEach((item) => {
+        if (item.innerText === listText.innerText) {
+          item.classList.add("active-lang");
+        } else {
+          item.classList.remove("active-lang");
+        }
+      });
+    });
+
+    for (item of dropDownItem) {
+      item.addEventListener("click", showItem);
+    }
+    function showItem() {
+      event.preventDefault();
+
+      listText.innerHTML = this.textContent;
+      dropDown.classList.toggle("active");
+      LangMenu.classList.toggle("active");
+    }
+  </script>
+</body>
+
+</html>

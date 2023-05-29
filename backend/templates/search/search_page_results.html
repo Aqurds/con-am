@@ -1,0 +1,108 @@
+{% extends "base_black_logo.html" %}
+{% load staticfiles wagtailadmin_tags wagtailcore_tags wagtailimages_tags general_template_tags search_result_template_tags %}
+
+{% block title %}Search{% if search_results %} results{% endif %}{% if search_query %} for “{{ search_query }}”{% endif %}{% endblock %}
+
+{% block content %}
+<main class="w-full px-4 lg:px-6 xl:px-[70px] mb-[30px] xl:mb-[125px] mt-4 2xl:w-[1440px] 2xl:mx-auto border-t solid border-[#D8D8D8]">
+    <div
+      class="mt-6 lg:mt-8 xl:mt-[70px] xl:px-0 flex items-center justify-center flex-col md:mb-2"
+      data-aos="fade-up"
+      data-aos-duration="2000"
+    >
+    <div class="w-full flex flex-col justify-center items-start">
+    <form action="{% url 'search' %}" method="GET">
+      <div
+      class="flex items-center mt-9 md:mt-[60px]  mb-6 md:mb-[40px] border-2 solid border-black w-full h-[45px] md:h-[56px] rounded-full md:w-[753px] relative"
+
+    >
+    {% get_search_result_page_translatable_values as search_result_page_value %}
+      <span class="pl-4 md:pl-7 mt-1">
+        <svg
+          class="w-[15px] h-[15px] md:w-[24px] md:h-[24px]"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10ZM10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C12.0916 20 14.0333 19.3578 15.6386 18.2599L21.1893 23.8107L23.3107 21.6893L17.8354 16.2141C19.1905 14.5076 20 12.3484 20 10C20 4.47715 15.5228 0 10 0Z"
+            fill="black"
+          />
+        </svg>
+      </span>
+        <input
+          class="h-full w-[calc(100%-120px)] md:w-[calc(100%-290px)] pl-2 md:pl-[23px]  bg-transparent text-base sm:text-lg text-black font-normal outline-none placeholder:text-xs sm:placeholder:text-lg placeholder:text-black"
+          placeholder="{{ search_result_page_value.search_result_page_input_placeholder }}" type="text" name="query"
+        />
+        <input type="hidden" name="lang" value="{{ current_language }}">
+      
+        <button
+          class="w-[100px] md:w-[235px] h-full text-white text-sm md:text-lg font-medium rounded-full uppercase absolute -bottom-0 -right-1 bg-black" type="submit"
+        >
+        {{ search_result_page_value.search_result_page_search_button_text }}
+        </button>
+      </form>
+      </div>
+      {% if search_results %}
+        <p
+          class="text-[28px] text-black font-light font-gt-super"
+        >
+        {{ search_result_page_value.search_result_page_search_result_for_text }} <span class="font-bold">
+          {% if search_query %} {{ search_query }} {% endif %}
+        </span>
+        </p>
+        
+    </div>
+    </div>
+
+    <section class="mt-6 sm:mt-[95px]">
+    {% for result in search_results %}
+      <div class="flex flex-col sm:flex-row mt-6 md:mt-[95px]" data-aos="fade-up"
+      data-aos-duration="2000">
+        <div class="w-[205px] h-[250px]">
+        {% if result.specific.header_image or result.specific.header_background_image or result.specific.image or result.specific.thumbnail_image %}
+        {% image result.specific.header_image max-320x200 as header_image %}
+        {% image result.specific.header_background_image max-320x200 as header_background_image %}
+        {% image result.specific.image max-320x200 as other_header_image %}
+        {% image result.specific.thumbnail_image max-320x200 as thumbnail_image %}
+          <a href="{% pageurl result %}" target="_blank">
+            <img 
+            class="rounded-lg w-full h-full object-cover"
+            src="{% if not header_image.url or not header_background_image.url or not thumbnail_image.url %} {{ other_header_image.url }} 
+            {% elif not header_image.url or not header_background_image.url or not other_header_image.url %} {{ thumbnail_image.url }} 
+            {% elif not header_background_image.url or not other_header_image.url or not thumbnail_image.url %} {{ header_image.url }} 
+            {% else %} {{ header_background_image.url }} {% endif %}" alt="results_cover">
+          </a>
+        {% endif %}
+        </div>
+        <div class="sm:w-[calc(100%-245px)] sm:ml-[30px] mt-4 sm:mt-0">
+          <a href="{% pageurl result %}" target="_blank">
+            <h2 class="text-[28px] text-black font-gt-super font-light">
+              {{ result.specific }}
+            </h2>
+          </a>
+          <p class="text-lg font-twk-lausanne text-black font-thin">
+            {% for field in result.specific.additional_search_fields %}
+            {% if search_query in result.specific|get_attr:field.field_name|striptags %}
+              {{ result.specific|get_attr:field.field_name|striptags|highlight_search:search_query|truncatechars:250 }}<br>
+            {% endif %}
+            {% endfor %}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+   {% elif search_query %}
+      <p class="text-[28px] text-black font-light font-gt-super" >{{ search_result_page_value.search_result_page_no_result_found_text }} “{{ search_query }}”.</p>
+  {% else %}
+      <p class="text-[28px] text-black font-light font-gt-super">{{ search_result_page_value.search_result_page_empty_query_text }}</p>
+  {% endif %}
+      
+    </section>
+    <!-- Pagination -->
+    <div class="pagination flex justify-center items-center">
+      <ul class="w-full"> <!--pages or li are comes from javascript --> </ul>
+    </div>
+  </main>
+{% endblock %}

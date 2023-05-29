@@ -1,0 +1,42 @@
+{% load staticfiles  %}
+
+{% for process in application_processes %}
+<div class="flex items-center mb-8 md:mb-[90px]">
+    <div
+      class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-twk-lausanne font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center relative after:absolute after:bg-[url({% static 'img/step-line.svg' %})] after:w-0.5 after:h-[50px] after:-bottom-[70px]"
+    >
+      {{ forloop.counter }}
+    </div>
+    <div class="ml-4 lg:ml-14">
+      <h4
+        class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal"
+      >
+        {{process.title}}
+      </h4>
+      <p
+        class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin"
+      >
+        {{process.description}}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="flex items-center mb-8 md:mb-[90px]">
+    <div
+      class="text-[32px] md:text-[48px] xl:text-[64px] text-black font-twk-lausanne font-normal w-auto h-auto sm:w-[89px] sm:h-[89px] sm:border solid border-[rgba(127, 167, 182, 0.22)] sm:rounded-2xl flex items-center justify-center"
+    >
+      {{last_number}}
+    </div>
+    <div class="ml-4 lg:ml-14">
+      <h4
+        class="text-[22px] md:text-[32px] text-[#3D3D3D] font-twk-lausanne font-normal"
+      >
+        {{last_application_process.title}}
+      </h4>
+      <p
+        class="text-lg lg:text-2xl text-[#3D3D3D] font-twk-lausanne font-thin"
+      >
+        {{last_application_process.description}}
+      </p>
+    </div>
+  </div>
